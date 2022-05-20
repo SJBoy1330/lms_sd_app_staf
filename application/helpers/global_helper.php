@@ -394,11 +394,6 @@ function is_logged_in()
   if ($ci->session->userdata('lms_siswa_id_siswa')) {
     if ($ci->session->userdata('lms_siswa_role') != 'siswa') {
       redirect('auth/login');
-    } else {
-      $ci->db2 = $ci->load->database('db_sekolah', TRUE);
-      $ci->db2->set('last_access', date('Y-m-d H:i:s'));
-      $ci->db2->where('id_siswa', $ci->session->userdata('lms_siswa_id_siswa'));
-      $ci->db2->update('siswa');
     }
   } else {
     redirect('auth/login');
