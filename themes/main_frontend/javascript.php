@@ -1,6 +1,6 @@
 </main>
 <!-- Footer -->
-<footer class="footer d-none">
+<footer class="footer">
     <div id="footer" class="container">
         <ul class="nav nav-pills nav-justified">
             <li class="nav-item">
