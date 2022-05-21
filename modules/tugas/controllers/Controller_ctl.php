@@ -14,8 +14,51 @@ class Controller_ctl extends MY_Frontend
 	{
 		// LOAD TITLE
 		$mydata['title'] = 'Tugas';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
+
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('index', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
+	public function pelajaran()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Pelajaran';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('pelajaran', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
+	public function tugas_sekolah()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Tugas Sekolah';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('tugas_sekolah', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
+	public function jawaban_siswa()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Tugas Sekolah';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('jawaban_siswa', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
 

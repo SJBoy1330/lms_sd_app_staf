@@ -1,185 +1,322 @@
-<div class="main-container container">
-    <div class="row">
-        <div class="wrapper-searching-tugas">
-            <div class="wrapper-samaran"></div> 
-            <div class="row bg-white">
-                <div class="col-10">
-                    <div class="input-group">
-                        <input type="text" class="form-control form-control-pribadi pencarian" placeholder="Pencarian" aria-label="Pencarian" aria-describedby="basic-addon2">
-                        <button class="input-group-text searhing" id="basic-addon2"><i class="fa-solid fa-magnifying-glass size-20 text-white"></i></button>
-                    </div>
-                </div>
-                <div class="col-2 d-flex justify-content-center align-items-center ps-0">
-                    <button class="btn btn-secondary filter-tugas border-0" data-bs-toggle="modal" data-bs-target="#filterTugasModal">
-                        <i class="fa-regular fa-filter" style="color: #EC3528;"></i>
-                    </button>
+<main class="h-100 py-0">
+    <!-- Header -->
+    <header class="header position-fixed">
+        <div class="row">
+            <div class="col-auto">
+                <a href="<?= base_url('home'); ?>" class="btn btn-44">
+                    <i class="fa-solid fa-chevron-left text-dark"></i>
+                </a>
+            </div>
+            <div class="col text-center">
+                <div class="logo-small">
+                    <h6>Tugas Sekolah</h6>
                 </div>
             </div>
+            <div class="col-auto">
+                <a href="#" target="_self" class="btn btn-44"></a>
+            </div>
         </div>
-        <div class="col-12">
-            <a class="row mb-3">
-                <a data-bs-toggle="modal" data-bs-target="#">
-                    <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <p class="fw-bolder size-15">Tugas 1</p>
-                            </div>
-                            <div class="col-auto align-self-center">
-                                <p class="fw-normal size-14">Ditugaskan</p>
-                            </div>
-                        </div>
-                        <div class="row py-1 px-2 mt-2 mb-2 ">
-                            <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                    <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                        <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                <p class="mb-0 fw-normal size-13 text-secondary">Mata Pelajaran</p>
-                                <p class="mb-0 fw-bold size-15">Bahasa Indonesia</p>
-                            </div>
-                        </div>
-                        <div class="row py-1 px-2 mb-3">
-                            <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                    <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                        <i class="fa-regular fa-memo-pad size-20 text-white"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                <p class="mb-0 fw-normal size-13 text-secondary">Keterangan</p>
-                                <p class="mb-0 fw-bold size-15">Tugas Bahasa Indonesia</p>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4 mx-1">
-                            <a href="<?= base_url('tugas/detail_tugas')?>" class="btn btn-block btn-md btn-danger btn-detail-tugas">Detail Tugas</a>
-                        </div>
-
-                    </div>
-                </a>
+    </header>
+    <!-- Header ends -->
+    <div class="main-container container top-20">
+        <div class="row mt-3">
+            <a data-bs-toggle="modal" data-bs-target="#filterTambahTugas" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed">
+                <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
             </a>
-
-            <a class="row mb-3">
-                <a data-bs-toggle="modal" data-bs-target="#">
-                    <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <p class="fw-bolder size-15">Tugas 2</p>
-                            </div>
-                            <div class="col-auto align-self-center">
-                                <p class="label-merah fw-normal size-14">Tidak ada</p>
-                            </div>
-                        </div>
-                        <div class="row py-1 px-2 mt-2 mb-2 ">
-                            <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                    <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                        <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
+            <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                <div class="row">
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                <p class="mb-0 fw-normal size-13 text-secondary">Mata Pelajaran</p>
-                                <p class="mb-0 fw-bold size-15">Matematika</p>
-                            </div>
-                        </div>
-                        <div class="row py-1 px-2 mb-3">
-                            <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                    <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                        <i class="fa-regular fa-memo-pad size-20 text-white"></i>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 1 A</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                <p class="mb-0 fw-normal size-13 text-secondary">Keterangan</p>
-                                <p class="mb-0 fw-bold size-15">Tugas Matematika</p>
-                            </div>
-                        </div>
-
-                        <div class="row mt-4 mx-1">
-                            <a href="<?= base_url('tugas/detail_tugas')?>" class="btn btn-block btn-md btn-danger btn-detail-tugas">Detail Tugas</a>
-                        </div>
-
+                        </a>
                     </div>
-                </a>
-            </a>
-
-            <a class="row mb-3">
-                <a data-bs-toggle="modal" data-bs-target="#">
-                    <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <p class="fw-bolder size-15">Tugas 3</p>
-                            </div>
-                            <div class="col-auto align-self-center">
-                                <p class="label-hijau fw-normal size-14">Diserahkan</p>
-                            </div>
-                        </div>
-                        <div class="row py-1 px-2 mt-2 mb-2 ">
-                            <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                    <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                        <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                <p class="mb-0 fw-normal size-13 text-secondary">Mata Pelajaran</p>
-                                <p class="mb-0 fw-bold size-15">Ilmu Pengetahuan Sosial</p>
-                            </div>
-                        </div>
-                        <div class="row py-1 px-2 mb-3">
-                            <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                    <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                        <i class="fa-regular fa-memo-pad size-20 text-white"></i>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 1 B</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                <p class="mb-0 fw-normal size-13 text-secondary">Keterangan</p>
-                                <p class="mb-0 fw-bold size-15">Tugas Ilmu Pengetahuan Sosial
-                            </div>
-                        </div>
-
-                        <div class="row mt-4 mx-1">
-                            <a href="<?= base_url('tugas/detail_tugas')?>" class="btn btn-block btn-md btn-danger btn-detail-tugas">Detail Tugas</a>
-                        </div>
-
+                        </a>
                     </div>
-                </a>
-            </a>
+
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 2 A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 2 B</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 3 A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 3 B</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 4 A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 4 B</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 5 A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 5 B</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 6 A</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 mx-auto mb-4">
+                        <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
+                            <div class="col-auto position-absolute avatar-detail-kbm">
+                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
+                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body bg-tugas">
+                                <div class="row">
+                                    <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <p class="mb-0 size-15 fw-medium">Kelas 6 B</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Filter Ujian Modal -->
-<div class="modal fade" id="filterTugasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
-            <div class="modal-header border-0">
-            <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput3" class="form-label title-3">Mata Pelajaran</label>
-                    <select class="form-select form-select" aria-label="Default select example">
-                        <option selected>Pilih pelajaran</option>
-                        <option value="1">Bahasa Indonesia</option>
-                        <option value="2">Ilmu Pengetahuan Sosial</option>
-                        <option value="3">Ilmu Pengetahuan Alam</option>
-                    </select>
+    <!-- Filter Ujian Modal -->
+    <div class="modal fade" id="filterTambahTugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+            <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
+                <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Tugas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Tampilkan</a>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label title-3">Mata Pelajaran</label>
+                        <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
+                            <option selected>Pilih pelajaran</option>
+                            <option value="1">Bahasa Indonesia</option>
+                            <option value="2">Ilmu Pengetahuan Sosial</option>
+                            <option value="3">Ilmu Pengetahuan Alam</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label title-3">Tingkat Kelas</label>
+                        <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
+                            <option selected>Pilih tingkat kelas</option>
+                            <option value="1">1 - A</option>
+                            <option value="2">1 - A</option>
+                            <option value="3">1 - C</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label title-3">Nama Tugas</label>
+                        <input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Isikan nama tugas" autocomplete="off">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput3" class="form-label title-3">Batas Waktu</label>
+                        <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" id="demo-input" placeholder="Isikan batas waktu" />
+                    </div>
+
+                    <div>
+                        <label for="exampleFormControlInput3" class="form-label title-3">Keterangan</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control form-control-solid border-0" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label title-3">File Tugas</label>
+                        <input class="form-control form-control-solid form-control-pribadi file-input" type="file" id="formFile">
+                        <div class="wrapper-files">
+                            <span class="fw-medium">Pilih File</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="form-label title-3">Boleh Terlambat</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label mt-1 ps-2" for="flexSwitchCheckChecked">Ijinkan</label>
+                        </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>

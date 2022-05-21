@@ -35,4 +35,20 @@ class Controller_ctl extends MY_Frontend
 		$this->data['content'] = $this->load->view('detail_jurnal_guru', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
+
+	public function jurnal_staf()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Jurnal Staf';
+
+        // LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/jurnal/jurnal.css') . '">';
+
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/jurnal/jurnal.js"></script>';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('jurnal_staf', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
 }

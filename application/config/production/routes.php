@@ -186,9 +186,6 @@ $route['func_materi/(:any)/(:any)'] = 'materi/function_ctl/$1/$2';
 
 
 
-
-
-
 $route['tugas']  = 'tugas/controller_ctl';
 
 $route['tugas/(:any)'] = 'tugas/controller_ctl/$1';
@@ -203,6 +200,17 @@ $route['func_tugas/(:any)/(:any)'] = 'tugas/function_ctl/$1/$2';
 
 
 
+$route['suratijin']  = 'suratijin/controller_ctl';
+
+$route['suratijin/(:any)'] = 'suratijin/controller_ctl/$1';
+
+$route['suratijin/(:any)/(:any)'] = 'suratijin/controller_ctl/$1/$2';
+
+$route['func_suratijin']  = 'suratijin/function_ctl';
+
+$route['func_suratijin/(:any)'] = 'suratijin/function_ctl/$1';
+
+$route['func_suratijin/(:any)/(:any)'] = 'suratijin/function_ctl/$1/$2';
 
 
 

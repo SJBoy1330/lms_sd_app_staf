@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="col-auto text-center mb-2">
-                            <a href="tugas-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 bg-warning mb-2">
+                            <a href="<?= base_url('tugas'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 bg-warning mb-2">
                                 <div class="circle-bg-top"></div>
                                 <div class="circle-bg-bottom"></div>
                                 <div class="icons text-success">
@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="col-auto text-center mb-2">
-                            <a href="suratijin-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 mb-2" style="background-color: #FF8C32;">
+                            <a href="<?= base_url('suratijin'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 mb-2" style="background-color: #FF8C32;">
                                 <div class="circle-bg-top"></div>
                                 <div class="circle-bg-bottom"></div>
                                 <div class="icons text-success">
@@ -106,7 +106,7 @@
                         </div>
 
                         <div class="col-auto text-center">
-                            <a href="jurnalstaf-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 mb-2" style="background-color: #8843F2;">
+                            <a href="<?= base_url('jurnal/jurnal_staf'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 mb-2" style="background-color: #8843F2;">
                                 <div class="circle-bg-top"></div>
                                 <div class="circle-bg-bottom"></div>
                                 <div class="icons text-purple">
