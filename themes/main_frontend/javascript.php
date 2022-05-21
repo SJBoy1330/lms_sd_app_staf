@@ -95,7 +95,7 @@
                         </div>
 
                         <div class="col-auto text-center">
-                            <a href="kbm-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 mb-2" style="background-color: #1DB9C3;;">
+                            <a href="<?= base_url('kbm/kbm'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 mb-2" style="background-color: #1DB9C3;;">
                                 <div class="circle-bg-top"></div>
                                 <div class="circle-bg-bottom"></div>
                                 <div class="icons text-purple">

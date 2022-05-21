@@ -3,7 +3,7 @@
         <header class="header position-fixed">
             <div class="row">
                 <div class="col-auto">
-                    <a href="<?= base_url('home')?>" class="btn btn-44">
+                    <a href="<?= base_url('kbm/kbm')?>" class="btn btn-44">
                         <i class="fa-solid fa-chevron-left text-dark"></i>
                     </a>
                 </div>

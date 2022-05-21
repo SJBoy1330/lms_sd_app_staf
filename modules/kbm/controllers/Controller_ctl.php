@@ -28,10 +28,23 @@ class Controller_ctl extends MY_Frontend
 		$this->display($this->input->get('routing'));
 	}
 
+	public function edit_kbm()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Edit KBM';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/kbm/kbm.css') . '">';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('edit_kbm', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
 	public function detail_materi()
 	{
 		// LOAD TITLE
-		$mydata['title'] = 'Detail KBM';
+		$mydata['title'] = 'Detail Materi';
 
 		// LOAD JS
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/detail_materi.js"></script>';
@@ -51,6 +64,19 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('presensi_siswa', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
+	public function kbm()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'KBM';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/kbm/kbm.css') . '">';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('kbm', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
 }
