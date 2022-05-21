@@ -1,0 +1,52 @@
+.bg-tugas{
+    background-color: #FFE6E6;
+    border: 1px solid #EC3528;
+    border-radius: 15px;
+}
+
+.form-control.form-control-solid.form-control-pribadi.file-input {
+    padding-top: 12px;
+}
+
+.wrapper-files {
+    position: absolute;
+    top: 585px;
+    left: 16px;
+    background-color: #E5E5E5;
+    height: 100p;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 115px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+input[type="file"] {
+    display: block;
+}
+  
+.form-check.form-switch .form-check-input {
+    height: 25px;
+    width: 45px;
+}
+
+.bg-button{
+    background-color: #E5E5E5;
+    border: none;
+}
+
+.btn.bg-button:hover{
+    background-color: #E5E5E5;
+}
+
+.button-action {
+    top: 12px;
+    right: 15px;
+}
+
+.btn-value{
+    border-radius: 8px;
+    min-width: 43px;
+}
+

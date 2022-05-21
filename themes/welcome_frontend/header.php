@@ -37,6 +37,9 @@
 
     <!-- Font Awesome-->
     <script src="https://kit.fontawesome.com/b2ed95a515.js" crossorigin="anonymous"></script>
+
+    <!--evo calender-->
+    <link rel="stylesheet" type="text/css" href="<?= base_url();?>assets/plugins/evo-calendar/css/evo-calendar.min.css"/>
     
 </head>
 

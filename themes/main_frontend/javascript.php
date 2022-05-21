@@ -46,61 +46,91 @@
     </div>
 </footer>
 <div class="modal fade" id="menumodal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content shadow position-absolute" style="bottom: 65px;">
-            <div class="modal-body">
-                <div class="row justify-content-center">
-                    <div class="col-auto text-center">
-                        <a href="<?= base_url('materi') ?>" onclick="unreload(this)" class="avatar avatar-60 p-1 shadow-sm shadow-danger rounded-20 bg-danger mb-2">
-                            <div class="circle-bg-top"></div>
-                            <div class="circle-bg-bottom"></div>
-                            <div class="icons text-danger">
-                                <i class="fa-solid fa-book-open-cover size-28 text-white"></i>
-                            </div>
-                        </a>
-                        <p class="size-13 text-secondary">Materi</p>
-                    </div>
-
-                    <div class="col-auto text-center">
-                        <a href="<?= base_url('ujian') ?>" onclick="unreload(this)" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 bg-primary mb-2">
-                            <div class="circle-bg-top"></div>
-                            <div class="circle-bg-bottom"></div>
-                            <div class="icons text-purple">
-                                <i class="fa-solid fa-book-bookmark size-28 text-white"></i>
-                            </div>
-                        </a>
-                        <p class="size-13 text-secondary">Ujian</p>
-                    </div>
-
-                    <div class="col-auto text-center">
-                        <a href="<?= base_url('tugas') ?>" onclick="unreload(this)" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 bg-warning mb-2">
-                            <div class="circle-bg-top"></div>
-                            <div class="circle-bg-bottom"></div>
-                            <div class="icons text-success">
-                                <i class="fa-solid fa-list-check size-28 text-white"></i>
-                            </div>
-                        </a>
-                        <p class="size-13 text-secondary">Tugas</p>
-                    </div>
-
-                    <div class="col-auto text-center">
-                        <div class="notifikasi-chat">
-                            <p>2</p>
+        <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content shadow position-absolute" style="bottom: 65px;">
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-auto text-center mb-2">
+                            <a href="materi-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-danger rounded-20 bg-danger mb-2">
+                                <div class="circle-bg-top"></div>
+                                <div class="circle-bg-bottom"></div>
+                                <div class="icons text-danger">
+                                    <i class="fa-solid fa-book-open-cover size-28 text-white"></i>
+                                </div>
+                            </a>
+                            <p class="size-13 text-secondary">Materi</p>
                         </div>
-                        <a href="<?= base_url('qna') ?>" onclick="unreload(this)" class="avatar avatar-60 p-1 shadow-sm shadow-success rounded-20 bg-success mb-2">
-                            <div class="circle-bg-top"></div>
-                            <div class="circle-bg-bottom"></div>
-                            <div class="icons text-success">
-                                <i class="fa-solid fa-messages size-28 text-white"></i>
-                            </div>
-                        </a>
-                        <p class="size-13 text-secondary">Pesan</p>
+
+                        <div class="col-auto text-center mb-2">
+                            <a href="tugas-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 bg-warning mb-2">
+                                <div class="circle-bg-top"></div>
+                                <div class="circle-bg-bottom"></div>
+                                <div class="icons text-success">
+                                    <i class="fa-solid fa-list-check size-28 text-white"></i>
+                                </div>
+                            </a>
+                            <p class="size-13 text-secondary">Tugas</p>
+                        </div>
+
+                        <div class="col-auto text-center mb-2">
+                            <a href="pesan-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-success rounded-20 bg-success mb-2">
+                                <div class="circle-bg-top"></div>
+                                <div class="circle-bg-bottom"></div>
+                                <div class="icons text-success">
+                                    <i class="fa-solid fa-messages size-28 text-white"></i>
+                                </div>
+                            </a>
+                            <p class="size-13 text-secondary">Chatting</p>
+                        </div>
+
+                        <div class="col-auto text-center mb-2">
+                            <a href="suratijin-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 mb-2" style="background-color: #FF8C32;">
+                                <div class="circle-bg-top"></div>
+                                <div class="circle-bg-bottom"></div>
+                                <div class="icons text-success">
+                                    <i class="fa-solid fa-envelope-open-text size-28 text-white"></i>
+                                </div>
+                            </a>
+                            <p class="size-13 text-secondary">Surat Ijin</p>
+                        </div>
+
+                        <div class="col-auto text-center">
+                            <a href="kbm-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 mb-2" style="background-color: #1DB9C3;;">
+                                <div class="circle-bg-top"></div>
+                                <div class="circle-bg-bottom"></div>
+                                <div class="icons text-purple">
+                                    <i class="fa-solid fa-screen-users size-28 text-white"></i>
+                                </div>
+                            </a>
+                            <p class="size-13 text-secondary">KBM</p>
+                        </div>
+
+                        <div class="col-auto text-center">
+                            <a href="jurnalstaf-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 mb-2" style="background-color: #8843F2;">
+                                <div class="circle-bg-top"></div>
+                                <div class="circle-bg-bottom"></div>
+                                <div class="icons text-purple">
+                                    <i class="fa-solid fa-book-user size-28 text-white"></i>
+                                </div>
+                            </a>
+                            <p class="size-13 text-secondary">Jurnal Staf</p>
+                        </div>
+
+                        <div class="col-auto text-center">
+                            <a href="<?= base_url('jurnal'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 bg-primary mb-2">
+                                <div class="circle-bg-top"></div>
+                                <div class="circle-bg-bottom"></div>
+                                <div class="icons text-purple">
+                                    <i class="fa-solid fa-book-user size-28 text-white"></i>
+                                </div>
+                            </a>
+                            <p class="size-13 text-secondary">Jurnal guru</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <!-- Required jquery and libraries -->
 <script>
     var BASE_URL = baseUrl = '<?= base_url(); ?>';

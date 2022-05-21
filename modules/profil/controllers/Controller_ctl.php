@@ -55,7 +55,7 @@ class Controller_ctl extends MY_Frontend
 		$this->display($this->input->get('routing'));
 	}
 
-	public function laporan_ujian()
+	public function laporan_presensi_staf()
 	{
 		// LOAD TITLE
 		$mydata['title'] = 'Laporan Ujian';
@@ -63,8 +63,11 @@ class Controller_ctl extends MY_Frontend
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
 
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/laporan/laporan_presensi_staf.js"></script>';
+
 		// LOAD VIEW
-		$this->data['content'] = $this->load->view('laporan_ujian', $mydata, TRUE);
+		$this->data['content'] = $this->load->view('laporan_presensi_staf', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
 

@@ -40,4 +40,17 @@ class Controller_ctl extends MY_Frontend
 		$this->data['content'] = $this->load->view('detail_materi', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
+
+	public function presensi_siswa()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Presensi Siswa';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/kbm/presensi_siswa.css') . '">';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('presensi_siswa', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
 }

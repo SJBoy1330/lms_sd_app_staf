@@ -18,6 +18,11 @@
 <!-- PWA app service registration and works -->
 <script src="<?= base_url(); ?>assets/js/pwa-services.js"></script>
 <script src="<?= base_url(); ?>assets/js/global.js"></script>
+
+<!-- Evo Calendar -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="<?= base_url(); ?>assets/plugins/evo-calendar/js/evo-calendar.min.js"></script>
+
 <?php
 
 if (isset($js_add) && is_array($js_add)) {

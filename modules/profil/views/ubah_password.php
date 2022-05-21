@@ -1,3 +1,25 @@
+<main class="h-100 py-0">
+    <!-- Header -->
+    <header class="header position-fixed">
+        <div class="row">
+            <div class="col-auto">
+                <a href="<?= base_url('profil')?>" class="btn btn-44">
+                    <i class="fa-solid fa-chevron-left text-dark"></i>
+                </a>
+            </div>
+            <div class="col text-center">
+                <div class="logo-small">
+                    <h6>Ubah Kata Sandi</h6>
+                </div>
+            </div>
+            <div class="col-auto">
+                <a href="#" target="_self" class="btn btn-44">
+                    <i class="fa-solid fa-check text-dark"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Header ends -->
     <!-- main page content -->
     <div class="main-container container">
         <!-- comment -->
@@ -18,7 +40,7 @@
                     <div class="form-group mb-4">
                         <label for="kata_sandi" class="form-label title-3">Password sekarang</label>
                         <div class="wrapper-password d-flex">
-                            <input type="password" class="form-control form-control-pribadi" name="kata_sandi" id="nowpassword" placeholder="Masukkan kata sandi sekarang" autocomplete="off">
+                            <input type="password" class="form-control form-control-pribadi border-0 text-start" name="kata_sandi" id="nowpassword" placeholder="Masukkan kata sandi sekarang" autocomplete="off">
 
                             <div class="input-group-append show-hide">
 
@@ -33,7 +55,7 @@
                     <div class="form-group mb-4">
                         <label for="kata_sandi" class="form-label title-3">Password baru</label>
                         <div class="wrapper-password d-flex">
-                            <input type="password" class="form-control form-control-pribadi" name="kata_sandi" id="newpassword" placeholder="Masukkan kata sandi baru" autocomplete="off">
+                            <input type="password" class="form-control form-control-pribadi border-0 text-start" name="kata_sandi" id="newpassword" placeholder="Masukkan kata sandi baru" autocomplete="off">
 
                             <div class="input-group-append show-hide">
 
@@ -48,7 +70,7 @@
                     <div class="form-group mb-4">
                         <label for="kata_sandi" class="form-label title-3">Ulangi kata sandi</label>
                         <div class="wrapper-password d-flex">
-                            <input type="password" class="form-control form-control-pribadi" name="kata_sandi" id="repeat-newpassword" placeholder="Masukkan kata sandi baru" autocomplete="off">
+                            <input type="password" class="form-control form-control-pribadi border-0 text-start" name="kata_sandi" id="repeat-newpassword" placeholder="Masukkan kata sandi baru" autocomplete="off">
 
                             <div class="input-group-append show-hide">
 
@@ -72,3 +94,4 @@
 
     </div>
     <!-- main page content ends -->
+</main>

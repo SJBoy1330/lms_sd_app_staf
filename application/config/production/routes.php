@@ -139,6 +139,21 @@ $route['func_kbm/(:any)/(:any)'] = 'kbm/function_ctl/$1/$2';
 
 
 
+$route['jurnal']  = 'jurnal/controller_ctl';
+
+$route['jurnal/(:any)'] = 'jurnal/controller_ctl/$1';
+
+$route['jurnal/(:any)/(:any)'] = 'jurnal/controller_ctl/$1/$2';
+
+$route['func_jurnal']  = 'jurnal/function_ctl';
+
+$route['func_jurnal/(:any)'] = 'jurnal/function_ctl/$1';
+
+$route['func_jurnal/(:any)/(:any)'] = 'jurnal/function_ctl/$1/$2';
+
+
+
+
 $route['profil']  = 'profil/controller_ctl';
 
 $route['profil/(:any)'] = 'profil/controller_ctl/$1';

@@ -1,0 +1,32 @@
+.form-check-input {
+    width: 1.1em;
+    height: 1.1em;
+    margin-top: 0.25em;
+    vertical-align: top;
+    background-color: #E5E5E5;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid #E5E5E5;
+    appearance: none;
+    color-adjust: exact;
+}
+
+.form-check-input:checked {
+    background-color: #00DFA3;
+    border: #00DFA3;
+}
+
+.badge-ijin{
+    top: 0;
+    right: 0;
+    border-radius: 0px 10px 0px 20px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    width: 85px;
+    height: 28px;
+    background-color: #FF8C32;
+}
