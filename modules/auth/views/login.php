@@ -25,17 +25,17 @@
             <form id="form_login" method="POST" url="<?= base_url('func_auth/login_proses'); ?>">
                 <div class="text-center my-5">
                     <p class="mb-1 title-1">Log in App Siswa</p>
-                    <p class="mb-0 fw-600 size-18 title-2">Masuk dengan username dan kata sandi</p>
+                    <p class="mb-0 fw-600 size-18 title-2">Masuk dengan kode sekolah, username dan kata sandi</p>
                 </div>
 
                 <div class="mb-4" id="req_kode_sekolah">
                     <label for="kode_sekolah" class="form-label title-3">Kode Sekolah</label>
-                    <input type="text" class="form-control form-control-pribadi" id="kode_sekolah" name="kode_sekolah" placeholder="Masukkan Username" autocomplete="off">
+                    <input type="text" class="form-control form-control-pribadi" id="kode_sekolah" name="kode_sekolah" placeholder="Masukkan kode sekolah" autocomplete="off">
                 </div>
 
                 <div class="mb-4" id="req_username">
-                    <label for="username" class="form-label title-3">Username</label>
-                    <input type="text" class="form-control form-control-pribadi" id="username" name="username" placeholder="Masukkan Username" autocomplete="off">
+                    <label for="username" class="form-label title-3">User ID</label>
+                    <input type="text" class="form-control form-control-pribadi" id="username" name="username" placeholder="Masukkan user ID" autocomplete="off">
                 </div>
 
                 <div class="form-group mb-4" id="req_kata_sandi">
