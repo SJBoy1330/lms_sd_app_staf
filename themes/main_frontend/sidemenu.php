@@ -14,8 +14,8 @@
                             </figure>
                         </div>
                         <div class="col px-0 align-self-center">
-                            <h5 class="mb-0 text-dark">Mia Khalifah</h5>
-                            <p class="text-muted size-12">XI IPA 1</p>
+                            <h5 class="mb-0 fw-normal text-white">Mia Khalifah</h5>
+                            <p class="text-muted size-12">Staf / Guru</p>
                         </div>
                     </div>
                 </div>
