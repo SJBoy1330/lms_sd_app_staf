@@ -197,7 +197,7 @@
             <div class="modal-body">
                 <div class="row justify-content-center">
                     <div class="col-auto text-center">
-                        <a href="#" class="avatar avatar-60 p-1 shadow-sm shadow-danger rounded-20 bg-danger mb-2">
+                        <a href="#" class="avatar avatar-60 p-1 shadow-sm shadow-danger rounded-20 bg-danger mb-2" data-bs-toggle="modal" data-bs-target="#pelajaranModal" aria-hidden="true">
                             <div class="circle-bg-top"></div>
                             <div class="circle-bg-bottom"></div>
                             <div class="icons text-danger">
@@ -228,6 +228,34 @@
                             </div>
                         </a>
                         <p class="size-13 text-secondary">Foto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Pelajaran -->
+<div class="modal fade" id="pelajaranModal" tabindex="-1" aria-labelledby="pelajaranModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen">
+        <div class="modal-content position-absolute bottom-0" style="border-radius: 15px 15px 0px 0px; height: 75%;">
+            <div class="modal-header header-materi">
+                <h5 class="modal-title" id="pelajaranModalLabel">Materi Pelajaran</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body body-materi">
+                <div class="row">
+                    <div class="col-12 mx-auto">
+                        <div class="card mb-4" onclick="toBab()">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col align-self-center">
+                                        <p class="mb-0 size-15 fw-medium">Pelajaran 01</p>
+                                        <p class="mb-0 size-13 fw-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices accumsan adipiscing neque elementum. Tincidunt a in justo a elit.</p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

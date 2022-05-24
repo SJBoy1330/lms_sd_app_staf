@@ -64,7 +64,7 @@
                             <div class="row py-1 px-2 mb-3">
                                 <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                     <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
+                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline" style="line-height: 44px;">
                                             <i class="fa-solid fa-clock size-22 text-white"></i>
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                             <div class="row py-1 px-2 mb-3">
                                 <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                     <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
+                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline" style="line-height: 44px;">
                                             <i class="fa-solid fa-clock size-22 text-white"></i>
                                         </div>
                                     </div>
@@ -136,7 +136,12 @@
                             </div>
 
                             <div class="row mt-4 mx-1">
-                                <button id="myButton"  class="btn btn-block btn-md btn-danger btn-detail-tugas">Edit KBM</button>
+                                <div class="col-6 px-1">
+                                    <a href="<?= base_url('kbm/edit_kbm')?>" class="btn btn-block btn-md btn-danger btn-detail-tugas">Edit KBM</a>
+                                </div>
+                                <div class="col-6 px-1">
+                                    <a href="<?= base_url('kbm/detail_kbm')?>" class="btn btn-block btn-md fw-normal btn-detail-kbm">Detail KBM</a>
+                                </div>
                             </div>
                         </div>
                     </div>

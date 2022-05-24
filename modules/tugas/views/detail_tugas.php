@@ -1,4 +1,4 @@
-<main class="h-100">
+<main class="h-100 py-0">
         <!-- Header -->
         <header class="header position-fixed">
             <div class="row">
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                         <p class="mb-0 fw-normal size-13 text-secondary">Status</p>
-                                        <p class="mb-0 fw-bold size-15">Terlambat dikumpulkan</p>
+                                        <p class="mb-0 fw-bold text-danger size-15">Terlambat dikumpulkan</p>
                                     </div>
                                 </div>
                             </div>

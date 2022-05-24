@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="col-auto text-center mb-2">
-                            <a href="pesan-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-success rounded-20 bg-success mb-2">
+                            <a href="<?= base_url('qna'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-success rounded-20 bg-success mb-2">
                                 <div class="circle-bg-top"></div>
                                 <div class="circle-bg-bottom"></div>
                                 <div class="icons text-success">

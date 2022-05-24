@@ -57,6 +57,38 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link <?= (set_active($this->uri->segment(1), 'suratijin', $this->uri->segment(2), array())) ?>" href="<?= base_url('suratijin') ?>" onclick="unreload(this)" tabindex="-1">
+                                <div class="avatar avatar-40 icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                                <div class="col">Surat Ijin</div>
+                                <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link <?= (set_active($this->uri->segment(1), 'kbm/kbm', $this->uri->segment(2), array())) ?>" href="<?= base_url('kbm/kbm') ?>" onclick="unreload(this)" tabindex="-1">
+                                <div class="avatar avatar-40 icon"><i class="fa-solid fa-screen-users"></i></div>
+                                <div class="col">KBM</div>
+                                <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link <?= (set_active($this->uri->segment(1), 'jurnal/jurnal_staf', $this->uri->segment(2), array())) ?>" href="<?= base_url('jurnal/jurnal_staf') ?>" onclick="unreload(this)" tabindex="-1">
+                                <div class="avatar avatar-40 icon"><i class="fa-solid fa-book-user"></i></div>
+                                <div class="col">Jurnal Staf</div>
+                                <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link <?= (set_active($this->uri->segment(1), 'jurnal', $this->uri->segment(2), array())) ?>" href="<?= base_url('jurnal') ?>" onclick="unreload(this)" tabindex="-1">
+                                <div class="avatar avatar-40 icon"><i class="fa-solid fa-book-user"></i></div>
+                                <div class="col">Jurnal Guru</div>
+                                <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link <?= (set_active($this->uri->segment(1), 'toko', $this->uri->segment(2), array())) ?>" href="<?= base_url('toko') ?>" onclick="unreload(this)" tabindex="-1">
                                 <div class="avatar avatar-40 icon"><i class="fa-solid fa-shop"></i></div>
                                 <div class="col">Toko</div>
