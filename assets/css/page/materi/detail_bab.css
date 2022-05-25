@@ -119,12 +119,3 @@
     display: block;
     border-radius: 20px;
 }
-
-input[type="file"] {
-	display: block;
-}
-
-a.label-biru {
-    font-weight: 500;
-    color: #199DFD;
-}

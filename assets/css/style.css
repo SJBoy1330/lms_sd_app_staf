@@ -17207,3 +17207,12 @@ span.blm-lns{
 .modal .modal-dialog .modal-content.detail-tagihan{
   border-radius: 0px;
 }
+
+.bg-dropdown{
+  background-color: #E5E5E5;
+  border: none;
+}
+
+.btn.bg-dropdown:hover{
+  background-color: #E5E5E5;
+}
