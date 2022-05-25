@@ -51,7 +51,7 @@
                 <div class="modal-body">
                     <div class="row justify-content-center">
                         <div class="col-auto text-center mb-2">
-                            <a href="materi-SD.html" class="avatar avatar-60 p-1 shadow-sm shadow-danger rounded-20 bg-danger mb-2">
+                            <a href="<?= base_url('materi'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-danger rounded-20 bg-danger mb-2">
                                 <div class="circle-bg-top"></div>
                                 <div class="circle-bg-bottom"></div>
                                 <div class="icons text-danger">
