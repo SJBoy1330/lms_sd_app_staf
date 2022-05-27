@@ -29,7 +29,7 @@
         <div class="col-12 col-md-10 col-lg-8 mx-auto">
             <div class="row">
                 <div class="col-12">
-                    <figure class="overflow-hidden rounded-15 text-center">
+                    <figure class="overflow-hidden rounded-15 text-center detail-berita">
                         <img src="<?= base_url('assets/images/tari-saman.png');?>" alt="" class="w-100 mx-auto">
                     </figure>
                 </div>

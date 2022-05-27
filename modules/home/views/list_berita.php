@@ -90,7 +90,7 @@
             <a href="<?= base_url('home/detail_berita'); ?>" class="col-12 text-dark">
                 <div class="row">
                     <div class="col-12">
-                        <figure class="overflow-hidden rounded-15 text-center">
+                        <figure class="overflow-hidden rounded-15 text-center detail-berita">
                             <img src="<?= base_url('assets/images/tari-saman.png');?>" alt="" class="w-100 mx-auto">
                         </figure>
                     </div>
@@ -107,7 +107,7 @@
             <a href="<?= base_url('home/detail_berita'); ?>" class="col-12 text-dark">
                 <div class="row">
                     <div class="col-12">
-                        <figure class="overflow-hidden rounded-15 text-center">
+                        <figure class="overflow-hidden rounded-15 text-center detail-berita">
                             <img src="<?= base_url('assets/images/no-photo-big.png');?>" alt="" class="w-100 mx-auto">
                         </figure>
                     </div>
