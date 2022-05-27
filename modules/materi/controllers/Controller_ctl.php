@@ -65,4 +65,20 @@ class Controller_ctl extends MY_Frontend
 		$this->display($this->input->get('routing'));
 	}
 
+	public function detail_materi()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Detail Materi';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/materi/materi.css') . '">';
+
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/materi/detail_materi.js"></script>';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('detail_materi', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
 }

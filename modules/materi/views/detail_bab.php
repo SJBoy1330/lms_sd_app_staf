@@ -3,7 +3,7 @@
     <header class="header position-fixed">
         <div class="row">
             <div class="col-auto">
-                <a href="materi-SD.html" class="btn btn-44">
+                <a href="<?= base_url('materi')?>" class="btn btn-44">
                     <i class="fa-solid fa-chevron-left text-dark"></i>
                 </a>
             </div>
@@ -109,10 +109,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col align-self-center ps-0">
+                                    <a href="<?= base_url('materi/detail_materi');?>" class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 1 Bab 1 Mapel 1</p>
-                                    </div>
+                                        <p class="mb-0 size-14 fw-medium text-dark">Materi 1 Bab 1 Mapel 1</p>
+                                    </a>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
                                             <button class="btn btn-secondary bg-dropdown bg-button rounded-pill" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
