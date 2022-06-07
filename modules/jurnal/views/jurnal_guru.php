@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Mata Pelajaran</p>
-                                    <p class="mb-0 fw-bold size-15">Bahasa Indonesia</p>
+                                    <p class="mb-0 fw-normal size-15">Bahasa Indonesia</p>
                                 </div>
                             </div>
                             <div class="row py-1 px-2 mb-3">
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Kelas</p>
-                                    <p class="mb-0 fw-bold size-15">XI IPA 1</p>
+                                    <p class="mb-0 fw-normal size-15">XI IPA 1</p>
                                 </div>
                             </div>
                             <div class="row py-1 px-2 mb-3">
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Waktu</p>
-                                    <p class="mb-0 fw-bold size-15">10:00 - 12:00</p>
+                                    <p class="mb-0 fw-normal size-15">10:00 - 12:00</p>
                                 </div>
                             </div>
 
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Mata Pelajaran</p>
-                                    <p class="mb-0 fw-bold size-15">Bahasa Indonesia</p>
+                                    <p class="mb-0 fw-normal size-15">Bahasa Indonesia</p>
                                 </div>
                             </div>
                             <div class="row py-1 px-2 mb-3">
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Kelas</p>
-                                    <p class="mb-0 fw-bold size-15">XI IPA 1</p>
+                                    <p class="mb-0 fw-normal size-15">XI IPA 1</p>
                                 </div>
                             </div>
                             <div class="row py-1 px-2 mb-3">
@@ -129,7 +129,7 @@
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Waktu</p>
-                                    <p class="mb-0 fw-bold size-15">10:00 - 12:00</p>
+                                    <p class="mb-0 fw-normal size-15">10:00 - 12:00</p>
                                 </div>
                             </div>
 

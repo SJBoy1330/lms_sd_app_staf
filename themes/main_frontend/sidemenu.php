@@ -10,7 +10,7 @@
                     <div class="row mt-3">
                         <div class="col-auto">
                             <figure class="avatar avatar-80 rounded-20 p-1 bg-white shadow-sm">
-                                <img src="<?= base_url('assets/images/mia-khalifa.png') ?>" alt="" class="rounded-18">
+                                <img src="<?= base_url('assets/images/mia-khalifa.png') ?>" alt="" class="rounded-18" style="height: 100%">
                             </figure>
                         </div>
                         <div class="col px-0 align-self-center">

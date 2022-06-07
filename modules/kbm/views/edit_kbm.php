@@ -49,7 +49,7 @@
                             <p class="fw-bolder size-15">Tugas Anda</p>
                         </div>
                         <div class="col-auto align-self-center">
-                            <a data-bs-toggle="modal" href="#modalTambahMateri" role="button" class="label-biru fw-bold size-13"><i class="fa-regular fa-plus"></i> Upload Tugas</a>
+                            <a data-bs-toggle="modal" href="#modalTambahMateri" role="button" class="label-biru fw-bold size-13"><i class="fa-regular fa-plus"></i> Tambah Materi</a>
                         </div>
                     </div>
     
@@ -58,8 +58,8 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-12 avatar-presensi-inline">
-                                            <i class="fa-solid fa-file size-20 text-white"></i>
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-file size-22 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +90,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
                 <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLabel">Filter Materi</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

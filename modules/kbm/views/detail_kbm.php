@@ -26,8 +26,8 @@
                         <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                    <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
                                             <i class="fa-solid fa-calendar-week size-22 text-white"></i>
                                         </div>
                                     </div>
@@ -45,9 +45,9 @@
                         <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                            <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                    <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-building-user size-20 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -67,9 +67,9 @@
                         <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                            <i class="fa-brands fa-stack-overflow size-26 text-white"></i>
+                                    <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-brands fa-stack-overflow size-24 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -86,9 +86,9 @@
                         <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                            <i class="fa-solid fa-chalkboard-user size-22 text-white"></i>
+                                    <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-chalkboard-user size-20 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -108,9 +108,9 @@
                         <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                            <i class="fa-solid fa-graduation-cap size-22 text-white"></i>
+                                    <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -127,9 +127,9 @@
                         <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                            <i class="fa-solid fa-calendar-check size-22 text-white"></i>
+                                    <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-calendar-check size-20 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -149,8 +149,8 @@
                         <div class="col-12 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                    <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
                                             <i class="fa-solid fa-calendar-check size-22 text-white"></i>
                                         </div>
                                     </div>

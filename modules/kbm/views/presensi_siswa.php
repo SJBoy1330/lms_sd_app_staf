@@ -24,7 +24,7 @@
             <div class="col-12 col-md-10 col-lg-8 mx-auto">
                 <div class="row mb-2 px-1">
                     <div class="col align-self-center">
-                        <p class="size-13 fw-medium">XI IPA 1 - Bahasa Indonesia</p>
+                        <p class="size-15 fw-normal">XI IPA 1 - Bahasa Indonesia</p>
                     </div>
                 </div>
                 <div class="row g-0">
@@ -32,9 +32,9 @@
                         <div class="accordion accordion-flush p-0 shadow-sm mb-3" id="accordionFlushExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed text-wrap" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="border-radius: 10px;">
+                                    <button class="accordion-button collapsed text-wrap bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="border-radius: 10px;">
                                         <div class="badge-ijin">
-                                            <p class="text-dark size-12">Surat Izin</p>
+                                            <p class="text-white size-12">Surat Izin</p>
                                         </div>
                                         <div class="row">
                                             <div class="col-auto">
@@ -43,7 +43,7 @@
                                                 </div>
                                             </div>
                                             <div class="col align-self-center ps-0">
-                                                <p class="mb-1 size-15 fw-medium">Siswa AA</p>
+                                                <p class="mb-0 size-15 fw-medium">Siswa AA</p>
                                                 <p class="text-muted text-secondary size-12">Status Kehadiran</p>
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@
                         <div class="accordion accordion-flush p-0 shadow-sm mb-3" id="accordionFlushExample2">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed text-wrap" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" style="border-radius: 10px;">
+                                    <button class="accordion-button collapsed text-wrap bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo" style="border-radius: 10px;">
                                         <div class="row">
                                             <div class="col-auto">
                                                 <div class="avatar avatar-50 rounded-circle avatar-pesan">
@@ -105,7 +105,7 @@
                                                 </div>
                                             </div>
                                             <div class="col align-self-center ps-0">
-                                                <p class="mb-1 size-15 fw-medium">Siswa AA</p>
+                                                <p class="mb-0 size-15 fw-medium">Siswa AA</p>
                                                 <p class="text-muted text-secondary size-12">Status Kehadiran</p>
                                             </div>
                                         </div>
