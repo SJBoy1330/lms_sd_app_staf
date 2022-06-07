@@ -1,23 +1,4 @@
 <main class="h-100 py-0">
-        <!-- Header -->
-        <header class="header position-fixed">
-            <div class="row">
-                <div class="col-auto">
-                    <a href="javascript:void(0)" target="_self" class="btn btn-44 menu-btn">
-                        <img src="../HTML/assets/icons/hamburger.png" width="24" alt="">
-                    </a>
-                </div>
-                <div class="col text-center">
-                </div>
-                <div class="col-auto">
-                    <a href="notifikasi-SD.html" target="_self" class="btn btn-44 rounded-circle btn-notifikasi">
-                        <img src="../HTML/assets/icons/notif.png" width="24" alt="">
-                        <span class="count-indicator"></span>
-                    </a>
-                </div>
-            </div>
-        </header>
-        <!-- Header ends -->
         <!-- main page content -->
         <div class="main-container container">
             <!-- comment -->
@@ -102,7 +83,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="laporan-presensi-siswa-SD.html" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                        <a href="<?= base_url('profil/laporan_presensi_siswa'); ?>" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
                             <div class="row p-2">
                                 <div class="d-flex col-auto align-items-center ">
                                     <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
@@ -122,7 +103,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="laporan-ujian-SD.html" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                        <a href="<?= base_url('profil/laporan_wali_kelas'); ?>" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
                             <div class="row p-2">
                                 <div class="d-flex col-auto align-items-center ">
                                     <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
@@ -130,9 +111,9 @@
                                     </div>
                                 </div>
                                 <div class="col align-self-center p-0">
-                                    <p class="mb-0 fw-bold size-14">Laporan Wali Murid</p>
+                                    <p class="mb-0 fw-bold size-14">Laporan Wali Kelas</p>
                                     <p class="text-secondary size-12">
-                                        Data wali murid
+                                        Data wali Kelas
                                     </p>
                                 </div>
                                 <div class="col-auto d-flex justify-content-end align-items-center ps-0">
@@ -142,7 +123,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="tentang-sekolah-SD.html" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                        <a href="<?= base_url('profil/tentang_sekolah'); ?>" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
                             <div class="row p-2">
                                 <div class="d-flex col-auto align-items-center ">
                                     <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
@@ -162,7 +143,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="bantuan-SD.html" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                        <a href="<?= base_url('profil/bantuan'); ?>" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
                             <div class="row p-2">
                                 <div class="d-flex col-auto align-items-center ">
                                     <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
@@ -182,7 +163,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="signin-SD.html" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                        <a href="<?= base_url('auth/logout'); ?>" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
                             <div class="row p-2">
                                 <div class="d-flex col-auto align-items-center ">
                                     <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">

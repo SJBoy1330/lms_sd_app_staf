@@ -118,4 +118,5 @@
 .dropdown-menu.show {
     display: block;
     border-radius: 20px;
+	z-index: 1;
 }

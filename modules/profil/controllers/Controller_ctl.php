@@ -58,7 +58,7 @@ class Controller_ctl extends MY_Frontend
 	public function laporan_presensi_staf()
 	{
 		// LOAD TITLE
-		$mydata['title'] = 'Laporan Ujian';
+		$mydata['title'] = 'Laporan Presensi Staf';
 
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
@@ -68,6 +68,38 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('laporan_presensi_staf', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
+	public function laporan_presensi_siswa()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Laporan Presensi Siswa';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
+
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/laporan/laporan_presensi_siswa.js"></script>';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('laporan_presensi_siswa', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
+	public function laporan_wali_kelas()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Laporan Presensi Siswa';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
+
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/laporan/laporan_wali_kelas.js"></script>';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('laporan_wali_kelas', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
 

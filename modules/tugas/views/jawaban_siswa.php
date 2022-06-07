@@ -38,9 +38,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-auto">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-graduation-cap size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -61,9 +61,9 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-auto">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-graduation-cap size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
                                     </div>
                                 </div>
                             </div>

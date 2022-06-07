@@ -32,10 +32,10 @@
             <div class="col-6 mx-auto">
                 <div class="card mb-3">
                     <div class="col-auto position-absolute avatar-detail-kbm">
-                        <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                            <i class="fa-brands fa-stack-overflow size-26 text-white"></i>
-                        </div>
+                        <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                            <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body detail-kbm">
@@ -52,10 +52,10 @@
             <div class="col-6 mx-auto">
                 <div class="card mb-3">
                     <div class="col-auto position-absolute avatar-detail-kbm">
-                        <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                            <i class="fa-solid fa-layer-group size-26 text-white"></i>
-                        </div>
+                        <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                            <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                <i class="fa-solid fa-layer-group size-22 text-white"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body detail-kbm">
@@ -75,10 +75,10 @@
             <div class="col-6 mx-auto">
                 <div class="card mb-3">
                     <div class="col-auto position-absolute avatar-detail-kbm">
-                        <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                <i class="fa-solid fa-chalkboard-user size-22 text-white"></i>
-                        </div>
+                        <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                            <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                    <i class="fa-solid fa-chalkboard-user size-20 text-white"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body detail-kbm">
@@ -96,10 +96,10 @@
             <div class="col-6 mx-auto">
                 <div class="card mb-3">
                     <div class="col-auto position-absolute avatar-detail-kbm">
-                        <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                        <div class="avatar avatar-50 rounded-18 avatar-presensi-inline" style="line-height: 55px;">
-                                <i class="fa-solid fa-book-open-cover size-22 text-white"></i>
-                        </div>
+                        <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                            <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                    <i class="fa-solid fa-book-open-cover size-20 text-white"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body detail-kbm">
@@ -129,18 +129,16 @@
                 <div id="video" class="tabcontent">
                     <div class="row mb-3">
                         <div class="mb-3">
-                            <video class="video-detail-materi" controls>
-                                <source src="movie.mp4" type="video/mp4">
-                            </video>
+                            <iframe class="video-detail-materi" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
                         </div>
                         <div class="col-12">
                             <a href="#" class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                                <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                                    <i class="fa-solid fa-circle-play size-26 text-white"></i>
+                                            <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                                    <i class="fa-solid fa-circle-play size-22 text-white"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -162,9 +160,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                                <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                                    <i class="fa-solid fa-circle-play size-26 text-white"></i>
+                                            <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                                    <i class="fa-solid fa-circle-play size-22 text-white"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,9 +184,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                                <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                                    <i class="fa-solid fa-circle-play size-26 text-white"></i>
+                                            <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                                    <i class="fa-solid fa-circle-play size-22 text-white"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -238,9 +236,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                                <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                                    <i class="fa-solid fa-download size-26 text-white"></i>
+                                            <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                                    <i class="fa-solid fa-download size-22 text-white"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -262,9 +260,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                                <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                                    <i class="fa-solid fa-download size-26 text-white"></i>
+                                            <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                                    <i class="fa-solid fa-download size-22 text-white"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -286,9 +284,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">
-                                            <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                                <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                                    <i class="fa-solid fa-download size-26 text-white"></i>
+                                            <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                                    <i class="fa-solid fa-download size-22 text-white"></i>
                                                 </div>
                                             </div>
                                         </div>

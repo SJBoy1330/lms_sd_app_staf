@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Grup Kelas Unggulan</p>
+                            <p class="mb-0 size-14 fw-medium">Grup Kelas Unggulan</p>
                             <p class="text-muted text-secondary size-12">Drs. Sri Handayani S.Pd</p>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Grup Ketua Kelas & Staf</p>
+                            <p class="mb-0 size-14 fw-medium">Grup Ketua Kelas & Staf</p>
                             <p class="text-muted text-secondary size-12">Sutiaji S.Pd</p>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Grup Osis</p>
+                            <p class="mb-0 size-14 fw-medium">Grup Osis</p>
                             <p class="text-muted text-secondary size-12">Gunawan S.Pd</p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Grup MPK</p>
+                            <p class="mb-0 size-14 fw-medium">Grup MPK</p>
                             <p class="text-muted text-secondary size-12">Radit S.Pd.</p>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Grup Seminar</p>
+                            <p class="mb-0 size-14 fw-medium">Grup Seminar</p>
                             <p class="text-muted text-secondary size-12">Sri Wahyuni S.Pd</p>
                         </div>
                     </div>

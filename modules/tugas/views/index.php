@@ -28,9 +28,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -46,9 +46,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -65,9 +65,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -83,9 +83,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -102,9 +102,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -120,9 +120,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -139,9 +139,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -157,9 +157,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -176,9 +176,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -194,9 +194,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -213,9 +213,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -231,9 +231,9 @@
                     <div class="col-6 mx-auto mb-4">
                         <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3">
                             <div class="col-auto position-absolute avatar-detail-kbm">
-                                <div class="avatar avatar-60 shadow-sm rounded-18 avatar-presensi-outline">
-                                    <div class="avatar avatar-50 rounded-18 avatar-presensi-inline">
-                                        <i class="fa-solid fa-building-user size-22 text-white"></i>
+                                <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
                                     </div>
                                 </div>
                             </div>

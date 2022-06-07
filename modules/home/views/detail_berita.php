@@ -35,7 +35,7 @@
             </div>
 
             <div class="row mx-2">
-                <p class="mt-2 mb-3 title-1-home">Tari Saman</p>
+                <p class="mt-2 fw-medium size-18">Tari Saman</p>
                 <p class="mb-1 title-2">Tanggal dibuat :</p>
                 <p class="mb-1 title-3">Kamis, 1 Januari 1970 07:00</p>
             </div>

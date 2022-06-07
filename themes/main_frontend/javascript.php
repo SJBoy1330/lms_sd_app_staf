@@ -150,6 +150,10 @@
 
 <script src="<?= base_url() ?>assets/js/global.js"></script>
 
+<!--evo calender-->
+<script src="<?= base_url() ?>assets/vendor/evo-calendar/js/evo-calendar.min.js"></script>
+<script src="<?= base_url() ?>assets/vendor/evo-calendar/js/evo-calendar.js"></script>
+
 <div id="script">
     <div id="scripting">
         <?php

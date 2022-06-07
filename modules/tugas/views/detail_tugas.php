@@ -34,16 +34,16 @@
                                     <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                         <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
                                             <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                                <i class="fa-solid fa-graduation-cap size-22 text-white"></i>
+                                                <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                         <p class="mb-0 fw-normal size-13 text-secondary">Nama Siswa</p>
-                                        <p class="mb-0 fw-bold size-15">Siswa A</p>
+                                        <p class="mb-0 fw-normal size-15">Siswa A</p>
                                     </div>
                                 </div>
-                                <div class="row py-1 px-2 mb-3">
+                                <div class="row py-1 px-2 mb-2">
                                     <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                         <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
                                             <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                         <p class="mb-0 fw-normal size-13 text-secondary">Tanggal Pengumpulan</p>
-                                        <p class="mb-0 fw-bold size-15">11 Januari 2022</p>
+                                        <p class="mb-0 fw-normal size-15">11 Januari 2022</p>
                                     </div>
                                 </div>
 
@@ -67,7 +67,8 @@
                                     </div>
                                     <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                         <p class="mb-0 fw-normal size-13 text-secondary">Status</p>
-                                        <p class="mb-0 fw-bold text-danger size-15">Terlambat dikumpulkan</p>
+                                        <p class="mb-0 fw-normal size-15" style="color: #EC3528">Terlambat dikumpulkan</p>
+                                        <p class="mb-0 fw-normal size-15" style="color: #00DFA3">Telah dikumpulkan</p>
                                     </div>
                                 </div>
                             </div>
@@ -163,10 +164,10 @@
                         </a>
 
                         <div class="row mt-4 mx-1">
-                            <a href="#" class="btn btn-block btn-md btn-danger btn-detail-tugas">Tolak</a>
+                            <button class="btn btn-block btn-md btn-danger btn-detail-tugas">Tolak</button>
                         </div>
                         <div class="row mt-2 mx-1">
-                            <a class="btn btn-block btn-md btn-success btn-detail-terima" data-bs-toggle="modal" href="#modalInputNilai">Terima</a>
+                            <button class="btn btn-block btn-md btn-success btn-detail-terima" data-bs-toggle="modal" href="#modalInputNilai">Terima</button>
                         </div>
                     </div>
                 </div>

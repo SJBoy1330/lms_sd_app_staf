@@ -25,16 +25,6 @@
 <div class="main-container container top-20">
     <div class="row">
         <div class="col-12 col-md-10 col-lg-8 mx-auto">
-            <!-- List Berita -->
-            <div class="row mb-3">
-                <div class="col">
-                    <h6 class="title">Berita Hari Ini</h6>
-                </div>
-                <div class="col-auto">
-                    <!-- <a href="bills.html" class="small">Pay Bill</a> -->
-                </div>
-            </div>
-
             <div class="row mb-2">
                 <div class="col-12 px-0">
                     <!-- swiper categories -->
@@ -97,7 +87,7 @@
 
                 <div class="row mb-4 mx-2">
                     <div class="col-12">
-                        <p class="my-2 title-1-home">Tari Saman</p>
+                        <p class="my-2 fw-medium size-18">Tari Saman</p>
                         <p class="text-secondary deskripsi-berita">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s... <a href="#" class="label-merah">Selengkapnya</a></p>
                     </div>
                 </div>
@@ -113,7 +103,7 @@
 
                 <div class="row mb-4 mx-2">
                     <div class="col-12">
-                        <p class="my-2 title-1-home">Lorem Ipsum is simply dummy...</p>
+                        <p class="my-2 fw-medium size-18">Lorem Ipsum is simply dummy...</p>
                         <p class="text-secondary deskripsi-berita">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s... <a href="#" class="label-merah">Selengkapnya</a></p>
                     </div>
                 </div>

@@ -59,8 +59,8 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-12 avatar-presensi-inline">
-                                            <i class="fa-solid fa-circle-play size-20 text-white"></i>
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-circle-play size-22 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -98,8 +98,8 @@
                             <div class="row">
                                 <div class="col-auto">
                                     <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-12 avatar-presensi-inline">
-                                            <i class="fa-solid fa-circle-play size-20 text-white"></i>
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-circle-play size-22 text-white"></i>
                                         </div>
                                     </div>
                                 </div>

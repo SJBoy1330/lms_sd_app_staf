@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Drs. Sri Handayani S.Pd</p>
+                            <p class="mb-0 size-14 fw-medium">Drs. Sri Handayani S.Pd</p>
                             <p class="text-muted text-secondary size-12">Guru Matematika</p>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Sutiaji S.Pd</p>
+                            <p class="mb-0 size-14 fw-medium">Sutiaji S.Pd</p>
                             <p class="text-muted text-secondary size-12">Guru Sejarah</p>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Gunawan S.Pd</p>
+                            <p class="mb-0 size-14 fw-medium">Gunawan S.Pd</p>
                             <p class="text-muted text-secondary size-12">Guru Biologi</p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Radit S.Pd</p>
+                            <p class="mb-0 size-14 fw-medium">Radit S.Pd</p>
                             <p class="text-muted text-secondary size-12">Guru Olahraga</p>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-medium">Sri Wahyuni S.Pd</p>
+                            <p class="mb-0 size-14 fw-medium">Sri Wahyuni S.Pd</p>
                             <p class="text-muted text-secondary size-12">Staf Kantor</p>
                         </div>
                     </div>

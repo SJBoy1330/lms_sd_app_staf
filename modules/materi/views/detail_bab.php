@@ -46,7 +46,7 @@
                             </div>
                             <div class="col align-self-center ps-0">
                                 <p class="mb-0 size-12 fw-normal text-secondary">Mata Pelajaran</p>
-                                <p class="mb-0 size-13 fw-medium">Materi Pelajaran 01</p>
+                                <p class="mb-0 size-14 fw-normal">Materi Pelajaran 01</p>
                             </div>
                         </div>
                         <div class="row mt-3">
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col align-self-center ps-0 pe-0">
                                 <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
-                                <p class="mb-0 size-13 fw-medium">5 Bab</p>
+                                <p class="mb-0 size-13 fw-normal">5 Bab</p>
                             </div>
 
                             <div class="col-auto ps-1">
@@ -71,7 +71,7 @@
                             </div>
                             <div class="col align-self-center ps-0">
                                 <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                <p class="mb-0 size-13 fw-medium">6 Materi</p>
+                                <p class="mb-0 size-13 fw-normal">6 Materi</p>
                             </div>
                         </div>
                     </div>
@@ -93,8 +93,8 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center ps-0">
-                                        <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Fotosintesis</p>
+                                        <p class="mb-1 size-12 fw-normal text-secondary">Bab Pelajaran</p>
+                                        <p class="mb-0 size-14 fw-normal">Fotosintesis</p>
                                     </div>
                                 </div>
                             </button>
@@ -111,7 +111,7 @@
                                     </div>
                                     <a href="<?= base_url('materi/detail_materi');?>" class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium text-dark">Materi 1 Bab 1 Mapel 1</p>
+                                        <p class="mb-0 size-14 fw-normal text-dark">Materi 1 Bab 1 Mapel 1</p>
                                     </a>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -137,7 +137,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 2 Bab 2 Mapel 2</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 2 Bab 2 Mapel 2</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -163,7 +163,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 3 Bab 3 Mapel 3</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 3 Bab 3 Mapel 3</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -189,7 +189,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 4 Bab 4 Mapel 4</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 4 Bab 4 Mapel 4</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -215,7 +215,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 5 Bab 5 Mapel 5</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 5 Bab 5 Mapel 5</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -249,8 +249,8 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center ps-0">
-                                        <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Fotosintesis</p>
+                                        <p class="mb-1 size-12 fw-normal text-secondary">Bab Pelajaran</p>
+                                        <p class="mb-0 size-14 fw-normal">Fotosintesis</p>
                                     </div>
                                 </div>
                             </button>
@@ -267,7 +267,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 1 Bab 1 Mapel 1</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 1 Bab 1 Mapel 1</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -293,7 +293,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 2 Bab 2 Mapel 2</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 2 Bab 2 Mapel 2</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -319,7 +319,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 3 Bab 3 Mapel 3</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 3 Bab 3 Mapel 3</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -345,7 +345,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 4 Bab 4 Mapel 4</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 4 Bab 4 Mapel 4</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -371,7 +371,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 5 Bab 5 Mapel 5</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 5 Bab 5 Mapel 5</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -405,8 +405,8 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center ps-0">
-                                        <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Fotosintesis</p>
+                                        <p class="mb-1 size-12 fw-normal text-secondary">Bab Pelajaran</p>
+                                        <p class="mb-0 size-14 fw-normal">Fotosintesis</p>
                                     </div>
                                 </div>
                             </button>
@@ -423,7 +423,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 1 Bab 1 Mapel 1</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 1 Bab 1 Mapel 1</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -449,7 +449,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 2 Bab 2 Mapel 2</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 2 Bab 2 Mapel 2</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -475,7 +475,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 3 Bab 3 Mapel 3</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 3 Bab 3 Mapel 3</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -501,7 +501,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 4 Bab 4 Mapel 4</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 4 Bab 4 Mapel 4</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -527,7 +527,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 5 Bab 5 Mapel 5</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 5 Bab 5 Mapel 5</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -561,8 +561,8 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center ps-0">
-                                        <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Fotosintesis</p>
+                                        <p class="mb-1 size-12 fw-normal text-secondary">Bab Pelajaran</p>
+                                        <p class="mb-0 size-14 fw-normal">Fotosintesis</p>
                                     </div>
                                 </div>
                             </button>
@@ -579,7 +579,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 1 Bab 1 Mapel 1</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 1 Bab 1 Mapel 1</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -605,7 +605,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 2 Bab 2 Mapel 2</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 2 Bab 2 Mapel 2</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -631,7 +631,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 3 Bab 3 Mapel 3</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 3 Bab 3 Mapel 3</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -657,7 +657,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 4 Bab 4 Mapel 4</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 4 Bab 4 Mapel 4</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -683,7 +683,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 5 Bab 5 Mapel 5</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 5 Bab 5 Mapel 5</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -717,8 +717,8 @@
                                         </div>
                                     </div>
                                     <div class="col align-self-center ps-0">
-                                        <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Fotosintesis</p>
+                                        <p class="mb-1 size-12 fw-normal text-secondary">Bab Pelajaran</p>
+                                        <p class="mb-0 size-14 fw-normal">Fotosintesis</p>
                                     </div>
                                 </div>
                             </button>
@@ -735,7 +735,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 1 Bab 1 Mapel 1</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 1 Bab 1 Mapel 1</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -761,7 +761,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 2 Bab 2 Mapel 2</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 2 Bab 2 Mapel 2</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -787,7 +787,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 3 Bab 3 Mapel 3</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 3 Bab 3 Mapel 3</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -813,7 +813,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 4 Bab 4 Mapel 4</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 4 Bab 4 Mapel 4</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">
@@ -839,7 +839,7 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                                        <p class="mb-0 size-14 fw-medium">Materi 5 Bab 5 Mapel 5</p>
+                                        <p class="mb-0 size-14 fw-normal">Materi 5 Bab 5 Mapel 5</p>
                                     </div>
                                     <div class="col-auto align-self-center ps-0">
                                         <div class="dropdown btn-group dropstart">

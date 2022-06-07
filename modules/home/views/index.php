@@ -26,8 +26,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Bahasa Indonesia</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Bahasa Indonesia</p>
                         </div>
                     </div>
                 </div>
@@ -48,8 +48,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Ilmu Pengetahuan Alam</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Ilmu Pengetahuan Alam</p>
                         </div>
                     </div>
                 </div>
@@ -91,8 +91,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Matematika</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Matematika</p>
                         </div>
                     </div>
                 </div>
@@ -112,8 +112,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Sejarah</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Sejarah</p>
                         </div>
                     </div>
                 </div>
@@ -136,8 +136,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Biologi</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Biologi</p>
                         </div>
                     </div>
                 </div>
@@ -158,8 +158,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Kimia</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Kimia</p>
                         </div>
                     </div>
                 </div>
@@ -201,8 +201,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Bahasa Indonesia</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Bahasa Indonesia</p>
                         </div>
                     </div>
                 </div>
@@ -221,8 +221,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Sains</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Sains</p>
                         </div>
                     </div>
                 </div>
@@ -244,8 +244,8 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-3 mt-2">
-                            <p class="mb-1 title-1-home-text">XI IPA 1</p>
-                            <p class="mb-0 title-4-home-text">Sosiologi</p>
+                            <p class="fw-normal size-17 mb-1 title-1-home-text">XI IPA 1</p>
+                            <p class="fw-normal text-secondary mb-0 size-13">Sosiologi</p>
                         </div>
                     </div>
                 </div>
@@ -282,7 +282,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Himbauan mengikuti vaksin covid 19
+                            <p class="mb-1 size-15 fw-normal">Himbauan mengikuti vaksin covid 19
                                 untuk melakukan kegiatan PTM...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
@@ -300,7 +300,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Orasi kandidat calon ketua osis diadakan
+                            <p class="mb-1 size-15 fw-normal">Orasi kandidat calon ketua osis diadakan
                                 di sekolah SMK Negeri 4 Malang...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
@@ -318,7 +318,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Jadwal PTM dan PAS Gasal 4 - 11 jatuh
+                            <p class="mb-1 size-15 fw-normal">Jadwal PTM dan PAS Gasal 4 - 11 jatuh
                                 pada bulan januari sehinggaa di...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
@@ -354,7 +354,7 @@
                         </div>
                         <div class="wrapper-text shadow-sm">
                             <div class="row px-3 py-3">
-                                <p class="mb-1 title-1-home-text text-dark">Tari Saman</p>
+                                <p class="mb-1 fw-medium size-15 text-dark">Tari Saman</p>
                                 <p class="mb-0 title-4-home-text">Tari Saman Adalah tarian Suku Gayo yang
                                     didirikan dan di kembangkan oleh ulama asal Aceh Tenggara, Tari Saman
                                     ditampilkan...</p>
@@ -374,7 +374,7 @@
                         </div>
                         <div class="wrapper-text shadow-sm">
                             <div class="row px-3 py-3">
-                                <p class="mb-1 title-1-home-text text-dark">Tari Saman</p>
+                                <p class="mb-1 fw-medium size-15 text-dark">Tari Saman</p>
                                 <p class="mb-0 title-4-home-text">Tari Saman Adalah tarian Suku Gayo yang
                                     didirikan dan di kembangkan oleh ulama asal Aceh Tenggara, Tari Saman
                                     ditampilkan...</p>
@@ -394,7 +394,7 @@
                         </div>
                         <div class="wrapper-text shadow-sm">
                             <div class="row px-3 py-3">
-                                <p class="mb-1 title-1-home-text text-dark">Tari Saman</p>
+                                <p class="mb-1 fw-medium size-15 text-dark">Tari Saman</p>
                                 <p class="mb-0 title-4-home-text">Tari Saman Adalah tarian Suku Gayo yang
                                     didirikan dan di kembangkan oleh ulama asal Aceh Tenggara, Tari Saman
                                     ditampilkan...</p>

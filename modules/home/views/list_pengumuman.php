@@ -23,13 +23,6 @@
 
 <!-- main page content -->
 <div class="main-container container">
-    <!-- Pengumuman -->
-    <div class="row mb-3 px-1">
-        <div class="col"></div>
-        <div class="col-auto align-self-center">
-            <h6 class="title">10 dari 12 Pengumuman</h6>
-        </div>
-    </div>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4">
             <a href="<?= base_url('home/detail_pengumuman');?>" class="card mb-3">
@@ -41,7 +34,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Himbauan mengikuti vaksin covid 19
+                            <p class="mb-1 size-15 fw-normal">Himbauan mengikuti vaksin covid 19
                                 untuk melakukan kegiatan PTM...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
@@ -59,7 +52,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Orasi kandidat calon ketua osis diadakan
+                            <p class="mb-1 size-15 fw-normal">Orasi kandidat calon ketua osis diadakan
                                 di sekolah SMK Negeri 4 Malang...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
@@ -77,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Jadwal PTM dan PAS Gasal 4 - 11 jatuh
+                            <p class="mb-1 size-15 fw-normal">Jadwal PTM dan PAS Gasal 4 - 11 jatuh
                                 pada bulan januari sehinggaa di...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
@@ -95,7 +88,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
+                            <p class="mb-1 size-15 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
                     </div>
@@ -112,7 +105,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
+                            <p class="mb-1 size-15 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
                     </div>
@@ -129,7 +122,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
+                            <p class="mb-1 size-15 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
                     </div>
@@ -146,7 +139,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
+                            <p class="mb-1 size-15 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
                     </div>
@@ -163,7 +156,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-13 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
+                            <p class="mb-1 size-15 fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alia...</p>
                             <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
                         </div>
                     </div>

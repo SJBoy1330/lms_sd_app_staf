@@ -28,113 +28,34 @@
                         <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3">
                             <div class="row mb-2">
                                 <div class="col">
-                                    <p class="fw-bolder size-15">Surat Keterangan Sakit</p>
+                                    <p class="fw-bolder size-15 mb-0">Surat Keterangan Sakit</p>
+                                    <p class="mb-0 fw-normal size-13 text-secondary">6 hari yang lalu</p>
                                 </div>
                             </div>
                             <div class="row py-1 px-2 mt-2 mb-2">
                                 <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                            <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
+                                    <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
+                                        <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
+                                            <i class="fa-solid fa-graduation-cap size-15 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Nama Siswa/Siswi</p>
-                                    <p class="mb-0 fw-bold size-15">Siswa 9</p>
+                                    <p class="mb-0 fw-normal size-15">Siswa 9</p>
                                 </div>
                             </div>
                             <div class="row py-1 px-2">
                                 <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                            <i class="fa-solid fa-building-user size-17 text-white"></i>
+                                    <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
+                                        <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 34px;">
+                                            <i class="fa-solid fa-building-user size-14 text-white"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                     <p class="mb-0 fw-normal size-13 text-secondary">Kelas</p>
-                                    <p class="mb-0 fw-bold size-15">XI IPA 1</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="row mb-2">
-                    <a data-bs-toggle="modal" href="#modalDetailSuratIjin">
-                        <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3">
-                            <div class="row mb-2">
-                                <div class="col">
-                                    <p class="fw-bolder size-15">Surat Keterangan Sakit</p>
-                                </div>
-                            </div>
-                            <div class="row py-1 px-2 mt-2 mb-2">
-                                <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                            <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                    <p class="mb-0 fw-normal size-13 text-secondary">Nama Siswa/Siswi</p>
-                                    <p class="mb-0 fw-bold size-15">Siswa 10</p>
-                                </div>
-                            </div>
-                            <div class="row py-1 px-2">
-                                <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                            <i class="fa-solid fa-building-user size-17 text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                    <p class="mb-0 fw-normal size-13 text-secondary">Kelas</p>
-                                    <p class="mb-0 fw-bold size-15">XI IPA 1</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="row mb-2">
-                    <a data-bs-toggle="modal" href="#modalDetailSuratIjin">
-                        <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3">
-                            <div class="row mb-2">
-                                <div class="col">
-                                    <p class="fw-bolder size-15">Surat Keterangan Sakit</p>
-                                </div>
-                            </div>
-                            <div class="row py-1 px-2 mt-2 mb-2">
-                                <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                            <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                    <p class="mb-0 fw-normal size-13 text-secondary">Nama Siswa/Siswi</p>
-                                    <p class="mb-0 fw-bold size-15">Siswa 11</p>
-                                </div>
-                            </div>
-                            <div class="row py-1 px-2">
-                                <div class="d-flex col-auto align-items-center ps-0 pe-2">
-                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                            <i class="fa-solid fa-building-user size-17 text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col align-self-center p-0 d-flex align-items-start flex-column">
-                                    <p class="mb-0 fw-normal size-13 text-secondary">Kelas</p>
-                                    <p class="mb-0 fw-bold size-15">XI IPA 1</p>
+                                    <p class="mb-0 fw-normal size-15">XI IPA 1</p>
                                 </div>
                             </div>
                         </div>
