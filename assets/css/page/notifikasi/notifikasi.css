@@ -1,0 +1,31 @@
+.row.notifikasi{
+    margin-top: 0.6rem;
+}
+
+i.notifikasi{
+    margin-bottom: 0.35rem;
+}
+
+button.btn.btn-notifikasi-fill{
+    background-color: transparent;
+    border-color: transparent;
+    color: #303030;
+    font-weight: 600;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button.btn.btn-notifikasi-outline{
+    background-color: transparent;
+    border-color: transparent;
+    color: #303030;
+    font-weight: 600;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
