@@ -10,7 +10,7 @@
             <h6 class="text-dark">Drs. Sri Handayani S.Pd</h6>
         </div>
         <div class="col-auto">
-            <a href="#" target="_self" class="btn btn-44 rounded-circle btn-notifikasi" style="background-image: url(<?= base_url(); ?>assets/img/user2.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;"></a>
+            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" class="btn btn-44 rounded-circle btn-notifikasi" style="background-image: url(<?= base_url(); ?>assets/img/user2.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;"></a>
         </div>
     </div>
 </header>
@@ -303,6 +303,100 @@
             </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Detail Profile -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel"></h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="image-profile position-relative text-center">
+                <figure class="avatar avatar-125 rounded-35 shadow-sm position-relative avatar-profile">
+                    <img src="<?= base_url();?>assets/img/user1.jpg" alt="" class="rounded-20" id="photouser">
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 px-0">
+            <div class="box-fiture">
+                <div class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                    <div class="row p-2">
+                        <div class="d-flex col-auto align-items-center ">
+                            <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
+                                <i class="fa-solid fa-user size-18"></i>
+                            </div>
+                        </div>
+                        <div class="col align-self-center p-0">
+                            <p class="mb-0 fw-bold size-14">Nama Lengkap</p>
+                            <p class="text-secondary size-12">Drs. Hendrawati Kusumaningsih Sagaru Saputri</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                    <div class="row p-2">
+                        <div class="d-flex col-auto align-items-center ">
+                            <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
+                                <i class="fa-solid fa-location-dot size-20"></i>
+                            </div>
+                        </div>
+                        <div class="col align-self-center p-0">
+                            <p class="mb-0 fw-bold size-14">Alamat Lengkap</p>
+                            <p class="text-secondary size-12">Sidoarjo</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                    <div class="row p-2">
+                        <div class="d-flex col-auto align-items-center ">
+                            <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
+                                <i class="fa-solid fa-venus-mars size-20"></i>
+                            </div>
+                        </div>
+                        <div class="col align-self-center p-0">
+                            <p class="mb-0 fw-bold size-14">Jenis Kelamin</p>
+                            <p class="text-secondary size-12">Perempuan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                    <div class="row p-2">
+                        <div class="d-flex col-auto align-items-center ">
+                            <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
+                                <i class="fa-solid fa-envelope size-20"></i>
+                            </div>
+                        </div>
+                        <div class="col align-self-center p-0">
+                            <p class="mb-0 fw-bold size-14">Email</p>
+                            <p class="text-secondary size-12">sakadana2003@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
+                    <div class="row p-2">
+                        <div class="d-flex col-auto align-items-center ">
+                            <div class="bg-ec3528 rounded-10 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
+                                <i class="fa-solid fa-phone size-20"></i>
+                            </div>
+                        </div>
+                        <div class="col align-self-center p-0">
+                            <p class="mb-0 fw-bold size-14">Nomot Telepon</p>
+                            <p class="text-secondary size-12">081234567819</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 </div>
