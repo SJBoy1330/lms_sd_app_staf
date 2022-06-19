@@ -35,6 +35,41 @@
     <!-- Font Awesome-->
     <script src="https://kit.fontawesome.com/b2ed95a515.js" crossorigin="anonymous"></script>
 
+    <style>
+        @media only screen and (max-width: 320px) {
+            .avatar.avatar-60.avatar-quicklinks {
+                line-height: 60px;
+                height: 50px;
+                width: 50px;
+                border-radius: -5px !important;
+            }
+
+            i.fa-solid.fa-book-open-cover{
+                font-size: 24px;
+            }
+
+            i.fa-solid.fa-list-check{
+                font-size: 24px;
+            }
+
+            i.fa-solid.fa-messages{
+                font-size: 24px;
+            }
+
+            i.fa-solid.fa-envelope-open-text{
+                font-size: 24px;
+            }
+
+            i.fa-solid.fa-screen-users{
+                font-size: 24px;
+            }
+
+            i.fa-solid.fa-book-user{
+                font-size: 24px;
+            }
+        }
+    </style>
+
 </head>
 
 <body class="body-scroll" data-page="index">
