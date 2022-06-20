@@ -216,24 +216,26 @@
 
                 </div>
             </div>
+            <!-- Action Notfikasi -->
+                <div class="footer-notifikasi d-none">
+                    <div class="container px-0">
+                        <div class="row notifikasi px-0">
+                            <div class="col-6 d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn btn-danger rounded-pill btn-notifikasi-fill"><i class="fa-regular fa-check notifikasi"></i><span class="span-notifikasi">Tandai dibaca</span></button>
+                            </div>
+                            <div class="col-6 d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn btn-danger rounded-pill btn-notifikasi-outline"><i class="fa-regular fa-trash notifikasi"></i><span class="span-notifikasi">Hapus Notifikasi</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Action Notifikasi -->
         </div>
     </div>
     <!-- main page content ends -->
     
 </main>
 
-<footer class="footer">
-    <div id="footer" class="container">
-        <div class="row notifikasi">
-            <div class="col-6 d-flex justify-content-center align-items-center">
-                <button type="button" class="btn btn-danger rounded-pill btn-notifikasi-fill"><i class="fa-regular fa-check notifikasi"></i><span class="span-notifikasi">Tandai dibaca</span></button>
-            </div>
-            <div class="col-6 d-flex justify-content-center align-items-center">
-                <button type="button" class="btn btn-danger rounded-pill btn-notifikasi-outline"><i class="fa-regular fa-trash notifikasi"></i><span class="span-notifikasi">Hapus Notifikasi</span></button>
-            </div>
-        </div>
-    </div>
-</footer>
 
 <!-- Modal Detail Notifikasi -->
 
