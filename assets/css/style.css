@@ -12092,6 +12092,16 @@ fieldset:disabled .btn {
   transition: ease all 0.5s;
 }
 
+main{
+  padding-top: 75px;
+  animation: fadein 0.3s;
+}
+
+@keyframes fadein{
+  from  { opacity: 0; }
+  to    { opacity: 1; }
+}
+
 .transition-1,
 .sidebar-wrap.sidebar-overlay::after {
   -webkit-transition: ease all 1s;
@@ -12481,13 +12491,13 @@ body {
   overflow-y: auto;
 }
 
-/* .theme-radial-gradient, .circle, .sidebar-wrap .sidebar .nav .nav-item .nav-link.active > .icon, .sidebar-wrap .sidebar .nav .nav-item .nav-link:hover > .icon {
+.theme-radial-gradient, .circle, .sidebar-wrap .sidebar .nav .nav-item .nav-link.active > .icon, .sidebar-wrap .sidebar .nav .nav-item .nav-link:hover > .icon {
   background: var(--finwallapp-theme-color-grad-1);
   background: -moz-radial-gradient(30% 30%, ellipse cover, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
   background: -webkit-radial-gradient(30% 30%, ellipse cover, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
   background: radial-gradient(ellipse at 30% 30%, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--finwallapp-theme-color-grad-1)', endColorstr='var(--finwallapp-theme-color-grad-3)',GradientType=1 );
-} */
+}
 
 .theme-light-radial-gradient,
 body,
