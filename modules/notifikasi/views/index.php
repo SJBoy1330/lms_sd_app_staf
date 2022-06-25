@@ -217,7 +217,7 @@
                 </div>
             </div>
             <!-- Action Notfikasi -->
-                <div class="footer-notifikasi d-none">
+                <div class="footer-notifikasi" style="z-index: 100;">
                     <div class="container px-0">
                         <div class="row notifikasi px-0">
                             <div class="col-6 d-flex justify-content-center align-items-center">

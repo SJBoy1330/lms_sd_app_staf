@@ -122,7 +122,7 @@
             <div class="col text-center">
             </div>
             <div class="col-auto">
-                <a href="notifikasi-SD.html" target="_self" class="btn btn-44 rounded-circle btn-notifikasi">
+                <a href="<?= base_url('notifikasi'); ?>" target="_self" class="btn btn-44 rounded-circle btn-notifikasi">
                     <img src="<?= base_url(); ?>assets/icons/notif.png" width="24" alt="">
                     <span class="count-indicator"></span>
                 </a>
