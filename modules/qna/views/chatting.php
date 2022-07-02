@@ -34,31 +34,22 @@
             <div class="row no-margin right-chat">
                 <div class="col-12">
                     <div class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col">
-                                <div class="mw-100 position-relative mb-2 figure">
-                                    <img src="<?= base_url();?>assets/img/news1.jpg" alt="" class="mw-100">
+                        <div class="row flex-column">
+                            <div class="reply-text-pengirim">
+                                <div class="column-reply-pengirim flex-wrap">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="size-12 fw-medium mb-0">Max Smith</p>
+                                    </div>
+                                    <p class="fw-normal size-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias animi saepe perspiciatis..</p>
                                 </div>
+                            </div>
+                            <div class="col">
                                 <p class="mb-0 mt-2 ms-1 size-15 fw-normal">Gak membingungkan untuk
                                     dipelajari sehingga murid pertama kali belajar jadi mudah untuk memahamix</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <div class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col">
-                                <video src="https://maxartkiller.com/website/maxartkiller.mp4"
-                                        controls=""></video>
-                                <p class="mb-0 mt-2 ms-1 size-15 fw-normal">Gak membingungkan untuk
-                                    dipelajari sehingga murid pertama kali belajar jadi mudah untuk memahamix</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
             </div>
             <div class="row no-margin right-chat">
                 <div class="col-12">
@@ -144,23 +135,25 @@
                         </div>
                     </a>
                 </div>
-            </div>
-            <div class="col-12 text-end">
-            <p class="text-dark ms-1 mt-1 fw-medium small"><i class="fa-solid fa-check-double text-success"></i>  08:30 </p>
-            </div>
+            </div>  
+
             <div class="row no-margin left-chat my-3">
-                <div class="col-2 align-self-center">
-                    <a href="#" target="_self" class="btn btn-44 rounded-circle btn-notifikasi" style="background-image: url(<?= base_url(); ?>assets/img/user2.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;"></a>
-                </div>
-                <div class="col-10">
+                <div class="col-12">
                     <div class="chat-block penerima">
-                        <div class="row">
+                        <div class="row flex-column">
+                            <div class="reply-text-penerima">
+                                <div class="column-reply-penerima flex-wrap">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="size-12 fw-medium mb-0">Max Smith</p>
+                                    </div>
+                                    <p class="fw-normal size-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias animi saepe perspiciatis..</p>
+                                </div>
+                            </div>
                             <div class="col">
-                                <p class="mb-0 ms-1 size-15 fw-normal"> Sama sama, semangat ya semoga dapat nilai bagus</p>
+                                <p class="mb-0 mt-2 size-15 fw-normal"> Sama sama, semangat ya semoga dapat nilai bagus</p>
                             </div>
                         </div>
                     </div>
-                    <p class="text-dark ms-1 mt-1 fw-medium small"><i class="fa-solid fa-check-double text-success"></i>  08:30 </p>
                 </div>
             </div>  
         </div>
@@ -170,8 +163,19 @@
         <div class="row gx-3">
             <div class="col">
                 <div class="form-group mb-2">
-                    <div class="wrapper-password d-flex">
-                        <input type="text" class="form-control form-control-pribadi chatting" name="text" id="password" placeholder="Tulis Pesan" autocomplete="off">
+                    <div class="wrapper-password d-flex flex-wrap">
+                        <div class="reply-text">
+                            <div class="column-reply flex-wrap">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="size-15 fw-medium mb-0">Max Smith</p>
+                                    <button class="btn btn-sm btn-block"><i class="fa-regular fa-xmark" style="color: #8e8e8e;"></i></button>
+                                </div>
+                                <p class="fw-normal size-12 mb-2">Lorem</p>
+                            </div>
+                        </div>
+                        <div class="form-floating">
+                            <textarea type="text" class="form-control form-control-pribadi input-field chatting border-0" placeholder="Tulis Pesan" autocomplete="off"></textarea>
+                        </div>
                         <a href="#" class="input-group-append tambah-file" data-bs-toggle="modal" data-bs-target="#menuModalChatting" id="centermenubtn">
                             <span class="input-group-text">
                                 <i class="fa-solid fa-plus size-20 text-white"></i>
@@ -220,7 +224,7 @@
                     </div>
 
                     <div class="col-auto text-center">
-                        <a href="#" class="avatar avatar-60 p-1 shadow-sm shadow-info rounded-20 bg-image-modal mb-2" data-bs-toggle="modal" data-bs-target="#imageModal" aria-hidden="true" >
+                        <a href="#" class="avatar avatar-60 p-1 shadow-sm shadow-info rounded-20 bg-image-modal mb-2" data-bs-toggle="modal" data-bs-target="#imageModal" aria-hidden="true">
                             <div class="circle-bg-top"></div>
                             <div class="circle-bg-bottom"></div>
                             <div class="icons text-success">
@@ -251,7 +255,6 @@
                                 <div class="row">
                                     <div class="col align-self-center">
                                         <p class="mb-0 size-15 fw-medium">Pelajaran 01</p>
-                                        <p class="mb-0 size-13 fw-normal text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices accumsan adipiscing neque elementum. Tincidunt a in justo a elit.</p> 
                                     </div>
                                 </div>
                             </div>
@@ -262,7 +265,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Modal Image -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">

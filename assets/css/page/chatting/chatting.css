@@ -117,3 +117,71 @@
   #upload-file {
     display:none;
 }
+
+
+.reply-text{
+  background-color: #F5F5F5; 
+  border-radius: 20px 20px 0px 0px; 
+  bottom: 35px; 
+  z-index: -1; 
+  width: 268px; 
+  max-height: 225px;
+  height: auto;
+  min-height: 135px;
+  position: absolute;
+}
+
+.column-reply{
+  max-height: 100px; 
+  height: auto;
+  min-height: 75px;
+  border-radius: 15px; 
+  text-align: left; 
+  margin: 10px 10px 40px 10px; 
+  padding: 10px 10px 10px 10px;
+  background-color: #e4e3e3;
+}
+
+.reply-text-pengirim{
+  background-color: #F5F5F5;
+  bottom: 45px;
+  height: auto;
+  min-width: 150px;
+  width: auto;
+  max-width: 302.4px;
+}
+
+.column-reply-pengirim{
+  max-height: 100px; 
+  height: auto;
+  min-height: 55px;
+  border-radius: 10px;
+  text-align: left; 
+  margin: auto; 
+  padding: 10px;
+  background-color: #e4e3e3;
+  max-width: 100%;
+  width: auto;
+}
+
+.reply-text-penerima{
+  background-color: #EC3528;
+  bottom: 45px;
+  height: auto;
+  min-width: 150px;
+  width: auto;
+  max-width: 302.4px;
+}
+
+.column-reply-penerima{
+  max-height: 100px; 
+  height: auto;
+  min-height: 55px;
+  border-radius: 10px;
+  text-align: left; 
+  margin: auto; 
+  padding: 10px;
+  background-color: #a50000;
+  max-width: 100%;
+  width: auto;
+}
