@@ -156,6 +156,24 @@
                     </div>
                 </div>
             </div>  
+
+            <div class="row no-margin left-chat">
+                <div class="col-12">
+                    <a href="#" class="chat-block penerima">
+                        <div class="row">
+                            <div class="col-auto detail-tugas-sd">
+                                <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
+                                    <i class="fa-solid fa-file-image size-30"></i>
+                                </div>
+                            </div>
+                            <div class="col-auto align-self-center ps-2">
+                                <p class="mb-0 size-13 fw-medium">tugas_bahasa..png</p>
+                                <p class="mb-0 size-12 fw-normal text-muted">Bab 1</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div> 
         </div>
     </div>
 

@@ -28,19 +28,19 @@
                 <form class="row g-3 mt-1">
                     <div class="col-12">
                         <label for="nama" class="form-label fw-bold size-14">Nama lengkap</label>
-                        <input type="text" class="form-control bg-f5f5f5 size-11 pyfix-14 border-0 rounded-10 text-start" id="nama" placeholder="Dono kasino indro..." autocomplete="off">
+                        <input type="text" class="form-control form-control-pribadi size-11 pyfix-14 border-0 rounded-10 text-start" placeholder="Dono kasino indro..." autocomplete="off">
                     </div>
                     <div class="col-12">
                         <label for="alamat" class="form-label fw-bold size-14">Alamat</label>
-                        <input type="text" class="form-control bg-f5f5f5 size-11 pyfix-14 border-0 rounded-10 text-start" id="alamat" placeholder="203131341321t" autocomplete="off">
+                        <input type="text" class="form-control form-control-pribadi size-11 pyfix-14 border-0 rounded-10 text-start" placeholder="203131341321t" autocomplete="off">
                     </div>
                     <div class="col-12">
                         <label for="nohp" class="form-label fw-bold size-14">No. Handphone</label>
-                        <input type="text" class="form-control bg-f5f5f5 size-11 pyfix-14 border-0 rounded-10 text-start" id="nohp" placeholder="08123111111">
+                        <input type="text" class="form-control form-control-pribadi size-11 pyfix-14 border-0 rounded-10 text-start" placeholder="08123111111">
                     </div>
                     <div class="col-12 mb-4">
                         <label for="email" class="form-label fw-bold size-14">Email</label>
-                        <input type="text" class="form-control bg-f5f5f5 size-11 pyfix-14 border-0 rounded-10 text-start" id="email" placeholder="tes@mail.com" autocomplete="off">
+                        <input type="text" class="form-control form-control-pribadi size-11 pyfix-14 border-0 rounded-10 text-start" placeholder="tes@mail.com" autocomplete="off">
                     </div>
                 </form>
             </div>

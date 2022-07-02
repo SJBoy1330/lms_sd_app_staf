@@ -256,7 +256,7 @@
         <div class="modal-dialog modal-dialog-centered modal-fullscreen">
             <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
                 <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Tugas</h5>
+                <h5 class="modal-title">Tambah Tugas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -287,7 +287,7 @@
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput3" class="form-label title-3">Batas Waktu</label>
-                        <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" id="demo-input" placeholder="Isikan batas waktu" />
+                        <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" type="text" placeholder="Isikan batas waktu" />
                     </div>
 
                     <div>

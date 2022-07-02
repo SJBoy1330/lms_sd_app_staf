@@ -24,7 +24,7 @@
             <div class="col-12 col-md-10 col-lg-8 mx-auto">
                 <div class="row mb-2 px-1">
                     <div class="col align-self-center">
-                        <p class="size-15 fw-normal">XI IPA 1 - Bahasa Indonesia</p>
+                        <p class="size-15 text-center mb-1 fw-medium">XI IPA 1 - Bahasa Indonesia</p>
                     </div>
                 </div>
                 <div class="row g-0">
@@ -63,8 +63,8 @@
                                             </div>
                                             <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault2">
                                                             Sakit
                                                         </label>
                                                     </div>
@@ -74,16 +74,16 @@
                                         <div class="row ps-5">
                                             <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault3">
                                                             Ijin
                                                         </label>
                                                     </div>
                                             </div>
                                             <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
+                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault4">
                                                             Alpha
                                                         </label>
                                                     </div>
@@ -117,16 +117,16 @@
                                         <div class="row mb-3 ps-5">
                                             <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
+                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault5">
                                                             Hadir
                                                         </label>
                                                     </div>
                                             </div>
                                             <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
+                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault6">
                                                             Sakit
                                                         </label>
                                                     </div>
@@ -136,16 +136,16 @@
                                         <div class="row ps-5">
                                             <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
+                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault7">
                                                             Ijin
                                                         </label>
                                                     </div>
                                             </div>
                                             <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault8">
+                                                        <label class="form-check-label size-15 fw-normal" for="flexRadioDefault8">
                                                             Alpha
                                                         </label>
                                                     </div>

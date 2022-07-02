@@ -37,7 +37,6 @@
 
     <div class="row mt-5 mb-2">
         <div class="col-12 col-md-12 col-lg-12">
-            <span class="size-15 fw-bolder">Trending Topik</span>
             <div class="row mb-2 my-2">
                 <div class="col-12 px-0">
                     <!-- swiper categories -->
@@ -118,10 +117,10 @@
     <div class="modal-dialog modal-fullscreen modal-dialog-centered">
             <div class="modal-content detail-tagihan rounded-0">
                 <div class="modal-header border-0">
-                    <h5 class="modal-title" id="detailTagihanModal">Detail Bantuan</h5>
+                    <h5 class="modal-title">Detail Bantuan</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body" id="display_detail_bantuan">
+                <div class="modal-body">
                     <div class="row mx-2">
                         <p class="fw-medium mt-2 mb-1 size-17">Bagaimana cara guru melakukan Login?</p>
                     </div>

@@ -185,7 +185,7 @@
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="exampleFormControlInput3" class="form-label title-3">Nilai</label>
-                            <input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Isikan nilai siswa" autocomplete="off">
+                            <input type="number" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Isikan nilai siswa" autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer border-0">

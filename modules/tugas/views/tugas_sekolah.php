@@ -101,7 +101,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
                 <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+                <h5 class="modal-title">Filter</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

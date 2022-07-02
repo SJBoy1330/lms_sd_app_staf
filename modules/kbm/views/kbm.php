@@ -150,26 +150,4 @@
         </div>
     </div>
     <!-- main page content ends -->
-
-    
-    <!-- Filter Jurnal Staf -->
-    <div class="modal fade" id="filterCalendar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
-                <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLabel">Filter KBM</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput3" class="form-label title-3">Tanggal</label>
-                        <input type="date" class="form-control form-control-solid form-control-pribadi border-0">
-                    </div>
-                </div>
-                <div class="modal-footer border-0">
-                    <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </main>

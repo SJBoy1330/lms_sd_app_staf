@@ -139,7 +139,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
-            <h5 class="modal-title" id="exampleModalLabel">Tambah Dokumen</h5>
+            <h5 class="modal-title">Tambah Dokumen</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -165,7 +165,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Dokumen</h5>
+            <h5 class="modal-title">Edit Dokumen</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -191,7 +191,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
-            <h5 class="modal-title" id="exampleModalLabel">Tambah Video</h5>
+            <h5 class="modal-title">Tambah Video</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -217,7 +217,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
-            <h5 class="modal-title" id="exampleModalLabel">Tambah Video</h5>
+            <h5 class="modal-title">Tambah Video</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -71,17 +71,15 @@
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header py-3">
-                <h5 class="modal-title" id="exampleModalLabel">Detail Surat Ijin</h5>
+                <h5 class="modal-title">Detail Surat Ijin</h5>
                 <button type="button" class="btn-close me-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
-                        <div id="map-container-google-1" class="z-depth-1-half map-container">
-                            <figure class="overflow-hidden rounded-15 text-center">
-                                <img src="assets/img/news1.jpg" alt="" class="w-100 mx-auto">
-                            </figure>
-                          </div>
+                        <figure class="overflow-hidden rounded-15 text-center">
+                            <img src="assets/img/news1.jpg" alt="" class="w-100 mx-auto">
+                        </figure>
                     </div>
                 </div>
                 <div class="row mt-3">
