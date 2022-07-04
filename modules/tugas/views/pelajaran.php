@@ -3,7 +3,7 @@
     <header class="header position-fixed">
         <div class="row">
             <div class="col-auto">
-                <a href="tugas-SD.html" class="btn btn-44">
+                <a href="<?= base_url('tugas'); ?>" class="btn btn-44">
                     <i class="fa-solid fa-chevron-left text-dark"></i>
                 </a>
             </div>
@@ -22,7 +22,7 @@
         <div class="row mt-3">
             <div class="col-12">
                 <a href="<?= base_url('tugas/tugas_sekolah');?>" class="card mb-3">
-                    <div class="card-body bg-tugas">
+                    <div class="card-body bg-tugas-pelajaran">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
@@ -39,7 +39,7 @@
                 </a>
 
                 <a href="<?= base_url('tugas/tugas_sekolah');?>" class="card mb-3">
-                    <div class="card-body bg-tugas">
+                    <div class="card-body bg-tugas-pelajaran">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
@@ -56,7 +56,7 @@
                 </a>
 
                 <a href="<?= base_url('tugas/tugas_sekolah');?>" class="card mb-3">
-                    <div class="card-body bg-tugas">
+                    <div class="card-body bg-tugas-pelajaran">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
@@ -73,7 +73,7 @@
                 </a>
 
                 <a href="<?= base_url('tugas/tugas_sekolah');?>" class="card mb-3">
-                    <div class="card-body bg-tugas">
+                    <div class="card-body bg-tugas-pelajaran">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
@@ -90,7 +90,7 @@
                 </a>
 
                 <a href="<?= base_url('tugas/tugas_sekolah');?>" class="card mb-3">
-                    <div class="card-body bg-tugas">
+                    <div class="card-body bg-tugas-pelajaran">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
@@ -107,7 +107,7 @@
                 </a>
 
                 <a href="<?= base_url('tugas/tugas_sekolah');?>" class="card mb-3">
-                    <div class="card-body bg-tugas">
+                    <div class="card-body bg-tugas-pelajaran">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
@@ -124,7 +124,7 @@
                 </a>
 
                 <a href="<?= base_url('tugas/tugas_sekolah');?>" class="card mb-3">
-                    <div class="card-body bg-tugas">
+                    <div class="card-body bg-tugas-pelajaran">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
