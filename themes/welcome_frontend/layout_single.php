@@ -1,6 +1,6 @@
 <?php include_once("header.php"); ?>
 <div id="reload-content">
-<script src="https://kit.fontawesome.com/b2ed95a515.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b2ed95a515.js" crossorigin="anonymous"></script>
     <?php
 
     echo alert_show($this->session->flashdata('judul'), $this->session->flashdata('message'), $this->session->flashdata('icon'), $this->session->flashdata('image'));

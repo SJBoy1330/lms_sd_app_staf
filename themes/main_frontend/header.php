@@ -28,6 +28,7 @@
 
     <!--evo calender-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/vendor/evo-calendar/css/evo-calendar.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/loader.css" />
 
     <!-- style css for this template -->
     <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" id="style">
@@ -36,6 +37,23 @@
     <script src="https://kit.fontawesome.com/b2ed95a515.js" crossorigin="anonymous"></script>
 
     <style>
+        h2.swal2-title {
+            font-size: 1.5rem;
+        }
+
+        div#swal2-content {
+            font-size: 1rem;
+        }
+
+        button.swal2-confirm {
+            background-color: #f73563 !important;
+            border-color: #f73563 !important;
+            color: #FFFFFF;
+            width: 100px;
+            /* height: 75px; */
+            border-radius: 10px;
+        }
+
         @media only screen and (max-width: 320px) {
             .avatar.avatar-60.avatar-quicklinks {
                 line-height: 60px;
@@ -44,27 +62,19 @@
                 border-radius: -5px !important;
             }
 
-            i.fa-solid.fa-book-open-cover{
+            i.fa-solid.fa-book-open-cover {
                 font-size: 24px;
             }
 
-            i.fa-solid.fa-list-check{
+            i.fa-solid.fa-book-bookmark {
                 font-size: 24px;
             }
 
-            i.fa-solid.fa-messages{
+            i.fa-solid.fa-list-check {
                 font-size: 24px;
             }
 
-            i.fa-solid.fa-envelope-open-text{
-                font-size: 24px;
-            }
-
-            i.fa-solid.fa-screen-users{
-                font-size: 24px;
-            }
-
-            i.fa-solid.fa-book-user{
+            i.fa-solid.fa-messages {
                 font-size: 24px;
             }
         }

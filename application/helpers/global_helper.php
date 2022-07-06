@@ -369,13 +369,6 @@ function mydate($date, $format)
   return $date_format;
 }
 
-function get_id_sekolah($kode)
-{
-  $ci = &get_instance();
-  $result = $ci->db->get_where('sekolah', ['kode' => $kode])->row();
-  return $result->id_sekolah;
-}
-
 function hash_my_password($id_sekolah, $username, $password)
 {
   $data = hash('sha256', $id_sekolah . $username . $password);
@@ -391,11 +384,356 @@ function is_logged_in()
 
   $ci = get_instance();
 
-  if ($ci->session->userdata('lms_siswa_id_siswa')) {
-    if ($ci->session->userdata('lms_siswa_role') != 'siswa') {
+  if ($ci->session->userdata('lms_staf_id_staf')) {
+    if (!in_array($ci->session->userdata('lms_staf_role'), ['staf', 'keuangan', 'admin', 'operator'])) {
       redirect('auth/login');
     }
   } else {
     redirect('auth/login');
   }
+}
+
+
+function curl_post($url, $fields = array(), $files = NULL, $multiple = false)
+{
+  $ch = curl_init();
+  $CI = &get_instance();
+  $postvars = http_build_query($fields);
+  if ($files != NULL) {
+    // var_dump($files);
+    if ($multiple == true) {
+      $headers = array("Content-Type" => "multipart/form-data");
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+      $i = 0;
+    }
+    foreach ($files as $file => $value) {
+      if ($multiple == FALSE) {
+        $cfile = new CURLFile($value['tmp_name'], $value['type'], $value['name']);
+        $postfile[$file] = $cfile;
+      } else {
+        $postfile[$file] = curl_file_create(
+          $value['tmp_name'][$i],
+          $value['type'][$i],
+          $value['name'][$i]
+        );
+        $i++;
+      }
+    }
+
+    $postvars = (object) array_merge((array) $fields, (array) $postfile);
+    // var_dump($postvars);
+    // die;
+  }
+  curl_setopt($ch, CURLOPT_URL, API_URL($url));
+  curl_setopt($ch, CURLOPT_POST, 1);                //0 for a get request
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $postvars);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+  $response = curl_exec($ch);
+  curl_close($ch);
+  return json_decode($response);
+}
+
+function curl_get($url, $fields = array())
+{
+  $request_url = API_URL($url) . "?" . http_build_query($fields);
+  $ch = curl_init($request_url);
+  curl_setopt($ch, CURLOPT_POST, 0);                //0 for a get request
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 3);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+  $response = curl_exec($ch);
+  curl_close($ch);
+  return json_decode($response);
+}
+
+function API_URL($path = null)
+{
+  $uri = 'https://sd.klasq.id/api/staf/';
+  if ($path != null) {
+    $uri .= $path;
+  }
+  return $uri;
+}
+
+
+function data_url($path = null, $id_sekolah = true)
+{
+  $ci = &get_instance();
+  $uri = 'https://sd.klasq.id/linker/';
+  if ($path != null) {
+    $uri .= $path;
+  }
+  if ($id_sekolah == true) {
+    $uri .= '/' . base64url_encode($ci->session->userdata('lms_wali_id_sekolah'));
+  }
+  return $uri;
+}
+
+
+function vector_default($image, $judul = 'Tidak ada data', $text = 'Tidak terdapat record data. Hubungi admin jika terdapat kesalahan', $id = NULL, $status = 0)
+{
+  if ($id != NULL) {
+    $idfix = 'id="' . $id . '"';
+  } else {
+    $idfix = NULL;
+  }
+
+  if ($status > 0) {
+    $stts = 'hiding';
+  } else {
+    $stts = NULL;
+  }
+  $html  = '<div ' . $idfix . ' class="row mb-4 ' . $stts . '">';
+  $html .= '<div class="col-12 d-flex justify-content-center align-items-center flex-wrap"><div class="image-kosong">';
+  $html .= '  <img src="' . data_url('img_default/' . base64url_encode('vector') . '/' . base64url_encode($image), FALSE) . '" width="275" alt="">';
+  $html .= '</div><h5 class="fw-medium mb-2">' . $judul . '</h5>';
+  $html .= '<p class="fw-normal text-secondary text-center size-14">' . $text . '</p>';
+  $html .= '</div></div>';
+
+  return $html;
+}
+function nice_title($str, $limit = 75)
+{
+  $tmp = array();
+  $tmp2 = array();
+  $tmp3 = array();
+  if ($str != '') {
+    $tmp = explode(' ', $str);
+    foreach ($tmp as $key => $value) {
+      $tmp2[] = $value;
+      if (strlen(implode(' ', $tmp2)) < $limit) {
+        $tmp3[] = $value;
+      } else {
+        break;
+      }
+    }
+    $tmp = implode(' ', $tmp3);
+    if (strlen($tmp) < strlen($str)) {
+      return $tmp . '...';
+    } else {
+      return $tmp;
+    }
+  }
+
+  // $tmp = implode(' ', $e);
+  // return strlen($tmp);
+}
+
+function tampil_text($str, $tampil)
+{
+  $hasil = substr($str, 0, $tampil);
+  if (strlen($str) > $tampil) {
+    return $hasil . '...';
+  } else {
+    return $hasil;
+  }
+}
+function nice_date_time($tanggal = "now")
+{
+  $en = array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Jan", "Feb",  "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+  $id = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu",  "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September",  "Oktober", "November", "Desember");
+  $format = 'D, j M Y H:i';
+
+  $date_formated = date($format, strtotime($tanggal));
+  return str_replace($en, $id, $date_formated);
+}
+function nice_time($date)
+{
+  if (empty($date)) {
+    return false;
+  }
+
+  $periods         = array("detik", "menit", "jam", "hari", "minggu", "bulan", "tahun", "dekade");
+  $lengths         = array("60", "60", "24", "7", "4.35", "12", "10");
+
+  $now             = time();
+  $unix_date       = strtotime($date);
+
+  // check validity of date
+  if (empty($unix_date)) {
+    return false;
+  }
+  // is it future date or past date
+  if ($now > $unix_date) {
+    $difference     = $now - $unix_date;
+    $tense         = "yang lalu";
+  } else {
+    $difference     = $unix_date - $now;
+    $tense         = "dari sekarang";
+  }
+
+  for ($j = 0; $difference >= $lengths[$j] && $j < count($lengths) - 1; $j++) {
+    $difference /= $lengths[$j];
+  }
+
+  $difference = round($difference);
+
+  if ($difference != 1) {
+    //$periods[$j].= "s";
+  }
+
+  return "$difference $periods[$j] {$tense}";
+}
+function nice_date($format, $tanggal = "now")
+{
+  $en = array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Jan", "Feb",  "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+  $id = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu",  "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September",  "Oktober", "November", "Desember");
+
+  return str_replace($en, $id, date($format, strtotime($tanggal)));
+}
+function month_from_number($nomor = NULL)
+{
+  switch ($nomor) {
+    case 1:
+      return "Januari";
+    case 2:
+      return "Februari";
+    case 3:
+      return "Maret";
+    case 4:
+      return "April";
+    case 5:
+      return "Mei";
+    case 6:
+      return "Juni";
+    case 7:
+      return "Juli";
+    case 8:
+      return "Agustus";
+    case 9:
+      return "September";
+    case 10:
+      return "Oktober";
+    case 11:
+      return "November";
+    case 12:
+      return "Desember";
+    default:
+      return array(1 => "Januari", 2 => "Februari", 3 => "Maret", 4 => "April", 5 => "Mei", 6 => "Juni", 7 => "Juli", 8 => "Agustus", 9 => "September", 10 => "Oktober", 11 => "November", 12 => "Desember");
+  }
+}
+
+function day_from_number($nomor = NULL)
+{
+  switch ($nomor) {
+    case 1:
+      return "Senin";
+    case 2:
+      return "Selasa";
+    case 3:
+      return "Rabu";
+    case 4:
+      return "Kamis";
+    case 5:
+      return "Jumat";
+    case 6:
+      return "Sabtu";
+    case 7:
+      return "Minggu";
+    default:
+      return array(1 => "Senin", 2 => "Selasa", 3 => "Rabu", 4 => "Kamis", 5 => "Jumat", 6 => "Sabtu", 7 => "Minggu");
+  }
+}
+
+
+function get_tipe_notif($num = NULL)
+{
+  switch ($num) {
+    case 1:
+      return "Presensi";
+    case 2:
+      return "Spp";
+    case 3:
+      return "Tugas";
+    case 4:
+      return "Kbm";
+    case 5:
+      return "Pengumuman";
+    case 6:
+      return "Berita";
+    case 7:
+      return "Jadwal Ujian";
+    case 8:
+      return "Pesan Balasan";
+    case 9:
+      return "Broadcast";
+    case 10:
+      return "Surat Ijin";
+    default:
+      return array(1 => "Presensi", 2 => "Spp", 3 => "Tugas", 4 => "Kbm", 5 => "Pengumuman", 6 => "Berita", 7 => "Jadwal Ujian", 8 => "Pesan Balasan", 9 => "Broadcast", 10 => 'Surat Ijin');
+  }
+}
+
+
+function convert_link($link)
+{
+  if (strpos('a' . $link, "|*|")) {
+    $link_fix_sub = str_replace('|*|', base_url(), $link);
+  } else {
+    $link_fix_sub = $link;
+  }
+
+  return $link_fix_sub;
+}
+
+
+function size($file)
+{
+  $a = array("B", "KB", "MB", "GB", "TB", "PB");
+  $pos = 0;
+  $size = filesize($file);
+  while ($size >= 1024) {
+    $size /= 1024;
+    $pos++;
+  }
+  return round($size, 2) . " " . $a[$pos];
+}
+
+
+function get_icon_file($ext = NULL)
+{
+  $arr['docx'] = '<i class="fa-solid fa-file-word size-30 text-primary"></i>';
+  $arr['doc'] = '<i class="fa-solid fa-file-word size-30 text-primary"></i>';
+  $arr['words'] = '<i class="fa-solid fa-file-word size-30 text-primary"></i>';
+  $arr['xls'] = '<i class="fa-solid fa-file-excel size-30 text-success"></i>';
+  $arr['xlsx'] = '<i class="fa-solid fa-file-excel size-30 text-success"></i>';
+  $arr['pdf'] = '<i class="fa-solid fa-file-pdf size-30 text-danger"></i>';
+  $arr['jpg'] = '<i class="fa-solid fa-file-image size-30 text-warning"></i>';
+  $arr['png'] = '<i class="fa-solid fa-file-image size-30 text-info"></i>';
+  $arr['jpeg'] = '<i class="fa-solid fa-file-image size-30" stye="color : #ffa340;"></i>';
+  $arr['zip'] = '<i class="fa-solid fa-file-zipper size-30" style="color : #ac53c9;"></i>';
+  $arr['rar'] = '<i class="fa-solid fa-file-zipper size-30" style="color : #e643bf;"></i>';
+  $arr['mp4'] = '<i class="fa-solid fa-file-video size-30" style="color : #4f6bf7;"></i>';
+  $arr['mp3'] = '<i class="fa-solid fa-file-music size-30" style="color : #4b9dad;"></i>';
+  $arr['corrupt'] = '<i class="fa-solid fa-file-xmark size-30" style="color : #4b5152;"></i>';
+
+
+  if ($ext == NULL) {
+    return '<i class="fa-solid fa-floppy-disk size-30 text-secondary"></i>';
+  } else {
+    if (!isset($arr[$ext])) {
+      return '<i class="fa-solid fa-floppy-disk size-30 text-secondary"></i>';
+    } else {
+      return $arr[$ext];
+    }
+  }
+}
+
+function inisial($nama = NULL)
+{
+  if ($nama == NULL) {
+    $singkatan = 'U';
+  } else {
+    $arr = explode(' ', $nama);
+    $singkatan = '';
+    foreach ($arr as $kata) {
+      $singkatan .= substr($kata, 0, 1);
+    }
+
+    $singkatan = strtoupper($singkatan);
+  }
+
+  return $singkatan;
 }

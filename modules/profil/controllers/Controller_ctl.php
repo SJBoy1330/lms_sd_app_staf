@@ -127,6 +127,19 @@ class Controller_ctl extends MY_Frontend
 		// LOAD JS
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/profil/bantuan.js"></script>';
 
+
+		// LOAD API 
+		$result = curl_get(
+			'attribut/bantuan/',
+			NULL
+		);
+		$mydata['result'] = $result->data;
+		// LOAD CONFIG HALAMAN
+		$this->data['button_back'] = base_url('profil');
+		$this->data['config_hidden']['notifikasi'] = TRUE;
+		$this->data['judul_halaman'] = 'Bantuan';
+		$this->data['config_hidden']['footer'] = TRUE;
+
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('bantuan', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

@@ -38,9 +38,26 @@
     <!-- Font Awesome-->
     <script src="https://kit.fontawesome.com/b2ed95a515.js" crossorigin="anonymous"></script>
 
-    <!--evo calender-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url();?>assets/plugins/evo-calendar/css/evo-calendar.min.css"/>
-    
+    <style>
+        h2.swal2-title {
+            font-size: 1.5rem;
+        }
+
+        div#swal2-content {
+            font-size: 1rem;
+        }
+
+        button.swal2-confirm {
+            background-color: #EC3528 !important;
+            border-color: transparent !important;
+            width: 100px;
+            height: 38px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            color: #FFFFFF !important;
+        }
+    </style>
+
 </head>
 
 <body class="body-scroll d-flex flex-column h-100" data-page="signin" style="background-image: url(<?= base_url(); ?>assets/images/bg-2.png); background-repeat: no-repeat; background-size: cover; background-position: center;">

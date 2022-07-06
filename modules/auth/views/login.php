@@ -22,26 +22,26 @@
         </div>
 
         <div class="col-11 col-sm-11 col-md-6 col-lg-5 col-xl-3 mx-auto align-self-center py-4">
-            <form id="form_login" method="POST" url="<?= base_url('func_auth/login_proses'); ?>">
+            <form id="form_login" method="POST" action="<?= base_url('func_auth/login_proses'); ?>">
                 <div class="text-center my-5">
                     <p class="mb-1 title-1">Log in App Staf</p>
-                    <p class="mb-0 fw-600 size-18 title-2">Masuk dengan Kode sekolah, User ID dan Kata sandi</p>
+                    <p class="mb-0 fw-600 size-18 title-2">Masuk dengan Kode sekolah, ID pengguna dan Kata sandi</p>
                 </div>
 
                 <div class="mb-4" id="req_kode_sekolah">
                     <label for="kode_sekolah" class="form-label title-3">Kode Sekolah</label>
-                    <input type="text" class="form-control form-control-pribadi text-start" id="kode_sekolah" name="kode_sekolah" placeholder="Masukkan kode sekolah" autocomplete="off">
+                    <input type="text" class="form-control form-control-pribadi" id="kode_sekolah" name="kode_sekolah" placeholder="Masukkan kode sekolah" autocomplete="off">
                 </div>
 
                 <div class="mb-4" id="req_username">
-                    <label for="username" class="form-label title-3">User ID</label>
-                    <input type="text" class="form-control form-control-pribadi text-start" id="username" name="username" placeholder="Masukkan user ID" autocomplete="off">
+                    <label for="username" class="form-label title-3">ID Pengguna</label>
+                    <input type="text" class="form-control form-control-pribadi" id="username" name="username" placeholder="Masukkan ID pengguna" autocomplete="off">
                 </div>
 
                 <div class="form-group mb-4" id="req_kata_sandi">
                     <label for="kata_sandi" class="form-label title-3">Kata Sandi</label>
                     <div class="wrapper-password d-flex">
-                        <input type="password" class="form-control form-control-pribadi text-start" name="kata_sandi" id="kata_sandi" placeholder="Masukkan kata sandi" autocomplete="off">
+                        <input type="password" class="form-control form-control-pribadi" name="kata_sandi" id="kata_sandi" placeholder="Masukkan kata sandi" autocomplete="off">
 
                         <div class="input-group-append show-hide">
 
@@ -63,7 +63,11 @@
                         Ingat saya
                     </label>
 
-                    <a href="<?= base_url('auth/send_email'); ?>" onclick="unreload(this)" class="label-merah">
+                    <!-- <a href="<?= base_url('auth/send_email'); ?>" onclick="unreload(this)" class="label-merah">
+                        Lupa kata sandi?
+                    </a> -->
+
+                    <a href="#" onclick="unreload(this)" class="label-merah">
                         Lupa kata sandi?
                     </a>
                 </div>
