@@ -164,10 +164,10 @@
                         </a>
 
                         <div class="row mt-4 mx-1">
-                            <button class="btn btn-block btn-md btn-danger btn-detail-tugas">Tolak</button>
+                            <button class="btn btn-block btn-md btn-danger btn-detail-tolak">Tolak Tugas</button>
                         </div>
                         <div class="row mt-2 mx-1">
-                            <button class="btn btn-block btn-md btn-success btn-detail-terima" data-bs-toggle="modal" href="#modalInputNilai">Terima</button>
+                            <button class="btn btn-block btn-md btn-success btn-detail-terima" data-bs-toggle="modal" href="#modalInputNilai">Terima Tugas</button>
                         </div>
                     </div>
                 </div>

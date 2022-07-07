@@ -64,6 +64,23 @@ class Controller_ctl extends MY_Frontend
 		$mydata['title'] = 'Chatting';
 
 		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/chatting/chatting.css') . '">';
+
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/chatting/chatting_2.js"></script>';
+
+		// LOAD VIEW
+		$this->data['content'] = $this->load->view('chatting', $mydata, TRUE);
+		$this->display($this->input->get('routing'));
+	}
+
+	public function chatting_grup()
+	{
+		// LOAD TITLE
+		$mydata['title'] = 'Chatting Grup';
+
+		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/chatting/chatting.css') . '">';
 
 		// LOAD JS

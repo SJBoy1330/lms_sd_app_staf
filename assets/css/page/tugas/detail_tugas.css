@@ -39,3 +39,21 @@
 .bg-document{
     background-color: #E5E5E5;
 }
+
+.btn.btn-detail-terima {
+    background-color: #17d357;
+    border-color: #17d357 !important;
+    border-radius: 8px;
+    color: #FFFFFF;
+    height: 45px;
+    padding-top: 10px;
+}
+
+button.btn-detail-tolak {
+    background-color: #FEE7E5 !important;
+    border-color: #EC3528;
+    border-radius: 8px !important;
+    color: #EC3528 !important;
+    height: 45px !important;
+    padding-top: 10px !important;
+}

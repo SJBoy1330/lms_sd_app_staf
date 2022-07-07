@@ -6178,15 +6178,17 @@ fieldset:disabled .btn {
     z-index: 1040;
     width: 100vw;
     height: 100vh;
-    background-color: #000;
+    background-color: #303030 !important;
 }
 
 .modal-backdrop.fade {
     opacity: 0;
+    background-color: #303030 !important;
 }
 
 .modal-backdrop.show {
     opacity: 0.5;
+    background-color: #303030 !important;
 }
 
 .modal-header {
@@ -16620,14 +16622,6 @@ label.btn-detail-tugas-tambah:hover {
     border-radius: 8px;
     color: #FFFFFF;
     height: 43px;
-    padding-top: 10px;
-}
-
-button.btn-detail-tugas {
-    background-color: #EC3528;
-    border-radius: 8px;
-    color: #FFFFFF;
-    height: 45px;
     padding-top: 10px;
 }
 

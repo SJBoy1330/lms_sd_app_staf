@@ -150,7 +150,7 @@
                             <a href="<?= base_url('qna/kontak_grup'); ?>" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed">
                                 <i class="fa-solid fa-messages size-26 text-white mt-1"></i>
                             </a>
-                            <a href="#" class="card mb-3">
+                            <a href="<?= base_url('qna/chatting_grup')?>" class="card mb-3">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-auto">

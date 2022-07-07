@@ -57,3 +57,13 @@
     height: 50px;
     background-color: #F5F5F5;
 }
+
+button.btn-tambah-tugas {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid#EC3528;
+    border-radius: 8px;
+    color: #EC3528;
+    height: 45px;
+    padding-top: 10px;
+}

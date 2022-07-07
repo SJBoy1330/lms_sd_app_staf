@@ -138,7 +138,7 @@
                         <textarea class="form-control form-control-solid form-control-pribadi border-0 rounded-start-small size-11" id="lainnya"></textarea>
                     </div>
                     <div class="col-12 mt-3">
-                        <button class="btn btn-block btn-md btn-outline-danger btn-filter">Tambah Tugas</button>
+                        <button class="btn btn-block btn-md btn-outline-danger btn-tambah-tugas"><i class="fa fa-regular fa-plus me-1"></i> Tambah Tugas</button>
                     </div>
                 </div>
                 <div class="modal-footer border-0">
