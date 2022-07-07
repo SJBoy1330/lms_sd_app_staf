@@ -6,6 +6,8 @@ class Controller_ctl extends MY_Frontend
 	{
 		// Load the constructer from MY_Controller
 		parent::__construct();
+		$this->id_sekolah = $this->session->userdata('lms_staf_id_sekolah');
+		$this->id_staf = $this->session->userdata('lms_staf_id_staf');
 		is_logged_in();
 	}
 
@@ -14,6 +16,17 @@ class Controller_ctl extends MY_Frontend
 	{
 		// LOAD TITLE
 		$mydata['title'] = 'Jadwal';
+		// LOAD DATA
+		if ($this->input->get('hari')) {
+			$day = $this->input->get('hari');
+		} else {
+			$day = date('N');
+		}
+		$mydata['result'] = curl_get('jadwal/lengkap', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf])->data;
+
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/jadwal.js"></script>';
+
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('jadwal', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

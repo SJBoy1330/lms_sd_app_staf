@@ -7,13 +7,10 @@
             <div class="sidebar">
                 <!-- user information -->
                 <div class="row my-3">
-                    <div class="col-12 profile-sidebar">
-                        <div class="row mt-3">
-                            <div class="col-auto">
-                                <!-- <figure class="avatar avatar-80 rounded-20 p-1 bg-white shadow-sm" id="reload_side_foto">
-                                    <img src=" <?= $profil->foto; ?>" alt="" class="rounded-18" id="side_foto_profil" style="height: 100%;">
-                                </figure> -->
-                                <figure class="avatar avatar-80 rounded-20 p-1 bg-white shadow-sm figure-sidemenu" style="background-image: url('<?= base_url('assets/img/user1.jpg'); ?>')"></figure>
+                    <div class="col-12 profile-sidebar" id="reload_side_foto">
+                        <div class="row mt-3" id="side_foto_profil">
+                            <div class=" col-auto">
+                                <figure class="avatar avatar-80 rounded-20 p-1 bg-white shadow-sm figure-sidemenu" style="background-image: url(' <?= $profil->foto; ?>')"></figure>
                             </div>
                             <div class=" col px-0 align-self-center">
                                 <h5 class="mb-0 fw-normal text-white"><?= $profil->nama; ?></h5>

@@ -623,11 +623,11 @@
         // Event list
         $.ajax({
             url: BASE_URL + 'profil/get_report_absen',
-            data: { date: _.$active.date, id_kelas: $('#id_kelas').val(), id_siswa: $('#id_siswa').val() },
+            data: { date: _.$active.date },
             cache: false,
             method: 'post',
             success: function (msg) {
-                $("#display_detail").html(msg);
+                $("#display_laporan").html(msg);
             }
         });
         // console.log('ok');
