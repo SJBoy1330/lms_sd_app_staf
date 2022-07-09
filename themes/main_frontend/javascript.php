@@ -205,7 +205,7 @@
 <!--evo calender-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script src="<?= base_url() ?>assets/vendor/evo-calendar/js/evo-calendar.min.js"></script>
-<script src="<?= base_url() ?>assets/vendor/evo-calendar/js/evo-calendar.js"></script>
+
 
 <script src="<?= base_url('assets/js/alert/sweetalert2.all.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/alert/scriptalert.js') ?>"></script>

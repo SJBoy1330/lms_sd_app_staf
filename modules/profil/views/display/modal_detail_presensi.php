@@ -12,7 +12,7 @@
                      </div>
                      <div class="col align-self-center ps-1">
                          <p class="mb-0 size-12 fw-medium">Hadir</p>
-                         <p class="fw-normal text-success size-12">30 Siswa</p>
+                         <p class="fw-normal text-success size-12"><?= $jumlah_masuk; ?> Siswa</p>
                      </div>
                  </div>
              </div>
@@ -31,7 +31,7 @@
                      </div>
                      <div class="col align-self-center ps-1">
                          <p class="mb-0 size-12 fw-medium">Sakit</p>
-                         <p class="fw-normal text-danger size-12">30 Siswa</p>
+                         <p class="fw-normal text-danger size-12"><?= $jumlah_sakit; ?> Siswa</p>
                      </div>
                  </div>
              </div>
@@ -53,7 +53,7 @@
                      </div>
                      <div class="col align-self-center ps-1">
                          <p class="mb-0 size-12 fw-medium">Ijin</p>
-                         <p class="fw-normal text-warning size-12">30 Siswa</p>
+                         <p class="fw-normal text-warning size-12"><?= $jumlah_ijin; ?> Siswa</p>
                      </div>
                  </div>
              </div>
@@ -72,7 +72,7 @@
                      </div>
                      <div class="col align-self-center ps-1">
                          <p class="mb-0 size-12 fw-medium">Tidak Hadir</p>
-                         <p class="fw-normal text-secondary size-12">30 Siswa</p>
+                         <p class="fw-normal text-secondary size-12"><?= $jumlah_alpha; ?> Siswa</p>
                      </div>
                  </div>
              </div>

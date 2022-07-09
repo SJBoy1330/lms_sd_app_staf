@@ -42,12 +42,7 @@
                 <h6 class="fw-normal pt-1 ps-3 mb-2">Presensi Mata Pelajaran</h6>
 
                 <?php foreach ($result->mapel as $row) : ?>
-                    <?php if ($row->status != 0) {
-                        $var = NULL;
-                    } else {
-                        $var = $row->status;
-                    } ?>
-                    <a data-bs-toggle="modal" onclick="detail_presensi(<?= $var; ?>)" href="#modalPresensiSiswa" role="button" class="card mb-3 mx-2">
+                    <a data-bs-toggle="modal" onclick="detail_presensi(<?= ifnull($row->data_presensi, '`tdk`'); ?> , <?= ifnull($row->id_presensi_mapel, 0); ?>,<?= $row->id_kelas; ?>)" href="#modalPresensiSiswa" role="button" class="card mb-3 mx-2">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">

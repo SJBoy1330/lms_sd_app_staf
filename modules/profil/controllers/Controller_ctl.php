@@ -96,7 +96,8 @@ class Controller_ctl extends MY_Frontend
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
 
 		// LOAD JS
-		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/laporan/laporan_presensi_staf.js"></script>';
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/vendor/evo-calendar/js/evo-calendar.js"></script>">';
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/laporan/laporan_presensi.js"></script>';
 
 		// LOAD CONFIG PAGE
 		$this->data['judul_halaman'] = 'Laporan Presensi';
@@ -118,7 +119,15 @@ class Controller_ctl extends MY_Frontend
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
 
 		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/vendor/evo-calendar/js/evo-calendar-2.js"></script>';
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/laporan/laporan_wali_kelas.js"></script>';
+
+		// LOAD CONFIG PAGE
+		$this->data['judul_halaman'] = 'Laporan Presensi';
+		$this->data['config_hidden']['notifikasi'] = TRUE;
+		$this->data['config_hidden']['footer'] = TRUE;
+		$this->data['button_back'] = base_url('profil');
+
 
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('laporan_wali_kelas', $mydata, TRUE);
@@ -205,5 +214,93 @@ class Controller_ctl extends MY_Frontend
 		);
 		$mydata['result'] = $data->data;
 		$this->load->view('display/laporan_presensi', $mydata);
+	}
+	public function get_report_wali()
+	{
+		$date = strtotime($this->input->post('date'));
+		$hari = day_from_number(date('N', $date));
+		$bulan = month_from_number(date('m', $date));
+		$mydata['tanggal'] = $hari . ', ' . date('d', $date) . ' ' . $bulan . ' ' . date('Y', $date);
+		$mydata['time'] = date('Y-m-d', $date);
+		// LOAD API 
+		$data = curl_get(
+			'presensi/report_kelas/',
+			[
+				'id_sekolah' => $this->id_sekolah,
+				'id_staf' => $this->id_staf,
+				'tanggal' => date('Y-m-d', $date)
+			]
+		);
+		$mydata['result'] = $data->data;
+		$this->load->view('display/laporan_presensi_wali_kelas', $mydata);
+	}
+
+	public function get_modal_presensi()
+	{
+		$status = $this->input->post('status');
+		$id_presensi_mapel = $this->input->post('id_presensi_mapel');
+		$id_kelas = $this->input->post('id_kelas');
+
+		$mydata['jumlah_ijin'] = 0;
+		$mydata['jumlah_sakit'] = 0;
+		$mydata['jumlah_alpha'] = 0;
+		$mydata['jumlah_masuk'] = 0;
+
+		if ($status != 'tdk' && $id_presensi_mapel != 0) {
+			// LOAD API 
+			$data = curl_get(
+				'presensi/detail_report/',
+				[
+					'id_sekolah' => $this->id_sekolah,
+					'id_presensi_mapel' => $id_presensi_mapel,
+					'id_kelas' => $id_kelas
+				]
+			);
+			if ($data->status == 200) {
+				$mydata['jumlah_ijin'] = $data->data->ijin;
+				$mydata['jumlah_sakit'] = $data->data->sakit;
+				$mydata['jumlah_alpha'] = $data->data->alpha;
+				$mydata['jumlah_masuk'] = $data->data->hadir;
+			} else {
+				$mydata['jumlah_ijin'] = 0;
+				$mydata['jumlah_sakit'] = 0;
+				$mydata['jumlah_alpha'] = 0;
+				$mydata['jumlah_masuk'] = 0;
+			}
+		}
+		$mydata['result'] = $data->data;
+		$this->load->view('display/modal_detail_presensi', $mydata);
+	}
+
+
+	public function get_modal_presensi_kelas()
+	{
+		$id_kelas = $this->input->post('id_kelas');
+		$tanggal = $this->input->post('tanggal');
+		$id_pelajaran = $this->input->post('id_pelajaran');
+
+		$mydata['jumlah_ijin'] = 0;
+		$mydata['jumlah_sakit'] = 0;
+		$mydata['jumlah_alpha'] = 0;
+		$mydata['jumlah_masuk'] = 0;
+		// LOAD API 
+		$data = curl_get(
+			'presensi/detail_report_kelas/',
+			[
+				'id_sekolah' => $this->id_sekolah,
+				'tanggal' => date('Y-m-d', strtotime($tanggal)),
+				'id_kelas' => $id_kelas,
+				'id_pelajaran' => $id_pelajaran
+			]
+		);
+		if ($data->status == 200) {
+			$mydata['jumlah_ijin'] = $data->data->ijin;
+			$mydata['jumlah_sakit'] = $data->data->sakit;
+			$mydata['jumlah_alpha'] = $data->data->alpha;
+			$mydata['jumlah_masuk'] = $data->data->hadir;
+		}
+
+		$mydata['result'] = $data->data;
+		$this->load->view('display/modal_detail_presensi', $mydata);
 	}
 }

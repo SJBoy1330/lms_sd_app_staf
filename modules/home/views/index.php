@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-        </a>
+            </a>
         </div>
         <div class="col-6 mb-3 jadwal">
             <div class="card card-jadwalmapel">
@@ -262,149 +262,79 @@
     </nav>
 
     <!-- Pengumuman -->
-    <div class="row mt-4 mb-3 px-1">
-        <div class="col">
-            <h6 class="title">Pengumuman</h6>
+    <?php if (isset($pengumuman)) : ?>
+        <div class="row mt-4 mb-3 px-1">
+            <div class="col">
+                <h6 class="title">Pengumuman</h6>
+            </div>
+            <div class="col-auto align-self-center">
+                <a href="<?= base_url('home/list_pengumuman'); ?>" class="label-merah">Lihat Semua</a>
+            </div>
         </div>
-        <div class="col-auto align-self-center">
-            <a href="<?= base_url('home/list_pengumuman'); ?>" class="label-merah">Lihat Semua</a>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4">
-            <a href="<?= base_url('home/detail_pengumuman') ?>" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                <img src="<?= base_url(); ?>assets/images/no-photo.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-15 fw-normal">Himbauan mengikuti vaksin covid 19
-                                untuk melakukan kegiatan PTM...</p>
-                            <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <a href="<?= base_url('home/detail_pengumuman') ?>" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                <img src="<?= base_url(); ?>assets/images/orasi-osis.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-15 fw-normal">Orasi kandidat calon ketua osis diadakan
-                                di sekolah SMK Negeri 4 Malang...</p>
-                            <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <a href="<?= base_url('home/detail_pengumuman') ?>" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
-                                <img src="<?= base_url(); ?>assets/images/no-photo.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-1 size-15 fw-normal">Jadwal PTM dan PAS Gasal 4 - 11 jatuh
-                                pada bulan januari sehinggaa di...</p>
-                            <p class="fw-normal text-secondary size-12">3 bulan yang lalu</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+        <div class="row">
+            <?php foreach ($pengumuman as $row) : ?>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <a href="<?= base_url('home/detail_pengumuman/' . $row->id_pengumuman . '?redirect=true') ?>" class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-60 shadow-sm rounded-10 coverimg">
 
-    <!-- Berita -->
-    <div class="row mt-4 mb-3 px-1">
-        <div class="col">
-            <h6 class="title">Berita</h6>
+                                        <img src="<?= $row->gambar; ?>" loading="lazy" alt="">
+                                    </div>
+                                </div>
+                                <div class=" col align-self-center ps-0">
+                                    <p class="mb-1 size-15 fw-normal"><?= tampil_text($row->judul, 40) ?></p>
+                                    <p class="fw-normal text-secondary size-12"><?= nice_time($row->tanggal_mulai) ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <div class="col-auto">
-            <a href="<?= base_url('home/list_berita') ?>" class="label-merah">Lihat Semua</a>
+    <?php endif; ?>
+    <?php if (isset($berita)) : ?>
+        <!-- Berita -->
+        <div class="row mt-4 mb-3 px-1">
+            <div class="col">
+                <h6 class="title">Berita</h6>
+            </div>
+            <div class="col-auto">
+                <a href="<?= base_url('home/list_berita') ?>" class="label-merah">Lihat Semua</a>
+            </div>
         </div>
-    </div>
-    <div class="row mb-2">
-        <div class="col-12 px-0">
-            <div class="swiper-container cardswiper cardswiper-berita">
-                <div class="swiper-wrapper">
-                    <a href="<?= base_url('home/detail_berita') ?>" class="swiper-slide">
-                        <div class="card theme-bg shadow-sm shadow-purple card-berita" style="background-image: url('<?= base_url(); ?>assets/images/tari-saman.png');">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-auto position-absolute badge-status">
-                                        <span class="badge rounded-pill px-3 py-2 bg-badge fw-normal">Hot
-                                            News</span>
+        <div class="row mb-2">
+            <div class="col-12 px-0">
+                <div class="swiper-container cardswiper cardswiper-berita">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($berita as $row) : ?>
+                            <a href="<?= base_url('home/detail_berita/' . $row->id_konten . '?redirect=true') ?>" class="swiper-slide">
+
+                                <div class="card theme-bg shadow-sm shadow-purple card-berita" style="background-image: url('<?= $row->gambar; ?>');">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-auto position-absolute badge-status">
+                                                <span class="badge rounded-pill px-3 py-2 bg-badge fw-normal"><?= $row->nama_kategori; ?></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="wrapper-text shadow-sm">
-                            <div class="row px-3 py-3">
-                                <p class="mb-1 fw-medium size-15 text-dark">Tari Saman</p>
-                                <p class="mb-0 title-4-home-text">Tari Saman Adalah tarian Suku Gayo yang
-                                    didirikan dan di kembangkan oleh ulama asal Aceh Tenggara, Tari Saman
-                                    ditampilkan...</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="<?= base_url('home/detail_berita') ?>" class="swiper-slide">
-                        <div class="card theme-bg shadow-sm shadow-purple card-berita" style="background-image: url('<?= base_url(); ?>assets/images/tari-saman.png');">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-auto position-absolute badge-status">
-                                        <span class="badge rounded-pill px-3 py-2 bg-badge fw-normal">Hot
-                                            News</span>
+                                <div class="wrapper-text shadow-sm">
+                                    <div class="row px-3 py-3">
+                                        <p class="mb-1 fw-medium size-15 text-dark">
+                                            <?= tampil_text($row->judul, 40) ?></p>
+                                        <p class="mb-0 title-4-home-text"><?= tampil_text($row->keterangan, 80) ?></p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="wrapper-text shadow-sm">
-                            <div class="row px-3 py-3">
-                                <p class="mb-1 fw-medium size-15 text-dark">Tari Saman</p>
-                                <p class="mb-0 title-4-home-text">Tari Saman Adalah tarian Suku Gayo yang
-                                    didirikan dan di kembangkan oleh ulama asal Aceh Tenggara, Tari Saman
-                                    ditampilkan...</p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="<?= base_url('home/detail_berita') ?>" class="swiper-slide">
-                        <div class="card theme-bg shadow-sm shadow-purple card-berita" style="background-image: url('<?= base_url(); ?>assets/images/tari-saman.png');">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-auto position-absolute badge-status">
-                                        <span class="badge rounded-pill px-3 py-2 bg-badge fw-normal">Hot
-                                            News</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="wrapper-text shadow-sm">
-                            <div class="row px-3 py-3">
-                                <p class="mb-1 fw-medium size-15 text-dark">Tari Saman</p>
-                                <p class="mb-0 title-4-home-text">Tari Saman Adalah tarian Suku Gayo yang
-                                    didirikan dan di kembangkan oleh ulama asal Aceh Tenggara, Tari Saman
-                                    ditampilkan...</p>
-                            </div>
-                        </div>
-                    </a>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <?php endif; ?>
 
 </div>
 <!-- main page content ends -->
@@ -595,7 +525,7 @@
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center border-0">
-                <a href="<?= base_url('kbm/detail_kbm')?>" class="btn shadow-sm btn-presensi mb-2">Presensi</a>
+                <a href="<?= base_url('kbm/detail_kbm') ?>" class="btn shadow-sm btn-presensi mb-2">Presensi</a>
             </div>
         </div>
     </div>

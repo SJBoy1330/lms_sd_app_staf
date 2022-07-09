@@ -26,7 +26,9 @@ function submit_form(element, id_form, num = 0, color = '#FFFFFF') {
         },
         success: function (data) {
             // console.log(data);
-
+            // $('input').val('');
+            // $('select').prop('selected', false);
+            // $('textarea').val('');
             $('.fadedin').remove();
             if (data.load != null) {
                 for (var a = 0; a < data.load.length; a++) {
@@ -84,23 +86,7 @@ function submit_form(element, id_form, num = 0, color = '#FFFFFF') {
     });
 
 }
-
-
 function search(element, property = 'tbody tr', backup = null) {
-    // $(id_tabel + ' ' + property).filter(function () {
-    //     $(this).toggle($(this).text().toLowerCase().indexOf(element.value.toLowerCase()) > -1);
-    //     if (backup != null) {
-    //         var vector = document.querySelector(backup);
-    //         // console.log($(this).text().toLowerCase().indexOf(element.value.toLowerCase()));
-    //         var hitung = $('.showing').length;
-    //         if ($(this).text().toLowerCase().indexOf(element.value.toLowerCase()) <= -1) {
-    //             vector.classList.remove('d-none');
-    //         } else {
-    //             vector.classList.add('d-none');
-    //         }
-    //     }
-    // });
-
     let cards = document.querySelectorAll(property)
 
     let search_query = element.value;
@@ -122,7 +108,7 @@ function search(element, property = 'tbody tr', backup = null) {
     if (backup != null) {
         var vector = document.querySelector(backup);
         let jumlah = document.querySelectorAll(property + '.showing').length;
-        console.log(jumlah);
+        // console.log(jumlah);
         if (jumlah < 1) {
             vector.classList.remove('hiding');
             vector.classList.add('showing');

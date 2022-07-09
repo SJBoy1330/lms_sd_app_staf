@@ -4,10 +4,11 @@ $(document).ready(function () {
   });
 })
 
-function detail_presensi(id_kelas, id_pelajaran, tanggal) {
+
+function detail_presensi(status, id_presensi_mapel, id_kelas) {
   $.ajax({
-    url: BASE_URL + "profil/get_modal_presensi_kelas/",
-    data: { id_kelas: id_kelas, tanggal: tanggal, id_pelajaran: id_pelajaran },
+    url: BASE_URL + "profil/get_modal_presensi/",
+    data: { status: status, id_presensi_mapel: id_presensi_mapel, id_kelas: id_kelas },
     method: 'POST',
     cache: false,
     success: function (msg) {

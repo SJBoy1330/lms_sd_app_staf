@@ -13,8 +13,8 @@
                                 <figure class="avatar avatar-80 rounded-20 p-1 bg-white shadow-sm figure-sidemenu" style="background-image: url(' <?= $profil->foto; ?>')"></figure>
                             </div>
                             <div class=" col px-0 align-self-center">
-                                <h5 class="mb-0 fw-normal text-white"><?= $profil->nama; ?></h5>
-                                <p class="text-muted size-12"><?= $profil->nama_kelas; ?></p>
+                                <h5 class="mb-0 fw-normal text-white"><?= tampil_text($profil->nama, 20); ?></h5>
+                                <p class="text-muted size-12"><?= $this->session->userdata('lms_staf_role'); ?></p>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                                 </a>
                             </li>
                             <li class="nav-item logout">
-                                <a class="nav-link question_alert" <?= alert_question('KONFIRMASI', 'Apakah anda akan keluar dari aplikasi KlasQ Siswa ?', 'question') ?> href="<?= base_url('auth/logout') ?>" tabindex="-1">
+                                <a class="nav-link question_alert" <?= alert_question('KONFIRMASI', 'Apakah anda akan keluar dari aplikasi KlasQ Staf ?', 'question') ?> href="<?= base_url('auth/logout') ?>" tabindex="-1">
                                     <div class="avatar avatar-40 icon"><i class="fa-solid fa-right-from-bracket"></i></div>
                                     <div class="col">Keluar</div>
                                 </a>

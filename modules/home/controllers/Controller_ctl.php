@@ -6,6 +6,8 @@ class Controller_ctl extends MY_Frontend
 	{
 		// Load the constructer from MY_Controller
 		parent::__construct();
+		$this->id_sekolah = $this->session->userdata('lms_staf_id_sekolah');
+		$this->id_staf = $this->session->userdata('lms_staf_id_staf');
 		is_logged_in();
 	}
 
@@ -14,13 +16,19 @@ class Controller_ctl extends MY_Frontend
 	{
 		// LOAD TITLE
 		$mydata['title'] = 'Home';
+		// LOAD DATA SISWA
+		$mydata['user'] = $user = curl_get('profil', array('id_sekolah' => $this->id_sekolah, 'id_siswa' => $this->id_siswa))->data;
+		// LOAD API
+		$mydata['pengumuman'] = curl_get('pengumuman/all', array('id_sekolah' => $this->id_sekolah, 'limit' => 3))->data;
+		$mydata['berita'] = curl_get('berita', array('id_sekolah' => $this->id_sekolah, 'limit' => 5))->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('index', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
 
-	public function list_pengumuman(){
-		
+	public function list_pengumuman()
+	{
+
 		// LOAD TITLE
 		$mydata['title'] = 'Pengumuman';
 
@@ -50,7 +58,7 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('list_berita', $mydata, TRUE);
-		$this->display($this->input->get('routing'));	
+		$this->display($this->input->get('routing'));
 	}
 
 	public function detail_berita()
@@ -60,6 +68,6 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_berita', $mydata, TRUE);
-		$this->display($this->input->get('routing'));	
+		$this->display($this->input->get('routing'));
 	}
 }

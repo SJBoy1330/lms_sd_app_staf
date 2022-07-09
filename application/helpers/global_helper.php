@@ -320,7 +320,7 @@ function rupiah($angka, $format = "Rp. ")
 }
 function ifnull($value = NULL, $ganti = NULL)
 {
-  if (isset($value) == NULL) {
+  if ($value == NULL) {
     if ($ganti != NULL) {
       $data = $ganti;
     } else {
