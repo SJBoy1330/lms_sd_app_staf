@@ -91,7 +91,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="<?= base_url('materi/detail_materi'); ?>" class="col align-self-center ps-0">
+                                                    <a href="<?= base_url('materi/detail_materi/' . $mt->id_materi); ?>" class="col align-self-center ps-0">
                                                         <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
                                                         <p class="mb-0 size-14 fw-normal text-dark"><?= $mt->judul; ?></p>
                                                     </a>

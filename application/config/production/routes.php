@@ -123,6 +123,14 @@ $route['home/(:any)'] = 'home/controller_ctl/$1';
 $route['home/(:any)/(:any)'] = 'home/controller_ctl/$1/$2';
 
 
+$route['presensi']  = 'home/function_ctl';
+
+$route['presensi/(:any)'] = 'home/function_ctl/$1';
+
+$route['presensi/(:any)/(:any)'] = 'home/function_ctl/$1/$2';
+
+
+
 $route['notifikasi']  = 'notifikasi/controller_ctl';
 
 $route['notifikasi/(:any)'] = 'notifikasi/controller_ctl/$1';

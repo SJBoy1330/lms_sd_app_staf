@@ -94,17 +94,34 @@ class Controller_ctl extends MY_Frontend
 		$this->display($this->input->get('routing'));
 	}
 
-	public function detail_materi()
+	public function detail_materi($id_materi = NULL)
 	{
+		if ($id_materi == NULL) {
+			redirect('home');
+		}
 		// LOAD TITLE
-		$mydata['title'] = 'Detail Materi';
-
-		// LOAD CSS
-		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/materi/materi.css') . '">';
+		$mydata['title'] = 'Detail KBM';
 
 		// LOAD JS
-		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/materi/detail_materi.js"></script>';
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/detail_materi.js"></script>';
 
+		// LOAD CONFIG PAGE
+		if ($_SERVER['HTTP_REFERER'] == NULL || $_SERVER['HTTP_REFERER'] == base_url('materi/detail_materi/' . $id_materi)) {
+
+			$this->data['button_back'] = base_url('materi/detail_bab');
+		} else {
+			$this->data['button_back'] = $_SERVER['HTTP_REFERER'];
+		}
+		// LOAD API 
+		$result = curl_get('materi/detail_materi', ['id_sekolah' => $this->id_sekolah, 'id_materi' => $id_materi]);
+		$this->data['judul_halaman'] = 'Detail Materi';
+		$this->data['config_hidden']['notifikasi'] = true;
+		$this->data['config_hidden']['footer'] = true;
+
+		$this->data['right_button']['materi'] = true;
+
+		// LOAD MYDATA
+		$mydata['result'] = $result->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_materi', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

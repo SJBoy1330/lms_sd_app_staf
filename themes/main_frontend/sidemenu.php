@@ -194,6 +194,17 @@
 
                                         <?php endif; ?>
 
+                                        <?php if (isset($right_button['materi'])) : ?>
+                                            <div class="col-auto">
+                                                <button id="btnedit" class="btn " onclick="edit()">
+                                                    <i class="fa-solid fa-pen-to-square"></i>
+                                                </button>
+                                                <button id="btnsave" class="btn d-none" onclick="save()">
+                                                    <i class="fa-solid fa-check"></i>
+                                                </button>
+                                            </div>
+                                        <?php endif; ?>
+
                                         <?php if (isset($config_hidden['notifikasi']) && !isset($right_button)) : ?>
                                             <a href="#" target="_self" class="btn btn-44"> </a>
                                         <?php endif; ?>
