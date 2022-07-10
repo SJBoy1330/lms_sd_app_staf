@@ -58,3 +58,7 @@ a.btn.btn-detail-kbm {
     padding-top: 10px;
     width: 100%;
 }
+
+.avatar-offline {
+    background-color: #8F8F8F;
+}

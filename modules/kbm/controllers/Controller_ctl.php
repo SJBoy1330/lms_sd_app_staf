@@ -36,6 +36,10 @@ class Controller_ctl extends MY_Frontend
 	{
 		// LOAD TITLE
 		$mydata['title'] = 'Detail KBM';
+
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/kbm/kbm.css') . '">';
+
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_kbm', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
