@@ -55,7 +55,7 @@
                                                         <div class="row mb-3">
                                                             <div class="col-auto">
                                                                 <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
-                                                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline" style="line-height: 44px;">
                                                                         <i class="fa-solid fa-clock size-24 text-white"></i>
                                                                     </div>
                                                                 </div>
