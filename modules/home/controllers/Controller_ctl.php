@@ -14,6 +14,7 @@ class Controller_ctl extends MY_Frontend
 
 	public function index()
 	{
+		// echo 'LAT : ' . $_COOKIE['LAT'] . ' LONG : ' . $_COOKIE['LONG'];
 		// LOAD TITLE
 		$mydata['title'] = 'Home';
 		// LOAD API
@@ -22,18 +23,26 @@ class Controller_ctl extends MY_Frontend
 		$mydata['pengumuman'] = curl_get('pengumuman/all', array('id_sekolah' => $this->id_sekolah, 'limit' => 3))->data;
 		$mydata['berita'] = curl_get('berita', array('id_sekolah' => $this->id_sekolah, 'limit' => 5))->data;
 		$mydata['presensi'] = curl_get('presensi/today', array('id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf))->data;
-		$mydata['presensi_setting'] = curl_get('presensi/setting', array('id_sekolah' => $this->id_sekolah));
+		$mydata['presensi_setting'] = $presensi_setting = curl_get('presensi/setting', array('id_sekolah' => $this->id_sekolah));
 
 		if (isset($_COOKIE['LAT']) && isset($_COOKIE['LONG'])) {
 			$mydata['map'] = "https://maps.google.com/maps?q=" . $_COOKIE['LAT'] . "," . $_COOKIE['LONG'] . "&hl=en;z=14&output=embed";
 			$mydata['lat'] = $_COOKIE['LAT'];
 			$mydata['long'] = $_COOKIE['LONG'];
+			$mydata['jarak'] = get_jarak($_COOKIE['LAT'], $_COOKIE['LONG'], $presensi_setting->setting_presensi_staf->lat_sekolah, $presensi_setting->setting_presensi_staf->lon_sekolah)['meters'];
 		} else {
 			$mydata['map'] = NULL;
 			$mydata['lat'] = NULL;
 			$mydata['long'] = NULL;
+			$mydata['jarak'] = NULL;
+			$this->data['js_add'][] = '<script>
+    var lat_sekul = ' . $presensi_setting->setting_presensi_staf->lat_sekolah . ';
+    var long_sekul = ' . $presensi_setting->setting_presensi_staf->lon_sekolah . ';
+</script>';
 			$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/get_location.js"></script>';
 		}
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/jadwal.js"><script>';
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('index', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
@@ -155,5 +164,12 @@ class Controller_ctl extends MY_Frontend
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_berita', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
+	}
+
+
+	public function set_cookie()
+	{
+		setcookie('LAT', '-7.4640797', time() + (86400 * 30), "/");
+		setcookie('LONG', '112.7214074', time() + (86400 * 30), "/");
 	}
 }

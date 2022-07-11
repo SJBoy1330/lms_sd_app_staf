@@ -1,4 +1,5 @@
 <!-- main page content -->
+
 <div class="main-container container">
     <!-- Ucapan Selamat Datang -->
     <div class="row my-4 text-start">
@@ -288,7 +289,7 @@
                                                 </div>
                                                 <div class="col align-self-center ps-1">
                                                     <p class="mb-0 size-12 fw-medium">Jarak</p>
-                                                    <p class="fw-normal text-secondary size-12">20 Km</p>
+                                                    <p class="fw-normal text-secondary size-12 jarak"><?= ifnull(round($jarak, 2), 0) . ' Km'; ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,7 +304,7 @@
                     <!-- BUTTON PRESENSI -->
                     <input type="hidden" class="lat" name="lat" value="<?= $lat; ?>">
                     <input type="hidden" class="long" name="long" value="<?= $long; ?>">
-
+                    <input type="hidden" id="jarak" name="jarak" value="<?= round($jarak, 2); ?>">
                     <input type="hidden" id="jam_masuk" name="jam_masuk" value="<?= $presensi_setting->jam_masuk; ?>">
                     <input type="hidden" id="jam_pulang" name="jam_pulang" value="<?= $presensi_setting->jam_pulang; ?>">
                     <?php if ($presensi_setting->checkout == true) : ?>
@@ -360,8 +361,9 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12">
+                        <div style="width : 90%;height :100%;position : absolute;z-index : 10;"></div>
                         <div id="map-container-google-1" class="z-depth-1-half map-container">
-                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <iframe id="map_mapel" src="<?= $map; ?>" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -452,7 +454,7 @@
                 </div>
             </div>
             <div class="modal-footer d-flex justify-content-center border-0">
-                <a href="<?= base_url('kbm/detail_kbm') ?>" class="btn shadow-sm btn-presensi mb-2">Presensi</a>
+                <button type="button" class="btn shadow-sm btn-presensi mb-2 button_presensi_mapel">Presensi</button>
             </div>
         </div>
     </div>

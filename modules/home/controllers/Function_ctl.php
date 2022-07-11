@@ -58,7 +58,16 @@ class Function_ctl extends MY_Frontend
         $id_jadwal = $this->input->post('id_jadwal');
         $result = curl_get('presensi/detail_jadwal/', ['id_sekolah' => $this->id_sekolah, 'id_jadwal' => $id_jadwal]);
 
-        echo json_encode($result->data);
+        $arr['kelas'] = $result->data->nama_kelas;
+        $arr['pelajaran'] = $result->data->nama_pelajaran;
+        $arr['waktu'] = $result->data->waktu;
+        if (isset($_COOKIE['LAT']) && isset($_COOKIE['LONG'])) {
+            $arr['jarak'] = get_jarak($_COOKIE['LAT'], $_COOKIE['LONG'], $result->data->lat_sekolah, $result->data->long_sekolah)['meters'];
+        } else {
+            $arr['jarak'] = NULL;
+        }
+
+        echo json_encode($arr);
     }
 
 
