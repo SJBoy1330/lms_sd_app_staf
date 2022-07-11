@@ -14,3 +14,39 @@ function activeLink() {
 }
 
 list.forEach((item) => item.addEventListener('click', activeLink))
+
+
+function edit_bab() {
+    var trio_menu = document.querySelector('#trio_menu');
+    var action_menu = document.querySelector('#action_menu');
+    var inputan = document.querySelectorAll('.input_judul_bab');
+    var text = document.querySelectorAll('.text_judul_bab');
+    inputan.forEach((input) => {
+        input.classList.remove("d-none");
+    });
+
+    text.forEach((msg) => {
+        msg.classList.add("d-none");
+    });
+
+    trio_menu.classList.add('d-none');
+    action_menu.classList.remove('d-none');
+}
+
+
+function batal_edit_bab() {
+    var trio_menu = document.querySelector('#trio_menu');
+    var action_menu = document.querySelector('#action_menu');
+    var inputan = document.querySelectorAll('.input_judul_bab');
+    var text = document.querySelectorAll('.text_judul_bab');
+    inputan.forEach((input) => {
+        input.classList.add("d-none");
+    });
+
+    text.forEach((msg) => {
+        msg.classList.remove("d-none");
+    });
+
+    trio_menu.classList.remove('d-none');
+    action_menu.classList.add('d-none');
+}

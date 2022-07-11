@@ -53,4 +53,46 @@ class Function_ctl extends MY_Frontend
             exit;
         }
     }
+
+    public function update_multiple_bab()
+    {
+        $bab = $this->input->post('bab');
+        $id_bab = $this->input->post('id_bab');
+        if (count($bab) > 0) {
+            for ($i = 0; $i < count($bab); $i++) {
+                $arr[$i]['id_bab'] = $id_bab[$i];
+                $arr[$i]['judul'] = $bab[$i];
+                if (!$bab[$i]) {
+                    $res['status'] = false;
+                    $res['alert']['title'] = 'PERINGATAN';
+                    $res['alert']['message'] = 'Judul bab tidak boleh kosong!';
+                    echo json_encode($res);
+                    exit;
+                }
+            }
+
+            $dt['id_sekolah'] = $this->id_sekolah;
+            $dt['data_bab'] = json_encode($arr);
+
+            $result = curl_post('materi/edit_bab_multi', $dt);
+            $res['alert']['message'] = $result->message;
+            if ($result->status == 200) {
+                $res['status'] = true;
+                $res['alert']['title'] = 'PEMBERITAHUAN';
+                echo json_encode($res);
+                exit;
+            } else {
+                $res['status'] = false;
+                $res['alert']['title'] = 'PERINGATAN';
+                echo json_encode($res);
+                exit;
+            }
+        } else {
+            $res['status'] = false;
+            $res['title'] = 'PERINGATAN';
+            $res['message'] = 'Tambah bab terlebih dahulu!';
+            echo json_encode($res);
+            exit;
+        }
+    }
 }
