@@ -63,7 +63,7 @@
                                     }
                                     ?>
                                     <?php if ($row->status == 1) : ?>
-                                        <div class="jam-laporan-presensi bg-red">
+                                        <div class="jam-laporan-presensi">
                                             <p class="mb-0 text-white size-13"><?= $row->scan; ?></p>
                                         </div>
                                     <?php endif; ?>

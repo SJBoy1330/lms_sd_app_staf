@@ -209,3 +209,16 @@ button.input-group-text {
   position: relative;
   z-index: 1;
 }
+
+.jam-laporan-presensi {
+  width: 55px;
+  height: 26px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0px 20px 0px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00dfa3;
+}

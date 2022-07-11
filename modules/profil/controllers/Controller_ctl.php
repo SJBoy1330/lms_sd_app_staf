@@ -98,7 +98,7 @@ class Controller_ctl extends MY_Frontend
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';
 
 		// LOAD JS
-		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/vendor/evo-calendar/js/evo-calendar.js"></script>">';
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/vendor/evo-calendar/js/evo-calendar.js"></script>';
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/laporan/laporan_presensi.js"></script>';
 
 		// LOAD CONFIG PAGE
