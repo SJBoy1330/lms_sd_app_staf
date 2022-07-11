@@ -139,7 +139,7 @@
                                             </div>
                                         </div>
                                         <div class="form-floating" id="ta-frame">
-                                            <textarea type="text" class="form-control autoresize-textarea input-field chatting border-0" name="pesan" id="pesan" placeholder="Tulis Pesan" rows="1" autocomplete="off"></textarea>
+                                            <textarea type="text" class="form-control autoresize-textarea input-field chatting border-0" name="pesan" id="pesan" placeholder="Tulis Pesan" rows="1" autocomplete="off" rows="1"></textarea>
                                         </div>
                                         <a href="#" class="input-group-append tambah-file" data-bs-toggle="modal" data-bs-target="#menuModalChatting" id="centermenubtn">
                                             <span class="input-group-text">
