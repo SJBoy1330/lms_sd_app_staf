@@ -61,12 +61,15 @@ class Function_ctl extends MY_Frontend
         $arr['kelas'] = $result->data->nama_kelas;
         $arr['pelajaran'] = $result->data->nama_pelajaran;
         $arr['waktu'] = $result->data->waktu;
+        $arr['id_staf'] = $result->data->id_staf;
+        $arr['id_pelajaran'] = $result->data->id_pelajaran;
+        $arr['id_kelas'] = $result->data->id_kelas;
         if (isset($_COOKIE['LAT']) && isset($_COOKIE['LONG'])) {
             $arr['jarak'] = get_jarak($_COOKIE['LAT'], $_COOKIE['LONG'], $result->data->lat_sekolah, $result->data->long_sekolah)['meters'];
         } else {
             $arr['jarak'] = NULL;
         }
-
+        sleep(1.5);
         echo json_encode($arr);
     }
 
@@ -80,18 +83,18 @@ class Function_ctl extends MY_Frontend
         $post['scan_masuk'] = date('H:i:s');
         $post['id_kelas'] = $this->input->post('id_kelas');
         $post['id_pelajaran'] = $this->input->post('id_pelajaran');
-        $post['id_staf'] = $this->input->post('id_staf');
 
         $response = curl_post('presensi/mapel', $post);
         $data['status'] = $response->status;
         if ($response->status == 200) {
             $data['alert']['title'] = 'PEMBERITAHUAN';
+            $data['redirect'] = base_url('kbm/detail_kbm/' . $this->input->post('id_pelajaran') . '/' . $this->input->post('id_kelas') . '/' . $this->input->post('id_staf'));
         } else {
             $data['alert']['title'] = 'PERINGATAN';
         }
         $data['alert']['message'] = $response->message;
 
-        $data['redirect'] = base_url('kbm/detail_kbm/' . $this->input->post('id_pelajaran') . '/' . $this->input->post('id_kelas') . '/' . $this->input->post('id_staf'));
+
 
         echo json_encode($data);
     }

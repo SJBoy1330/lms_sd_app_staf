@@ -58,16 +58,12 @@
                                     <?php
                                     if ($row->status == 1) {
                                         $warna = 'text-success';
-                                    } elseif ($row->status == 2) {
-                                        $warna = 'text-info';
-                                    } elseif ($row->status == 3) {
-                                        $warna = 'text-warning';
                                     } else {
                                         $warna = 'text-danger';
                                     }
                                     ?>
                                     <?php if ($row->status == 1) : ?>
-                                        <div class="jam-laporan-presensi">
+                                        <div class="jam-laporan-presensi bg-red">
                                             <p class="mb-0 text-white size-13"><?= $row->scan; ?></p>
                                         </div>
                                     <?php endif; ?>

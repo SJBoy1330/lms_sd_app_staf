@@ -36,13 +36,13 @@ class Controller_ctl extends MY_Frontend
 			$mydata['long'] = NULL;
 			$mydata['jarak'] = NULL;
 			$this->data['js_add'][] = '<script>
-    var lat_sekul = ' . $presensi_setting->setting_presensi_staf->lat_sekolah . ';
-    var long_sekul = ' . $presensi_setting->setting_presensi_staf->lon_sekolah . ';
-</script>';
+				var lat_sekul = ' . $presensi_setting->setting_presensi_staf->lat_sekolah . ';
+				var long_sekul = ' . $presensi_setting->setting_presensi_staf->lon_sekolah . ';
+			</script>';
 			$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/get_location.js"></script>';
 		}
 		// LOAD JS
-		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/jadwal.js"><script>';
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/jadwal.js"></script>';
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('index', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

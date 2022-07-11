@@ -32,6 +32,8 @@ $(document).ready(function () {
         var jarak = get_jarak(myLat, myLong, lat_sekul, long_sekul);
         $('#jarak').val(jarak.toFixed(2));
         $('.jarak').text(jarak.toFixed(2) + 'Km');
+        $('#jarak_mapel').val(jarak.toFixed(2));
+        $('.jarak_mapel').text(jarak.toFixed(2) + 'Km');
     }
     function failure(position) {
         alert('error : ' + position.message);
