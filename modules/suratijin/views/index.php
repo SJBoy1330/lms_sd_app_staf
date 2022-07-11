@@ -25,7 +25,7 @@
                                 <span class="py-2 px-3 text-light size-14 position-absolute top-0 end-0 <?= $color; ?> rounded-15-start-bottom blm-lns"><?= $row->status; ?></span>
                                 <div class="row mb-2">
                                     <div class="col">
-                                        <p class="fw-bolder size-15 mb-0">Surat Keterangan <?php if ($row->tipe == 1) {
+                                        <p class="fw-bolder size-14 mb-0">Surat Keterangan <?php if ($row->tipe == 1) {
                                                                                                 echo 'izin';
                                                                                             } else {
                                                                                                 echo 'sakit';
@@ -59,9 +59,9 @@
 <!-- main page content ends -->
 
 <!-- Modal Surat Ijin -->
-<div class="modal fade" id="modalDetailSuratIjin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+<div class="modal fade bg-white" id="modalDetailSuratIjin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-content" style="border-radius: 0px;">
             <div class="modal-header py-3">
                 <h5 class="modal-title">Detail Surat Ijin</h5>
                 <button type="button" class="btn-close me-0" data-bs-dismiss="modal" aria-label="Close"></button>

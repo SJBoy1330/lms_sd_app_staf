@@ -138,8 +138,8 @@
                                 <p class="fw-normal size-12 mb-2" id="text_materi">Lorem</p>
                             </div>
                         </div>
-                        <div class="form-floating">
-                            <textarea type="text" class="form-control form-control-pribadi input-field chatting border-0" name="pesan" id="pesan" placeholder="Tulis Pesan" autocomplete="off"></textarea>
+                        <div class="form-floating" id="ta-frame">
+                            <textarea type="text" class="form-control autoresize-textarea input-field chatting border-0" name="pesan" id="pesan" placeholder="Tulis Pesan" autocomplete="off" rows="1"></textarea>
                         </div>
                         <a href="#" class="input-group-append tambah-file" data-bs-toggle="modal" data-bs-target="#menuModalChatting" id="centermenubtn">
                             <span class="input-group-text">

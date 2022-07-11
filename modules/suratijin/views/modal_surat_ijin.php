@@ -43,7 +43,7 @@
 
                 <div class="mb-3">
                     <label class="form-label title-3">Komentar</label>
-                    <textarea name="komentar" class="form-control form-control-solid form-control-pribadi border-0" class="form-control form-control-pribadi border-0" id="komentar" cols="30" rows="40"><?= $komentar; ?></textarea>
+                    <textarea name="komentar" class="autoresize-textarea form-control form-control-solid border-0" id="komentar" rows='3' data-min-rows='3'><?= $komentar; ?></textarea>
                 </div>
             </div>
         </div>
@@ -52,3 +52,13 @@
         <button type="button" id="button_edit_surat" onclick="submit_form(this,'#form_surat_ijin')" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
     </div>
 </form>
+
+<script>
+    textarea = document.querySelector(".autoresize-textarea");
+    textarea.addEventListener('input', autoResize, false);
+    
+    function autoResize() {
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
+    }
+</script>

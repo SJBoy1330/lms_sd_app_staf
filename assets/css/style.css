@@ -6015,7 +6015,7 @@ fieldset:disabled .btn {
     width: 1em;
     height: 1em;
     padding: 0.25em 0.25em;
-    color: #000;
+    color: #FFF;
     /* background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat; */
     background-image: url(../icons/x-mark.svg);
     background-repeat: no-repeat;
@@ -6206,6 +6206,49 @@ fieldset:disabled .btn {
     padding: 0.5rem 0.5rem;
     margin: -0.5rem -0.5rem -0.5rem auto;
 }
+
+.modal-header .btn-close-detailsurat {
+    /* padding: 0.5rem 0.5rem; */
+    margin: 0.3rem -0.3rem -0.5rem auto;
+}
+
+.btn-close-detailsurat {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em 0.25em;
+    color: #FFF;
+    background-image: url(../icons/x-mark-detailsurat.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: 0;
+    border-radius: 0.60rem;
+    background-color: transparent !important;
+  }
+  
+  .btn-close-detailsurat:hover {
+    color: #000;
+    text-decoration: none;
+    opacity: 0.75;
+  }
+  
+  .btn-close-detailsurat:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(60, 99, 226, 0.25);
+    opacity: 1;
+  }
+  
+  .btn-close-detailsurat:disabled,
+  .btn-close-detailsurat.disabled {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.25;
+  }
+  
+  .btn-close-detailsurat-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+  }
 
 .modal-title {
     margin-bottom: 0;
@@ -16772,18 +16815,18 @@ button.input-group-text {
 .tambah-file {
     background: none;
     border: 0;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     background-color: #EC3528;
     border-radius: 100px;
-    top: 15px;
+    bottom: 24px;
     left: 21px;
     /* padding: 5px 10px; */
     line-height: 26px;
 }
 
-.form-control.form-control-pribadi.chatting {
-    border-radius: 100px;
+.form-control.autoresize-textarea.chatting {
+    border-radius: 25px;
     padding-left: 50px;
     width: 268px !important;
 }
@@ -16793,6 +16836,9 @@ button.input-group-text {
 }
 
 button.button-kirim-pesan {
+    position: fixed;
+    bottom: 24px;
+    right: 17px;
     width: 46px;
     height: 46px;
 }
@@ -16896,4 +16942,18 @@ button.button-kirim-pesan {
     background-repeat: no-repeat !important;
     background-size: cover !important;
     border: 3px solid white !important;
+}
+
+
+span.blm-lns {
+    border-radius: 0px 0px 0px 15px;
+}
+
+textarea.autoresize-textarea{
+    background-color: #F5F5F5;
+    min-height: 50px !important;
+}
+
+textarea.autoresize-textarea:hover{
+    background-color: #F5F5F5;
 }

@@ -4,7 +4,6 @@ var swiper2 = new Swiper(".connectionwiper", {
     pagination: false
 });
 
-
 $(document).ready(function () {
 
 });
