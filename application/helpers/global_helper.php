@@ -458,18 +458,19 @@ function API_URL($path = null)
 }
 
 
-function data_url($path = null, $id_sekolah = true)
+function data_url($path = null, $id_sekolah = false)
 {
   $ci = &get_instance();
   $uri = 'https://sd.klasq.id/linker/';
   if ($path != null) {
     $uri .= $path;
   }
-  if ($id_sekolah == true) {
-    $uri .= '/' . base64url_encode($ci->session->userdata('lms_wali_id_sekolah'));
+  if ($id_sekolah != false) {
+    $uri .= '/' . base64url_encode($id_sekolah);
   }
   return $uri;
 }
+
 
 
 function vector_default($image, $judul = 'Tidak ada data', $text = 'Tidak terdapat record data. Hubungi admin jika terdapat kesalahan', $id = NULL, $status = 0)

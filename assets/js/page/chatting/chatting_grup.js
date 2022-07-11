@@ -1,7 +1,7 @@
 const form = document.querySelector(".typing-area"),
     inputField = form.querySelector(".input-field"),
     sendBtn = form.querySelector(".submit-chat"),
-    id_diskusi_tanya = form.querySelector("#id_diskusi_tanya").value,
+    id_diskusi_grup_tanya = form.querySelector("#id_diskusi_grup_tanya").value,
     chatBox = document.querySelector("#reload_chat");
 var tanggal_sekarang = $('#now').val();
 
@@ -12,8 +12,8 @@ scrollToBottom();
 function kirim_file(element) {
     // console.log('ok');
     $('#menuModalChatting').modal('hide');
-    var id_base = $('#id_diskusi_tanya').val();
-    var url = BASE_URL + 'qna/kirim_file';
+    var id_base = $('#id_diskusi_grup_tanya').val();
+    var url = BASE_URL + 'qna/kirim_file_grup';
     var method = 'POST';
     const berkas_file = document.querySelector('#upload-file');
     let file = berkas_file.files[0];
@@ -23,7 +23,7 @@ function kirim_file(element) {
 
     var form_data = new FormData();
     form_data.append("file", file);
-    form_data.append("id_diskusi_tanya", id_base);
+    form_data.append("id_diskusi_grup_tanya", id_base);
     $.ajax({
         url: url,
         method: method,
@@ -37,11 +37,11 @@ function kirim_file(element) {
         },
         success: function (data) {
             $('#loading_scene').modal('hide');
-            $('#refresh_loading').load(BASE_URL + 'qna/chatting/' + id_base + '?tanggal=' + tanggal_sekarang + ' #loading_scene');
+            $('#refresh_loading').load(BASE_URL + 'qna/chatting_grup/' + id_base + '?tanggal=' + tanggal_sekarang + ' #loading_scene');
             $('.modal-backdrop').remove();
             if (data.status == true) {
                 var icon = 'success';
-                $('#display_chat').load(BASE_URL + 'qna/chatting/' + id_base + '?tanggal=' + tanggal_sekarang + ' #reload_chat');
+                $('#display_chat').load(BASE_URL + 'qna/chatting_grup/' + id_base + '?tanggal=' + tanggal_sekarang + ' #reload_chat');
                 scrollToBottom();
             } else {
                 var icon = 'warning';
@@ -75,14 +75,13 @@ function kirim_gambar(element) {
     oFReader.readAsDataURL(gambar);
     oFReader.onload = function (oFREvent) {
         div_gambar.style.backgroundImage = 'url(' + oFREvent.target.result + ')';
-        console.log(oFREvent.target.result);
     }
 
 }
 
 function kirim_pesan_gambar(params) {
     $('#imageModal').modal('hide');
-    var id_base = $('#id_diskusi_tanya').val();
+    var id_base = $('#id_diskusi_grup_tanya').val();
     var pesan = $('#base_pesan_dua').val();
     console.log(pesan);
     const images = document.querySelector('#upload-file2');
@@ -90,10 +89,10 @@ function kirim_pesan_gambar(params) {
 
     var form_data = new FormData();
     form_data.append("gambar", gambar);
-    form_data.append("id_diskusi_tanya", id_base);
+    form_data.append("id_diskusi_grup_tanya", id_base);
     form_data.append("pesan", pesan);
     $.ajax({
-        url: BASE_URL + 'qna/kirim_gambar',
+        url: BASE_URL + 'qna/kirim_gambar_grup',
         method: 'POST',
         data: form_data,
         contentType: false,
@@ -105,11 +104,11 @@ function kirim_pesan_gambar(params) {
         },
         success: function (data) {
             $('#loading_scene').modal('hide');
-            $('#refresh_loading').load(BASE_URL + 'qna/chatting/' + id_base + '?tanggal=' + tanggal_sekarang + ' #loading_scene');
+            $('#refresh_loading').load(BASE_URL + 'qna/chatting_grup/' + id_base + '?tanggal=' + tanggal_sekarang + ' #loading_scene');
             $('.modal-backdrop').remove();
             if (data.status == true) {
                 var icon = 'success';
-                $('#display_chat').load(BASE_URL + 'qna/chatting/' + id_base + '?tanggal=' + tanggal_sekarang + ' #reload_chat');
+                $('#display_chat').load(BASE_URL + 'qna/chatting_grup/' + id_base + '?tanggal=' + tanggal_sekarang + ' #reload_chat');
                 scrollToBottom();
             } else {
                 var icon = 'warning';
@@ -265,15 +264,16 @@ inputField.onkeyup = () => {
 }
 
 sendBtn.onclick = () => {
+
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", BASE_URL + "qna/kirim_pesan", true);
+    xhr.open("POST", BASE_URL + "qna/kirim_pesan_grup", true);
     xhr.onload = () => {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
                 inputField.value = "";
                 $('#id_materi').val(null);
                 $('.submit-chat').prop("disabled", true);
-                $('#display_chat').load(BASE_URL + 'qna/chatting/' + id_diskusi_tanya + '?tanggal=' + tanggal_sekarang + ' #reload_chat');
+                $('#display_chat').load(BASE_URL + 'qna/chatting_grup/' + id_diskusi_grup_tanya + '?tanggal=' + tanggal_sekarang + ' #reload_chat');
                 batal_materi()
                 scrollToBottom();
             } else {

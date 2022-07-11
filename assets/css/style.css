@@ -8438,6 +8438,30 @@ fieldset:disabled .btn {
     background-image: var(--bs-gradient) !important;
 }
 
+.bg-f5f5f5 {
+    background-color: #f5f5f5;
+}
+
+.bg-00DFA3 {
+    background-color: #00dfa3;
+}
+
+.bg-FFBD17 {
+    background-color: #FFBD17;
+}
+
+.bg-F74141 {
+    background-color: #F74141;
+}
+
+.bg-ec3528 {
+    background-color: #ec3528;
+}
+
+.bg-757575 {
+    background-color: #a2a1a1;
+}
+
 .user-select-all {
     user-select: all !important;
 }

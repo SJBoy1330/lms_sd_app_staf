@@ -91,6 +91,8 @@ class Function_ctl extends MY_Welcome
         $result = curl_post('profil/edit', $request_data);
         $data['status'] = !$error;
         if (!$result->error) {
+            $ses['lms_staf_nama'] = $nama;
+            $this->session->set_userdata($ses);
             $data['status'] = TRUE;
             $data['alert']['title'] = 'PEMBERITAHUAN';
             $data['alert']['message'] = $result->message;
@@ -111,7 +113,11 @@ class Function_ctl extends MY_Welcome
         $arrFile['foto'] = $_FILES['foto'];
 
         $result = curl_post('profil/edit_foto/', $arr, $arrFile);
-
+        if ($result->status == 200) {
+            $get_staf = curl_get('profil', ['id_staf' => $this->id_staf, 'id_sekolah' => $this->id_sekolah]);
+            $ss['lms_staf_foto'] = $get_staf->data->foto;
+            $this->session->set_userdata($ss);
+        }
         echo json_encode($result);
     }
 }

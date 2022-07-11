@@ -34,6 +34,12 @@ class Function_ctl extends MY_Welcome
                 $arrSession['lms_staf_id_staf'] = $response->data->id_staf;
                 $arrSession['lms_staf_id_sekolah'] = $response->data->id_sekolah;
                 $arrSession['lms_staf_role'] = $response->data->role;
+                $arrSession['lms_staf_nama'] = $response->data->nama;
+                $arrSession['lms_staf_wali_kelas'] = $response->data->wali_kelas;
+                if ($response->data->wali_kelas == true) {
+                    $arrSession['lms_staf_id_kelas'] = $response->data->id_kelas;
+                }
+                $arrSession['lms_staf_foto'] = $response->data->foto;
 
 
                 $this->session->set_userdata($arrSession);

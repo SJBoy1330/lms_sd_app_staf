@@ -21,7 +21,9 @@ class Controller_ctl extends MY_Frontend
 		$mydata['id_sekolah'] = $this->id_sekolah;
 		$mydata['id_staf'] = $this->id_staf;
 		$mydata['role'] = $this->session->userdata('lms_staf_role');
-		$mydata['data'] = curl_get("profil", array('id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf))->data;
+		$mydata['foto'] = $this->session->userdata('lms_staf_foto');
+		$mydata['nama'] = $this->session->userdata('lms_staf_nama');
+		$mydata['wali_kelas'] = $this->session->userdata('lms_staf_wali_kelas');
 
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/style-dewa.css') . '">';

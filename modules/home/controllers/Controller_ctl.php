@@ -16,8 +16,6 @@ class Controller_ctl extends MY_Frontend
 	{
 		// LOAD TITLE
 		$mydata['title'] = 'Home';
-		// LOAD DATA SISWA
-		$mydata['user'] = $user = curl_get('profil', array('id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf))->data;
 		// LOAD API
 		$mydata['result_aktif'] = curl_get('jadwal/today', array('id_sekolah' => $this->id_sekolah, 'hari' => date('N'), 'aktif' => 'Y', 'id_staf' =>  $this->id_staf, 'kbm' => 'Y'))->data;
 		$mydata['result_old'] = curl_get('jadwal/today', array('id_sekolah' => $this->id_sekolah, 'hari' => date('N'), 'aktif' => 'N', 'id_staf' =>  $this->id_staf, 'kbm' => 'Y'))->data;

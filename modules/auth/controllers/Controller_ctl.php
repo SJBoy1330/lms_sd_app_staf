@@ -91,6 +91,10 @@ class Controller_ctl extends MY_Welcome
 		$this->session->unset_userdata('lms_staf_id_staf');
 		$this->session->unset_userdata('lms_staf_role');
 		$this->session->unset_userdata('lms_staf_id_sekolah');
+		$this->session->unset_userdata('lms_staf_nama');
+		$this->session->unset_userdata('lms_staf_wali_kelas');
+		$this->session->unset_userdata('lms_staf_foto');
+		$this->session->unset_userdata('lms_staf_id_kelas');
 
 		redirect('auth/login');
 	}

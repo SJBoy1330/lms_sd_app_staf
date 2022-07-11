@@ -151,11 +151,18 @@ $route['kbm/(:any)'] = 'kbm/controller_ctl/$1';
 
 $route['kbm/(:any)/(:any)'] = 'kbm/controller_ctl/$1/$2';
 
+$route['kbm/(:any)/(:any)/(:any)'] = 'kbm/controller_ctl/$1/$2/$3';
+
+$route['kbm/(:any)/(:any)/(:any)/(:any)'] = 'kbm/controller_ctl/$1/$2/$3/$4';
+
+$route['kbm/(:any)/(:any)/(:any)/(:any)/(:any)'] = 'kbm/controller_ctl/$1/$2/$3/$4/$5';
+
 $route['func_kbm']  = 'kbm/function_ctl';
 
 $route['func_kbm/(:any)'] = 'kbm/function_ctl/$1';
 
 $route['func_kbm/(:any)/(:any)'] = 'kbm/function_ctl/$1/$2';
+
 
 
 

@@ -1,110 +1,39 @@
-<!-- Header -->
-<header class="header position-fixed">
-    <div class="row">
-        <div class="col-auto">
-            <a href="<?= base_url('qna')?>" target="_self" class="btn btn-44">
-                <i class="fa-solid fa-chevron-left text-dark"></i>
-            </a>
-        </div>
-        <div class="col d-flex justify-content-center align-items-center text-center">
-            <h6 class="text-dark">Kontak</h6>
-        </div>
-        <div class="col-auto">
-            <a href="#" target="_self" class="btn btn-44"></a>
-        </div>
-    </div>
-</header>
-<!-- Header ends -->
-
 <!-- main page content -->
 <div class="main-container container">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4">
-            <a href="#" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-50 rounded-circle avatar-pesan">
-                                <img src="<?= base_url('assets/img/user2.jpg')?>" alt="">
+            <?php if ($result) : ?>
+                <?php foreach ($result as $row) : ?>
+                    <?php if ($row->redirect == true) : ?>
+                        <a href="<?= base_url('qna/chatting/' . $row->id . '?tanggal=' . date('Y-m-d')); ?>" class="card mb-3">
+                        <?php else : ?>
+                            <a data-url_ajax="<?= base_url('qna/create_chat'); ?>" data-post="id_siswa," data-value="<?= $row->id_siswa; ?>," <?= alert_question('KONFIRMASI', 'Apakah anda akan memulai chat dengan ' . $row->nama_siswa . ' ?'); ?> class="card mb-3 question_alert">
+                            <?php endif; ?>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-50 rounded-circle avatar-pesan">
+                                            <img src="<?= $row->foto; ?>" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col align-self-center ps-0">
+                                        <p class="mb-0 size-14 fw-medium"><?= $row->nama_siswa; ?></p>
+                                        <p class="text-muted text-secondary size-12"><?= nice_title($row->nama_kelas, 40); ?></p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-14 fw-medium">Drs. Sri Handayani S.Pd</p>
-                            <p class="text-muted text-secondary size-12">Guru Matematika</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-50 rounded-circle avatar-pesan">
-                                <img src="<?= base_url('assets/img/user1.jpg')?>" alt="">
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-14 fw-medium">Sutiaji S.Pd</p>
-                            <p class="text-muted text-secondary size-12">Guru Sejarah</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-50 rounded-circle avatar-pesan">
-                                <i class="fa-solid fa-user-astronaut size-26 text-secondary"></i>
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-14 fw-medium">Gunawan S.Pd</p>
-                            <p class="text-muted text-secondary size-12">Guru Biologi</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-50 rounded-circle avatar-pesan">
-                                <i class="fa-solid fa-user-astronaut size-26 text-secondary"></i>
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-14 fw-medium">Radit S.Pd</p>
-                            <p class="text-muted text-secondary size-12">Guru Olahraga</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-50 rounded-circle avatar-pesan">
-                                <img src="<?= base_url('assets/img/user3.jpg')?>" alt="">
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-14 fw-medium">Sri Wahyuni S.Pd</p>
-                            <p class="text-muted text-secondary size-12">Staf Kantor</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
+                            </a>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <!-- <div class="col-12 col-md-6 col-lg-4">
             <div class="row d-flex justify-content-center align-items-center">
-                <div class="lds-ripple"><div></div><div></div></div>
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- main page content ends -->

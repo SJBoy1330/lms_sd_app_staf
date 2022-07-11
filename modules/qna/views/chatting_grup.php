@@ -1,198 +1,145 @@
-<!-- Header -->
-<header class="header position-fixed">
-    <div class="row">
-        <div class="col-auto">
-            <a href="<?= base_url('qna')?>" target="_self" class="btn btn-44">
-                <i class="fa-solid fa-chevron-left text-dark"></i>
-            </a>
-        </div>
-        <div class="col d-flex justify-content-center align-items-center text-center">
-            <h6 class="text-dark">Drs. Sri Handayani S.Pd</h6>
-        </div>
-        <div class="col-auto">
-            <a class="btn btn-44 rounded-circle btn-notifikasi" style="background-image: url(<?= base_url(); ?>assets/img/user2.jpg); background-repeat: no-repeat; background-size: cover; background-position: center;"></a>
-        </div>
-    </div>
-</header>
-<!-- Header ends -->
+<!-- main page content -->
+<div class="main-container container">
+    <input type="hidden" name="now" id="now" value="<?= date('Y-m-d'); ?>">
+    <div class="row mb-5" id="display_chat">
+        <div class="col-12 chat-list scroll-y mb-3" id="reload_chat">
+            <?php if ($result) : ?>
+                <?php foreach ($result as $row) : ?>
+                    <?php if ($row->domain == true) : ?>
+                        <!-- CHAT PENGIRIM -->
+                        <div class="row no-margin right-chat">
+                            <div class="col-12">
+                                <div class="chat-block pengirim">
+                                    <?php if ($row->reply == false) : ?>
+                                        <!-- JIKA CHAT BIASA  -->
+                                        <div class="row">
+                                            <?php if ($row->file == NULL) : ?>
+                                                <!-- JIKA BUKAN FILE -->
+                                                <div class="col">
+                                                    <?php if ($row->gambar != NULL) : ?>
+                                                        <!-- JIKA ADA GAMBAR -->
+                                                        <div class="mw-100 position-relative mb-2 figure">
+                                                            <img src="<?= $row->gambar; ?>" alt="" class="mw-100">
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    <p class="mb-0 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                                </div>
+                                            <?php else : ?>
+                                                <!-- JIKA FILE -->
+                                                <div class="col-auto detail-tugas-sd">
+                                                    <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
+                                                        <!-- <i class="fa-solid fa-file-word size-30"></i> -->
+                                                        <?= get_icon_file($row->file->ext); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto align-self-center ps-2">
+                                                    <a href="<?= $row->file->download ?>" class="mb-0 size-13 fw-medium text-dark"><?= tampil_text($row->file->name, 20); ?></a>
+                                                    <p class="mb-0 size-12 fw-normal text-muted"><?= strtoupper($row->file->ext) ?> File</p>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php else : ?>
+                                        <!-- JIKA CHAT REPLY MATERI -->
+                                        <div class="row flex-column">
+                                            <div class="reply-text-pengirim">
+                                                <div class="column-reply-pengirim flex-wrap">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="size-12 fw-medium mb-0"><?= tampil_text($row->judul_materi, 20); ?></p>
+                                                    </div>
+                                                    <p class="fw-normal size-12"><?= tampil_text($row->ket_materi, 70); ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php else : ?>
+                        <!-- CHAT BALASAN -->
+                        <div class="row no-margin left-chat my-3">
+                            <div class="col-10">
+                                <div class="chat-block penerima">
+                                    <?php if ($row->reply == false) : ?>
+                                        <!-- JIKA PESAN BIASA -->
+                                        <div class="row">
+                                            <?php if ($row->file == NULL) : ?>
+                                                <div class="col">
+                                                    <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text($row->nama_chat, 15); ?></p>
+                                                    <?php if ($row->gambar != NULL) : ?>
+                                                        <!-- JIKA ADA GAMBAR -->
+                                                        <div class="mw-100 position-relative mb-2 figure">
+                                                            <img src="<?= $row->gambar; ?>" alt="" class="mw-100">
+                                                        </div>
+                                                    <?php endif; ?>
+                                                    <p class="mb-0 ms-1 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                                </div>
+                                            <?php else : ?>
+                                                <!-- JIKA FILE -->
+                                                <div class="col-auto detail-tugas-sd">
+                                                    <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
+                                                        <!-- <i class="fa-solid fa-file-word size-30"></i> -->
+                                                        <?= get_icon_file($row->file->ext); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto align-self-center ps-2">
+                                                    <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text($row->nama_chat, 15); ?></p>
+                                                    <a href="<?= $row->file->download ?>" class="mb-0 size-13 fw-medium text-dark"><?= tampil_text($row->file->name, 20); ?></a>
+                                                    <p class="mb-0 size-12 fw-normal text-muted"><?= strtoupper($row->file->ext) ?> File</p>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php else : ?>
+                                        <!-- JIKA PESAN REPLAY MATERI -->
+                                        <div class="row flex-column">
+                                            <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text($row->nama_chat, 15); ?></p>
+                                            <div class="reply-text-penerima">
+                                                <div class="column-reply-penerima flex-wrap">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="size-12 fw-medium mb-0"><?= tampil_text($row->judul_materi, 20); ?></p>
+                                                    </div>
+                                                    <p class="fw-normal size-12"><?= tampil_text($row->ket_materi, 70); ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <div style="height : 20px;"></div>
 
- <!-- main page content -->
- <div class="main-container container">
-    <div class="row mb-5">
-        <div class="col-12 chat-list scroll-y mb-3">
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <div class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col">
-                                <p class="mb-0 size-15 fw-normal">Materinya mudah dimengerti bu</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <div class="chat-block pengirim">
-                        <div class="row flex-column">
-                            <div class="reply-text-pengirim">
-                                <div class="column-reply-pengirim flex-wrap">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="size-12 fw-medium mb-0">Max Smith</p>
-                                    </div>
-                                    <p class="fw-normal size-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias animi saepe perspiciatis..</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="mb-0 mt-2 ms-1 size-15 fw-normal">Gak membingungkan untuk
-                                    dipelajari sehingga murid pertama kali belajar jadi mudah untuk memahamix</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <a href="#" class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col-auto detail-tugas-sd">
-                                <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
-                                    <i class="fa-solid fa-file-pdf size-30"></i>
-                                </div>
-                            </div>
-                            <div class="col-auto align-self-center ps-2">
-                                <p class="mb-0 size-13 fw-medium">tugas_bahasa..pdf</p>
-                                <p class="mb-0 size-12 fw-normal text-muted">Bab 1</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <a href="#" class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col-auto detail-tugas-sd">
-                                <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
-                                    <i class="fa-solid fa-file-word size-30"></i>
-                                </div>
-                            </div>
-                            <div class="col-auto align-self-center ps-2">
-                                <p class="mb-0 size-13 fw-medium">tugas_bahasa..docx</p>
-                                <p class="mb-0 size-12 fw-normal text-muted">Bab 1</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <a href="#" class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col-auto detail-tugas-sd">
-                                <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
-                                    <i class="fa-solid fa-file-excel size-30"></i>
-                                </div>
-                            </div>
-                            <div class="col-auto align-self-center ps-2">
-                                <p class="mb-0 size-13 fw-medium">tugas_bahasa..xls</p>
-                                <p class="mb-0 size-12 fw-normal text-muted">Bab 1</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <a href="#" class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col-auto detail-tugas-sd">
-                                <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
-                                    <i class="fa-solid fa-file-video size-30"></i>
-                                </div>
-                            </div>
-                            <div class="col-auto align-self-center ps-2">
-                                <p class="mb-0 size-13 fw-medium">tugas_bahasa..mp4</p>
-                                <p class="mb-0 size-12 fw-normal text-muted">Bab 1</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row no-margin right-chat">
-                <div class="col-12">
-                    <a href="#" class="chat-block pengirim">
-                        <div class="row">
-                            <div class="col-auto detail-tugas-sd">
-                                <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
-                                    <i class="fa-solid fa-file-image size-30"></i>
-                                </div>
-                            </div>
-                            <div class="col-auto align-self-center ps-2">
-                                <p class="mb-0 size-13 fw-medium">tugas_bahasa..png</p>
-                                <p class="mb-0 size-12 fw-normal text-muted">Bab 1</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>  
-
-            <div class="row no-margin left-chat my-3">
-                <div class="col-12">
-                    <div class="chat-block penerima">
-                        <div class="row flex-column">
-                            <div class="reply-text-penerima">
-                                <div class="column-reply-penerima flex-wrap">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="size-12 fw-medium mb-0">Max Smith</p>
-                                    </div>
-                                    <p class="fw-normal size-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias animi saepe perspiciatis..</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p class="mb-0 mt-2 size-15 fw-normal"> Sama sama, semangat ya semoga dapat nilai bagus</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>  
-
-            <div class="row no-margin left-chat">
-                <div class="col-12">
-                    <a href="#" class="chat-block penerima">
-                        <div class="row">
-                            <div class="col-auto detail-tugas-sd">
-                                <div class="avatar avatar-50 rounded-10 avatar-detail-tugas">
-                                    <i class="fa-solid fa-file-image size-30"></i>
-                                </div>
-                            </div>
-                            <div class="col-auto align-self-center ps-2">
-                                <p class="mb-0 size-13 fw-medium">tugas_bahasa..png</p>
-                                <p class="mb-0 size-12 fw-normal text-muted">Bab 1</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div> 
+            <?php else : ?>
+                <?= vector_default('vector_grup_chat.svg', 'Tidak ada chat', 'Anda belum melakukan obrolan hari ini, kirim pesan di grup ini !') ?>
+            <?php endif; ?>
         </div>
     </div>
 
     <div class="position-fixed bottom-0 start-0 chat-post">
-        <div class="row gx-3">
+        <form class="row gx-3 typing-area">
             <div class="col">
                 <div class="form-group mb-2">
                     <div class="wrapper-password d-flex flex-wrap">
-                        <div class="reply-text">
+                        <input type="hidden" id="id_pelajaran" value="0">
+                        <input type="hidden" id="id_materi" name="id_materi">
+                        <input type="hidden" name="id_diskusi_grup_tanya" id="id_diskusi_grup_tanya" value="<?= $id_diskusi_grup_tanya; ?>">
+                        <div class="reply-text" id="display_reply" style="display:none;">
                             <div class="column-reply flex-wrap">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <p class="size-15 fw-medium mb-0">Max Smith</p>
-                                    <button class="btn btn-sm btn-block"><i class="fa-regular fa-xmark" style="color: #8e8e8e;"></i></button>
+                                    <p class="size-15 fw-medium mb-0" id="materi">Max Smith</p>
+                                    <button onclick="batal_materi()" class=" btn btn-sm btn-block"><i class="fa-regular fa-xmark" style="color: #8e8e8e;"></i></button>
                                 </div>
-                                <p class="fw-normal size-12 mb-2">Lorem</p>
+                                <p class="fw-normal size-12 mb-2" id="text_materi">Lorem</p>
                             </div>
                         </div>
                         <div class="form-floating">
-                            <textarea type="text" class="form-control form-control-pribadi input-field chatting border-0" placeholder="Tulis Pesan" autocomplete="off"></textarea>
+                            <textarea type="text" class="form-control form-control-pribadi input-field chatting border-0" name="pesan" id="pesan" placeholder="Tulis Pesan" autocomplete="off"></textarea>
                         </div>
                         <a href="#" class="input-group-append tambah-file" data-bs-toggle="modal" data-bs-target="#menuModalChatting" id="centermenubtn">
                             <span class="input-group-text">
@@ -203,12 +150,11 @@
                 </div>
             </div>
             <div class="col-auto">
-                <button class="btn btn-danger btn-44 rounded-circle avatar p-0 button-kirim-pesan" type="button"
-                    data-bs-toggle="modal" data-bs-target="#attachefiles">
+                <button class="btn btn-danger btn-44 rounded-circle avatar p-0 button-kirim-pesan submit-chat" type="button" data-bs-toggle="modal" data-bs-target="#attachefiles" disabled>
                     <i class="fa-regular fa-paper-plane size-22 text-white"></i>
                 </button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -230,7 +176,7 @@
                     </div>
 
                     <div class="col-auto text-center">
-                        <input id="upload-file" type="file"/>
+                        <input id="upload-file" onchange="kirim_file(this)" type="file" />
                         <a href="javascript:void(0)" id="upload" class="avatar avatar-60 p-1 shadow-sm shadow-primary rounded-20 bg-secondary mb-2">
                             <div class="circle-bg-top"></div>
                             <div class="circle-bg-bottom"></div>
@@ -242,7 +188,8 @@
                     </div>
 
                     <div class="col-auto text-center">
-                        <a href="#" class="avatar avatar-60 p-1 shadow-sm shadow-info rounded-20 bg-image-modal mb-2" data-bs-toggle="modal" data-bs-target="#imageModal" aria-hidden="true">
+                        <input id="upload-file2" type="file" onchange="kirim_gambar(this)" accept="image/*" />
+                        <a href="javascript:void(0)" id="upload2" class="avatar avatar-60 p-1 shadow-sm shadow-info rounded-20 bg-image-modal mb-2">
                             <div class="circle-bg-top"></div>
                             <div class="circle-bg-bottom"></div>
                             <div class="icons text-success">
@@ -257,6 +204,43 @@
     </div>
 </div>
 
+
+<!-- Modal Image -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen">
+        <div class="modal-content position-absolute bottom-0" style="border-radius: 15px 15px 0px 0px; height: 75%;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Gambar</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="avatar-upload">
+                    <div class="avatar-preview">
+                        <figure id="div_gambar" style="background-image: url(<?= base_url(); ?>assets/images/naruto.png);"></figure>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-0">
+                <div class="position-fixed bottom-0 start-0 chat-post">
+                    <div class="row gx-3">
+                        <div class="col">
+                            <div class="form-group mb-2">
+                                <div class="wrapper-password d-flex">
+                                    <input type="text" id="base_pesan_dua" class="form-control form-control-pribadi ps-3 chatting" name="text" placeholder="Tulis Pesan" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" onclick="kirim_pesan_gambar()" class="btn btn-danger btn-44 rounded-circle avatar p-0 button-kirim-pesan" data-bs-toggle="modal" data-bs-target="#attachefiles">
+                                <i class="fa-regular fa-paper-plane size-22 text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Modal Pelajaran -->
 <div class="modal fade" id="pelajaranModal" tabindex="-1" aria-labelledby="pelajaranModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen">
@@ -265,64 +249,34 @@
                 <h5 class="modal-title" id="pelajaranModalLabel">Materi Pelajaran</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body body-materi">
+            <div class="modal-body body-materi" id="pelajaran">
                 <div class="row">
                     <div class="col-12 mx-auto">
-                        <div class="card mb-4" onclick="toBab()">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col align-self-center">
-                                        <p class="mb-0 size-15 fw-medium">Pelajaran 01</p>
+                        <?php if ($pelajaran) : ?>
+                            <?php foreach ($pelajaran as $row) : ?>
+                                <div class="card mb-4" onclick="toBab(<?= $row->id_pelajaran; ?>)">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col align-self-center">
+                                                <p class="mb-0 size-15 fw-medium"><?= $row->nama_pelajaran; ?></p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <?= vector_default('vector_jadwal_kosong.svg', 'Tidak ada pelajaran!', 'Guru ini tidak mengajar mapel apapun, silahkan hubguni admin jika terjadi kesalahan!'); ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<!-- Modal Image -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen">
-    <div class="modal-content position-absolute bottom-0" style="border-radius: 15px 15px 0px 0px; height: 75%;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="imageModalLabel">Gambar</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="avatar-upload">
-            <div class="avatar-edit">
-                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                <label for="imageUpload"></label>
-            </div>
-            <div class="avatar-preview">
-                <div id="imagePreview" style="background-image: url(<?= base_url(); ?>assets/images/no-photo-big.png);">
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="modal-footer border-0">
-        <div class="position-fixed bottom-0 start-0 chat-post">
-            <div class="row gx-3">
-                <div class="col">
-                    <div class="form-group mb-2">
-                        <div class="wrapper-password d-flex">
-                            <input type="text" class="form-control form-control-pribadi ps-3 chatting" name="text" id="password" placeholder="Tulis Pesan" autocomplete="off">
-                        </div>
+            <div class="modal-body body-materi hiding" id="bab_materi">
+                <div class="row">
+                    <div class="col-12 mx-auto" id="display_bab_materi">
                     </div>
                 </div>
-                <div class="col-auto">
-                    <button class="btn btn-danger btn-44 rounded-circle avatar p-0 button-kirim-pesan" type="button"
-                        data-bs-toggle="modal" data-bs-target="#attachefiles">
-                        <i class="fa-regular fa-paper-plane size-22 text-white"></i>
-                    </button>
-                </div>
             </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

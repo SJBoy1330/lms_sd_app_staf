@@ -127,3 +127,8 @@ function search(element, property = 'tbody tr', backup = null) {
     // typingTimer = setTimeout(liveSearch, 0);
 }
 
+function preview_image(img) {
+    // console.log(img);
+    $('#preview_preview_image').attr('src', img);
+    $('#modal_preview_all').modal('show');
+}

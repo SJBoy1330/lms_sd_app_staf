@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-12 d-flex justify-content-center">
             <div class="image-profile position-relative text-center">
-                <figure id="photouser" class="avatar avatar-125 rounded-35 shadow-sm position-relative avatar-profile" style="background-position: center; background-size: cover; background-image: url('<?= $data->foto; ?>');">
+                <figure id="photouser" class="avatar avatar-125 rounded-35 shadow-sm position-relative avatar-profile" style="background-position: center; background-size: cover; background-image: url('<?= $foto; ?>');">
                     <!-- <img src="" alt="" class="rounded-20" id="photouser"> -->
                 </figure>
                 <label for="photo" class="custom-profile-upload position-absolute top-100 start-100 bg-ec3528 rounded-15 icon-box-profile d-flex justify-content-center align-items-center fs-3 text-light">
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="col-12 text-center mt-2 mb-3">
-            <span class="fw-bold size-18"><?= $data->nama; ?></span>
+            <span class="fw-bold size-18"><?= $nama; ?></span>
             <p class="size-12"><?= $role;; ?></p>
         </div>
     </div>
@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </a>
-                <?php if ($data->wali_kelas == true) : ?>
+                <?php if ($wali_kelas == true) : ?>
                     <a href="<?= base_url('profil/laporan_wali_kelas'); ?>" class="list-group-item border-0 bg-f5f5f5 shadow-none rounded-15 py-1 px-3 mb-3 mx-3">
                         <div class="row p-2">
                             <div class="d-flex col-auto align-items-center ">

@@ -10,10 +10,10 @@
                     <div class="col-12 profile-sidebar" id="reload_side_foto">
                         <div class="row mt-3" id="side_foto_profil">
                             <div class=" col-auto">
-                                <figure class="avatar avatar-80 rounded-20 p-1 bg-white shadow-sm figure-sidemenu" style="background-image: url(' <?= $profil->foto; ?>')"></figure>
+                                <figure class="avatar avatar-80 rounded-20 p-1 bg-white shadow-sm figure-sidemenu" style="background-image: url(' <?= $this->session->userdata('lms_staf_foto'); ?>')"></figure>
                             </div>
                             <div class=" col px-0 align-self-center">
-                                <h5 class="mb-0 fw-normal text-white"><?= tampil_text($profil->nama, 20); ?></h5>
+                                <h5 class="mb-0 fw-normal text-white"><?= tampil_text($this->session->userdata('lms_staf_nama'), 20); ?></h5>
                                 <p class="text-muted size-12"><?= $this->session->userdata('lms_staf_role'); ?></p>
                             </div>
                         </div>
@@ -213,7 +213,7 @@
                                             <a href="#" target="_self" class="btn btn-44" data-bs-toggle="modal" data-bs-target="#filterUjian"><i class="fa-regular fa-filter"></i></a>
                                         <?php endif; ?>
                                         <?php if (isset($right_button['chatting'])) :  ?>
-                                            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#detail_profil_chat" aria-controls="offcanvasRight" class="btn btn-44 rounded-circle btn-notifikasi" style="background-image: url(<?= $foto_staf; ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></a>
+                                            <a href="#" data-bs-toggle="offcanvas" data-bs-target="#detail_profil_chat" aria-controls="offcanvasRight" class="btn btn-44 rounded-circle btn-notifikasi" style="background-image: url(<?= $foto_siswa; ?>); background-repeat: no-repeat; background-size: cover; background-position: center;"></a>
                                         <?php endif; ?>
                                         <?php if (isset($right_button['chatting_grup'])) :  ?>
                                             <?php if ($foto_accept) : ?>

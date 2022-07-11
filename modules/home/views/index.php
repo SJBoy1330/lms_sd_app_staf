@@ -3,7 +3,7 @@
     <!-- Ucapan Selamat Datang -->
     <div class="row my-4 text-start">
         <div class="col-9">
-            <p class="mb-0 ms-2 title-2">Halo, <?= explode(' ', $user->nama)[0]; ?></p>
+            <p class="mb-0 ms-2 title-2">Halo, <?= explode(' ', $this->session->userdata('lms_staf_nama'))[0]; ?></p>
             <p class="mb-0 ms-2 title-1-home">Selamat Datang</p>
         </div>
         <div class="col-3 d-flex justify-content-center align-items-center">
@@ -25,7 +25,7 @@
                 <?php if ((date('H:i:s') >= $row->jam_mulai) && (date('H:i:s') <= $row->jam_selesai)) : ?>
                     <?php if ($presensi_setting->presensi_mapel == true) : ?>
                         <?php if (!isset($presensi->presensi_mapel->$uniq)) : ?>
-                            <a data-bs-toggle="modal" data-id="<?= $row->id_jadwal; ?>" data-bs-target="#presensiMapelModal" class="col-6 mb-3 jadwal text-dark button_get_lokasi button_presensi_mapel">
+                            <a data-bs-toggle="modal" data-id="<?= $row->id_jadwal; ?>" data-bs-target="#presensiModalMapel" class="col-6 mb-3 jadwal text-dark button_get_lokasi button_presensi_mapel">
                             <?php else : ?>
                                 <a href="<?= base_url('kbm/detail_kbm/' . $row->id_pelajaran . '/' . $row->id_kelas . '/' . $row->id_staf); ?>" class="col-6 mb-3 jadwal text-dark">
                                 <?php endif; ?>

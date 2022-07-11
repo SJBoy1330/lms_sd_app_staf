@@ -83,17 +83,18 @@
                             </a>
                             <p class="size-13 text-secondary">Chatting</p>
                         </div>
-
-                        <div class="col-auto text-center mb-2">
-                            <a href="<?= base_url('suratijin'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 mb-2 avatar-quicklinks" style="background-color: #FF8C32;">
-                                <div class="circle-bg-top"></div>
-                                <div class="circle-bg-bottom"></div>
-                                <div class="icons text-success">
-                                    <i class="fa-solid fa-envelope-open-text size-28 text-white"></i>
-                                </div>
-                            </a>
-                            <p class="size-13 text-secondary">Surat Ijin</p>
-                        </div>
+                        <?php if ($this->session->userdata('lms_staf_wali_kelas') == true) : ?>
+                            <div class="col-auto text-center mb-2">
+                                <a href="<?= base_url('suratijin'); ?>" class="avatar avatar-60 p-1 shadow-sm shadow-warning rounded-20 mb-2 avatar-quicklinks" style="background-color: #FF8C32;">
+                                    <div class="circle-bg-top"></div>
+                                    <div class="circle-bg-bottom"></div>
+                                    <div class="icons text-success">
+                                        <i class="fa-solid fa-envelope-open-text size-28 text-white"></i>
+                                    </div>
+                                </a>
+                                <p class="size-13 text-secondary">Surat Ijin</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-auto text-center">
@@ -164,6 +165,19 @@
     </div>
 </div>
 
+<!-- Modal Preview -->
+<div class="modal fade" id="modal_preview_all" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-content" style="border-radius: 0px; background-color: hsl(0deg 1% 20% / 90%);">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close-detailsurat" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center align-items-center">
+                <img src="" id="preview_preview_image" style="width : 100%;" alt="">
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Required jquery and libraries -->
 <script src="<?= base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
 <script src="<?= base_url() ?>assets/js/popper.min.js"></script>

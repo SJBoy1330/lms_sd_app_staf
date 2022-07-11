@@ -130,9 +130,6 @@ class MY_Frontend extends MY_Controller
 
     function display($routing = null)
     {
-        if (!isset($this->data['button_back'])) {
-            $this->data['profil'] = curl_get("profil", array('id_sekolah' => $this->session->userdata('lms_staf_id_sekolah'), 'id_staf' => $this->session->userdata('lms_staf_id_staf')))->data;
-        }
         if (!isset($routing)) {
             $tpl = $this->path_theme . '/layout_single';
 
