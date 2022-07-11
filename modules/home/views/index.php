@@ -1,4 +1,5 @@
 <!-- main page content -->
+
 <div class="main-container container">
     <!-- Ucapan Selamat Datang -->
     <div class="row my-4 text-start">
@@ -25,7 +26,7 @@
                 <?php if ((date('H:i:s') >= $row->jam_mulai) && (date('H:i:s') <= $row->jam_selesai)) : ?>
                     <?php if ($presensi_setting->presensi_mapel == true) : ?>
                         <?php if (!isset($presensi->presensi_mapel->$uniq)) : ?>
-                            <a data-bs-toggle="modal" data-id="<?= $row->id_jadwal; ?>" data-bs-target="#presensiModalMapel" class="col-6 mb-3 jadwal text-dark button_get_lokasi button_presensi_mapel">
+                            <a data-bs-toggle="modal" onclick="get_modal_mapel(<?= $row->id_jadwal; ?>)" data-bs-target="#presensiModalMapel" class="col-6 mb-3 jadwal text-dark button_get_lokasi">
                             <?php else : ?>
                                 <a href="<?= base_url('kbm/detail_kbm/' . $row->id_pelajaran . '/' . $row->id_kelas . '/' . $row->id_staf); ?>" class="col-6 mb-3 jadwal text-dark">
                                 <?php endif; ?>
@@ -288,7 +289,7 @@
                                                 </div>
                                                 <div class="col align-self-center ps-1">
                                                     <p class="mb-0 size-12 fw-medium">Jarak</p>
-                                                    <p class="fw-normal text-secondary size-12">20 Km</p>
+                                                    <p class="fw-normal text-secondary size-12 jarak"><?= ifnull(round($jarak, 2), 0) . ' M'; ?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -303,7 +304,7 @@
                     <!-- BUTTON PRESENSI -->
                     <input type="hidden" class="lat" name="lat" value="<?= $lat; ?>">
                     <input type="hidden" class="long" name="long" value="<?= $long; ?>">
-
+                    <input type="hidden" id="jarak" name="jarak" value="<?= round($jarak, 2); ?>">
                     <input type="hidden" id="jam_masuk" name="jam_masuk" value="<?= $presensi_setting->jam_masuk; ?>">
                     <input type="hidden" id="jam_pulang" name="jam_pulang" value="<?= $presensi_setting->jam_pulang; ?>">
                     <?php if ($presensi_setting->checkout == true) : ?>
@@ -357,11 +358,12 @@
             <div class="modal-header py-4">
                 <button type="button" class="btn-close me-0" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <form class="modal-body" action="<?= base_url('presensi/mapel/') ?>" method="POST" id="form_presensi_mapel">
                 <div class="row">
                     <div class="col-12">
+                        <div style="width : 90%;height :100%;position : absolute;z-index : 10;"></div>
                         <div id="map-container-google-1" class="z-depth-1-half map-container">
-                            <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <iframe id="map_mapel" src="<?= $map; ?>" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -380,7 +382,7 @@
                                     </div>
                                     <div class="col align-self-center ps-1">
                                         <p class="mb-0 size-12 fw-medium">Nama Kelas</p>
-                                        <p class="fw-normal text-secondary size-12">XI IPA 1</p>
+                                        <p class="fw-normal text-secondary size-12" id="kelas">...</p>
                                     </div>
                                 </div>
                             </div>
@@ -401,7 +403,7 @@
                                     </div>
                                     <div class="col align-self-center ps-1">
                                         <p class="mb-0 size-12 fw-medium">Nama Mata Pelajaran</p>
-                                        <p class="fw-normal text-secondary size-12">Bahasa Indonesia</p>
+                                        <p class="fw-normal text-secondary size-12" id="pelajaran">...</p>
                                     </div>
                                 </div>
                             </div>
@@ -422,7 +424,7 @@
                                     </div>
                                     <div class="col align-self-center ps-1">
                                         <p class="mb-0 size-12 fw-medium">Jam Pelajaran</p>
-                                        <p class="fw-normal text-secondary size-12">16:00</p>
+                                        <p class="fw-normal text-secondary size-12" id="waktu">--:--</p>
                                     </div>
                                 </div>
                             </div>
@@ -443,16 +445,21 @@
                                     </div>
                                     <div class="col align-self-center ps-1">
                                         <p class="mb-0 size-12 fw-medium">Jarak</p>
-                                        <p class="fw-normal text-secondary size-12">20 Km</p>
+                                        <p class="fw-normal text-secondary size-12 jarak_mapel"><?= ifnull(round($jarak, 2), 0) . ' M'; ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-center border-0">
-                <a href="<?= base_url('kbm/detail_kbm') ?>" class="btn shadow-sm btn-presensi mb-2">Presensi</a>
+                <input type="hidden" class="lat" name="lat" value="<?= $lat; ?>">
+                <input type="hidden" class="long" name="long" value="<?= $long; ?>">
+                <input type="hidden" id="id_pelajaran_mapel" name="id_pelajaran">
+                <input type="hidden" id="id_kelas_mapel" name="id_kelas">
+                <input type="hidden" id="jarak_mapel" value="<?= ifnull(round($jarak, 2), NULL); ?>">
+            </form>
+            <div class=" modal-footer d-flex justify-content-center border-0">
+                <button type="button" onclick="submit_form(this,'#form_presensi_mapel',1)" id="button_presensi_mapel" class="btn shadow-sm btn-presensi mb-2">Presensi</button>
             </div>
         </div>
     </div>
