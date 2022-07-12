@@ -16833,7 +16833,7 @@ button.input-group-text {
 .form-control.autoresize-textarea.chatting {
     border-radius: 25px;
     padding-left: 50px;
-    width: 268px !important;
+    width: auto !important;
 }
 
 .input-group-append.tambah-file .input-group-text {
