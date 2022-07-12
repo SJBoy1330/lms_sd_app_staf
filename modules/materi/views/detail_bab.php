@@ -97,7 +97,7 @@
                                         <div class="accordion-body size-11">
                                             <?php if ($row->materi) : ?>
                                                 <?php foreach ($row->materi as $mt) : ?>
-                                                    <div class="row d-flex">
+                                                    <div class="row d-flex mb-3">
                                                         <div class="col-auto">
                                                             <div class="avatar avatar-46 shadow-sm rounded-circle avatar-presensi-outline">
                                                                 <div class="avatar avatar-36 rounded-circle avatar-presensi-inline" style="line-height: 37px;">
@@ -109,7 +109,7 @@
                                                             <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
                                                             <p class="mb-0 size-14 fw-normal text-dark"><?= $mt->judul; ?></p>
                                                         </a>
-                                                        <div class="col-auto align-self-center ps-0">
+                                                        <div class="col-auto ps-0">
                                                             <div class="dropdown btn-group dropstart">
                                                                 <button class="btn btn-secondary bg-dropdown bg-button rounded-pill" type="button">
                                                                     <i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i>
@@ -176,10 +176,10 @@
                     <div class="mb-3" id="req_select_bab">
                         <label class="form-label title-3">Bab</label>
                         <select name="select_bab" class="form-select form-select form-select-pribadi border-0">
-                            <option value="" selected>Pilih bab</option>
+                            <option selected>Pilih bab</option>
                             <?php if ($result->result) : ?>
                                 <?php foreach ($result->result as $row) : ?>
-                                    <option value="<?= $row->id_bab; ?>" selected><?= $row->nama; ?></option>
+                                    <option value="<?= $row->id_bab; ?>"><?= $row->nama; ?></option>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </select>
@@ -187,7 +187,7 @@
 
                     <div class="mb-3" id="req_judul_materi">
                         <label class="form-label title-3">Nama Materi</label>
-                        <input type="text" name="judul_materi" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan kata sandi">
+                        <input type="text" name="judul_materi" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan nama materi">
                     </div>
 
                     <div class="mb-5" id="req_keterangan_materi">
@@ -198,7 +198,7 @@
             </div>
             <div class="modal-footer border-0">
                 <button type="button" id="tambah_materi" onclick="submit_form(this,'#form_tambah_materi',2)" class="btn btn-block btn-md btn-danger btn-filter">Tambah</a>
-x            </div>
+            </div>
         </form>
     </div>
 </div>

@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div class="col-2 d-flex justify-content-center align-items-center ps-0">
-                    <button class="btn btn-secondary bg-dropdown filter-tugas border-0" data-bs-toggle="modal" data-bs-target="#filterTingkat">
+                    <button class="btn bg-dropdown filter-tugas border-0" data-bs-toggle="modal" data-bs-target="#filterTingkat">
                         <i class="fa-regular fa-filter" style="color: #EC3528;"></i>
                     </button>
                 </div>
