@@ -30,6 +30,11 @@ function submit_form(element, id_form, num = 0, color = '#FFFFFF') {
             // $('select').prop('selected', false);
             // $('textarea').val('');
             $('.fadedin').remove();
+            if (data.etc != null) {
+                for (var a = 0; a < data.etc.length; a++) {
+                    data.etc[a]
+                }
+            }
             if (data.load != null) {
                 for (var a = 0; a < data.load.length; a++) {
                     $(data.load[a].parent).load(data.load[a].reload);

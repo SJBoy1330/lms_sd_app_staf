@@ -1,63 +1,66 @@
 <!-- main page content -->
 <div class="main-container container top-20 pb-5" style="overflow-x: hidden;">
-    <div class="row d-flex justify-content-center align-items-center">
-        <ul class="menu position-fixed" id="trio_menu">
-            <div class="toggle">
-                <i class="fa-solid fa-plus-large"></i>
-            </div>
-            <li style="--i:0;"><a href="#modalTambahBab" data-bs-toggle="modal" role="button"><img src="<?= base_url() ?>assets/icons/tambah-bab.png" width="25" alt=""></a></li>
-            <li style="--i:1;"><a onclick="edit_bab()" role="button"><img src="<?= base_url() ?>assets/icons/edit-bab.png" width="25" alt=""></a></li>
-            <li style="--i:2;"><a href="<?= base_url('materi/tambah_materi') ?>"><img src="<?= base_url() ?>assets/icons/tambah-materi.png" width="30" alt=""></a></li>
-            <div class="indicator d-none"></div>
-        </ul>
-        <ul class="menu position-fixed d-none" id="action_menu">
-            <button type="button" onclick="batal_edit_bab()">BATAL</button>
-            <button type="button" onclick="submit_form(this,'#form_edit_bab',0)" id="simpan_editan_bab">SIMPAN</button>
-        </ul>
-        <div class=" col-12" id="display_detail">
-            <div class="card mb-3" id="reload_detail">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-46 shadow-sm rounded-15 avatar-presensi-outline">
-                                <div class="avatar avatar-36 rounded-12 avatar-presensi-inline">
-                                    <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
+    <div class="row d-flex justify-content-center align-items-center" id="display_detail">
+        <div id="reload_detail">
+            <ul class="menu position-fixed" id="trio_menu">
+                <div class="toggle" onclick="toggle_menu()">
+                    <i class="fa-solid fa-plus-large"></i>
+                </div>
+                <li style="--i:0;"><a href="#modalTambahBab" data-bs-toggle="modal" role="button"><img src="<?= base_url() ?>assets/icons/tambah-bab.png" width="25" alt=""></a></li>
+                <li style="--i:1;"><a onclick="edit_bab()" role="button"><img src="<?= base_url() ?>assets/icons/edit-bab.png" width="25" alt=""></a></li>
+                <li style="--i:2;"><a href="<?= base_url('materi/tambah_materi') ?>"><img src="<?= base_url() ?>assets/icons/tambah-materi.png" width="30" alt=""></a></li>
+                <div class="indicator d-none"></div>
+            </ul>
+            <ul class="menu position-fixed d-none" id="action_menu">
+                <button type="button" onclick="batal_edit_bab()">BATAL</button>
+                <button type="button" onclick="submit_form(this,'#form_edit_bab',0)" id="simpan_editan_bab">SIMPAN</button>
+            </ul>
+            <div class=" col-12">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="avatar avatar-46 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-36 rounded-12 avatar-presensi-inline">
+                                        <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-12 fw-normal text-secondary">Mata Pelajaran</p>
-                            <p class="mb-0 size-14 fw-normal"><?= $result->detail->nama_pelajaran; ?></p>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-auto">
-                            <div class="avatar avatar-46 shadow-sm rounded-15 avatar-presensi-outline">
-                                <div class="avatar avatar-36 rounded-12 avatar-presensi-inline">
-                                    <i class="fa-regular fa-chart-bar size-20 text-white"></i>
-                                </div>
+                            <div class="col align-self-center ps-0">
+                                <p class="mb-0 size-12 fw-normal text-secondary">Mata Pelajaran</p>
+                                <p class="mb-0 size-14 fw-normal"><?= $result->detail->nama_pelajaran; ?></p>
                             </div>
                         </div>
-                        <div class="col align-self-center ps-0 pe-0">
-                            <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
-                            <p class="mb-0 size-13 fw-normal"><?= $result->detail->jumlah_bab; ?> Bab</p>
-                        </div>
+                        <div class="row mt-3">
+                            <div class="col-auto">
+                                <div class="avatar avatar-46 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-36 rounded-12 avatar-presensi-inline">
+                                        <i class="fa-regular fa-chart-bar size-20 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col align-self-center ps-0 pe-0">
+                                <p class="mb-0 size-12 fw-normal text-secondary">Bab Pelajaran</p>
+                                <p class="mb-0 size-13 fw-normal"><?= $result->detail->jumlah_bab; ?> Bab</p>
+                            </div>
 
-                        <div class="col-auto ps-1">
-                            <div class="avatar avatar-46 shadow-sm rounded-15 avatar-presensi-outline">
-                                <div class="avatar avatar-36 rounded-12 avatar-presensi-inline" style="line-height: 39px;">
-                                    <i class="fa-solid fa-book-open-cover size-20 text-white"></i>
+                            <div class="col-auto ps-1">
+                                <div class="avatar avatar-46 shadow-sm rounded-15 avatar-presensi-outline">
+                                    <div class="avatar avatar-36 rounded-12 avatar-presensi-inline" style="line-height: 39px;">
+                                        <i class="fa-solid fa-book-open-cover size-20 text-white"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
-                            <p class="mb-0 size-13 fw-normal"><?= $result->detail->jumlah_materi; ?> Materi</p>
+                            <div class="col align-self-center ps-0">
+                                <p class="mb-0 size-12 fw-normal text-secondary">Materi Pelajaran</p>
+                                <p class="mb-0 size-13 fw-normal"><?= $result->detail->jumlah_materi; ?> Materi</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="row accordion-babpelajaran g-0" id="display_bab">
         <div id="reload_bab">

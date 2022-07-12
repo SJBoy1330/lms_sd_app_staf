@@ -82,6 +82,8 @@ class Function_ctl extends MY_Frontend
                 $res['alert']['title'] = 'PEMBERITAHUAN';
                 $res['load'][0]['parent'] = '#display_bab';
                 $res['load'][0]['reload'] = base_url('materi/detail_bab/' . $id_pelajaran) . ' #reload_bab';
+                $res['load'][1]['parent'] = '#display_detail';
+                $res['load'][1]['reload'] = base_url('materi/detail_bab/' . $id_pelajaran) . ' #reload_detail';
                 echo json_encode($res);
                 exit;
             } else {
