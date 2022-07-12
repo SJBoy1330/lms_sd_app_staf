@@ -166,36 +166,38 @@
 <!-- Filter Tambah Materi -->
 <div class="modal fade" id="modalTambahMateri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <form method="post" id="form_tambah_bab" action="<?= base_url('func_materi/tambah_bab'); ?>" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
+        <form method="post" id="form_tambah_materi" action="<?= base_url('func_materi/tambah_materi'); ?>" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="col-12">
-                    <div class="mb-3">
+                    <div class="mb-3" id="req_select_bab">
                         <label class="form-label title-3">Bab</label>
-                        <select class="form-select form-select form-select-pribadi border-0">
-                            <option selected>Pilih bab</option>
-                            <option value="1">Bab 1</option>
-                            <option value="2">Bab 2</option>
-                            <option value="3">Bab 3</option>
+                        <select name="select_bab" class="form-select form-select form-select-pribadi border-0">
+                            <option value="" selected>Pilih bab</option>
+                            <?php if ($result->result) : ?>
+                                <?php foreach ($result->result as $row) : ?>
+                                    <option value="<?= $row->id_bab; ?>" selected><?= $row->nama; ?></option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </select>
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" id="req_judul_materi">
                         <label class="form-label title-3">Nama Materi</label>
-                        <input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan kata sandi">
+                        <input type="text" name="judul_materi" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan kata sandi">
                     </div>
 
-                    <div class="mb-5">
+                    <div class="mb-5" id="req_keterangan_materi">
                         <label class="form-label title-3">Keterangan Materi</label>
-                        <input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan keterangan materi">
+                        <input type="text" name="keterangan_materi" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan keterangan materi">
                     </div>
                 </div>
             </div>
             <div class="modal-footer border-0">
-                <button type="button" id="tambah_bab" onclick="submit_form(this,'#form_tambah_bab',1)" class="btn btn-block btn-md btn-danger btn-filter">Tambah</a>
+                <button type="button" id="tambah_materi" onclick="submit_form(this,'#form_tambah_materi',2)" class="btn btn-block btn-md btn-danger btn-filter">Tambah</a>
             </div>
         </form>
     </div>
