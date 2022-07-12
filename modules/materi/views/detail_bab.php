@@ -63,10 +63,11 @@
         <div id="reload_bab">
             <?php if ($result->result) : ?>
                 <form action="<?= base_url('func_materi/update_multiple_bab') ?>" method="POST" id="form_edit_bab">
+                    <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran; ?>" autocomplete="off">
                     <?php foreach ($result->result as $row) : ?>
-                        <div class="col-12 mb-3 input_judul_bab d-none">
-                            <input type="hidden" name="id_bab[]" value="<?= $row->id_bab; ?>">
-                            <input type="text" name="bab[]" style="width : 100%;" value="<?= $row->nama_bab; ?>">
+                        <div class=" col-12 mb-3 input_judul_bab d-none">
+                            <input type="hidden" name="id_bab[]" value="<?= $row->id_bab; ?>" autocomplete="off">
+                            <input type="text" name="bab[]" style="width : 100%;" value="<?= $row->nama_bab; ?>" autocomplete="off">
                         </div>
                         <div class="col-12 mb-3 text_judul_bab">
                             <div class="accordion accordion-flush shadow-sm p-0" id="accordion-<?= $row->id_bab; ?>" style="border-radius: 10px;">

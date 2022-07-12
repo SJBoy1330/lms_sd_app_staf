@@ -56,6 +56,7 @@ class Function_ctl extends MY_Frontend
 
     public function update_multiple_bab()
     {
+        $id_pelajaran = $this->input->post('id_pelajaran');
         $bab = $this->input->post('bab');
         $id_bab = $this->input->post('id_bab');
         if (count($bab) > 0) {
@@ -79,6 +80,8 @@ class Function_ctl extends MY_Frontend
             if ($result->status == 200) {
                 $res['status'] = true;
                 $res['alert']['title'] = 'PEMBERITAHUAN';
+                $res['load'][0]['parent'] = '#display_bab';
+                $res['load'][0]['reload'] = base_url('materi/detail_bab/' . $id_pelajaran) . ' #reload_bab';
                 echo json_encode($res);
                 exit;
             } else {
