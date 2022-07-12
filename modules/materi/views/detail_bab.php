@@ -1,14 +1,14 @@
 <!-- main page content -->
 <div class="main-container container top-20 pb-5" style="overflow-x: hidden;">
-    <div class="row d-flex justify-content-center align-items-center" id="display_detail">
-        <div id="reload_detail">
+    <div id="display_detail">
+        <div class="row d-flex justify-content-center align-items-center" id="reload_detail">
             <ul class="menu position-fixed" id="trio_menu">
                 <div class="toggle" onclick="toggle_menu()">
                     <i class="fa-solid fa-plus-large"></i>
                 </div>
                 <li style="--i:0;"><a href="#modalTambahBab" data-bs-toggle="modal" role="button"><img src="<?= base_url() ?>assets/icons/tambah-bab.png" width="25" alt=""></a></li>
                 <li style="--i:1;"><a onclick="edit_bab()" role="button"><img src="<?= base_url() ?>assets/icons/edit-bab.png" width="25" alt=""></a></li>
-                <li style="--i:2;"><a href="<?= base_url('materi/tambah_materi') ?>"><img src="<?= base_url() ?>assets/icons/tambah-materi.png" width="30" alt=""></a></li>
+                <li style="--i:2;"><a href="#modalTambahMateri" data-bs-toggle="modal" role="button"><img src="<?= base_url() ?>assets/icons/tambah-materi.png" width="30" alt=""></a></li>
                 <div class="indicator d-none"></div>
             </ul>
             <ul class="menu position-fixed d-none" id="action_menu">
@@ -60,8 +60,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+
     <div class="row accordion-babpelajaran g-0" id="display_bab">
         <div id="reload_bab">
             <?php if ($result->result) : ?>
@@ -152,6 +152,46 @@
                     <label class="form-label title-3">Nama Bab</label>
                     <input type="hidden" name="id_pelajaran" id="id_pelajaran" value="<?= $id_pelajaran; ?>">
                     <input type="text" name="nama_bab" id="nama_bab" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Isikan nama bab">
+                </div>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" id="tambah_bab" onclick="submit_form(this,'#form_tambah_bab',1)" class="btn btn-block btn-md btn-danger btn-filter">Tambah</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Filter Tambah Materi -->
+<div class="modal fade" id="modalTambahMateri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form method="post" id="form_tambah_bab" action="<?= base_url('func_materi/tambah_bab'); ?>" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label class="form-label title-3">Bab</label>
+                        <select class="form-select form-select form-select-pribadi border-0">
+                            <option selected>Pilih bab</option>
+                            <option value="1">Bab 1</option>
+                            <option value="2">Bab 2</option>
+                            <option value="3">Bab 3</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label title-3">Nama Materi</label>
+                        <input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan kata sandi">
+                    </div>
+
+                    <div class="mb-5">
+                        <label class="form-label title-3">Keterangan Materi</label>
+                        <input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan keterangan materi">
+                    </div>
                 </div>
             </div>
             <div class="modal-footer border-0">
