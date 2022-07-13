@@ -12,7 +12,7 @@
                 <div class="indicator d-none"></div>
             </ul>
             <ul class="menu position-fixed d-none" id="action_menu">
-                <button type="button" class="btn btn-cancel me-2"onclick="batal_edit_bab()"><i class="fa-solid fa-xmark"></i></button>
+                <button type="button" class="btn btn-cancel me-2" onclick="batal_edit_bab()"><i class="fa-solid fa-xmark"></i></button>
                 <button type="button" class="btn btn-yes ms-2" onclick="submit_form(this,'#form_edit_bab',0)" id="simpan_editan_bab"><i class="fa-solid fa-check"></i></button>
             </ul>
             <div class=" col-12">
@@ -70,8 +70,8 @@
                     <?php foreach ($result->result as $row) : ?>
                         <div class="d-flex input_judul_bab d-none">
                             <div class="col-10 mb-3">
-                                <input type="hidden"  class="form-control form-control-pribadi text-start" name="id_bab[]" value="<?= $row->id_bab; ?>" autocomplete="off">
-                                <input type="text"  class="form-control form-control-pribadi text-start" name="bab[]" style="width : 100%;" value="<?= $row->nama_bab; ?>" autocomplete="off">
+                                <input type="hidden" class="form-control form-control-pribadi text-start" name="id_bab[]" value="<?= $row->id_bab; ?>" autocomplete="off">
+                                <input type="text" class="form-control form-control-pribadi text-start" name="bab[]" style="width : 100%;" value="<?= $row->nama_bab; ?>" autocomplete="off">
                             </div>
                             <div class="col-2 d-flex justify-content-end align-items-center mb-3">
                                 <button class="btn btn-secondary bg-dropdown bg-button rounded-pill" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -101,10 +101,10 @@
                                         </button>
                                     </h2>
                                     <div id="collapse-<?= $row->id_bab; ?>" class="accordion-collapse collapse" aria-labelledby="flush-heading-<?= $row->id_bab; ?>" data-bs-parent="#accordion-<?= $row->id_bab; ?>">
-                                        <div class="accordion-body size-11">
+                                        <div id="reload-materi-<?= $row->id_bab; ?>" class="accordion-body size-11">
                                             <?php if ($row->materi) : ?>
                                                 <?php foreach ($row->materi as $mt) : ?>
-                                                    <div class="row d-flex mb-3">
+                                                    <div class="row d-flex mb-3" id="materi-<?= $mt->id_materi; ?>">
                                                         <div class="col-auto">
                                                             <div class="avatar avatar-46 shadow-sm rounded-circle avatar-presensi-outline">
                                                                 <div class="avatar avatar-36 rounded-circle avatar-presensi-inline" style="line-height: 37px;">
@@ -118,7 +118,7 @@
                                                         </a>
                                                         <div class="col-auto ps-0">
                                                             <div class="dropdown btn-group dropstart">
-                                                                <button class="btn btn-secondary bg-dropdown bg-button rounded-pill" type="button">
+                                                                <button onclick="hapus_materi(<?= $row->id_bab; ?>,<?= $mt->id_materi; ?>)" type="button" class="btn btn-secondary bg-dropdown bg-button rounded-pill" type="button">
                                                                     <i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i>
                                                                 </button>
                                                             </div>
@@ -133,6 +133,7 @@
                                 </div>
                             </div>
                         </div>
+
                     <?php endforeach; ?>
                 </form>
             <?php else : ?>
@@ -178,15 +179,16 @@
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Materi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran; ?>" autocomplete="off">
             <div class="modal-body">
                 <div class="col-12">
                     <div class="mb-3" id="req_select_bab">
                         <label class="form-label title-3">Bab</label>
                         <select name="select_bab" class="form-select form-select form-select-pribadi border-0">
-                            <option selected>Pilih bab</option>
+                            <option value="" selected>Pilih</option>
                             <?php if ($result->result) : ?>
                                 <?php foreach ($result->result as $row) : ?>
-                                    <option value="<?= $row->id_bab; ?>"><?= $row->nama; ?></option>
+                                    <option value="<?= $row->id_bab; ?>"><?= $row->nama_bab; ?></option>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </select>
@@ -199,7 +201,7 @@
 
                     <div class="mb-5" id="req_keterangan_materi">
                         <label class="form-label title-3">Keterangan Materi</label>
-                        <input type="text" name="keterangan_materi" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukkan keterangan materi">
+                        <textarea name="keterangan_materi" style="min-height : 120px;" class="form-control form-control-solid form-control-pribadi border-0" id="" cols="30" rows="10"></textarea>
                     </div>
                 </div>
             </div>

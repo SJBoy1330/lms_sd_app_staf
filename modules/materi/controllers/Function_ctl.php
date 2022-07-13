@@ -100,4 +100,66 @@ class Function_ctl extends MY_Frontend
             exit;
         }
     }
+
+    public function hapus_materi()
+    {
+        $id_materi = $this->input->post('id_materi');
+
+        $result = curl_post('materi/hapus_materi/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_materi' => $id_materi]);
+        if ($result->status == 200) {
+            $data['status'] = true;
+        } else {
+            $data['status'] = false;
+            $data['title'] = 'PARINGATAN';
+            $data['message'] = $result->message;
+        }
+        echo json_encode($data);
+    }
+
+    public function tambah_materi()
+    {
+        $arrVar['select_bab']   = 'Bab';
+        $arrVar['id_pelajaran']   = 'ID Pelajaran';
+        $arrVar['judul_materi']   = 'Judul';
+        $arrVar['keterangan_materi']   = 'Keterangan';
+        foreach ($arrVar as $var => $value) {
+            $$var = $this->input->post($var);
+            if (!$$var) {
+                $data['required'][] = ['req_' . $var, $value . ' tidak boleh kosong !'];
+                $arrAccess[] = false;
+            } else {
+                $arrAccess[] = true;
+            }
+        }
+
+        if (!in_array(FALSE, $arrAccess)) {
+            // DEKLARASI DATA
+            $arr['id_sekolah'] = $this->id_sekolah;
+            $arr['id_staf'] = $this->id_staf;
+            $arr['id_bab'] = $select_bab;
+            $arr['judul'] = $judul_materi;
+            $arr['keterangan'] = $keterangan_materi;
+            // LOAD DATA API
+            $insert = curl_post('materi/tambah_materi/', $arr);
+            $data['status'] = $insert->status;
+            $data['alert']['message'] = $insert->message;
+            if ($insert->status == 200) {
+                $data['alert']['title'] = 'PEMBERITAHUAN';
+                $data['modal']['id'] = '#modalTambahMateri';
+                $data['modal']['action'] = 'hide';
+                $data['load'][0]['parent'] = '#display_bab';
+                $data['load'][0]['reload'] = base_url('materi/detail_bab/' . $id_pelajaran) . ' #reload_bab';
+                $data['load'][1]['parent'] = '#display_detail';
+                $data['load'][1]['reload'] = base_url('materi/detail_bab/' . $id_pelajaran) . ' #reload_detail';
+            } else {
+                $data['alert']['title'] = 'PERINGATAN';
+            }
+            echo json_encode($data);
+            exit;
+        } else {
+            $data['status'] = false;
+            echo json_encode($data);
+            exit;
+        }
+    }
 }

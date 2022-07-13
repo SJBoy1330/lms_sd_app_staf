@@ -9,7 +9,7 @@ if (flashdata[0]) {
 		icon: flashdata[0],
 		buttonsStyling: !1,
 		confirmButtonText: 'Ok',
-		customClass: { confirmButton: css_button }
+		customClass: { confirmButton: 'btn shadow-sm' }
 	});
 }
 if (flashdata[3]) {
@@ -19,7 +19,7 @@ if (flashdata[3]) {
 		imageUrl: flashdata[3],
 		imageWidth: 100,
 		imageHeight: 100,
-		customClass: { confirmButton: css_button }
+		customClass: { confirmButton: 'btn shadow-sm' }
 	})
 }
 $('.confirm_alert').on('click', function (e) {
@@ -47,24 +47,6 @@ $('.confirm_alert').on('click', function (e) {
 		});
 	}
 });
-$('.take_alert').on('click', function (e) {
-	// console.log('ok');
-	e.preventDefault();
-	const title = $(this).data('judul');
-	const message = $(this).data('message');
-	const image = $(this).data('image');
-	const icon = $(this).data('icon');
-
-	Swal.fire({
-		title: title,
-		html: message,
-		icon: icon,
-		buttonsStyling: !1,
-		confirmButtonText: 'Ok',
-		customClass: { confirmButton: css_button }
-	});
-});
-
 $('.question_alert').on('click', function (e) {
 	// console.log('ok');
 	e.preventDefault();
@@ -73,10 +55,7 @@ $('.question_alert').on('click', function (e) {
 	const message = $(this).data('message');
 	const image = $(this).data('image');
 	const icon = $(this).data('icon');
-	const post = $(this).data('post');
-	const value = $(this).data('value');
-	const url_ajax = $(this).data('url_ajax');
-	// console.log(url_ajax);
+
 	if (image) {
 		Swal.fire({
 			title: title,
@@ -85,58 +64,14 @@ $('.question_alert').on('click', function (e) {
 			imageWidth: 100,
 			imageHeight: 100,
 			showCancelButton: true,
-			buttons: ["Stop", "Do it!"],
+			buttons: ["batal", "ya"],
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#d33',
-			confirmButtonhtml: 'Ya'
+			confirmButtonText: "Ya",
+			cancelButtonText: "Batal",
 		}).then((result) => {
-
-			if (url_ajax != null) {
-				$.ajax({
-					url: url_ajax,
-					data: { post: post },
-					method: 'POST',
-					cache: false,
-					dataType: 'json',
-					beforeSend: function () {
-						$('#loading_scene').modal('show');
-					},
-					success: function (data) {
-						$('#loading_scene').modal('hide');
-						// console.log(data);
-						if (data.status == 200 || data.status == true) {
-							if (data.alert) {
-								Swal.fire({
-									title: data.alert.title,
-									html: data.alert.message,
-									icon: data.alert.icon,
-									buttonsStyling: !1,
-									confirmButtonText: 'Ok',
-									customClass: { confirmButton: css_button }
-								});
-							}
-							if (data.reload) {
-								location.reload();
-							}
-							if (data.redirect) {
-								location.href = data.redirect;
-							}
-						} else {
-							Swal.fire({
-								title: 'PERINGATAN',
-								html: data.alert.message,
-								icon: 'warning',
-								buttonsStyling: !1,
-								confirmButtonText: 'Ok',
-								customClass: { confirmButton: css_button }
-							});
-						}
-					}
-				})
-			} else {
-				if (result.isConfirmed) {
-					document.location.href = href;
-				}
+			if (result.isConfirmed) {
+				document.location.href = href;
 			}
 		})
 	} else {
@@ -147,56 +82,12 @@ $('.question_alert').on('click', function (e) {
 			showCancelButton: true,
 			confirmButtonColor: '#3085d6',
 			cancelButtonColor: '#969696',
-			confirmButtonhtml: 'Ya',
+			confirmButtonText: "Ya",
+			cancelButtonText: "Batal",
 			reverseButtons: true
 		}).then((result) => {
 			if (result.isConfirmed) {
-				if (url_ajax != null) {
-					$.ajax({
-						url: url_ajax,
-						data: { post: post, value: value },
-						method: 'POST',
-						cache: false,
-						dataType: 'json',
-						beforeSend: function () {
-							$('#loading_scene').modal('show');
-						},
-						success: function (data) {
-							$('#loading_scene').modal('hide');
-							if (data.status == 200 || data.status == true) {
-								if (data.alert) {
-									Swal.fire({
-										title: data.alert.title,
-										html: data.alert.message,
-										icon: data.alert.icon,
-										buttonsStyling: !1,
-										confirmButtonText: 'Ok',
-										customClass: { confirmButton: css_button }
-									});
-								}
-								if (data.reload) {
-									location.reload();
-								}
-								if (data.redirect) {
-									location.href = data.redirect;
-								}
-							} else {
-								Swal.fire({
-									title: 'PERINGATAN',
-									html: data.alert.message,
-									icon: 'warning',
-									buttonsStyling: !1,
-									confirmButtonText: 'Ok',
-									customClass: { confirmButton: css_button }
-								});
-							}
-						}
-					})
-				} else {
-					if (result.isConfirmed) {
-						document.location.href = href;
-					}
-				}
+				document.location.href = href;
 			}
 		})
 	}
