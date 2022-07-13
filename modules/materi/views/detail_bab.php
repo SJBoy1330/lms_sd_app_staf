@@ -68,9 +68,16 @@
                 <form action="<?= base_url('func_materi/update_multiple_bab') ?>" method="POST" id="form_edit_bab">
                     <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran; ?>" autocomplete="off">
                     <?php foreach ($result->result as $row) : ?>
-                        <div class=" col-12 mb-3 input_judul_bab d-none">
-                            <input type="hidden"  class="form-control form-control-pribadi text-start" name="id_bab[]" value="<?= $row->id_bab; ?>" autocomplete="off">
-                            <input type="text"  class="form-control form-control-pribadi text-start" name="bab[]" style="width : 100%;" value="<?= $row->nama_bab; ?>" autocomplete="off">
+                        <div class="d-flex input_judul_bab d-none">
+                            <div class="col-10 mb-3">
+                                <input type="hidden"  class="form-control form-control-pribadi text-start" name="id_bab[]" value="<?= $row->id_bab; ?>" autocomplete="off">
+                                <input type="text"  class="form-control form-control-pribadi text-start" name="bab[]" style="width : 100%;" value="<?= $row->nama_bab; ?>" autocomplete="off">
+                            </div>
+                            <div class="col-2 d-flex justify-content-end align-items-center mb-3">
+                                <button class="btn btn-secondary bg-dropdown bg-button rounded-pill" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-xmark" style="color: #EC3528;"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="col-12 mb-3 text_judul_bab">
                             <div class="accordion accordion-flush shadow-sm p-0" id="accordion-<?= $row->id_bab; ?>" style="border-radius: 10px;">
