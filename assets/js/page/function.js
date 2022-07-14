@@ -1,5 +1,5 @@
 
-function submit_form(element, id_form, num = 0, color = '#FFFFFF') {
+function submit_form(element, id_form, num = 0, loader = 'small', color = '#FFFFFF') {
     // console.log('ok');
     var text_button = document.getElementById(element.id).innerHTML;
     var url = $(id_form).attr('action');
@@ -20,9 +20,16 @@ function submit_form(element, id_form, num = 0, color = '#FFFFFF') {
         dataType: 'json',
         beforeSend: function () {
             $('#' + element.id).prop('disabled', true);
-            $('#' + element.id).html('<div class="spinner-border" style="color : ' + color + '" role="status">\
+            if (loader == 'small') {
+                $('#' + element.id).html('<div class="spinner-border" style="color : ' + color + '" role="status">\
                 <span class="sr-only"></span>\
 </div>');
+            }
+
+            if (loader == 'big') {
+                $('#loading_scene').modal('show');
+            }
+
         },
         success: function (data) {
             // console.log(data);
@@ -41,7 +48,14 @@ function submit_form(element, id_form, num = 0, color = '#FFFFFF') {
                 }
             }
             $('#' + element.id).prop('disabled', false);
-            $('#' + element.id).html(text_button);
+            if (loader == 'small') {
+                $('#' + element.id).html(text_button);
+            }
+            if (loader == 'big') {
+                $('#loading_scene').modal('hide');
+                $('#refresh_loading').load(BASE_URL + 'notifikasi/ #loading_scene');
+                $('.modal-backdrop').remove();
+            }
 
             if (data.status == 200 || data.status == true) {
                 var icon = 'success';

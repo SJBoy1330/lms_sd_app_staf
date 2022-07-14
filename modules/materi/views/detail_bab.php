@@ -13,7 +13,7 @@
             </ul>
             <ul class="menu position-fixed d-none" id="action_menu">
                 <button type="button" class="btn btn-cancel me-2" onclick="batal_edit_bab()"><i class="fa-solid fa-xmark"></i></button>
-                <button type="button" class="btn btn-yes ms-2" onclick="submit_form(this,'#form_edit_bab',0)" id="simpan_editan_bab"><i class="fa-solid fa-check"></i></button>
+                <button type="button" class="btn btn-yes ms-2" onclick="submit_form(this,'#form_edit_bab',0,'big')" id="simpan_editan_bab"><i class="fa-solid fa-check"></i></button>
             </ul>
             <div class=" col-12">
                 <div class="card mb-3">

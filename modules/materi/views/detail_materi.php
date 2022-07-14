@@ -2,88 +2,96 @@
 <div class="main-container container top-20">
     <div class="row mt-3">
         <div class="col-12 col-md-10 col-lg-8 mx-auto">
-            <div class="row">
-                <div class="col-6 mx-auto">
-                    <div class="card mb-3">
-                        <div class="col-auto position-absolute avatar-detail-kbm">
-                            <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
-                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
-                                    <i class="fa-solid fa-building-user size-18 text-white"></i>
+            <form action="<?= base_url('func_materi/edit_materi') ?>" method="post" id="form_edit_materi">
+                <div id="reload-detail-materi">
+                    \<div class="row">
+                        <div class="col-6 mx-auto">
+                            <div class="card mb-3">
+                                <div class="col-auto position-absolute avatar-detail-kbm">
+                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-building-user size-18 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body detail-kbm">
+                                    <div class="row">
+                                        <div class="col align-self-center ps-4 text-detail-kbm">
+                                            <p class="mb-0 size-15 fw-medium">Bab</p>
+                                            <p class="fw-normal text-secondary size-12" id="isiBab"><?= tampil_text($result->detail->bab, 25); ?></p>
+                                            <input type="text" class="d-none" id="inputbab">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body detail-kbm">
-                            <div class="row">
-                                <div class="col align-self-center ps-4 text-detail-kbm">
-                                    <p class="mb-0 size-15 fw-medium">Bab</p>
-                                    <p class="fw-normal text-secondary size-12"><?= tampil_text($result->detail->bab, 25); ?></p>
+                        <div class=" col-6 mx-auto">
+                            <div class="card mb-3">
+                                <div class="col-auto position-absolute avatar-detail-kbm">
+                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body detail-kbm">
+                                    <div class="row">
+                                        <div class="col align-self-center ps-4 text-detail-kbm">
+                                            <p class="mb-0 size-14 fw-medium" id="isimapel">Mata Pelajaran</p>
+                                            <p class=" fw-normal text-secondary size-12"><?= tampil_text($result->detail->nama_pelajaran, 30); ?></p>
+                                            <input type="text" id="inputmapel" class="d-none">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-6 mx-auto">
-                    <div class="card mb-3">
-                        <div class="col-auto position-absolute avatar-detail-kbm">
-                            <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
-                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
-                                    <i class="fa-brands fa-stack-overflow size-22 text-white"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body detail-kbm">
-                            <div class="row">
-                                <div class="col align-self-center ps-4 text-detail-kbm">
-                                    <p class="mb-0 size-14 fw-medium">Mata Pelajaran</p>
-                                    <p class="fw-normal text-secondary size-12"><?= tampil_text($result->detail->nama_pelajaran, 30); ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="row mt-4">
-                <div class="col-6 mx-auto">
-                    <div class="card">
-                        <div class="col-auto position-absolute avatar-detail-kbm">
-                            <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
-                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
-                                    <i class="fa-solid fa-chalkboard-user size-20 text-white"></i>
+                    <div class="row mt-4">
+                        <div class="col-6 mx-auto">
+                            <div class="card">
+                                <div class="col-auto position-absolute avatar-detail-kbm">
+                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-chalkboard-user size-20 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body detail-kbm">
+                                    <div class="row">
+                                        <div class="col align-self-center ps-4 text-detail-kbm">
+                                            <p class="mb-0 size-13 fw-medium">Pembuat Materi</p>
+                                            <p class="fw-normal text-secondary size-12"><?= tampil_text($result->detail->nama_staf, 15); ?></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body detail-kbm">
-                            <div class="row">
-                                <div class="col align-self-center ps-4 text-detail-kbm">
-                                    <p class="mb-0 size-13 fw-medium">Pembuat Materi</p>
-                                    <p class="fw-normal text-secondary size-12"><?= tampil_text($result->detail->nama_staf, 15); ?></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-6 mx-auto">
-                    <div class="card">
-                        <div class="col-auto position-absolute avatar-detail-kbm">
-                            <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
-                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline" style="line-height: 44px;">
-                                    <i class="fa-solid fa-book-open-cover size-20 text-white"></i>
+                        <div class="col-6 mx-auto">
+                            <div class="card">
+                                <div class="col-auto position-absolute avatar-detail-kbm">
+                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline" style="line-height: 44px;">
+                                            <i class="fa-solid fa-book-open-cover size-20 text-white"></i>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-body detail-kbm">
-                            <div class="row">
-                                <div class="col align-self-center ps-4 text-detail-kbm">
-                                    <p class="mb-0 size-15 fw-medium">Materi</p>
-                                    <p class="fw-normal text-secondary size-12"><?= tampil_text($result->detail->materi, 25); ?></p>
+                                <div class="card-body detail-kbm">
+                                    <div class="row">
+                                        <div class="col align-self-center ps-4 text-detail-kbm">
+                                            <p class="mb-0 size-15 fw-medium" id="isimateri">Materi</p>
+                                            <p class="fw-normal text-secondary size-12"><?= tampil_text($result->detail->materi, 25); ?></p>
+                                            <input type="text" id="inputmateri" class="d-none">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
+
 
             <div class="row mb-2">
                 <div class="col-12 col-md-12 col-lg-12">
@@ -125,8 +133,34 @@
                                     </a>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                <?= vector_default('vector_video_kosong.svg', 'Tidak terdapat materi video', 'Sekolah belum menyediakan materi berbasis video, hubungi guru atau admin jika terjadi kesalahan!'); ?>
+                                <?= vector_default('vector_video_kosong.svg', 'Tidak terdapat materi video', 'Sekolah belum menyediakan materi berbasis video, hubungi guru atau admin jika terjadi kesalahan!', 'video_materi'); ?>
                             <?php endif; ?>
+                            <form action="<?= base_url('func_materi/tambah_video'); ?>" method="POST" class="row" id="form_tambah_video">
+                                <div class="col-12 d-none" id="formvideo">
+                                    <div class="row">
+                                        <div class="col-6" id="req_judul_video">
+                                            <label for="judul" class="form-label size-15 fw-bold">Judul</label>
+                                            <input type="text" name="judul_video" class="form-control form-control-pribadi border-0" id="judul" placeholder="isikan judul" autocomplete="off">
+                                        </div>
+                                        <div class="col-6" id="req_url_video">
+                                            <label for="url" class="form-label size-15 fw-bold">Link URL</label>
+                                            <input type="text" name="url_video" class="form-control form-control-pribadi border-0" id="url" placeholder="isikan link url" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center d-flex justify-content-center my-3">
+                                    <a id="btntambahvideo" onclick="tambahvideo()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
+                                        <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
+                                    </a>
+                                    <a id="btnbatalvideo" onclick="bataltambahvideo()" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
+                                        <i class="fa-solid fa-xmark size-26 text-white mt-1"></i>
+                                    </a>
+                                    <a id="btnsavevideo" onclick="submit_form(this,'#form_tambah_video',1)" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
+                                        <i class="fa-solid fa-check size-26 text-white mt-1"></i>
+                                    </a>
+
+                                </div>
+                            </form>
                         </div>
 
                         <div class="card-body tabcontent" id="Download">
@@ -174,8 +208,32 @@
                                     </a>
                                 <?php endforeach; ?>
                             <?php else : ?>
-                                <?= vector_default('vector_dokumen_kosong.svg', 'Tidak ada dokumen', 'Sekolah belum menyediakan materi dalam bentuk dokumen, hubungi guru atau sekolah jika terjadi kesalahan'); ?>
+                                <?= vector_default('vector_dokumen_kosong.svg', 'Tidak ada dokumen', 'Sekolah belum menyediakan materi dalam bentuk dokumen, hubungi guru atau sekolah jika terjadi kesalahan', 'download_materi'); ?>
                             <?php endif; ?>
+
+                            <div class="row">
+                                <div class="col-12 d-none" id="formdowmloadvideo">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="videojudul" class="form-label size-15 fw-bold">Judul</label>
+                                            <input type="text" class="form-control form-control-pribadi border-0" id="videojudul" placeholder="isikan judul" autocomplete="off">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="file" class="form-label size-15 fw-bold">File</label>
+                                            <label for="file" class="form-control form-control-pribadi bg-f5f5f5 border-0">Pilih file</label>
+                                            <input class="d-none" type="file" id="file" title="foo" autocomplete="off">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center d-flex justify-content-center my-3">
+                                    <a id="btntambahdownloadvideo" onclick="tambahdownloadvideo()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
+                                        <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
+                                    </a>
+                                    <a id="btnsavedownloadvideo" onclick="savedownloadvideo()" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
+                                        <i class="fa-solid fa-check size-26 text-white mt-1"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

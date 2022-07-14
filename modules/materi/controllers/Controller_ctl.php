@@ -103,7 +103,7 @@ class Controller_ctl extends MY_Frontend
 		$mydata['title'] = 'Detail KBM';
 
 		// LOAD JS
-		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/detail_materi.js"></script>';
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/materi/detail_materi.js"></script>';
 
 		// LOAD CONFIG PAGE
 		if ($_SERVER['HTTP_REFERER'] == NULL || $_SERVER['HTTP_REFERER'] == base_url('materi/detail_materi/' . $id_materi)) {
