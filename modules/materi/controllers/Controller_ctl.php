@@ -102,6 +102,9 @@ class Controller_ctl extends MY_Frontend
 		// LOAD TITLE
 		$mydata['title'] = 'Detail KBM';
 
+		// LOAD CSS
+		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/materi/detail_materi.css') . '">';
+
 		// LOAD JS
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/materi/detail_materi.js"></script>';
 

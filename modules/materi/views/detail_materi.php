@@ -21,7 +21,7 @@
                                             <p class="mb-0 size-15 fw-medium">Bab</p>
                                             <p class="fw-normal text-secondary size-12" id="isibab"><?= tampil_text($result->detail->bab, 25); ?></p>
                                             <!-- <input type="text" id="inputbab" class="d-none" value="<?= $result->detail->bab; ?>"> -->
-                                            <select name="id_bab" id="inputbab" class="d-none">
+                                            <select name="id_bab" id="inputbab" class="form-select form-select-solid rounded-2 border bg-f5f5f5 d-none" style="height: 35px !important; line-height: 23px;">
                                                 <?php if ($bab) : ?>
                                                     <?php foreach ($bab as $row) : ?>
                                                         <option value="<?= $row->id_bab; ?>" <?php if ($row->id_bab == $result->detail->id_bab) {
@@ -51,7 +51,7 @@
                                         <div class="col align-self-center ps-4 text-detail-kbm" id="req_judul_materi">
                                             <p class="mb-0 size-15 fw-medium">Materi</p>
                                             <p class="fw-normal text-secondary size-12" id="isimateri"><?= tampil_text($result->detail->materi, 25); ?></p>
-                                            <input type="text" id="inputmateri" name="judul_materi" class="d-none" value="<?= $result->detail->materi; ?>">
+                                            <input type="text" id="inputmateri" name="judul_materi" class="form-control form-control-solid rounded-2 bg-f5f5f5 d-none" value="<?= $result->detail->materi; ?>" style="height: 35px !important;">
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="row mt-4">
-                        <div class=" col-6 mx-auto">
+                        <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
                                     <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
@@ -98,14 +98,30 @@
                                 </div>
                             </div>
                         </div>
-
-
-                    </div>
-                    <div id="req_keterangan">
-                        <p class="text-center" id="isiketerangan"><?= $result->detail->keterangan; ?></p>
-                        <textarea name="keterangan" id="inputketerangan" cols="30" rows="10" class="d-none"><?= $result->detail->keterangan; ?></textarea>
                     </div>
 
+                    <div class="row mt-4">
+                        <div class="col-12 mx-auto">
+                            <div class="card mb-3">
+                                <div class="col-auto position-absolute avatar-detail-kbm">
+                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
+                                            <i class="fa-solid fa-align-left size-20 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div id="req_keterangan" class="row">
+                                        <div class="col align-self-center ps-4 text-detail-kbm">
+                                            <p class="mb-0 size-14 fw-medium">Keterangan</p>
+                                            <p class="fw-normal text-secondary size-12" id="isiketerangan"><?= $result->detail->keterangan; ?></p>
+                                            <textarea class="form-control form-control-solid rounded-2 bg-f5f5f5 d-none" name="keterangan" id="inputketerangan" style="height: auto;"><?= $result->detail->keterangan; ?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
 
@@ -144,12 +160,14 @@
                                                                 <p class="text-muted text-secondary size-12"><?= $row->durasi; ?></p>
                                                             </div>
                                                             <div class="col-auto align-self-center">
-                                                                <button class="btn btn-md btn-link"><i class="fa-solid fa-chevron-right size-26 text-dark"></i></button>
+                                                                <button type="button" onclick="hapus_video(<?= $id_materi; ?>,<?= $row->id_materi_video; ?>)" class="btn bg-dropdown bg-button rounded-pill">
+                                                                    <i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <button type="button" onclick="hapus_video(<?= $id_materi; ?>,<?= $row->id_materi_video; ?>)">HAPUS</button>
+                                                <!-- <button type="button" onclick="hapus_video(<?= $id_materi; ?>,<?= $row->id_materi_video; ?>)">HAPUS</button> -->
                                             </div>
 
                                         <?php endforeach; ?>
@@ -178,11 +196,11 @@
                                     <a id="btntambahvideo" onclick="tambahvideo()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
                                         <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
                                     </a>
-                                    <a id="btnbatalvideo" onclick="bataltambahvideo()" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
-                                        <i class="fa-solid fa-xmark size-26 text-white mt-1"></i>
+                                    <a id="btnbatalvideo" onclick="bataltambahvideo()" class="d-none avatar avatar-50 shadow-lg rounded-circle avatar-presensi-solid me-2">
+                                        <i class="fa-solid fa-xmark text-white mt-1"></i>
                                     </a>
-                                    <a id="btnsavevideo" onclick="submit_form(this,'#form_tambah_video',1)" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
-                                        <i class="fa-solid fa-check size-26 text-white mt-1"></i>
+                                    <a id="btnsavevideo" onclick="submit_form(this,'#form_tambah_video',1)" class="d-none avatar avatar-50 shadow-lg rounded-circle avatar-presensi-solid ms-2" style="background-color: #00CF98;">
+                                        <i class="fa-solid fa-check text-white mt-1"></i>
                                     </a>
 
                                 </div>
@@ -232,10 +250,13 @@
                                                                 <p class="mb-1 size-13 fw-normal"><?= tampil_text($row->judul, 20); ?></p>
                                                                 <p class="text-muted text-secondary size-12"><?= $row->size; ?></p>
                                                             </div>
+                                                            <div class="col-auto align-self-center">
+                                                                <button type="button" onclick="hapus_dokumen(<?= $id_materi; ?>,<?= $row->id_materi_dokumen; ?>)" class="btn bg-dropdown bg-button rounded-pill"><i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <button type="button" onclick="hapus_dokumen(<?= $id_materi; ?>,<?= $row->id_materi_dokumen; ?>)">HAPUS</button>
+                                                <!-- <button type="button" onclick="hapus_dokumen(<?= $id_materi; ?>,<?= $row->id_materi_dokumen; ?>)">HAPUS</button> -->
                                             </div>
                                         <?php endforeach; ?>
                                     <?php else : ?>
@@ -264,8 +285,8 @@
                                     <a id="btntambahdownloadvideo" onclick="tambahdownloadvideo()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
                                         <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
                                     </a>
-                                    <button id="btnsavedownloadvideo" type="button" onclick="submit_form(this,'#form_tambah_dokumen',2)" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
-                                        <i class="fa-solid fa-check size-26 text-white mt-1"></i>
+                                    <button id="btnsavedownloadvideo" type="button" onclick="submit_form(this,'#form_tambah_dokumen',2)" class="d-none avatar avatar-50 shadow-lg rounded-circle avatar-presensi-solid border-0" style="background-color: #00CF98;">
+                                        <i class="fa-solid fa-check text-white mt-1"></i>
                                     </button>
                                 </div>
                             </form>
