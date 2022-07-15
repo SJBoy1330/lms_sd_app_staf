@@ -15,17 +15,14 @@ function openCity(evt, cityName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 
-$(document).ready(function () {
-    $('.show_video').on('click', function () {
-        var id = $(this).data('id');
-        var display = document.getElementById('display-' + id);
-        var show = document.querySelector('.showing');
-        display.classList.remove("hiding");
-        display.classList.add("showing");
-        show.classList.remove("showing");
-        show.classList.add("hiding");
-    });
-})
+function show_video(id_materi_video, url) {
+    var display = document.getElementById('display-video');
+    display.classList.add("hiding");
+    display.classList.remove("hiding");
+    display.classList.add("showing");
+    $('#iframe-video').prop('src', url);
+
+}
 function materi(evt, materi) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -46,10 +43,85 @@ function materi(evt, materi) {
     document.getElementById("defaultOpen").click();
 }
 
-function hapus(el) {
-    document.getElementById('video').removeChild(el);
+function hapus_video(id_materi, id_materi_video) {
+    Swal.fire({
+        title: 'KONFIRMASI',
+        html: 'Apakah anda yakin akan menghapus materi ini ?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#969696',
+        confirmButtonText: "Ya",
+        cancelButtonText: "Batal",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: BASE_URL + "func_materi/hapus_video_materi/",
+                data: { id_materi_video: id_materi_video },
+                method: 'POST',
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == true) {
+                        $('#video-' + id_materi_video).remove();
+                        $('#parent_video').load(BASE_URL + 'materi/detail_materi/' + id_materi + ' #reload_video');
+                    } else {
+                        Swal.fire({
+                            title: data.title,
+                            html: data.message,
+                            icon: 'warning',
+                            buttonsStyling: !1,
+                            confirmButtonText: 'Ok',
+                            customClass: { confirmButton: css_button }
+                        });
+                    }
+                }
+            })
+        }
+    })
+
 }
 
+function hapus_dokumen(id_materi, id_materi_dokumen) {
+    Swal.fire({
+        title: 'KONFIRMASI',
+        html: 'Apakah anda yakin akan menghapus dokumen materi ini ?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#969696',
+        confirmButtonText: "Ya",
+        cancelButtonText: "Batal",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: BASE_URL + "func_materi/hapus_dokumen_materi/",
+                data: { id_materi_dokumen: id_materi_dokumen },
+                method: 'POST',
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == true) {
+                        $('#dokumen-' + id_materi_dokumen).remove();
+                        $('#parent_dokumen').load(BASE_URL + 'materi/detail_materi/' + id_materi + ' #reload_dokumen');
+                    } else {
+                        Swal.fire({
+                            title: data.title,
+                            html: data.message,
+                            icon: 'warning',
+                            buttonsStyling: !1,
+                            confirmButtonText: 'Ok',
+                            customClass: { confirmButton: css_button }
+                        });
+                    }
+                }
+            })
+        }
+    })
+
+}
 function edit() {
     $('#btnedit').addClass('d-none');
     $('#btnsave').removeClass('d-none');
@@ -59,6 +131,9 @@ function edit() {
 
     $('#isimateri').addClass('d-none');
     $('#inputmateri').removeClass('d-none');
+
+    $('#isiketerangan').addClass('d-none');
+    $('#inputketerangan').removeClass('d-none');
 
     $('#isibab').addClass('d-none');
     $('#inputbab').removeClass('d-none');
@@ -80,6 +155,9 @@ function save() {
 
     $('#inputmateri').addClass('d-none');
     $('#isimateri').removeClass('d-none');
+
+    $('#inputketerangan').addClass('d-none');
+    $('#isiketerangan').removeClass('d-none');
 
     $('#inputbab').addClass('d-none');
     $('#isibab').removeClass('d-none');

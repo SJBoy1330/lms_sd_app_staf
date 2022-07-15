@@ -33,9 +33,7 @@ function submit_form(element, id_form, num = 0, loader = 'small', color = '#FFFF
         },
         success: function (data) {
             // console.log(data);
-            // $('input').val('');
-            // $('select').prop('selected', false);
-            // $('textarea').val('');
+
             $('.fadedin').remove();
             if (data.etc != null) {
                 for (var a = 0; a < data.etc.length; a++) {
@@ -58,6 +56,7 @@ function submit_form(element, id_form, num = 0, loader = 'small', color = '#FFFF
             }
 
             if (data.status == 200 || data.status == true) {
+                $(id_form).find("input[type=text], textarea").val("");
                 var icon = 'success';
             } else {
                 var icon = 'warning';

@@ -97,7 +97,7 @@ class Controller_ctl extends MY_Frontend
 	public function detail_materi($id_materi = NULL)
 	{
 		if ($id_materi == NULL) {
-			redirect('home');
+			redirect('materi');
 		}
 		// LOAD TITLE
 		$mydata['title'] = 'Detail KBM';
@@ -121,7 +121,9 @@ class Controller_ctl extends MY_Frontend
 		$this->data['right_button']['materi'] = true;
 
 		// LOAD MYDATA
+		$mydata['id_materi'] = $id_materi;
 		$mydata['result'] = $result->data;
+		$mydata['bab'] = $bab = curl_get('materi/get_bab/', ['id_sekolah' => $this->id_sekolah, 'id_pelajaran' => $result->data->detail->id_pelajaran])->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_materi', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

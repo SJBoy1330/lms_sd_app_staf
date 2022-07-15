@@ -93,3 +93,45 @@ function hapus_materi(id_bab, id_materi) {
     })
 
 }
+
+
+function hapus_bab(id_bab) {
+    var id_pelajaran = $('#id_pelajaran').val();
+    Swal.fire({
+        title: 'KONFIRMASI',
+        html: 'Apakah anda yakin akan menghapus bab ini ?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#969696',
+        confirmButtonText: "Ya",
+        cancelButtonText: "Batal",
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: BASE_URL + "func_materi/hapus_bab/",
+                data: { id_bab: id_bab },
+                method: 'POST',
+                cache: false,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status == true) {
+                        $('#dis-bab-' + id_bab).fadeOut();
+                        $('#display_jumlah').load(BASE_URL + 'materi/detail_bab/' + id_pelajaran + ' #reload_jumlah');
+                    } else {
+                        Swal.fire({
+                            title: data.title,
+                            html: data.message,
+                            icon: 'warning',
+                            buttonsStyling: !1,
+                            confirmButtonText: 'Ok',
+                            customClass: { confirmButton: css_button }
+                        });
+                    }
+                }
+            })
+        }
+    })
+
+}

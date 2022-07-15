@@ -195,13 +195,16 @@
                                         <?php endif; ?>
 
                                         <?php if (isset($right_button['materi'])) : ?>
-                                            <div class="col-auto">
-                                                <button id="btnedit" class="btn " onclick="edit()">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </button>
-                                                <button id="btnsave" class="btn d-none" onclick="save()">
-                                                    <i class="fa-solid fa-check"></i>
-                                                </button>
+                                            <div class="col-auto" id="parent_header_materi">
+                                                <div id="reload_header_materi">
+                                                    <button id="btnedit" class="btn " onclick="edit()">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </button>
+                                                    <button id="btnsave" onclick="submit_form(this,'#form_edit_materi',0,'small','#000000')" class="btn d-none">
+                                                        <i class="fa-solid fa-check"></i>
+                                                    </button>
+                                                </div>
+
                                             </div>
                                         <?php endif; ?>
 

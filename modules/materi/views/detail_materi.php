@@ -4,7 +4,8 @@
         <div class="col-12 col-md-10 col-lg-8 mx-auto">
             <form action="<?= base_url('func_materi/edit_materi') ?>" method="post" id="form_edit_materi">
                 <div id="reload-detail-materi">
-                    \<div class="row">
+                    <input type="hidden" name="id_materi" value="<?= $id_materi; ?>">
+                    <div class="row">
                         <div class="col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
@@ -16,15 +17,49 @@
                                 </div>
                                 <div class="card-body detail-kbm">
                                     <div class="row">
-                                        <div class="col align-self-center ps-4 text-detail-kbm">
+                                        <div class="col align-self-center ps-4 text-detail-kbm" id="req_id_bab">
                                             <p class="mb-0 size-15 fw-medium">Bab</p>
-                                            <p class="fw-normal text-secondary size-12" id="isiBab"><?= tampil_text($result->detail->bab, 25); ?></p>
-                                            <input type="text" class="d-none" id="inputbab">
+                                            <p class="fw-normal text-secondary size-12" id="isibab"><?= tampil_text($result->detail->bab, 25); ?></p>
+                                            <!-- <input type="text" id="inputbab" class="d-none" value="<?= $result->detail->bab; ?>"> -->
+                                            <select name="id_bab" id="inputbab" class="d-none">
+                                                <?php if ($bab) : ?>
+                                                    <?php foreach ($bab as $row) : ?>
+                                                        <option value="<?= $row->id_bab; ?>" <?php if ($row->id_bab == $result->detail->id_bab) {
+                                                                                                    echo 'selected';
+                                                                                                } ?>><?= $row->nama; ?></option>
+                                                    <?php endforeach; ?>
+                                                <?php else : ?>
+                                                    <option value="">Tidak ada bab</option>
+                                                <?php endif; ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-6 mx-auto">
+                            <div class="card">
+                                <div class="col-auto position-absolute avatar-detail-kbm">
+                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline" style="line-height: 44px;">
+                                            <i class="fa-solid fa-book-open-cover size-20 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body detail-kbm">
+                                    <div class="row">
+                                        <div class="col align-self-center ps-4 text-detail-kbm" id="req_judul_materi">
+                                            <p class="mb-0 size-15 fw-medium">Materi</p>
+                                            <p class="fw-normal text-secondary size-12" id="isimateri"><?= tampil_text($result->detail->materi, 25); ?></p>
+                                            <input type="text" id="inputmateri" name="judul_materi" class="d-none" value="<?= $result->detail->materi; ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
                         <div class=" col-6 mx-auto">
                             <div class="card mb-3">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
@@ -37,17 +72,13 @@
                                 <div class="card-body detail-kbm">
                                     <div class="row">
                                         <div class="col align-self-center ps-4 text-detail-kbm">
-                                            <p class="mb-0 size-14 fw-medium" id="isimapel">Mata Pelajaran</p>
+                                            <p class="mb-0 size-14 fw-medium">Mata Pelajaran</p>
                                             <p class=" fw-normal text-secondary size-12"><?= tampil_text($result->detail->nama_pelajaran, 30); ?></p>
-                                            <input type="text" id="inputmapel" class="d-none">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row mt-4">
                         <div class="col-6 mx-auto">
                             <div class="card">
                                 <div class="col-auto position-absolute avatar-detail-kbm">
@@ -68,27 +99,13 @@
                             </div>
                         </div>
 
-                        <div class="col-6 mx-auto">
-                            <div class="card">
-                                <div class="col-auto position-absolute avatar-detail-kbm">
-                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
-                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline" style="line-height: 44px;">
-                                            <i class="fa-solid fa-book-open-cover size-20 text-white"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body detail-kbm">
-                                    <div class="row">
-                                        <div class="col align-self-center ps-4 text-detail-kbm">
-                                            <p class="mb-0 size-15 fw-medium" id="isimateri">Materi</p>
-                                            <p class="fw-normal text-secondary size-12"><?= tampil_text($result->detail->materi, 25); ?></p>
-                                            <input type="text" id="inputmateri" class="d-none">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
+                    <div id="req_keterangan">
+                        <p class="text-center" id="isiketerangan"><?= $result->detail->keterangan; ?></p>
+                        <textarea name="keterangan" id="inputketerangan" cols="30" rows="10" class="d-none"><?= $result->detail->keterangan; ?></textarea>
+                    </div>
+
                 </div>
             </form>
 
@@ -103,42 +120,51 @@
                             </div>
                         </div>
                         <div class="card-body tabcontent" id="Video">
+                            <div id="parent_video">
+                                <div id="reload_video">
+                                    <?php if ($result->result->video) : ?>
 
-                            <?php if ($result->result->video) : ?>
-                                <?php foreach ($result->result->video as $row) : ?>
-                                    <div class="mb-3 zoom-filter hiding" id="display-<?= $row->id_materi_video; ?>">
-                                        <iframe class="video-detail-materi" width="420" height="345" src="<?= $row->url; ?>"></iframe>
-                                    </div>
-                                <?php endforeach; ?>
-                                <?php foreach ($result->result->video as $row) : ?>
-                                    <a class="card mb-3  show_video" data-id="<?= $row->id_materi_video; ?>">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
-                                                        <div class="avatar avatar-40 rounded-15 avatar-presensi-inline" style="line-height: 43px;">
-                                                            <i class="fa-solid fa-circle-play size-22 text-white"></i>
+                                        <div class="mb-3 zoom-filter hiding" id="display-video">
+                                            <iframe id="iframe-video" class="video-detail-materi" width="420" height="345" src=""></iframe>
+                                        </div>
+                                        <?php foreach ($result->result->video as $row) : ?>
+                                            <div id="video-<?= $row->id_materi_video; ?>">
+                                                <a class="card mb-3" onclick="show_video(<?= $row->id_materi_video; ?>,'<?= $row->url; ?>')">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-auto">
+                                                                <div class="avatar avatar-50 shadow-sm rounded-18 avatar-presensi-outline">
+                                                                    <div class="avatar avatar-40 rounded-15 avatar-presensi-inline" style="line-height: 43px;">
+                                                                        <i class="fa-solid fa-circle-play size-22 text-white"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col align-self-center px-0">
+                                                                <p class="mb-1 size-13 fw-normal"><?= tampil_text($row->judul, 20); ?></p>
+                                                                <p class="text-muted text-secondary size-12"><?= $row->durasi; ?></p>
+                                                            </div>
+                                                            <div class="col-auto align-self-center">
+                                                                <button class="btn btn-md btn-link"><i class="fa-solid fa-chevron-right size-26 text-dark"></i></button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col align-self-center px-0">
-                                                    <p class="mb-1 size-13 fw-normal"><?= tampil_text($row->judul, 20); ?></p>
-                                                    <p class="text-muted text-secondary size-12"><?= $row->durasi; ?></p>
-                                                </div>
-                                                <div class="col-auto align-self-center">
-                                                    <button class="btn btn-md btn-link"><i class="fa-solid fa-chevron-right size-26 text-dark"></i></button>
-                                                </div>
+                                                </a>
+                                                <button type="button" onclick="hapus_video(<?= $id_materi; ?>,<?= $row->id_materi_video; ?>)">HAPUS</button>
                                             </div>
-                                        </div>
-                                    </a>
-                                <?php endforeach; ?>
-                            <?php else : ?>
-                                <?= vector_default('vector_video_kosong.svg', 'Tidak terdapat materi video', 'Sekolah belum menyediakan materi berbasis video, hubungi guru atau admin jika terjadi kesalahan!', 'video_materi'); ?>
-                            <?php endif; ?>
+
+                                        <?php endforeach; ?>
+
+
+                                    <?php else : ?>
+                                        <?= vector_default('vector_video_kosong.svg', 'Tidak terdapat materi video', 'Sekolah belum menyediakan materi berbasis video, hubungi guru atau admin jika terjadi kesalahan!', 'video_materi'); ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                             <form action="<?= base_url('func_materi/tambah_video'); ?>" method="POST" class="row" id="form_tambah_video">
                                 <div class="col-12 d-none" id="formvideo">
                                     <div class="row">
                                         <div class="col-6" id="req_judul_video">
+                                            <input type="hidden" name="id_materi" value="<?= $id_materi; ?>" class="form-control form-control-pribadi border-0">
                                             <label for="judul" class="form-label size-15 fw-bold">Judul</label>
                                             <input type="text" name="judul_video" class="form-control form-control-pribadi border-0" id="judul" placeholder="isikan judul" autocomplete="off">
                                         </div>
@@ -164,64 +190,73 @@
                         </div>
 
                         <div class="card-body tabcontent" id="Download">
-                            <?php if ($result->result->dokumen) : ?>
-                                <?php foreach ($result->result->dokumen as $row) : ?>
-                                    <?php
-                                    if ($row->file_dokumen != FALSE) {
-                                        $action = 'href="' . $row->file_dokumen . '"';
-                                    } else {
-                                        $action = 'onclick="take_alert(`PERINGATAN`, `Tidak bisa mengunduh file diakrenakan file rusak!`, `warning`)"';
-                                    }
-                                    ?>
-                                    <a <?= $action; ?> class="card my-3" <?php
-                                                                            if ($row->file_dokumen == FALSE) {
-                                                                                echo 'style="background-color : #EAEBEB;"';
-                                                                            }
-                                                                            ?>>
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-auto">
-                                                    <div class="avatar avatar-50 shadow-sm rounded-18 <?php
-                                                                                                        if ($row->file_dokumen != FALSE) {
-                                                                                                            echo 'avatar-presensi-outline';
-                                                                                                        } else {
-                                                                                                            echo 'avatar-presensi-outline-second';
-                                                                                                        }
-                                                                                                        ?>">
-                                                        <div class="avatar avatar-40 rounded-15 <?php
-                                                                                                if ($row->file_dokumen != FALSE) {
-                                                                                                    echo 'avatar-presensi-inline';
-                                                                                                } else {
-                                                                                                    echo 'avatar-presensi-inline-second';
-                                                                                                }
-                                                                                                ?>">
-                                                            <i class="fa-solid fa-download size-22 text-white"></i>
+                            <div id="parent_dokumen">
+                                <div id="reload_dokumen">
+                                    <?php if ($result->result->dokumen) : ?>
+                                        <?php foreach ($result->result->dokumen as $row) : ?>
+                                            <div id="dokumen-<?= $row->id_materi_dokumen; ?>">
+                                                <?php
+                                                if ($row->file_dokumen != FALSE) {
+                                                    $action = 'href="' . $row->file_dokumen . '"';
+                                                } else {
+                                                    $action = 'onclick="take_alert(`PERINGATAN`, `Tidak bisa mengunduh file diakrenakan file rusak!`, `warning`)"';
+                                                }
+                                                ?>
+                                                <a <?= $action; ?> class="card my-3" <?php
+                                                                                        if ($row->file_dokumen == FALSE) {
+                                                                                            echo 'style="background-color : #EAEBEB;"';
+                                                                                        }
+                                                                                        ?>>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-auto">
+                                                                <div class="avatar avatar-50 shadow-sm rounded-18 <?php
+                                                                                                                    if ($row->file_dokumen != FALSE) {
+                                                                                                                        echo 'avatar-presensi-outline';
+                                                                                                                    } else {
+                                                                                                                        echo 'avatar-presensi-outline-second';
+                                                                                                                    }
+                                                                                                                    ?>">
+                                                                    <div class="avatar avatar-40 rounded-15 <?php
+                                                                                                            if ($row->file_dokumen != FALSE) {
+                                                                                                                echo 'avatar-presensi-inline';
+                                                                                                            } else {
+                                                                                                                echo 'avatar-presensi-inline-second';
+                                                                                                            }
+                                                                                                            ?>">
+                                                                        <i class="fa-solid fa-download size-22 text-white"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col align-self-center ps-0">
+                                                                <p class="mb-1 size-13 fw-normal"><?= tampil_text($row->judul, 20); ?></p>
+                                                                <p class="text-muted text-secondary size-12"><?= $row->size; ?></p>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col align-self-center ps-0">
-                                                    <p class="mb-1 size-13 fw-normal"><?= tampil_text($row->judul, 20); ?></p>
-                                                    <p class="text-muted text-secondary size-12"><?= $row->size; ?> Mb</p>
-                                                </div>
+                                                </a>
+                                                <button type="button" onclick="hapus_dokumen(<?= $id_materi; ?>,<?= $row->id_materi_dokumen; ?>)">HAPUS</button>
                                             </div>
-                                        </div>
-                                    </a>
-                                <?php endforeach; ?>
-                            <?php else : ?>
-                                <?= vector_default('vector_dokumen_kosong.svg', 'Tidak ada dokumen', 'Sekolah belum menyediakan materi dalam bentuk dokumen, hubungi guru atau sekolah jika terjadi kesalahan', 'download_materi'); ?>
-                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    <?php else : ?>
+                                        <?= vector_default('vector_dokumen_kosong.svg', 'Tidak ada dokumen', 'Sekolah belum menyediakan materi dalam bentuk dokumen, hubungi guru atau sekolah jika terjadi kesalahan', 'download_materi'); ?>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
 
-                            <div class="row">
+
+                            <form id="form_tambah_dokumen" action="<?= base_url('func_materi/tambah_dokumen'); ?>" method="post" enctype="multipart/form-data" class="row">
                                 <div class="col-12 d-none" id="formdowmloadvideo">
                                     <div class="row">
-                                        <div class="col-6">
-                                            <label for="videojudul" class="form-label size-15 fw-bold">Judul</label>
-                                            <input type="text" class="form-control form-control-pribadi border-0" id="videojudul" placeholder="isikan judul" autocomplete="off">
+                                        <div class="col-6" id="req_judul_dokumen">
+                                            <input type="hidden" name="id_materi" value="<?= $id_materi; ?>">
+                                            <label for="dokumenjudul" class="form-label size-15 fw-bold">Judul</label>
+                                            <input type="text" name="judul_dokumen" class="form-control form-control-pribadi border-0" id="dokumenjudul" placeholder="isikan judul" autocomplete="off">
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-6" id="req_dokumen">
                                             <label for="file" class="form-label size-15 fw-bold">File</label>
                                             <label for="file" class="form-control form-control-pribadi bg-f5f5f5 border-0">Pilih file</label>
-                                            <input class="d-none" type="file" id="file" title="foo" autocomplete="off">
+                                            <input class="d-none" name="dokumen" type="file" id="file" title="foo" autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
@@ -229,11 +264,11 @@
                                     <a id="btntambahdownloadvideo" onclick="tambahdownloadvideo()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
                                         <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
                                     </a>
-                                    <a id="btnsavedownloadvideo" onclick="savedownloadvideo()" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
+                                    <button id="btnsavedownloadvideo" type="button" onclick="submit_form(this,'#form_tambah_dokumen',2)" class="d-none avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
                                         <i class="fa-solid fa-check size-26 text-white mt-1"></i>
-                                    </a>
+                                    </button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
