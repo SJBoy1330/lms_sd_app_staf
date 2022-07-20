@@ -9,7 +9,7 @@
                 <?php if ($result) : ?>
                     <?php foreach ($result as $row) : ?>
                         <a data-bs-toggle="modal" data-bs-target="#">
-                            <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3">
+                            <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3" style="min-height: 106px;">
                                 <div class="row mb-3">
                                     <div class="col">
                                         <p class="fw-bolder size-15"><?= $row->nice_tanggal; ?></p>

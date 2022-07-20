@@ -40,7 +40,7 @@ class Controller_ctl extends MY_Frontend
 		$this->data['button_back'] = $link;
 		$this->data['config_hidden']['notifikasi'] = true;
 		$this->data['config_hidden']['footer'] = true;
-		$this->data['judul_halaman'] = 'Jurnal Guru<br><span style="font-size : 15px;color : #EC3528;">' . $nice_tanggal . '</span>';
+		$this->data['judul_halaman'] = 'Jurnal Guru<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . $nice_tanggal . '</span>';
 		$this->data['right_button']['jurnal_guru'] = true;
 
 		// LOAD API 

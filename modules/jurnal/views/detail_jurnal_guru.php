@@ -35,7 +35,7 @@
                             <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                 <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
                                     <div class="avatar avatar-40 rounded-circle avatar-presensi-inline" style="line-height: 43px;">
-                                        <i class="fa-solid fa-building-user size-18 text-white"></i>
+                                        <i class="fa-solid fa-building-user size-16 text-white"></i>
                                     </div>
                                 </div>
                             </div>
@@ -48,8 +48,8 @@
                 </a>
             </div>
             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_materi">
-                <div class="ps-1">
-                    <label class="form-label title-3" style="color : #EC3528;">Materi</label>
+                <div class="title">
+                    <label class="form-label fw-medium" style="color : #EC3528;">Materi</label>
                 </div>
                 <div class="form-floating mb-3">
                     <p id="materi_text" class="<?php if ($result->jurnal->status == false) {
@@ -62,8 +62,8 @@
             </div>
 
             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_guru">
-                <div class="ps-1">
-                    <label class="form-label title-3" style="color : #EC3528;">Kegiatan Guru</label>
+                <div class="title">
+                    <label class="form-label fw-medium" style="color : #EC3528;">Kegiatan Guru</label>
                 </div>
                 <div class="form-floating mb-3">
                     <p id="kegiatan_guru_text" class="<?php if ($result->jurnal->status == false) {
@@ -76,8 +76,8 @@
             </div>
 
             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_siswa">
-                <div class=" ps-1">
-                    <label class="form-label title-3" style="color : #EC3528;">Kegiatan Siswa</label>
+                <div class="title">
+                    <label class="form-label fw-medium" style="color : #EC3528;">Kegiatan Siswa</label>
                 </div>
                 <div class="form-floating mb-3">
                     <p id="kegiatan_siswa_text" class="<?php if ($result->jurnal->status == false) {
@@ -91,8 +91,8 @@
 
 
             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_kelas">
-                <div class="ps-1">
-                    <label class="form-label title-3" style="color : #EC3528;">Kejadian Kelas</label>
+                <div class="title">
+                    <label class="form-label fw-medium" style="color : #EC3528;">Kejadian Kelas</label>
                 </div>
                 <div class="form-floating mb-3">
                     <p id="kegiatan_kelas_text" class="<?php if ($result->jurnal->status == false) {

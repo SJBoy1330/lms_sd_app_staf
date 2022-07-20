@@ -29,11 +29,11 @@
                                         <p class="mb-0 fw-normal size-15"><?= $row->pelajaran; ?></p>
                                     </div>
                                 </div>
-                                <div class="row py-1 px-2 mb-3">
+                                <div class="row py-1 px-2 mb-2">
                                     <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                         <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
                                             <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
-                                                <i class="fa-solid fa-building-user size-18 text-white"></i>
+                                                <i class="fa-solid fa-building-user size-16 text-white"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -42,10 +42,10 @@
                                         <p class="mb-0 fw-normal size-15"><?= $row->kelas; ?></p>
                                     </div>
                                 </div>
-                                <div class="row py-1 px-2 mb-3">
+                                <div class="row py-1 px-2 mb-2">
                                     <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                         <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
-                                            <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
+                                            <div class="avatar avatar-40 rounded-circle avatar-presensi-inline" style="line-height: 44px;">
                                                 <i class="fa-solid fa-clock size-22 text-white"></i>
                                             </div>
                                         </div>
