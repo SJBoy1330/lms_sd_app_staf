@@ -335,6 +335,8 @@ class Function_ctl extends MY_Frontend
             $data['alert']['message'] = $result->message;
             $data['load'][0]['parent'] = '#form_edit_materi';
             $data['load'][0]['reload'] = base_url('materi/detail_materi/' . $id_materi) . ' #reload-detail-materi';
+            $data['load'][1]['parent'] = '#parent_header_materi';
+            $data['load'][1]['reload'] = base_url('materi/detail_materi/' . $id_materi) . ' #reload_header_materi';
         } else {
             $data['status'] = FALSE;
             $data['alert']['title'] = 'PERINGATAN';

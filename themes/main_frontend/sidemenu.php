@@ -225,6 +225,17 @@
                                                 <a class="btn btn-44 rounded-circle btn-notifikasi" style="background-repeat: no-repeat; background-size: cover; background-position: center;"><?= $foto_grup; ?></a>
                                             <?php endif; ?>
                                         <?php endif; ?>
+                                        <?php if (isset($right_button['jurnal_guru'])) : ?>
+                                            <a href="#" target="_self" class="btn btn-44" data-bs-toggle="modal" data-bs-target="#filterCalendar">
+                                                <i class="fa-regular fa-filter"></i>
+                                            </a>
+                                        <?php endif; ?>
+
+                                        <?php if (isset($right_button['jurnal_staf'])) : ?>
+                                            <a href="#" target="_self" class="btn btn-44" data-bs-toggle="modal" data-bs-target="#filterCalendar">
+                                                <i class="fa-regular fa-calendar"></i>
+                                            </a>
+                                        <?php endif; ?>
 
                                     </div>
 

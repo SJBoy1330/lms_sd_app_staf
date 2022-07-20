@@ -172,6 +172,8 @@ $route['jurnal/(:any)'] = 'jurnal/controller_ctl/$1';
 
 $route['jurnal/(:any)/(:any)'] = 'jurnal/controller_ctl/$1/$2';
 
+$route['jurnal/(:any)/(:any)/(:any)'] = 'jurnal/controller_ctl/$1/$2/$3';
+
 $route['func_jurnal']  = 'jurnal/function_ctl';
 
 $route['func_jurnal/(:any)'] = 'jurnal/function_ctl/$1';
@@ -219,11 +221,19 @@ $route['tugas/(:any)'] = 'tugas/controller_ctl/$1';
 
 $route['tugas/(:any)/(:any)'] = 'tugas/controller_ctl/$1/$2';
 
+$route['tugas/(:any)/(:any)/(:any)'] = 'tugas/controller_ctl/$1/$2/$3';
+
+$route['tugas/(:any)/(:any)/(:any)/(:any)'] = 'tugas/controller_ctl/$1/$2/$3/$4';
+
 $route['func_tugas']  = 'tugas/function_ctl';
 
 $route['func_tugas/(:any)'] = 'tugas/function_ctl/$1';
 
 $route['func_tugas/(:any)/(:any)'] = 'tugas/function_ctl/$1/$2';
+
+$route['func_tugas/(:any)/(:any)/(:any)'] = 'tugas/function_ctl/$1/$2/$3';
+
+$route['func_tugas/(:any)/(:any)/(:any)/(:any)'] = 'tugas/function_ctl/$1/$2/$3/$4';
 
 
 
