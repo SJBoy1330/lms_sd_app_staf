@@ -4611,6 +4611,43 @@ fieldset:disabled .btn {
     display: block;
 }
 
+.tab-staf {
+    color: #303030;
+}
+
+.tab-staf button {
+    background-color: inherit;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: #303030;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #EC3528;
+    font-weight: 600;
+}
+
+.tab-staf button.active {
+    border-bottom: 5px solid #FFFFFF;
+    color: #FFFFFF;
+}
+
+.tabcontent-staf {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+}
+
+.tablinknya-tugas-ujian {
+    position: absolute;
+    width: 100vw;
+    background-color: #EC3528;
+}
+
 .navbar {
     position: relative;
     display: flex;
@@ -6226,30 +6263,30 @@ fieldset:disabled .btn {
     border: 0;
     border-radius: 0.60rem;
     background-color: transparent !important;
-  }
-  
-  .btn-close-detailsurat:hover {
+}
+
+.btn-close-detailsurat:hover {
     color: #000;
     text-decoration: none;
     opacity: 0.75;
-  }
-  
-  .btn-close-detailsurat:focus {
+}
+
+.btn-close-detailsurat:focus {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(60, 99, 226, 0.25);
     opacity: 1;
-  }
-  
-  .btn-close-detailsurat:disabled,
-  .btn-close-detailsurat.disabled {
+}
+
+.btn-close-detailsurat:disabled,
+.btn-close-detailsurat.disabled {
     pointer-events: none;
     user-select: none;
     opacity: 0.25;
-  }
-  
-  .btn-close-detailsurat-white {
+}
+
+.btn-close-detailsurat-white {
     filter: invert(1) grayscale(100%) brightness(200%);
-  }
+}
 
 .modal-title {
     margin-bottom: 0;
@@ -16718,7 +16755,7 @@ button.filter-tugas {
     background-color: #E5E5E5;
 }
 
-button.filter-tugas:hover{
+button.filter-tugas:hover {
     box-shadow: 0 0 0 0.25rem rgba(130, 138, 145, 0.5);
 }
 
@@ -16955,11 +16992,11 @@ span.blm-lns {
     border-radius: 0px 0px 0px 15px;
 }
 
-textarea.autoresize-textarea{
+textarea.autoresize-textarea {
     background-color: #F5F5F5;
     min-height: 50px !important;
 }
 
-textarea.autoresize-textarea:hover{
+textarea.autoresize-textarea:hover {
     background-color: #F5F5F5;
 }

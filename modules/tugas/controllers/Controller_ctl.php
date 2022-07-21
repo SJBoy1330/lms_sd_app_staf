@@ -142,6 +142,8 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/detail_tugas_utama.js"></script>';
 		// CONFIG HALAMAN
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
 			$link = base_url('tugas/tugas_sekolah/' . $id_kelas . '/' . $id_pelajaran);
@@ -156,7 +158,16 @@ class Controller_ctl extends MY_Frontend
 		$this->data['button_back'] = $link;
 		$this->data['config_hidden']['notifikasi'] = true;
 		$this->data['config_hidden']['footer'] = true;
-		$this->data['judul_halaman'] = 'Daftar Siswa';
+		$this->data['khusus']['tugas'] = true;
+		$this->data['text']['white'] = true;
+		$this->data['judul_halaman'] = 'Detail Tugas';
+
+		// LOAD API 
+		$result = curl_get('tugas/peserta_kelas/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_kelas' => $id_kelas, 'id_tugas' => $id_tugas]);
+
+		// LOAD MYDATA 
+		$mydata['result'] = $result->data;
+		$mydata['id_tugas'] = $id_tugas;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('jawaban_siswa', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

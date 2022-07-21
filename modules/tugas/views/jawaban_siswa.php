@@ -6,56 +6,55 @@
             <div class="row bg-white" style="width: 100vw;">
                 <div class="col-12">
                     <div class="input-group">
-                        <input type="text" class="form-control form-control-pribadi pencarian" placeholder="Pencarian" aria-label="Pencarian" aria-describedby="basic-addon2">
+                        <input type="text" id="search_siswa" onkeyup="search(this,'div.target_search','#vector_siswa')" class="form-control form-control-pribadi pencarian" placeholder="Pencarian" aria-label="Pencarian" aria-describedby="basic-addon2">
                         <button class="input-group-text searhing" id="basic-addon2" style="background-color:#EC3528;;"><i class="fa-solid fa-magnifying-glass size-20 text-white"></i></button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-12">
-            <a href="<?= base_url('tugas/detail_tugas'); ?>" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-50 rounded-circle avatar-pesan">
-                                <img src="<?= base_url() ?>assets/img/user2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-15 fw-normal text-dark">Siswa A</p>
-                            <p class="mb-0 size-13 fw-normal text-success">Dikumpulkan</p>
-                        </div>
-                        <div class="col-auto align-self-center ps-0">
-                            <button class="btn btn-outline-success btn-value" type="button" data-bs-toggle="modal" data-bs-target="#modalInputNilai">
-                                80
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="<?= base_url('tugas/detail_tugas'); ?>" class="card mb-3">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-auto">
-                            <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
-                                <div class="avatar avatar-40 rounded-15 avatar-presensi-inline">
-                                    <i class="fa-solid fa-graduation-cap size-20 text-white"></i>
+            <div class="card-body tabcontent-staf" id="detail_tugas" style="padding: 6px 0px;">
+                cekcekcek
+            </div>
+            <div class="card-body tabcontent-staf" id="daftar_siswa" style="padding: 6px 0px;">
+                <?php if ($result) : ?>
+                    <?php foreach ($result as $row) : ?>
+                        <?php if ($row->kode_status == 0) {
+                            $css_outline = 'btn-outline-warning';
+                            $css_text = 'text-warning';
+                        } elseif ($row->kode_status == 1) {
+                            $css_outline = 'btn-outline-success';
+                            $css_text = 'text-success';
+                        } else {
+                            $css_outline = 'btn-outline-danger';
+                            $css_text = 'text-danger';
+                        } ?>
+                        <div class="card mb-3 target_search">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-50 rounded-circle avatar-pesan">
+                                            <img src="<?= $row->foto; ?>" alt="">
+                                        </div>
+                                    </div>
+                                    <a href="<?= base_url('tugas/detail_tugas/' . $row->id_siswa . '/' . $id_tugas); ?>" class="col align-self-center ps-0">
+                                        <p class="mb-0 size-15 fw-normal text-dark"><?= tampil_text($row->nama, 18); ?></p>
+                                        <p class="mb-0 size-13 fw-normal <?= $css_text; ?>"><?= $row->status; ?></p>
+                                    </a>
+                                    <div class="col-auto align-self-center ps-0">
+                                        <button class="btn <?= $css_outline; ?> btn-value" type="button" data-bs-toggle="modal" data-bs-target="#modalInputNilai">
+                                            <?= ifnull($row->nilai, ' - '); ?>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col align-self-center ps-0">
-                            <p class="mb-0 size-15 fw-normal text-dark">Siswa B</p>
-                            <p class="mb-0 size-13 fw-normal text-danger">Terlambat dikumpulkan</p>
-                        </div>
-                        <div class="col-auto align-self-center ps-0">
-                            <button class="btn btn-outline-danger btn-value" data-bs-toggle="modal" data-bs-target="#modalInputNilai">
-                                -
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </a>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+                <?= vector_default('vector_jawaban_kosong.svg', 'Tidak ada siswa terkait', 'Belum ada siswa terkait dengan kelas ini! hubungi admin jika terdapat kesalahan!', 'vector_siswa', count($result)); ?>
+            </div>
+
         </div>
     </div>
 </div>
@@ -66,22 +65,16 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLabel">Filter</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nilai Siswa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput3" class="form-label title-3">Pilih Tingkat Kelas</label>
-                    <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
-                        <option selected>Pilih tingkat kelas</option>
-                        <option value="1">1 - A</option>
-                        <option value="2">1 - B</option>
-                        <option value="3">1 - C</option>
-                    </select>
+                    <input type="number" class="form-control form-control-solid form-control-pribadi border-0" placeholder=" Masukan nilai siswa" autocomplete="off">
                 </div>
             </div>
             <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Tampilkan</a>
+                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
             </div>
         </div>
     </div>

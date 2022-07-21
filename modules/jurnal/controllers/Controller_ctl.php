@@ -125,7 +125,7 @@ class Controller_ctl extends MY_Frontend
 		$this->data['judul_halaman'] = 'Jurnal Staf';
 		$this->data['right_button']['jurnal_staf'] = true;
 		// LOAD API 
-		$tanggal = $this->input->get('tahun') . '-' . $this->input->get('bulan');
+		$tanggal = $this->input->get('tahun') . '-' . '0' . $this->input->get('bulan');
 		if (!$tanggal) {
 			$tanggal = date('Y-m');
 		}

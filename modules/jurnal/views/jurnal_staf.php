@@ -4,8 +4,8 @@
         <a data-bs-toggle="modal" data-bs-target="#filterTambahJurnal" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed">
             <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
         </a>
-        <div class="col-12">
-            <div class="row mb-3">
+        <div class="col-12" id="parent_jurnal_staf">
+            <div class="row mb-3" id="reload_jurnal_staf">
                 <?php if ($result) : ?>
                     <?php foreach ($result as $row) : ?>
                         <a data-bs-toggle="modal" data-bs-target="#">
@@ -67,16 +67,16 @@
                 <h5 class="modal-title">Tambah Jurnal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <form id="form_tambah_jurnal" method="post" action="<?php echo base_url('func_jurnal/tambah_jurnal_staf'); ?>" class="modal-body">
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Tanggal</label>
-                    <input type="date" value="<?= date('Y-m-d'); ?>" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih Tanggal">
+                    <input type="date" name="tanggal" value="<?= date('Y-m-d'); ?>" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih Tanggal">
                 </div>
                 <label class="form-label title-3">Tugas Staf</label>
                 <?php if ($tugas) : ?>
                     <?php foreach ($tugas as $row) : ?>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="1">
+                            <input name="jenis_tugas[]" class="form-check-input" type="checkbox" value="<?= $row->id_jenis_tugas_staf; ?>">
                             <label class="form-check-label size-15" for="1">
                                 <?= $row->nama; ?>
                             </label>
@@ -90,11 +90,11 @@
                     </label>
                 </div>
                 <div class="input-group mt-2" id="showhideText" style="display:none">
-                    <textarea class="form-control form-control-solid form-control-pribadi border-0 rounded-start-small size-11" id="lainnya"></textarea>
+                    <textarea name="tugas_lain" class="form-control form-control-solid form-control-pribadi border-0 rounded-start-small size-11" id="lainnya"></textarea>
                 </div>
-            </div>
+            </form>
             <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
+                <button type="button" id="button_submit_jurnal" onclick="submit_form(this,'#form_tambah_jurnal',0,'big')" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
             </div>
         </div>
     </div>
@@ -103,7 +103,7 @@
 <!-- Filter Jurnal Staf -->
 <div class="modal fade" id="filterCalendar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
+        <form method="GET" action="<?= base_url('jurnal/jurnal_staf') ?>" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
                 <h5 class="modal-title">Filter</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -111,12 +111,12 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Bulan</label>
-                    <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
+                    <select class="form-select form-select form-select-pribadi border-0" name="bulan" aria-label="Default select example">
                         <?php if (month_from_number()) : ?>
-                            <?php foreach (month_from_number() as $row => $bulan) : ?>
+                            <?php foreach (month_from_number() as $row => $bln) : ?>
                                 <option value="<?= $row; ?>" <?php if ($row == $bulan) {
                                                                     echo 'selected';
-                                                                } ?>><?= $bulan; ?></option>
+                                                                } ?>><?= $bln; ?></option>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </select>
@@ -124,7 +124,7 @@
 
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Tahun</label>
-                    <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
+                    <select class="form-select form-select form-select-pribadi border-0" name="tahun" aria-label="Default select example">
                         <?php for ($i = (date('Y') - 3); $i <= (date('Y') + 6); $i++) { ?>
                             <option value="<?= $i; ?>" <?php if ($i == $tahun) {
                                                             echo 'selected';
@@ -134,9 +134,9 @@
                 </div>
             </div>
             <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
+                <button type="submit" class="btn btn-block btn-md btn-danger btn-filter">Tampilkan</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </main>
