@@ -45,7 +45,7 @@ class Function_ctl extends MY_Frontend
         $data['alert']['message'] = $response->message;
 
         $data['load'][0]['parent'] = '#parent_presensi';
-        $data['load'][0]['reload'] = base_url('home #reload_presensi');
+        $data['load'][0]['reload'] = base_url('home #form_presensi_siswa');
 
         $data['modal']['id'] = '#presensiModal';
         $data['modal']['action'] = 'hide';

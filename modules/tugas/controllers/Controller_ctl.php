@@ -164,9 +164,10 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD API 
 		$result = curl_get('tugas/peserta_kelas/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_kelas' => $id_kelas, 'id_tugas' => $id_tugas]);
-
+		$detail = curl_get('tugas/single/', ['id_sekolah' => $this->id_sekolah, 'id_tugas' => $id_tugas]);
 		// LOAD MYDATA 
 		$mydata['result'] = $result->data;
+		$mydata['detail'] = $detail->data;
 		$mydata['id_tugas'] = $id_tugas;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('jawaban_siswa', $mydata, TRUE);

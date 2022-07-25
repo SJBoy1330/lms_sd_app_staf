@@ -285,8 +285,8 @@
                                     <div class="d-flex justify-content-center">
                                         <div class="tablinknya-tugas-ujian">
                                             <div class="col-12 align-self-center tab-staf" style="display: flex; justify-content:center; align-items:center;">
-                                                <button id="defaultOpen" class="tablinks-staf" onclick="openCity(event, 'detail_tugas')" style=" width: 100%; height: 100%; padding: 10px;">Detail Tugas</button>
-                                                <button class="tablinks-staf" onclick="openCity(event, 'daftar_siswa')" style="width: 100%; height: 100%; padding: 10px;">Daftar Siswa</button>
+                                                <button id="defaultOpen" class="tablinks-staf" onclick="openCity(event, 'detail_tugas')" style=" width: 100%; height: 100%; padding: 10px;">Tugas</button>
+                                                <button class="tablinks-staf" onclick="openCity(event, 'daftar_siswa')" style="width: 100%; height: 100%; padding: 10px;">Siswa</button>
                                             </div>
                                         </div>
                                     </div>

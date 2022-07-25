@@ -195,7 +195,7 @@
 <!-- Modal Presensi -->
 <?php if ($presensi_setting->presensi_checkin == true) : ?>
     <div class="modal fade" id="presensiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered" id="parent_presensi">
             <form method="POST" action="<?= base_url('presensi/presensi_staf'); ?>" id="form_presensi_siswa" class=" modal-content">
                 <div class="modal-header py-4">
                     <button type="button" class="btn-close me-0" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -209,11 +209,30 @@
                             </div>
                         </div>
                     </div>
-                    <div id="parent_presensi">
-                        <div id="reload_presensi">
-                            <?php if ($presensi->presensi_sekolah->status_presensi < 2) : ?>
-                                <div class="row mt-3">
-                                    <div class=" col">
+                    <?php if ($presensi->presensi_sekolah->status_presensi < 2) : ?>
+                        <div class="row mt-3">
+                            <div class=" col">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-auto ps-2 pe-1">
+                                                <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
+                                                    <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
+                                                        <i class="fa-solid fa-clock size-20 text-white"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col align-self-center ps-1">
+                                                <p class="mb-0 size-12 fw-medium">Jam Masuk</p>
+                                                <p class="fw-normal text-secondary size-12"><?= ifnull($presensi->presensi_sekolah->scan_masuk, ' - '); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php if ($presensi_setting->checkout == TRUE) : ?>
+                                <?php if ($presensi->presensi_sekolah->scan_pulang != NULL) : ?>
+                                    <div class="col">
                                         <div class="card mb-3">
                                             <div class="card-body">
                                                 <div class="row">
@@ -225,80 +244,56 @@
                                                         </div>
                                                     </div>
                                                     <div class="col align-self-center ps-1">
-                                                        <p class="mb-0 size-12 fw-medium">Jam Masuk</p>
-                                                        <p class="fw-normal text-secondary size-12"><?= ifnull($presensi->presensi_sekolah->scan_masuk, ' - '); ?></p>
+                                                        <p class="mb-0 size-12 fw-medium">Jam Pulang</p>
+                                                        <p class="fw-normal text-secondary size-12"><?= ifnull($presensi->presensi_sekolah->scan_pulang, ' - '); ?></p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if ($presensi_setting->checkout == TRUE) : ?>
-                                        <?php if ($presensi->presensi_sekolah->scan_pulang != NULL) : ?>
-                                            <div class="col">
-                                                <div class="card mb-3">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div class="col-auto ps-2 pe-1">
-                                                                <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
-                                                                    <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
-                                                                        <i class="fa-solid fa-clock size-20 text-white"></i>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col align-self-center ps-1">
-                                                                <p class="mb-0 size-12 fw-medium">Jam Pulang</p>
-                                                                <p class="fw-normal text-secondary size-12"><?= ifnull($presensi->presensi_sekolah->scan_pulang, ' - '); ?></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
-                                </div>
-                            <?php else : ?>
-                                <div class="row mt-3">
-                                    <div class=" col">
-                                        <div class="card mb-3">
-                                            <div class="card-body">
-                                                <div class="row d-flex justify-content-center align-self-center">
-                                                    <div class="col align-self-center ps-1">
-                                                        <p class="mb-0 size-12 fw-medium text-center">ANDA SEDANG DALAM MASA <?php if ($presensi->presensi_sekolah->status_presensi == 2) {
-                                                                                                                                    echo 'IJIN';
-                                                                                                                                } else {
-                                                                                                                                    echo 'SAKIT';
-                                                                                                                                } ?></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endif; ?>
                             <?php endif; ?>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card mb-3">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-auto ps-2 pe-1">
-                                                    <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
-                                                        <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
-                                                            <i class="fa-solid fa-location-crosshairs size-20 text-white"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col align-self-center ps-1">
-                                                    <p class="mb-0 size-12 fw-medium">Jarak</p>
-                                                    <p class="fw-normal text-secondary size-12 jarak"><?= ifnull(round($jarak, 2), 0) . ' M'; ?></p>
-                                                </div>
+                        </div>
+                    <?php else : ?>
+                        <div class="row mt-3">
+                            <div class=" col">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="row d-flex justify-content-center align-self-center">
+                                            <div class="col align-self-center ps-1">
+                                                <p class="mb-0 size-12 fw-medium text-center">ANDA SEDANG DALAM MASA <?php if ($presensi->presensi_sekolah->status_presensi == 2) {
+                                                                                                                            echo 'IJIN';
+                                                                                                                        } else {
+                                                                                                                            echo 'SAKIT';
+                                                                                                                        } ?></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    <?php endif; ?>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-auto ps-2 pe-1">
+                                            <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
+                                                <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
+                                                    <i class="fa-solid fa-location-crosshairs size-20 text-white"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center ps-1">
+                                            <p class="mb-0 size-12 fw-medium">Jarak</p>
+                                            <p class="fw-normal text-secondary size-12 jarak"><?= ifnull(round($jarak, 2), 0) . ' M'; ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
                 <div class="modal-footer d-flex justify-content-center border-0 mt-0 pt-0">
                     <!-- BUTTON PRESENSI -->
