@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                         <p class="mb-0 fw-normal size-13 text-secondary">Keterangan</p>
-                                        <p class="mb-0 fw-normal size-15"><?= tampil_text($row->keterangan, 50); ?></p>
+                                        <p class="mb-0 fw-normal size-15" style="width: 75%;"><?= tampil_text($row->keterangan, 50); ?></p>
                                     </div>
                                 </div>
 
