@@ -123,7 +123,7 @@
 
                     <div class="position-fixed bottom-0 start-0 chat-post">
                         <form class="row gx-3 typing-area">
-                            <div class="col">
+                            <div class="col-10">
                                 <div class="form-group mb-2">
                                     <div class="wrapper-password d-flex flex-wrap">
                                         <input type="hidden" id="id_pelajaran" value="0">
@@ -138,7 +138,7 @@
                                                 <p class="fw-normal size-12 mb-2" id="text_materi">Lorem</p>
                                             </div>
                                         </div>
-                                        <div class="form-floating" id="ta-frame">
+                                        <div class="form-floating" id="ta-frame" style="width: 100%;">
                                             <textarea type="text" class="form-control autoresize-textarea input-field chatting border-0" name="pesan" id="pesan" placeholder="Tulis Pesan" rows="1" autocomplete="off" rows="1"></textarea>
                                         </div>
                                         <a href="#" class="input-group-append tambah-file" data-bs-toggle="modal" data-bs-target="#menuModalChatting" id="centermenubtn">
@@ -149,7 +149,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-auto">
+                            <div class="col-2">
                                 <button class="btn btn-danger btn-44 rounded-circle avatar p-0 button-kirim-pesan submit-chat" type="button" data-bs-toggle="modal" data-bs-target="#attachefiles" disabled>
                                     <i class="fa-regular fa-paper-plane size-22 text-white"></i>
                                 </button>

@@ -16871,7 +16871,7 @@ button.input-group-text {
 .form-control.autoresize-textarea.chatting {
     border-radius: 25px;
     padding-left: 50px;
-    width: auto !important;
+    width: 100% !important;
 }
 
 .input-group-append.tambah-file .input-group-text {
