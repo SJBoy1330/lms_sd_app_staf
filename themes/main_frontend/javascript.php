@@ -81,7 +81,7 @@
                                     <i class="fa-solid fa-messages size-28 text-white"></i>
                                 </div>
                             </a>
-                            <p class="size-13 text-secondary">Chatting</p>
+                            <p class="size-13 text-secondary">Pesan</p>
                         </div>
                         <?php if ($this->session->userdata('lms_staf_wali_kelas') == true) : ?>
                             <div class="col-auto text-center mb-2">
