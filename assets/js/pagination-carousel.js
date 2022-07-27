@@ -3,12 +3,16 @@ var numberOfItems = $('#jadwal-list .jadwal').length; // Get total number of the
 var limitPerPage = 4; // Limit of items per each page
 $('#jadwal-list .jadwal:gt(' + (limitPerPage - 1) + ')').hide(); // Hide all items over page limits (e.g., 5th item, 6th item, etc.)
 var totalPages = Math.round(numberOfItems / limitPerPage); // Get number of pages
+console.log(totalPages);
 $(".pagination").append("<a class='to-page active' href='javascript:void(0)'></a>"); // Add first page marker
 // Loop to insert page number for each sets of items equal to page limit (e.g., limit of 4 with 20 total items = insert 5 pages)
-for (var i = 2; i <= totalPages; i++) {
-    //$(".pagination").append("<li class='current-page'><a href='javascript:void(0)'>" + i + "</a></li>"); // Insert page number into pagination tabs\
-    $(".pagination").append("<a class='to-page' href='javascript:void(0)'></a>"); // Add first page marker
+if (numberOfItems > limitPerPage) {
+    for (var i = 1; i <= totalPages; i++) {
+        //$(".pagination").append("<li class='current-page'><a href='javascript:void(0)'>" + i + "</a></li>"); // Insert page number into pagination tabs\
+        $(".pagination").append("<a class='to-page' href='javascript:void(0)'></a>"); // Add first page marker
+    }
 }
+
 // Function that displays new items based on page number that was clicked
 $(".pagination a.to-page").on("click", function () {
     // Check if page number that was clicked on is the current page that is being displayed

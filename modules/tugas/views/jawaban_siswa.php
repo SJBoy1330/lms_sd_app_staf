@@ -91,7 +91,7 @@
                                                         </a>
                                                         <div class="col-auto align-self-center text-end ms-3" id="hapus_file_loading_<?= $row->id_file_tugas; ?>">
                                                             <?php if (strtotime($detail->detail->batas_waktu) > strtotime(date('Y-m-d H:i:s'))) : ?>
-                                                                <button type="button" onclick="hapus_file(<?= $id_tugas; ?>,<?= $row->id_file_tugas; ?>)" class="btn btn-md bg-cancel rounded-circle"><i class="fa-solid fa-xmark size-26 text-danger"></i></button>
+                                                                <button type="button" onclick="hapus_file(<?= $row->id_file_tugas; ?>)" class="btn btn-md bg-cancel rounded-circle"><i class="fa-solid fa-xmark size-26 text-danger"></i></button>
                                                             <?php endif; ?>
                                                         </div>
                                                     </div>
@@ -110,9 +110,11 @@
                                     <?php endif; ?>
                                     <form class="row mt-4 mx-1" method="post" action="<?= base_url('tugas/serahkan'); ?>" id="form_serahkan" enctype="multipart/form-data">
                                         <input type="hidden" name="id_tugas" id="id_tugas" value="<?= $id_tugas; ?>">
+                                        <input type="hidden" name="id_kelas" id="id_kelas" value="<?= $id_kelas; ?>">
+                                        <input type="hidden" name="id_pelajaran" id="id_pelajaran" value="<?= $id_pelajaran; ?>">
                                         <!-- BUTTON UPLOAD TUGAS -->
                                         <?php if (strtotime($detail->detail->batas_waktu) > strtotime(date('Y-m-d H:i:s'))) : ?>
-                                            <input id="lapirkan_jawaban" name="file_jawaban[]" onchange="upload_jawaban(this)" multiple="multiple" type="file" hidden />
+                                            <input id="lapirkan_jawaban" name="file_jawaban[]" onchange="upload_tugas(this)" multiple="multiple" type="file" hidden />
                                             <label for="lapirkan_jawaban" class="btn btn-block btn-md btn-danger btn-detail-tugas-tambah mb-2">Lampirkan Tugas</label>
                                         <?php endif; ?>
                                     </form>
@@ -134,42 +136,47 @@
                             </div>
                         </div>
                     </div>
-                    <?php if ($result) : ?>
-                        <?php foreach ($result as $row) : ?>
-                            <?php if ($row->kode_status == 0) {
-                                $css_outline = 'btn-outline-warning';
-                                $css_text = 'text-warning';
-                            } elseif ($row->kode_status == 1) {
-                                $css_outline = 'btn-outline-success';
-                                $css_text = 'text-success';
-                            } else {
-                                $css_outline = 'btn-outline-danger';
-                                $css_text = 'text-danger';
-                            } ?>
-                            <div class="card mb-3 target_search showing">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <div class="avatar avatar-50 rounded-circle avatar-pesan">
-                                                <img src="<?= $row->foto; ?>" alt="">
+                    <div id="display_siswa">
+                        <div id="reload_siswa">
+                            <?php if ($result) : ?>
+                                <?php foreach ($result as $row) : ?>
+                                    <?php if ($row->kode_status == 0) {
+                                        $css_outline = 'btn-outline-warning';
+                                        $css_text = 'text-warning';
+                                    } elseif ($row->kode_status == 1) {
+                                        $css_outline = 'btn-outline-success';
+                                        $css_text = 'text-success';
+                                    } else {
+                                        $css_outline = 'btn-outline-danger';
+                                        $css_text = 'text-danger';
+                                    } ?>
+                                    <div class="card mb-3 target_search showing">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-auto">
+                                                    <div class="avatar avatar-50 rounded-circle avatar-pesan">
+                                                        <img src="<?= $row->foto; ?>" alt="">
+                                                    </div>
+                                                </div>
+                                                <a href="<?= base_url('tugas/detail_tugas/' . $row->id_siswa . '/' . $id_tugas); ?>" class="col align-self-center ps-0">
+                                                    <p class="mb-0 size-15 fw-normal text-dark"><?= tampil_text($row->nama, 18); ?></p>
+                                                    <p class="mb-0 size-13 fw-normal <?= $css_text; ?>"><?= $row->status; ?></p>
+                                                </a>
+                                                <div class="col-auto align-self-center ps-0">
+                                                    <button class="btn <?= $css_outline; ?> btn-value" type="button" onclick="get_nilai(<?= ifnull($row->id_tugas_siswa, 0) ?>,<?= ifnull($row->nilai, 0); ?>,<?= $row->id_siswa; ?>)" data-bs-toggle="modal" data-bs-target="#modalInputNilai">
+                                                        <?= ifnull($row->nilai, ' - '); ?>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <a href="<?= base_url('tugas/detail_tugas/' . $row->id_siswa . '/' . $id_tugas); ?>" class="col align-self-center ps-0">
-                                            <p class="mb-0 size-15 fw-normal text-dark"><?= tampil_text($row->nama, 18); ?></p>
-                                            <p class="mb-0 size-13 fw-normal <?= $css_text; ?>"><?= $row->status; ?></p>
-                                        </a>
-                                        <div class="col-auto align-self-center ps-0">
-                                            <button class="btn <?= $css_outline; ?> btn-value" type="button" data-bs-toggle="modal" data-bs-target="#modalInputNilai">
-                                                <?= ifnull($row->nilai, ' - '); ?>
-                                            </button>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
+                                <?php endforeach; ?>
 
-                    <?php endif; ?>
-                    <?= vector_default('vector_jawaban_kosong.svg', 'Tidak ada siswa terkait', 'Belum ada siswa terkait dengan kelas ini! hubungi admin jika terdapat kesalahan!', 'vector_siswa', count($result)); ?>
+                            <?php endif; ?>
+                            <?= vector_default('vector_jawaban_kosong.svg', 'Tidak ada siswa terkait', 'Belum ada siswa terkait dengan kelas ini! hubungi admin jika terdapat kesalahan!', 'vector_siswa', count($result)); ?>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -180,20 +187,25 @@
 <!-- Filter Ujian Modal -->
 <div class="modal fade" id="modalInputNilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
+        <form method="post" id="form_menilai" action=" <?= base_url('tugas/nilai') ?>" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
                 <h5 class="modal-title" id="exampleModalLabel">Nilai Siswa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <input type="number" class="form-control form-control-solid form-control-pribadi border-0" placeholder=" Masukan nilai siswa" autocomplete="off">
+                <div class="mb-3" id="req_nilai">
+                    <input type="hidden" name="id_kelas" id="id_kelas" value="<?= $id_kelas; ?>">
+                    <input type="hidden" name="id_pelajaran" id="id_pelajaran" value="<?= $id_pelajaran; ?>">
+                    <input type="hidden" name="id_tugas" value="<?= $id_tugas; ?>">
+                    <input type="hidden" id="id_tugas_siswa" name="id_tugas_siswa">
+                    <input type="hidden" id="id_siswa" name="id_siswa">
+                    <input type="number" id="nilai_siswa" name="nilai" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukan nilai siswa" autocomplete="off">
                 </div>
             </div>
             <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
+                <button type="button" id="button_menilai" onclick="submit_form(this,'#form_menilai',1)" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 

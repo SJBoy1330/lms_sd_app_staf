@@ -214,7 +214,7 @@
 <!-- swiper js script -->
 <script src="<?= base_url() ?>assets/vendor/swiperjs-6.6.2/swiper-bundle.min.js"></script>
 
-<script src="<?= base_url() ?>assets/js/pagination-carousel.js"></script>
+<script src="<?= base_url() ?>assets/js/pagination-carousel.js?v=<?= date('YmdHis'); ?>"></script>
 
 <!--evo calender-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>

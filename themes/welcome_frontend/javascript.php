@@ -19,8 +19,8 @@
 
 <!-- PWA app service registration and works -->
 <script src="<?= base_url(); ?>assets/js/pwa-services.js"></script>
-<script src="<?= base_url(); ?>assets/js/global.js"></script>
-<script src="<?= base_url(); ?>assets/js/page/function.js"></script>
+<script src="<?= base_url(); ?>assets/js/global.js?v=<?= date('YmdHis'); ?>"></script>
+<script src="<?= base_url(); ?>assets/js/page/function.js?v=<?= date('YmdHis'); ?>"></script>
 
 <script src="<?= base_url('assets/js/alert/sweetalert2.all.min.js') ?>"></script>
 <script src="<?= base_url('assets/js/alert/scriptalert.js') ?>"></script>

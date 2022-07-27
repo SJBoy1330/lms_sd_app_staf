@@ -28,10 +28,10 @@
                         <?php if (!isset($presensi->presensi_mapel->$uniq)) : ?>
                             <a data-bs-toggle="modal" onclick="get_modal_mapel(<?= $row->id_jadwal; ?>)" data-bs-target="#presensiModalMapel" class="col-6 mb-3 jadwal text-dark button_get_lokasi">
                             <?php else : ?>
-                                <a href="<?= base_url('kbm/detail_kbm/' . $row->id_pelajaran . '/' . $row->id_kelas); ?>" class="col-6 mb-3 jadwal text-dark">
+                                <a href="<?= base_url('kbm/detail_kbm/' . $row->id_pelajaran . '/' . $row->id_kelas . '?redirect=true'); ?>" class="col-6 mb-3 jadwal text-dark">
                                 <?php endif; ?>
                             <?php else : ?>
-                                <a href="<?= base_url('kbm/detail_kbm/' . $row->id_pelajaran . '/' . $row->id_kelas); ?>" class="col-6 mb-3 jadwal text-dark">
+                                <a href="<?= base_url('kbm/detail_kbm/' . $row->id_pelajaran . '/' . $row->id_kelas . '?redirect=true'); ?>" class="col-6 mb-3 jadwal text-dark">
                                 <?php endif; ?>
                             <?php else : ?>
                                 <a class="col-6 mb-3 jadwal text-dark">

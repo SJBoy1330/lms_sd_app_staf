@@ -237,6 +237,12 @@
                                             </a>
                                         <?php endif; ?>
 
+                                        <?php if (isset($right_button['kbm'])) : ?>
+                                            <a href="#" target="_self" class="btn btn-44" data-bs-toggle="modal" data-bs-target="#filterCalendar">
+                                                <i class="fa-regular fa-calendar"></i>
+                                            </a>
+                                        <?php endif; ?>
+
                                     </div>
 
                                 </div>

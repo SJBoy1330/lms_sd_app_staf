@@ -26,9 +26,6 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <div class="button-action position-absolute d-flex flex-wrap flex-column">
-                                            <button class="btn btn-secondary bg-button rounded-pill mb-2" type="button">
-                                                <i class="fa-solid fa-pen-to-square" style="font-size: 14px; color: #EC3528;"></i>
-                                            </button>
                                             <button class="btn btn-secondary bg-button rounded-pill" type="button">
                                                 <i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i>
                                             </button>
@@ -65,30 +62,5 @@
 </div>
 <!-- main page content ends -->
 
-<!-- Filter Ujian Modal -->
-<div class="moddivl fade" id="filterTingkatKelas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
-            <div class="modal-header border-0">
-                <h5 class="modal-title">Filter</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput3" class="form-label title-3">Pilih Tingkat Kelas</label>
-                    <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
-                        <option selected>Pilih pelajaran</option>
-                        <option value="1">1 - A</option>
-                        <option value="2">1 - B</option>
-                        <option value="3">1 - C</option>
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Tampilkan</a>
-            </div>
-        </div>
-    </div>
-</div>
 
 </main>

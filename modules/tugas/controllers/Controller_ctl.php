@@ -174,13 +174,18 @@ class Controller_ctl extends MY_Frontend
 		$mydata['result'] = $result->data;
 		$mydata['detail'] = $detail->data;
 		$mydata['id_tugas'] = $id_tugas;
+		$mydata['id_pelajaran'] = $id_pelajaran;
+		$mydata['id_kelas'] = $id_kelas;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('jawaban_siswa', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
 
-	public function detail_tugas()
+	public function detail_tugas($id_siswa = NULL, $id_tugas = NULL)
 	{
+		if (!$id_siswa || !$id_tugas) {
+			redirect('tugas');
+		}
 		// LOAD TITLE
 		$mydata['title'] = 'Detail Tugas';
 
@@ -190,8 +195,134 @@ class Controller_ctl extends MY_Frontend
 		// LOAD JS
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/detail_tugas.js"></script>';
 
+		// LOAD CONFIG 
+		$nice_name = '<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . tampil_text('Sidatata Al Jennar aad', 19) . '</span>';
+		$this->data['config_hidden']['notifikasi'] = true;
+		$this->data['config_hidden']['footer'] = true;
+		$this->data['judul_halaman'] = 'Tugas' . $nice_name;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_tugas', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
+	}
+
+	public function upload()
+	{
+		$id_tugas = $this->input->post('id_tugas');
+		$arr['id_sekolah'] = $this->id_sekolah;
+		$arr['id_staf'] = $this->id_staf;
+		$arr['id_tugas'] = $id_tugas;
+		if (!$_FILES['file_jawaban']['tmp_name'][0]) {
+			$data['status'] = FALSE;
+			$data['title'] = 'PERINGATAN';
+			$data['message'] = 'File jawaban tidak boleh kosong!';
+			echo json_encode($data);
+			exit;
+		}
+		// var_dump($_FILES['file_jawaban']);
+		$jmlh = count($_FILES['file_jawaban']['tmp_name']);
+		$tugas = $_FILES['file_jawaban'];
+		for ($i = 0; $i < $jmlh; $i++) {
+			if ($tugas['size'][$i] > (10 * 1024 * 1024)) {
+				$data['status'] = false;
+				$data['title'] = 'PERINGATAN';
+				$data['message'] = 'File ' . $tugas['name'][$i] . ' terlalu besar!';
+				echo json_encode($data);
+				exit;
+			}
+			$test = explode('.', $tugas["name"][$i]);
+			$ext = end($test);
+			if (!in_array($ext, array('jpg', 'png', 'rar', 'zip', 'docx', 'doc', 'pdf', 'xls', 'xlxs', 'jpeg', 'mp3', 'mp4'))) {
+				$data['status'] = false;
+				$data['title'] = 'PERINGATAN';
+				$data['message'] = 'File ' . $tugas['name'][$i] . ' Tidak di izinkan!';
+				echo json_encode($data);
+				exit;
+			}
+			$name = uniqid() . '.' . $ext;
+			$location = APPPATH . '../../data/sekolah_' . $this->id_sekolah . '/tugas_siswa/' . $name;
+			$move = move_uploaded_file($tugas["tmp_name"][$i], $location);
+			if ($move) {
+				$fil[$i]['name'] = $tugas['name'][$i];
+				$fil[$i]['unik'] = $name;
+			} else {
+				$data['status'] = false;
+				$data['title'] = 'PERINGATAN';
+				$data['message'] = 'File ' . $tugas['name'][$i] . ' gagal di upload!';
+				echo json_encode($data);
+				exit;
+			}
+		}
+		$arr['tugas'] = json_encode($fil);
+		$result = curl_post('tugas/upload_sementara/', $arr);
+		if ($result->status == 200) {
+			$rr['status'] = true;
+			$rr['title'] = 'PEMBERITAHUAN';
+		} else {
+			$rr['status'] = false;
+			$rr['title'] = 'PERINGATAN';
+		}
+		$rr['message'] = $result->message;
+
+		echo json_encode($rr);
+	}
+
+	public function hapus_file()
+	{
+		$id_file = $this->input->post('id_file');
+		$result = curl_post('tugas/hapus_file/', ['id_sekolah' => $this->id_sekolah, 'id_file' => $id_file]);
+		if ($result->status == 200) {
+			$data['status'] = true;
+		} else {
+			$data['status'] = false;
+			$data['message'] = $result->message;
+		}
+		echo json_encode($data);
+	}
+
+	public function nilai()
+	{
+		$arrVar['nilai']     = 'Nilai';
+		$arrVar['id_tugas'] = 'Tugas siswa';
+		$arrVar['id_siswa'] = 'ID Siswa';
+		$arrVar['id_kelas'] = 'ID Kelas';
+		$arrVar['id_pelajaran'] = 'ID Pelajaran';
+		foreach ($arrVar as $var => $value) {
+			$$var = $this->input->post($var);
+			if (!$$var) {
+				$data['required'][] = ['req_' . $var, $value . ' tidak boleh kosong !'];
+				$arrAccess[] = false;
+			} else {
+				$arrAccess[] = true;
+			}
+		}
+		$id_tugas_siswa = $this->input->post('id_tugas_siswa');
+
+		$arr['id_sekolah'] = $this->id_sekolah;
+		$arr['id_tugas'] = $id_tugas;
+		$arr['id_siswa'] = $id_siswa;
+		if ($id_tugas_siswa) {
+			$arr['id_tugas_siswa'] = $id_tugas_siswa;
+		}
+		$arr['nilai'] = $nilai;
+		if (!in_array(FALSE, $arrAccess)) {
+			$action = curl_post('tugas/nilai/', $arr);
+			if ($action->status == 200) {
+				$data['status'] = true;
+				$data['modal']['id'] = '#modalInputNilai';
+				$data['modal']['action'] = 'hide';
+				$data['load'][0]['parent'] = '#display_siswa';
+				$data['load'][0]['reload'] = base_url('tugas/jawaban_siswa/' . $id_kelas . '/' . $id_pelajaran . '/' . $id_tugas . ' #reload_siswa');
+				$data['alert']['title'] = 'PEMBERITAHUAN';
+			} else {
+				$data['status'] = false;
+				$data['alert']['title'] = 'PERINGATAN';
+			}
+			$data['alert']['message'] = $action->message;
+			echo json_encode($data);
+			exit;
+		} else {
+			echo json_encode($data);
+			exit;
+		}
 	}
 }

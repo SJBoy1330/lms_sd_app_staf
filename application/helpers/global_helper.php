@@ -730,7 +730,9 @@ function inisial($nama = NULL)
     $arr = explode(' ', $nama);
     $singkatan = '';
     foreach ($arr as $kata) {
-      $singkatan .= substr($kata, 0, 1);
+      if (!in_array($kata, ['dan', 'atau', '&', '/'])) {
+        $singkatan .= substr($kata, 0, 1);
+      }
     }
 
     $singkatan = strtoupper($singkatan);
