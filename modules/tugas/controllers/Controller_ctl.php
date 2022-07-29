@@ -196,10 +196,27 @@ class Controller_ctl extends MY_Frontend
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/detail_tugas.js"></script>';
 
 		// LOAD CONFIG 
-		$nice_name = '<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . tampil_text('Sidatata Al Jennar aad', 19) . '</span>';
+		// CONFIG HALAMAN
+		if ($_SERVER['HTTP_REFERER'] == NULL) {
+			$link = base_url('tugas');
+		} else {
+			$arrLink = explode('/', $_SERVER['HTTP_REFERER']);
+			if (in_array('detail_tugas', $arrLink)) {
+				$link = base_url('tugas');
+			} else {
+				$link = $_SERVER['HTTP_REFERER'];
+			}
+		}
 		$this->data['config_hidden']['notifikasi'] = true;
 		$this->data['config_hidden']['footer'] = true;
-		$this->data['judul_halaman'] = 'Tugas' . $nice_name;
+		$this->data['judul_halaman'] = 'Detail Tugas';
+		$this->data['button_back'] = $link;
+
+		// LOAD API 
+		$result = curl_get('tugas/siswa/', ['id_sekolah' => $this->id_sekolah, 'id_siswa' => $id_siswa, 'id_tugas' => $id_tugas]);
+
+		// LOAD MYDATA 
+		$mydata['result'] = $result->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_tugas', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

@@ -5,11 +5,6 @@
             <a class="row">
                 <a data-bs-toggle="modal" data-bs-target="#">
                     <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3 mb-3">
-                        <div class="row mb-3">
-                            <div class="col">
-                                <p class="fw-bolder size-15">Tugas 1</p>
-                            </div>
-                        </div>
                         <div class="row py-1 px-2 mt-2 mb-2 ">
                             <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                 <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
@@ -20,7 +15,7 @@
                             </div>
                             <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                 <p class="mb-0 fw-normal size-13 text-secondary">Nama Siswa</p>
-                                <p class="mb-0 fw-normal size-15">Siswa A</p>
+                                <p class="mb-0 fw-normal size-15"><?= $result->detail->nama; ?></p>
                             </div>
                         </div>
                         <div class="row py-1 px-2 mb-2">
@@ -33,7 +28,7 @@
                             </div>
                             <div class="col align-self-center p-0 d-flex align-items-start flex-column">
                                 <p class="mb-0 fw-normal size-13 text-secondary">Tanggal Pengumpulan</p>
-                                <p class="mb-0 fw-normal size-15">11 Januari 2022</p>
+                                <p class="mb-0 fw-normal size-15"><?= $result->detail->nice_tanggal; ?></p>
                             </div>
                         </div>
 
