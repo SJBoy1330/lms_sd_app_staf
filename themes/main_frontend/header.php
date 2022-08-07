@@ -33,6 +33,7 @@
     <!-- style css for this template -->
     <link href="<?= base_url(); ?>assets/css/style.css" rel="stylesheet" id="style">
 
+    <link href="<?= base_url() ?>assets/vendor/select2/dist/css/select2.min.css" rel="stylesheet" />
     <!-- Font Awesome-->
     <script src="https://kit.fontawesome.com/b2ed95a515.js" crossorigin="anonymous"></script>
 

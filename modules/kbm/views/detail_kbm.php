@@ -24,8 +24,8 @@
                             <div class="row">
                                 <div class="col d-flex justify-content-center align-items-center flex-column">
                                     <?php
-                                    if (strtotime($tanggal) >= strtotime(date('Y-m-d')) && strtotime($tanggal) <= strtotime(date('Y-m-d'))) {
-                                        $action = 'class="avatar avatar-50 rounded-18 avatar-presensi-inline"';
+                                    if (strtotime($tanggal) > strtotime(date('Y-m-d')) || strtotime($tanggal) < strtotime(date('Y-m-d'))) {
+                                        $action = 'class="avatar avatar-50 rounded-18 avatar-offline"';
                                     } else {
                                         if ($presensi_setting->presensi_mapel == true) {
                                             if ($result->detail->presensi == true) {
@@ -37,8 +37,6 @@
                                             $action = 'href="' . base_url('kbm/presensi_siswa/' . $id_pelajaran . '/' . $id_kelas . '?tanggal=' . date('Y-m-d')) . '" class="avatar avatar-50 rounded-18 avatar-presensi-inline"';
                                         }
                                     }
-
-
                                     ?>
                                     <a <?= $action; ?>>
                                         <div class="circle-bg-top"></div>
@@ -48,7 +46,16 @@
                                     <p class="mt-2 mb-0 size-12 fw-medium">Presensi</p>
                                 </div>
                                 <div class="col d-flex justify-content-center align-items-center flex-column">
-                                    <a href="<?= base_url('jurnal/detail_jurnal_guru/' . $id_pelajaran . '/' . $id_kelas . '?tanggal=' . date('Y-m-d')) ?>" class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                    <?php
+                                    if (strtotime($tanggal) > strtotime(date('Y-m-d'))) {
+                                        $inline = 'class="avatar avatar-50 rounded-18 avatar-offline"';
+                                    } else {
+                                        $inline = 'href="' . base_url('jurnal/detail_jurnal_guru/' . $id_pelajaran . '/' . $id_kelas . '?tanggal=' . date('Y-m-d')) . '" class="avatar avatar-50 rounded-18 avatar-presensi-inline"';
+                                    }
+
+
+                                    ?>
+                                    <a <?= $inline; ?>>
                                         <div class="circle-bg-top"></div>
                                         <div class="circle-bg-bottom"></div>
                                         <i class="fa-solid fa-book-user size-22 text-white"></i>
@@ -56,6 +63,15 @@
                                     <p class="mt-2 mb-0 size-12 fw-medium">Jurnal Guru</p>
                                 </div>
                                 <div class="col d-flex justify-content-center align-items-center flex-column">
+                                    <?php
+                                    if (strtotime($tanggal) > strtotime(date('Y-m-d'))) {
+                                        $video = 'class="avatar avatar-50 rounded-18 avatar-offline"';
+                                    } else {
+                                        $video = 'href="' . base_url('jurnal/detail_jurnal_guru/' . $id_pelajaran . '/' . $id_kelas . '?tanggal=' . date('Y-m-d')) . '" class="avatar avatar-50 rounded-18 avatar-presensi-inline"';
+                                    }
+
+
+                                    ?>
                                     <a href="#" class="avatar avatar-50 rounded-18 avatar-offline">
                                         <div class="circle-bg-top"></div>
                                         <div class="circle-bg-bottom"></div>

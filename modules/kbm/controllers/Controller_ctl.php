@@ -36,8 +36,8 @@ class Controller_ctl extends MY_Frontend
 		if ($id_pelajaran == NULL || $id_kelas == NULL) {
 			redirect('kbm/kbm');
 		}
-		if ($this->input->post('tanggal')) {
-			$tanggal = $this->input->post('tanggal');
+		if ($this->input->get('tanggal')) {
+			$tanggal = $this->input->get('tanggal');
 		} else {
 			$tanggal = date('Y-m-d');
 		}
@@ -60,6 +60,7 @@ class Controller_ctl extends MY_Frontend
 		$presensi_setting = curl_get('presensi/setting', array('id_sekolah' => $this->id_sekolah));
 		// LOAD MYDATA
 		$mydata['id_kelas'] = $id_kelas;
+		$mydata['tanggal'] = $tanggal;
 		$mydata['id_pelajaran'] = $id_pelajaran;
 		$mydata['result'] = $result->data;
 		$mydata['presensi_setting'] = $presensi_setting;

@@ -9,7 +9,7 @@
                 <?php if ($result->kelas_pribadi || $result->kelas) : ?>
                     <?php if ($result->kelas_pribadi) : ?>
                         <div class="col-12 mx-auto mb-2 showing">
-                            <a href="<?= base_url('tugas/pelajaran'); ?>" class="card mb-3 tugas">
+                            <a href="<?= base_url('tugas/pelajaran/' . $result->kelas_pribadi->id_kelas . '?wali_kelas=true'); ?>" class="card mb-3 tugas">
                                 <div class="badge-keterangan-kelas">
                                     <p class="text-white size-12 fw-normal">Kelas Anda</p>
                                 </div>
@@ -61,7 +61,7 @@
     </div>
 </div>
 
-<!-- Filter Ujian Modal -->
+<!-- Filter Tambah Tugas -->
 <div class="modal fade" id="filterTambahTugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
         <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
@@ -71,22 +71,30 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput3" class="form-label title-3">Mata Pelajaran</label>
-                    <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
-                        <option selected>Pilih pelajaran</option>
-                        <option value="1">Bahasa Indonesia</option>
-                        <option value="2">Ilmu Pengetahuan Sosial</option>
-                        <option value="3">Ilmu Pengetahuan Alam</option>
+                    <label for="select_pelajaran" class="form-label title-3">Mata Pelajaran</label>
+                    <select class="form-select form-select form-select-pribadi border-0" id="select_pelajaran" aria-label="Default select example">
+                        <?php if ($pelajaran) : ?>
+                            <option value="" disabled selected hidden>Pilih pelajaran</option>
+                            <?php foreach ($pelajaran as $row) : ?>
+                                <option value="<?= $row->id_pelajaran ?>"><?= $row->tingkat . ' - ' . $row->pelajaran; ?></option>
+                            <?php endforeach; ?>
+                        <?php else : ?>
+                            <option value="" disabled selected hidden>Tidak ada data pelajaran</option>
+                        <?php endif; ?>
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="exampleFormControlInput3" class="form-label title-3">Tingkat Kelas</label>
-                    <select class="form-select form-select form-select-pribadi border-0" aria-label="Default select example">
-                        <option selected>Pilih tingkat kelas</option>
-                        <option value="1">1 - A</option>
-                        <option value="2">1 - A</option>
-                        <option value="3">1 - C</option>
+                    <label for="select_kelas" class="form-label title-3">Tingkat Kelas</label>
+                    <!-- <select class="form-select form-select form-select-pribadi border-0" id="select_kelas" aria-label="Default select example">
+                        <option disabled selected hidden>Pilih pelajaran terlebih dahulu</option>
+                    </select> -->
+                    <select name="hari_libur_global[]" id="hari_libur_global" class="form-select form-select form-select-pribadi border-0" data-allow-clear="true" multiple="multiple" data-control="select2">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
                     </select>
                 </div>
 
@@ -97,22 +105,14 @@
 
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Batas Waktu</label>
-                    <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" type="text" placeholder="Isikan batas waktu" />
+                    <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" type="datetime" placeholder="Isikan batas waktu" />
                 </div>
 
                 <div>
                     <label for="exampleFormControlInput3" class="form-label title-3">Keterangan</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <textarea class="form-control form-control-solid border-0" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label for="formFile" class="form-label title-3">File Tugas</label>
-                    <input class="form-control form-control-solid form-control-pribadi file-input" type="file" id="formFile">
-                    <div class="wrapper-files">
-                        <span class="fw-medium">Pilih File</span>
-                    </div>
+                    <textarea class="form-control form-control-solid border-0" placeholder="Isikan keterangan" id="floatingTextarea2" style="height: 100px"></textarea>
                 </div>
 
                 <div>

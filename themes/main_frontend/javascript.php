@@ -226,6 +226,8 @@
 
 <script src="<?= base_url('assets/js/page/function.js?v=' . date('YmdHis')) ?>"></script>
 
+<!-- Select2 JS -->
+<script src="<?= base_url() ?>assets/vendor/select2/dist/js/select2.min.js"></script>
 <div id="script">
     <div id="scripting">
         <?php

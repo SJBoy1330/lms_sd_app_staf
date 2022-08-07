@@ -20,7 +20,8 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
-
+		// LOAD JS 
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/tugas.js"></script>';
 		// CONFIG HALAMAN
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
 			$link = base_url('home');
@@ -44,9 +45,12 @@ class Controller_ctl extends MY_Frontend
 			$params['id_kelas'] = $this->id_kelas;
 		}
 		$result = curl_get('tugas/get_kelas/', $params);
+		$pelajaran = curl_get('tugas/pelajaran', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf]);
+
 
 		// DEKLARASI MYDATA 
 		$mydata['result'] = $result->data;
+		$mydata['pelajaran'] = $pelajaran->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('index', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
@@ -82,6 +86,9 @@ class Controller_ctl extends MY_Frontend
 		$wali_kelas = $this->input->get('wali_kelas');
 		if (!$wali_kelas) {
 			$wali_kelas = false;
+			$mydata['wali_kelas'] = '';
+		} else {
+			$mydata['wali_kelas'] = '?wali_kelas=true';
 		}
 		// LOAD API 
 		$par['id_staf'] = $this->id_staf;
@@ -107,13 +114,26 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
+
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/tugas_sekolah.js"></script>';
 		// CONFIG HALAMAN
+		$wali_kelas = $this->input->get('wali_kelas');
+		if (!$wali_kelas) {
+			$wali_kelas = false;
+			$get = '';
+		} else {
+			$wali_kelas = true;
+			$get = '?wali_kelas=true';
+		}
+		$mydata['status_wali'] = $wali_kelas;
+		$mydata['wali_kelas'] = $get;
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
-			$link = base_url('tugas/pelajaran/' . $id_kelas);
+			$link = base_url('tugas/pelajaran/' . $id_kelas . $get);
 		} else {
 			$arrLink = explode('/', $_SERVER['HTTP_REFERER']);
 			if (in_array('tugas', $arrLink)) {
-				$link = base_url('tugas/pelajaran/' . $id_kelas);
+				$link = base_url('tugas/pelajaran/' . $id_kelas . $get);
 			} else {
 				$link = $_SERVER['HTTP_REFERER'];
 			}
@@ -126,6 +146,8 @@ class Controller_ctl extends MY_Frontend
 		$result = curl_get('tugas/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_pelajaran' => $id_pelajaran, 'id_kelas' => $id_kelas]);
 
 		// DEKLARASI MYDATA 
+		$mydata['id_kelas'] = $id_kelas;
+		$mydata['id_pelajaran'] = $id_pelajaran;
 		$mydata['result'] = $result->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('tugas_sekolah', $mydata, TRUE);
@@ -150,12 +172,20 @@ class Controller_ctl extends MY_Frontend
 		// LOAD JS
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/detail_tugas_utama.js"></script>';
 		// CONFIG HALAMAN
+		$wali_kelas = $this->input->get('wali_kelas');
+		if (!$wali_kelas) {
+			$mydata['wali_kelas'] = false;
+			$mydata['get'] = $get = '';
+		} else {
+			$mydata['wali_kelas'] = true;
+			$mydata['get'] = $get = '?wali_kelas=true';
+		}
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
-			$link = base_url('tugas/tugas_sekolah/' . $id_kelas . '/' . $id_pelajaran);
+			$link = base_url('tugas/tugas_sekolah/' . $id_kelas . '/' . $id_pelajaran . $get);
 		} else {
 			$arrLink = explode('/', $_SERVER['HTTP_REFERER']);
 			if (in_array('tugas', $arrLink)) {
-				$link = base_url('tugas/tugas_sekolah/' . $id_kelas . '/' . $id_pelajaran);
+				$link = base_url('tugas/tugas_sekolah/' . $id_kelas . '/' . $id_pelajaran . $get);
 			} else {
 				$link = $_SERVER['HTTP_REFERER'];
 			}
@@ -166,6 +196,7 @@ class Controller_ctl extends MY_Frontend
 		$this->data['khusus']['tugas'] = true;
 		$this->data['text']['white'] = true;
 		$this->data['judul_halaman'] = 'Detail Tugas';
+
 
 		// LOAD API 
 		$result = curl_get('tugas/peserta_kelas/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_kelas' => $id_kelas, 'id_tugas' => $id_tugas]);
@@ -196,6 +227,14 @@ class Controller_ctl extends MY_Frontend
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/detail_tugas.js"></script>';
 
 		// LOAD CONFIG 
+		$wali_kelas = $this->input->get('wali_kelas');
+		if (!$wali_kelas) {
+			$mydata['wali_kelas'] = false;
+			$mydata['get'] = $get = '';
+		} else {
+			$mydata['wali_kelas'] = true;
+			$mydata['get'] = $get = '?wali_kelas=true';
+		}
 		// CONFIG HALAMAN
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
 			$link = base_url('tugas');
@@ -214,8 +253,9 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD API 
 		$result = curl_get('tugas/siswa/', ['id_sekolah' => $this->id_sekolah, 'id_siswa' => $id_siswa, 'id_tugas' => $id_tugas]);
-
 		// LOAD MYDATA 
+		$mydata['id_siswa'] = $id_siswa;
+		$mydata['id_tugas'] = $id_tugas;
 		$mydata['result'] = $result->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_tugas', $mydata, TRUE);
@@ -341,5 +381,126 @@ class Controller_ctl extends MY_Frontend
 			echo json_encode($data);
 			exit;
 		}
+	}
+
+	public function terima()
+	{
+		$arrVar['nilai']     = 'Nilai';
+		$arrVar['id_tugas'] = 'Tugas siswa';
+		$arrVar['id_siswa'] = 'ID Siswa';
+		foreach ($arrVar as $var => $value) {
+			$$var = $this->input->post($var);
+			if (!$$var) {
+				$data['required'][] = ['req_' . $var, $value . ' tidak boleh kosong !'];
+				$arrAccess[] = false;
+			} else {
+				$arrAccess[] = true;
+			}
+		}
+		$id_tugas_siswa = $this->input->post('id_tugas_siswa');
+
+		$arr['id_sekolah'] = $this->id_sekolah;
+		$arr['id_tugas'] = $id_tugas;
+		$arr['id_siswa'] = $id_siswa;
+		if ($id_tugas_siswa) {
+			$arr['id_tugas_siswa'] = $id_tugas_siswa;
+		}
+		$arr['nilai'] = $nilai;
+		if (!in_array(FALSE, $arrAccess)) {
+			$action = curl_post('tugas/nilai/', $arr);
+			if ($action->status == 200) {
+				$data['status'] = true;
+				$data['modal']['id'] = '#modalInputNilai';
+				$data['modal']['action'] = 'hide';
+				$data['load'][0]['parent'] = '#display_tugas';
+				$data['load'][0]['reload'] = base_url('tugas/detail_tugas/' . $id_siswa . '/' . $id_tugas . ' #reload_tugas');
+				$data['alert']['title'] = 'PEMBERITAHUAN';
+			} else {
+				$data['status'] = false;
+				$data['alert']['title'] = 'PERINGATAN';
+			}
+			$data['alert']['message'] = $action->message;
+			echo json_encode($data);
+			exit;
+		} else {
+			echo json_encode($data);
+			exit;
+		}
+	}
+
+	public function tolak()
+	{
+		$arrVar['keterangan']     = 'Keterangan';
+		$arrVar['id_tugas'] = 'Tugas siswa';
+		$arrVar['id_siswa'] = 'ID Siswa';
+		foreach ($arrVar as $var => $value) {
+			$$var = $this->input->post($var);
+			if (!$$var) {
+				$data['required'][] = ['req_' . $var, $value . ' tidak boleh kosong !'];
+				$arrAccess[] = false;
+			} else {
+				$arrAccess[] = true;
+			}
+		}
+
+		$arr['id_sekolah'] = $this->id_sekolah;
+		$arr['id_tugas'] = $id_tugas;
+		$arr['id_siswa'] = $id_siswa;
+		$arr['keterangan'] = $keterangan;
+		if (!in_array(FALSE, $arrAccess)) {
+			$action = curl_post('tugas/tolak/', $arr);
+			if ($action->status == 200) {
+				$data['status'] = true;
+				$data['modal']['id'] = '#modalTolak';
+				$data['modal']['action'] = 'hide';
+				$data['load'][0]['parent'] = '#display_tugas';
+				$data['load'][0]['reload'] = base_url('tugas/detail_tugas/' . $id_siswa . '/' . $id_tugas . ' #reload_tugas');
+				$data['alert']['title'] = 'PEMBERITAHUAN';
+			} else {
+				$data['status'] = false;
+				$data['alert']['title'] = 'PERINGATAN';
+			}
+			$data['alert']['message'] = $action->message;
+			echo json_encode($data);
+			exit;
+		} else {
+			echo json_encode($data);
+			exit;
+		}
+	}
+
+	public function hapus_tugas()
+	{
+		$id_tugas = $this->input->post('id_tugas');
+
+		$result = curl_post('tugas/hapus_tugas/', ['id_sekolah' => $this->id_sekolah, 'id_tugas' => $id_tugas]);
+		if ($result->status == 200) {
+			$data['status'] = true;
+		} else {
+			$data['status'] = false;
+			$data['title'] = 'PARINGATAN';
+			$data['message'] = $result->message;
+		}
+		echo json_encode($data);
+	}
+	public function get_kelas()
+	{
+		$id_pelajaran = $this->input->post('id_pelajaran');
+
+		$result = curl_get('tugas/kelas_pelajaran/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_pelajaran' => $id_pelajaran]);
+		$msg = '';
+		if ($result->status == 200) {
+			if ($result->data) {
+				$msg .= '<option value="" disabled selected hidden>Pilih kelas</option>';
+				foreach ($result->data as $row) {
+					$msg .= '<option value="' . $row->id_kelas . '">' . $row->kelas . '</option>';
+				}
+			} else {
+				$msg .= '<option value="" disabled selected hidden>Tidak ada data kelas</option>';
+			}
+		} else {
+			$msg .= '<option value="" disabled selected hidden>Tidak ada data kelas</option>';
+		}
+		echo $msg;
 	}
 }

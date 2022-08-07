@@ -4,7 +4,7 @@
         <div class="col-12">
             <?php if ($result) : ?>
                 <?php foreach ($result as $row) : ?>
-                    <a href="<?= base_url('tugas/tugas_sekolah/' . $row->id_kelas . '/' . $row->id_pelajaran); ?>" class="card mb-3 showing">
+                    <a href="<?= base_url('tugas/tugas_sekolah/' . $row->id_kelas . '/' . $row->id_pelajaran . $wali_kelas); ?>" class="card mb-3 showing">
                         <div class="card-body bg-tugas-pelajaran">
                             <div class="row">
                                 <div class="col-auto">

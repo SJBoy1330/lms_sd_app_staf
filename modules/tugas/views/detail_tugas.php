@@ -1,7 +1,7 @@
 <!-- Header ends -->
 <div class="main-container container">
-    <div class="row">
-        <div class="col-12">
+    <div id="display_tugas" class="row">
+        <div class="col-12" id="reload_tugas">
             <a class="row">
                 <a data-bs-toggle="modal" data-bs-target="#">
                     <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3 mb-3">
@@ -32,6 +32,21 @@
                             </div>
                         </div>
 
+                        <?php if ($result->detail->nilai != NULL) : ?>
+                            <div class="row py-1 px-2 mb-2">
+                                <div class="d-flex col-auto align-items-center ps-0 pe-2">
+                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
+                                            <i class="fa-solid fa-feather size-20 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center p-0 d-flex align-items-start flex-column">
+                                    <p class="mb-0 fw-normal size-13 text-secondary">Nilai</p>
+                                    <p class="mb-0 fw-normal size-15"><?= $result->detail->nilai; ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                         <div class="row py-1 px-2">
                             <div class="d-flex col-auto align-items-center ps-0 pe-2">
                                 <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
@@ -41,11 +56,32 @@
                                 </div>
                             </div>
                             <div class="col align-self-center p-0 d-flex align-items-start flex-column">
+                                <?php if ($result->detail->kode_status == 0) {
+                                    $css = 'style="color: #ffbd17"';
+                                } elseif ($result->detail->kode_status == 1) {
+                                    $css = 'style="color: #00DFA3"';
+                                } else {
+                                    $css = 'style="color: #EC3528"';
+                                } ?>
                                 <p class="mb-0 fw-normal size-13 text-secondary">Status</p>
-                                <p class="mb-0 fw-normal size-15" style="color: #EC3528">Terlambat dikumpulkan</p>
-                                <p class="mb-0 fw-normal size-15" style="color: #00DFA3">Telah dikumpulkan</p>
+                                <p class="mb-0 fw-normal size-15" <?= $css; ?>><?= $result->detail->status; ?></p>
                             </div>
                         </div>
+                        <?php if ($result->detail->keterangan != NULL) : ?>
+                            <div class="row py-1 px-2 mb-2">
+                                <div class="d-flex col-auto align-items-center ps-0 pe-2">
+                                    <div class="avatar avatar-50 shadow-sm rounded-circle avatar-presensi-outline">
+                                        <div class="avatar avatar-40 rounded-circle avatar-presensi-inline">
+                                            <i class="fa-solid fa-feather size-20 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center p-0 d-flex align-items-start flex-column">
+                                    <p class="mb-0 fw-normal size-13 text-secondary">Catatan</p>
+                                    <p class="mb-0 fw-normal size-15"><?= $result->detail->keterangan; ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </a>
             </a>
@@ -53,97 +89,64 @@
             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3">
                 <div class="row mb-3">
                     <div class="col">
-                        <p class="fw-bolder size-15">Tugas Siswa A</p>
+                        <p class="fw-bolder size-15">Jawaban Siswa</p>
                     </div>
                     <div class="col-auto align-self-center"></div>
                 </div>
-
-                <a href="#modalPDF" data-bs-toggle="modal" role="button" class="card shadow-sm mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="avatar avatar-50 rounded-10 bg-document">
-                                    <i class="fa-solid fa-file-pdf size-30 text-danger"></i>
+                <?php if ($result->file_siswa) : ?>
+                    <?php foreach ($result->file_siswa as $row) : ?>
+                        <?php if ($row->file != FALSE) {
+                            $action = 'href="' . $row->file . '" role="button" class="card shadow-sm mb-3"';
+                        } else {
+                            $action = 'class="card shadow-sm mb-3" onclick="take_alert(`PERINGATAN`, `Tidak bisa mengunduh file diakrenakan file rusak!`, `warning`)"';
+                        }
+                        ?>
+                        <a <?= $action; ?>>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="avatar avatar-50 rounded-10 bg-document">
+                                            <?php if ($row->file != FALSE) {
+                                                echo get_icon_file($row->extension);
+                                            } else {
+                                                echo get_icon_file('corrupt');
+                                            } ?>
+                                        </div>
+                                    </div>
+                                    <div class="col align-self-center ps-0">
+                                        <p class="mb-0 size-14 fw-normal"><?= tampil_text($row->judul, 14); ?></p>
+                                        <p class="mb-0 size-12 fw-normal text-secondary"><?php if ($row->file != FALSE) {
+                                                                                                echo strtoupper($row->extension);;
+                                                                                            } else {
+                                                                                                echo 'Corrupt';
+                                                                                            } ?> File</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col align-self-center ps-0">
-                                <p class="mb-0 size-14 fw-normal">tugas_ba.pdf</p>
-                                <p class="mb-0 size-12 fw-normal text-secondary">PDF document</p>
+                        </a>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center align-items-center flex-wrap mt-2">
+                            <div class="circle-serahtugas d-flex justify-content-center align-items-center">
+                                <i class="fa-solid fa-layer-plus" style="font-size: 45px; color: #c8c5c5;"></i>
                             </div>
+                            <p class="size-14 text-secondary fw-normal text-center mx-1 mt-3">Siswa belum mengumpulkan file apapun, hubungi admin jika terjadi kesalahan!</p>
                         </div>
                     </div>
-                </a>
-
-                <a href="#modalWord" data-bs-toggle="modal" role="button" class="card shadow-sm mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="avatar avatar-50 rounded-10 bg-document">
-                                    <i class="fa-solid fa-file-word size-30 text-primary"></i>
-                                </div>
-                            </div>
-                            <div class="col align-self-center ps-0">
-                                <p class="mb-0 size-14 fw-normal">tugas_il.docx</p>
-                                <p class="mb-0 size-12 fw-normal text-secondary">Word document</p>
-                            </div>
+                <?php endif; ?>
+                <?php if ($wali_kelas == false) : ?>
+                    <?php if (!in_array($result->detail->kode_status, [2, 4, 5])) : ?>
+                        <div class="row mt-4 mx-1">
+                            <button class="btn btn-block btn-md btn-danger btn-detail-tolak" data-bs-toggle="modal" href="#modalTolak">Tolak Tugas</button>
                         </div>
-                    </div>
-                </a>
-
-                <a href="#" data-bs-toggle="modal" role="button" class="card shadow-sm mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="avatar avatar-50 rounded-10 bg-document">
-                                    <i class="fa-solid fa-file-excel size-30 text-success"></i>
-                                </div>
-                            </div>
-                            <div class="col align-self-center ps-0">
-                                <p class="mb-0 size-14 fw-normal">tugas_ner.docx</p>
-                                <p class="mb-0 size-12 fw-normal text-secondary">Excel document</p>
-                            </div>
+                    <?php endif; ?>
+                    <?php if (!in_array($result->detail->kode_status, [1, 3])) : ?>
+                        <div class=" row mt-2 mx-1">
+                            <button class="btn btn-block btn-md btn-success btn-detail-terima" data-bs-toggle="modal" href="#modalInputNilai">Terima Tugas</button>
                         </div>
-                    </div>
-                </a>
-
-                <a href="#" data-bs-toggle="modal" role="button" class="card shadow-sm mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="avatar avatar-50 rounded-10 bg-document">
-                                    <i class="fa-solid fa-file-video size-30" style="color: #5153FF;"></i>
-                                </div>
-                            </div>
-                            <div class="col align-self-center ps-0">
-                                <p class="mb-0 size-14 fw-normal">tugas_ha.mp4</p>
-                                <p class="mb-0 size-12 fw-normal text-secondary">Video document</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#modalGambar" data-bs-toggle="modal" role="button" class="card shadow-sm mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-auto">
-                                <div class="avatar avatar-50 rounded-10 bg-document">
-                                    <i class="fa-solid fa-file-image size-30 text-warning"></i>
-                                </div>
-                            </div>
-                            <div class="col align-self-center ps-0">
-                                <p class="mb-0 size-14 fw-normal">tugas_me.png</p>
-                                <p class="mb-0 size-12 fw-normal text-secondary">Gambar document</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="row mt-4 mx-1">
-                    <button class="btn btn-block btn-md btn-danger btn-detail-tolak">Tolak Tugas</button>
-                </div>
-                <div class="row mt-2 mx-1">
-                    <button class="btn btn-block btn-md btn-success btn-detail-terima" data-bs-toggle="modal" href="#modalInputNilai">Terima Tugas</button>
-                </div>
+                    <?php endif; ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -152,113 +155,44 @@
 <!-- Moda Input Nilai -->
 <div class="modal fade" id="modalInputNilai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
+        <form method="post" id="form_menilai" action=" <?= base_url('tugas/terima') ?>" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
-                <h5 class="modal-title" id="exampleModalLabel">Input Nilai Siswa</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Nilai Siswa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <label for="exampleFormControlInput3" class="form-label title-3">Nilai</label>
-                    <input type="number" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Isikan nilai siswa" autocomplete="off">
+                <div class="mb-3" id="req_nilai">
+                    <input type="hidden" name="id_tugas" value="<?= $id_tugas; ?>">
+                    <input type="hidden" id="id_tugas_siswa" name="id_tugas_siswa" value="<?= $result->detail->id_tugas_siswa; ?>">
+                    <input type="hidden" id="id_siswa" name="id_siswa" value="<?= $id_siswa; ?>">
+                    <input type="number" id="nilai_siswa" name="nilai" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukan nilai siswa" autocomplete="off">
                 </div>
             </div>
             <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
+                <button type="button" id="button_menilai" onclick="submit_form(this,'#form_menilai',0)" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
-
-<!-- Modal Gambar -->
-<div class="modal fade" id="modalGambar" tabindex="-1" aria-labelledby="detailSuratIjinModal" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-        <div class="modal-content detail_tugas">
+<!-- Moda Tolak -->
+<div class="modal fade" id="modalTolak" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form method="post" id="form_penolakan" action=" <?= base_url('tugas/tolak') ?>" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%)">
             <div class="modal-header border-0">
-                <div class="row" style="width: 100vw;">
-                    <div class="col-auto">
-                        <a href="<?= base_url('tugas/detail_tugas') ?>" target="_self" class="btn btn-44">
-                            <i class="fa-solid fa-chevron-left text-white"></i>
-                        </a>
-                    </div>
-                    <div class="col d-flex justify-content-center align-items-center text-center">
-                        <p class="size-14 text-white">tugas_bahasa_indo.png</p>
-                    </div>
-                    <div class="col-auto">
-                        <a href="#" target="_self" class="btn btn-44">
-                            <i class="fa-regular fa-download text-white" style="font-size: 20px;"></i>
-                        </a>
-                    </div>
-                </div>
+                <h5 class="modal-title" id="exampleModalLabel1">Alasan Penolakan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="image-preview" style="background-image: url('<?= base_url(); ?>assets/img/categories5.png');">
+                <div class="mb-3" id="req_keterangan">
+                    <input type="hidden" name="id_tugas" value="<?= $id_tugas; ?>">
+                    <input type="hidden" id="id_siswa" name="id_siswa" value="<?= $id_siswa; ?>">
+                    <textarea name="keterangan" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Masukan Keterangan" style="height : 130px;" autocomplete="off"></textarea>
                 </div>
             </div>
-            <div class="modal-footer border-0"></div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal PDF -->
-<div class="modal fade" id="modalPDF" tabindex="-1" aria-labelledby="detailSuratIjinModal" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-        <div class="modal-content detail_tugas">
-            <div class="modal-header border-0">
-                <div class="row" style="width: 100vw;">
-                    <div class="col-auto">
-                        <a href="<?= base_url('tugas/detail_tugas') ?>" target="_self" class="btn btn-44">
-                            <i class="fa-solid fa-chevron-left text-white"></i>
-                        </a>
-                    </div>
-                    <div class="col d-flex justify-content-center align-items-center text-center">
-                        <p class="size-14 text-white">tugas_bahasa_indo.pdf</p>
-                    </div>
-                    <div class="col-auto">
-                        <a href="#" target="_self" class="btn btn-44">
-                            <i class="fa-regular fa-download text-white" style="font-size: 20px;"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="modal-footer border-0">
+                <button type="button" id="button_menolak" onclick="submit_form(this,'#form_penolakan',1)" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
             </div>
-            <div class="modal-body">
-                <div class="image-preview-pdf">
-                    <img src="<?= base_url(); ?>assets/images/pdf.svg" width="125" alt="">
-                </div>
-            </div>
-            <div class="modal-footer border-0"></div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Word -->
-<div class="modal fade" id="modalWord" tabindex="-1" aria-labelledby="detailSuratIjinModal" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
-        <div class="modal-content detail_tugas">
-            <div class="modal-header border-0">
-                <div class="row" style="width: 100vw;">
-                    <div class="col-auto">
-                        <a href="<?= base_url('tugas/detail_tugas') ?>" target="_self" class="btn btn-44">
-                            <i class="fa-solid fa-chevron-left text-white"></i>
-                        </a>
-                    </div>
-                    <div class="col d-flex justify-content-center align-items-center text-center">
-                        <p class="size-14 text-white">tugas_bahasa_indo.docx</p>
-                    </div>
-                    <div class="col-auto">
-                        <a href="#" target="_self" class="btn btn-44">
-                            <i class="fa-regular fa-download text-white" style="font-size: 20px;"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="image-preview-word">
-                    <img src="<?= base_url(); ?>assets/images/doc.svg" width="125" alt="">
-                </div>
-            </div>
-            <div class="modal-footer border-0"></div>
-        </div>
+        </form>
     </div>
 </div>
 </main>

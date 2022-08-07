@@ -90,8 +90,10 @@
                                                                                                                 } ?> File</p>
                                                         </a>
                                                         <div class="col-auto align-self-center text-end ms-3" id="hapus_file_loading_<?= $row->id_file_tugas; ?>">
-                                                            <?php if (strtotime($detail->detail->batas_waktu) > strtotime(date('Y-m-d H:i:s'))) : ?>
-                                                                <button type="button" onclick="hapus_file(<?= $row->id_file_tugas; ?>)" class="btn btn-md bg-cancel rounded-circle"><i class="fa-solid fa-xmark size-26 text-danger"></i></button>
+                                                            <?php if ($wali_kelas == false) : ?>
+                                                                <?php if (strtotime($detail->detail->batas_waktu) > strtotime(date('Y-m-d H:i:s'))) : ?>
+                                                                    <button type="button" onclick="hapus_file(<?= $row->id_file_tugas; ?>)" class="btn btn-md bg-cancel rounded-circle"><i class="fa-solid fa-xmark size-26 text-danger"></i></button>
+                                                                <?php endif; ?>
                                                             <?php endif; ?>
                                                         </div>
                                                     </div>
@@ -158,12 +160,14 @@
                                                         <img src="<?= $row->foto; ?>" alt="">
                                                     </div>
                                                 </div>
-                                                <a href="<?= base_url('tugas/detail_tugas/' . $row->id_siswa . '/' . $id_tugas); ?>" class="col align-self-center ps-0">
+                                                <a href="<?= base_url('tugas/detail_tugas/' . $row->id_siswa . '/' . $id_tugas . $get); ?>" class="col align-self-center ps-0">
                                                     <p class="mb-0 size-15 fw-normal text-dark"><?= tampil_text($row->nama, 18); ?></p>
                                                     <p class="mb-0 size-13 fw-normal <?= $css_text; ?>"><?= $row->status; ?></p>
                                                 </a>
                                                 <div class="col-auto align-self-center ps-0">
-                                                    <button class="btn <?= $css_outline; ?> btn-value" type="button" onclick="get_nilai(<?= ifnull($row->id_tugas_siswa, 0) ?>,<?= ifnull($row->nilai, 0); ?>,<?= $row->id_siswa; ?>)" data-bs-toggle="modal" data-bs-target="#modalInputNilai">
+                                                    <button class="btn <?= $css_outline; ?> btn-value" type="button" <?php if ($wali_kelas == false) {
+                                                                                                                            echo 'onclick="get_nilai(' . ifnull($row->id_tugas_siswa, 0) . ',' . ifnull($row->nilai, 0) . ',' . $row->id_siswa . ')" data-bs-toggle="modal" data-bs-target="#modalInputNilai"';
+                                                                                                                        }; ?>>
                                                         <?= ifnull($row->nilai, ' - '); ?>
                                                     </button>
                                                 </div>
