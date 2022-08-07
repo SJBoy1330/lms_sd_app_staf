@@ -85,17 +85,121 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="select_kelas" class="form-label title-3">Tingkat Kelas</label>
-                    <!-- <select class="form-select form-select form-select-pribadi border-0" id="select_kelas" aria-label="Default select example">
-                        <option disabled selected hidden>Pilih pelajaran terlebih dahulu</option>
-                    </select> -->
-                    <select name="hari_libur_global[]" id="hari_libur_global" class="form-select form-select form-select-pribadi border-0" data-allow-clear="true" multiple="multiple" data-control="select2">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
+                    <div class="row">
+						<div class="col-md-12 d-flex justify-content-start align-items-start flex-wrap">
+							<div class="tagar">
+                                <span>hotviralbanget</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviral</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviralbanget</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviral</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviral</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviralbanget</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviralbanget</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviral</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviralbanget</span>
+                            </div>
+                            <div class="tagar">
+                                <span>hotviralbanget</span>
+                            </div>
+						</div>
+					</div>
+                    <div class="row mt-2">
+                        <label for="select_kelas" class="form-label title-3">Tingkat Kelas</label>
+						<div class="col-10">
+							<input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Tingkat kelas" autocomplete="off">
+						</div>
+						<div class="col-2 d-flex justify-content-center align-items-center">
+							<button type="button" class="btn btn-sm plus-tagar">
+								<i class="fa-solid fa-plus p-2" style="color: #FFFFFF;"></i>
+							</button>
+						</div>
+					</div>
+                    <div  class="row mt-2 checkbox">
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviralbanget</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviral</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviralbanget</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviral</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviralbanget</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviral</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviralbanget</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviral</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviralbanget</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="input-checkbox-tagar d-flex">
+                                <input class="form-check-input" type="checkbox">
+                                <span>hotviral</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="wrapper-files">
+                        <span>Pilih File</span>
+                    </div>
+                    <label for="exampleFormControlInput3" class="form-label title-3">Upload File</label>
+                    <input class="form-control form-control-solid form-control-pribadi border-0" type="file" id="formFileMultiple" multiple>
                 </div>
 
                 <div class="mb-3">
