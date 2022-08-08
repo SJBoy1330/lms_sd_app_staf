@@ -199,7 +199,14 @@
                         <span>Pilih File</span>
                     </div>
                     <label for="exampleFormControlInput3" class="form-label title-3">Upload File</label>
-                    <input class="form-control form-control-solid form-control-pribadi border-0" type="file" id="formFileMultiple" multiple>
+                    <label for="attachment">
+                        <input class="form-control form-control-solid form-control-pribadi border-0" type="file" name="file[]" id="attachment"  multiple/>
+                    </label>
+                    <p id="files-area">
+                        <span id="filesList">
+                            <span id="files-names"></span>
+                        </span>
+                    </p>
                 </div>
 
                 <div class="mb-3">

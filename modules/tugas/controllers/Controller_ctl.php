@@ -67,6 +67,9 @@ class Controller_ctl extends MY_Frontend
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/tugas/tugas.css') . '">';
 
+		// LOAD JS
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/tugas/tugas.js"></script>';
+
 		// CONFIG HALAMAN
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
 			$link = base_url('tugas');
