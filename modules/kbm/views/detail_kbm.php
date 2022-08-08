@@ -1,15 +1,3 @@
-<style>
-    .select-group .input-group-addon {
-        background: #F5F5F5;
-        border-radius: 0.75rem 0 0 0.75rem;
-    }
-
-    .select-group select {
-        border-left: 0;
-        padding-left: 0;
-        box-shadow: none;
-    }
-</style>
 <!-- main page content -->
 <div class="main-container container">
     <a href="#" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed" data-bs-toggle="modal" data-bs-target="#modalEdit">
@@ -21,7 +9,7 @@
                 <div class="col-12 mx-auto">
                     <div class="card mb-3">
                         <div class="card-body">
-                            <div class="row">
+                            <div class="row scrollmenu">
                                 <div class="col d-flex justify-content-center align-items-center flex-column">
                                     <?php
                                     if (strtotime($tanggal) > strtotime(date('Y-m-d')) || strtotime($tanggal) < strtotime(date('Y-m-d'))) {
@@ -78,6 +66,14 @@
                                         <i class="fa-solid fa-bell-school-slash size-22 text-white"></i>
                                     </a>
                                     <p class="mt-2 mb-0 size-12 fw-medium">Offline</p>
+                                </div>
+                                <div class="col d-flex justify-content-center align-items-center flex-column">
+                                    <a href="#" class="avatar avatar-50 rounded-18 avatar-presensi-inline">
+                                        <div class="circle-bg-top"></div>
+                                        <div class="circle-bg-bottom"></div>
+                                        <i class="fa-solid fa-messages size-22 text-white"></i>
+                                    </a>
+                                    <p class="mt-2 mb-0 size-12 fw-medium">Pesan</p>
                                 </div>
                             </div>
                         </div>
@@ -310,6 +306,48 @@
                         <option value="2">Bab 2</option>
                         <option value="3">Bab 3</option>
                     </select>
+
+                    <div class="row">
+                        <div class="col-12">
+                           <div class="wrapper-bab mt-3 p-2">
+                                <h6>Bab 1</h6>
+                           </div>
+                           <div class="col-12">
+                                <div class="input-checkbox d-flex mb-3">
+                                    <input class="form-check-input mb-1" type="checkbox">
+                                    <span>hotviralbanget</span>
+                                </div>
+                                <div class="input-checkbox d-flex mb-3">
+                                    <input class="form-check-input mb-1" type="checkbox">
+                                    <span>hotviralbanget</span>
+                                </div>
+                                <div class="input-checkbox d-flex mb-3">
+                                    <input class="form-check-input mb-1" type="checkbox">
+                                    <span>hotviralbanget</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                           <div class="wrapper-bab mt-3 p-2">
+                                <h6>Bab 2</h6>
+                           </div>
+                           <div class="col-12">
+                                <div class="input-checkbox d-flex mb-3">
+                                    <input class="form-check-input mb-1" type="checkbox">
+                                    <span>hotviralbanget</span>
+                                </div>
+                                <div class="input-checkbox d-flex mb-3">
+                                    <input class="form-check-input mb-1" type="checkbox">
+                                    <span>hotviralbanget</span>
+                                </div>
+                                <div class="input-checkbox d-flex mb-3">
+                                    <input class="form-check-input mb-1" type="checkbox">
+                                    <span>hotviralbanget</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mb-3">

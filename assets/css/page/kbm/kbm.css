@@ -62,3 +62,35 @@ a.btn.btn-detail-kbm {
 .avatar-offline {
     background-color: #8F8F8F;
 }
+
+.select-group .input-group-addon {
+    background: #F5F5F5;
+    border-radius: 0.75rem 0 0 0.75rem;
+}
+
+.select-group select {
+    border-left: 0;
+    padding-left: 0;
+    box-shadow: none;
+}
+
+div.scrollmenu{
+    overflow: auto;
+  white-space: nowrap;
+}
+
+.input-checkbox{
+    width: auto;
+    min-width: 50px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+    color: #303030;
+    margin: 5px;
+    padding: 0px 10px 0px 10px;
+    align-items: center;
+}
+
+.input-checkbox span {
+    margin-left: 5px;
+}
