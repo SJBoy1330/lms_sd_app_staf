@@ -141,3 +141,7 @@
 textarea[type="text"]::placeholder {
   text-align: start;
 }
+
+.form-floating.chatting{
+  width: 99% !important;
+}

@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="size-20 fw-medium loader"> Loading... </p>
+                            <p class="size-20 fw-medium loader">Memuat... </p>
                         </div>
                     </div>
                 </div>

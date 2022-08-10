@@ -22,7 +22,7 @@
                                                             <img src="<?= $row->gambar; ?>" alt="" class="mw-100">
                                                         </div>
                                                     <?php endif; ?>
-                                                    <p class="mb-0 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                                    <p class="mb-0 size-15 fw-normal" style="overflow-wrap: break-word;"><?= $row->pesan; ?></p>
                                                 </div>
                                             <?php else : ?>
                                                 <!-- JIKA FILE -->
@@ -74,7 +74,7 @@
                                                             <img src="<?= $row->gambar; ?>" alt="" class="mw-100">
                                                         </div>
                                                     <?php endif; ?>
-                                                    <p class="mb-0 ms-1 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                                    <p class="mb-0 ms-1 size-15 fw-normal" style="overflow-wrap: break-word;"><?= $row->pesan; ?></p>
                                                 </div>
                                             <?php else : ?>
                                                 <!-- JIKA FILE -->
@@ -138,7 +138,7 @@
                                 <p class="fw-normal size-12 mb-2" id="text_materi">Lorem</p>
                             </div>
                         </div>
-                        <div class="form-floating" id="ta-frame" style="width:100%;">
+                        <div class="form-floating chatting" id="ta-frame" style="width:100%;">
                             <textarea type="text" class="form-control autoresize-textarea input-field chatting border-0" name="pesan" id="pesan" placeholder="Tulis Pesan" autocomplete="off" rows="1"></textarea>
                         </div>
                         <a href="#" class="input-group-append tambah-file" data-bs-toggle="modal" data-bs-target="#menuModalChatting" id="centermenubtn">
