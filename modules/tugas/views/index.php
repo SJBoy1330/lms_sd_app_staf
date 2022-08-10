@@ -131,63 +131,83 @@
 						</div>
 					</div>
                     <div  class="row mt-2 checkbox">
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviralbanget</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviral</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviralbanget</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviral</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviralbanget</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviral</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviralbanget</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviral</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviralbanget</span>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12">
                             <div class="input-checkbox-tagar d-flex">
-                                <input class="form-check-input" type="checkbox">
+                                <div class="wrapper-tagar mb-1">
+                                    <input class="form-check-input" type="checkbox">
+                                </div>
                                 <span>hotviral</span>
                             </div>
                         </div>
@@ -200,7 +220,7 @@
                     </div>
                     <label for="exampleFormControlInput3" class="form-label title-3">Upload File</label>
                     <label for="attachment">
-                        <input class="form-control form-control-solid form-control-pribadi border-0" type="file" name="file[]" id="attachment"  multiple/>
+                        <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="file[]" id="attachment"  multiple/>
                     </label>
                     <p id="files-area">
                         <span id="filesList">

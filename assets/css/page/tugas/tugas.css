@@ -21,15 +21,16 @@
 
 .wrapper-files {
     position: absolute;
-    top: 589px;
+    top: 630px;
     left: 16px;
     background-color: #E5E5E5;
-    height: 50px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 119px;
     border-radius: 10px 0px 0px 10px;
+    font-weight: bold;
 }
 
 input[type="file"] {
@@ -86,7 +87,7 @@ input[type="file"] {
 .wrapper-searching-tugas {
     height: 65px;
     z-index: 1;
-    width: 94%;
+    width: 100%;
     background-color: #FFFFFF;
 }
 
@@ -114,9 +115,47 @@ button.btn.btn-sm.plus-tagar {
     height: 50px;
 }
 
-.row.checkbox{
-    max-height: 165px; 
+/* .row.checkbox{
+    max-height: 205px; 
     overflow-y: auto;
+    background: linear-gradient(white 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(50% 0, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(50% 100%, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) 0 100%;
+    background: linear-gradient(white 30%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255, 255, 255, 0), white 70%) 0 100%, radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)) 0 100%;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+} */
+
+.row.checkbox {
+    position: relative;
+    z-index: 1;
+    overflow: auto;
+    max-height: 205px; 
+    background: #FFF no-repeat;
+    background-image: -webkit-radial-gradient(50% 0, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), -webkit-radial-gradient(50% 100%, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    background-image: -moz-radial-gradient(50% 0, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), -moz-radial-gradient(50% 100%, farthest-side, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    background-image: radial-gradient(farthest-side at 50% 0, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)), radial-gradient(farthest-side at 50% 100%, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    background-position: 0 0, 0 100%;
+    background-size: 100% 14px;
+  }
+  
+.row.checkbox:before,
+.row.checkbox:after {
+    content: "";
+    position: relative;
+    z-index: -1;
+    display: block;
+    height: 30px;
+    margin: 0 0 -30px;
+    background: -webkit-linear-gradient(top, #FFF, #FFF 30%, rgba(255, 255, 255, 0));
+    background: -moz-linear-gradient(top, #FFF, #FFF 30%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to bottom, #FFF, #FFF 30%, rgba(255, 255, 255, 0));
+}
+  
+.row.checkbox:after {
+    margin: -30px 0 0;
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), #FFF 70%, #FFF);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #FFF 70%, #FFF);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #FFF 70%, #FFF);
 }
 
 .input-checkbox-tagar{
@@ -172,4 +211,18 @@ button.btn.btn-sm.plus-tagar {
 
 .file-delete > span {
     transform: rotate(45deg);
+}
+
+.wrapper-tagar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1em;
+    height: 1em;
+}
+
+.form-control.form-control-tugas{
+    border-radius: 10px;
+    height: 40px;
+    background-color: #F5F5F5 !important;
 }

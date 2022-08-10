@@ -192,6 +192,7 @@
 
 </div>
 <!-- main page content ends -->
+
 <!-- Modal Presensi -->
 <?php if ($presensi_setting->presensi_checkin == true) : ?>
     <div class="modal fade" id="presensiModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -217,7 +218,7 @@
                                         <div class="row">
                                             <div class="col-auto ps-2 pe-1">
                                                 <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
-                                                    <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
+                                                    <div class="avatar avatar-30 rounded-circle avatar-presensi-inline">
                                                         <i class="fa-solid fa-clock size-20 text-white"></i>
                                                     </div>
                                                 </div>

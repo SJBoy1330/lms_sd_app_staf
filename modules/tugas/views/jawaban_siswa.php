@@ -28,7 +28,7 @@
                                     <div class="col-auto">
                                         <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
                                             <div class="avatar avatar-40 rounded-12 avatar-presensi-inline">
-                                                <i class="fa-solid fa-screen-users size-20 text-white"></i>
+                                                <i class="fa-solid fa-hourglass-clock size-18 text-white"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
                                     <div class="col-auto">
                                         <div class="avatar avatar-50 shadow-sm rounded-15 avatar-presensi-outline">
                                             <div class="avatar avatar-40 rounded-12 avatar-presensi-inline">
-                                                <i class="fa-solid fa-screen-users size-20 text-white"></i>
+                                                <i class="fa-solid fa-memo-pad size-20 text-white"></i>
                                             </div>
                                         </div>
                                     </div>
