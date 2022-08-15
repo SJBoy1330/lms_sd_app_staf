@@ -64,15 +64,15 @@
 <!-- Filter Tambah Tugas -->
 <div class="modal fade" id="filterTambahTugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-        <form action="<?= base_url('tugas/tambah_tugas'); ?>" enctype="multipart/form-data" method="POST" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
+        <form action="<?= base_url('tugas/tambah_tugas'); ?>" enctype="multipart/form-data" method="POST" id="form_tambah_tugas" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
             <div class="modal-header border-0">
                 <h5 class="modal-title">Tambah Tugas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
+                <div class="mb-3" id="req_id_pelajaran">
                     <label for="select_pelajaran" class="form-label title-3">Mata Pelajaran</label>
-                    <select class="form-select form-select form-select-pribadi border-0" id="select_pelajaran" aria-label="Default select example">
+                    <select name="id_pelajaran" class="form-select form-select form-select-pribadi border-0" id="select_pelajaran" aria-label="Default select example">
                         <?php if ($pelajaran) : ?>
                             <option value="" disabled selected hidden>Pilih pelajaran</option>
                             <?php foreach ($pelajaran as $row) : ?>
@@ -89,7 +89,7 @@
                         <div class="col-md-12 d-flex justify-content-start align-items-start flex-wrap" id="display_tag">
                         </div>
                     </div>
-                    <div class="row mt-2">
+                    <div class="row mt-2" id="req_id_kelas">
                         <label for="select_kelas" class="form-label title-3">Kelas</label>
                         <div class="col-12">
                             <input type="text" id="cari_kelas" onkeyup="search(this,'.target_search')" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih pelajaran terlebih dahulu" autocomplete="off" readonly>
@@ -103,7 +103,7 @@
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Upload File</label>
                     <label for="attachment">
-                        <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="file[]" id="attachment" multiple />
+                        <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="tugas[]" id="attachment" multiple />
                     </label>
                     <p id="files-area">
                         <span id="filesList">
@@ -112,33 +112,33 @@
                     </p>
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3" id="req_nama">
                     <label for="exampleFormControlInput3" class="form-label title-3">Nama Tugas</label>
-                    <input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Isikan nama tugas" autocomplete="off">
+                    <input type="text" name="nama" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Isikan nama tugas" autocomplete="off">
                 </div>
 
-                <div class="mb-3">
+                <div class="mb-3" id="req_batas_waktu">
                     <label for="exampleFormControlInput3" class="form-label title-3">Batas Waktu</label>
-                    <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" type="datetime-local" placeholder="Isikan batas waktu" />
+                    <input name="batas_waktu" class="form-control form-control-solid form-control-pribadi border-0 ps-12" type="datetime-local" placeholder="Isikan batas waktu" />
                 </div>
 
                 <div>
                     <label for="exampleFormControlInput3" class="form-label title-3">Keterangan</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <textarea class="form-control form-control-solid border-0" placeholder="Isikan keterangan" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <textarea name="keterangan" class="form-control form-control-solid border-0" placeholder="Isikan keterangan" id="keterangan" style="height: 100px"></textarea>
                 </div>
 
                 <div>
                     <label class="form-label title-3">Boleh Terlambat</label>
                 </div>
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-                    <label class="form-check-label mt-1 ps-2" for="flexSwitchCheckChecked">Ijinkan</label>
+                    <input name="izin_terlambat" value="Y" class=" form-check-input" type="checkbox" id="boleh_terlambat">
+                    <label class="form-check-label mt-1 ps-2" for="boleh_terlambat">Ijinkan</label>
                 </div>
             </div>
             <div class="modal-footer border-0">
-                <button type="submit" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
+                <button type="button" id="button_tambah_tugas" onclick="submit_form(this,'#form_tambah_tugas',0,'big')" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
             </div>
         </form>
     </div>

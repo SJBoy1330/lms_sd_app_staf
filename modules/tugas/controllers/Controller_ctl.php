@@ -498,7 +498,7 @@ class Controller_ctl extends MY_Frontend
 					$msg .= '<div class="col-12 zoom-filter target_search showing">';
 					$msg .= '<div class="input-checkbox-tagar d-flex">';
 					$msg .= '<div class="wrapper-tagar mb-1">';
-					$msg .= '<input id="check-' . $row->id_kelas . '" onchange="pilih(this,' . $row->id_kelas . ')" name="id_kelas" value="' . $row->id_kelas . '" class="form-check-input" type="checkbox">';
+					$msg .= '<input id="check-' . $row->id_kelas . '" onchange="pilih(this,' . $row->id_kelas . ')" name="id_kelas[]" value="' . $row->id_kelas . '" class="form-check-input" type="checkbox">';
 					$msg .= '</div>';
 					$msg .= '<label class="ps-2" id="label-' . $row->id_kelas . '" for="check-' . $row->id_kelas . '">' . $row->kelas . '</label>';
 					$msg .= '</div>';
@@ -516,7 +516,85 @@ class Controller_ctl extends MY_Frontend
 
 	public function tambah_tugas()
 	{
-		var_dump($_FILES);
-		die;
+		$arrVar['id_kelas']     = 'Kelas';
+		$arrVar['id_pelajaran'] = 'Pelajaran';
+		$arrVar['nama'] = 'ID Siswa';
+		$arrVar['batas_waktu'] = 'Batas Waktu';
+		foreach ($arrVar as $var => $value) {
+			$$var = $this->input->post($var);
+			if (!$$var) {
+				$data['required'][] = ['req_' . $var, $value . ' tidak boleh kosong !'];
+				$arrAccess[] = false;
+			} else {
+				$arrAccess[] = true;
+				if (!in_array($var, ['id_kelas'])) {
+					$arr[$var] = $$var;
+				} else {
+					$arr[$var] = json_encode($$var);
+				}
+			}
+		}
+		if (!in_array(FALSE, $arrAccess)) {
+			$arr['keterangan'] = $this->input->post('keterangan');
+			$arr['id_sekolah'] = $this->id_sekolah;
+			$arr['id_staf'] = $this->id_staf;
+			$arr['tanggal'] = date('Y-mpd H:i:s');
+			$arr['batas_waktu'] = $this->input->post('batas_waktu');
+			if ($_FILES['tugas']['tmp_name'][0]) {
+				$jmlh = count($_FILES['tugas']['tmp_name']);
+				$tugas = $_FILES['tugas'];
+				for ($i = 0; $i < $jmlh; $i++) {
+					if ($tugas['size'][$i] > (10 * 1024 * 1024)) {
+						$data['status'] = false;
+						$data['title'] = 'PERINGATAN';
+						$data['message'] = 'File ' . $tugas['name'][$i] . ' terlalu besar!';
+						echo json_encode($data);
+						exit;
+					}
+					$test = explode('.', $tugas["name"][$i]);
+					$ext = end($test);
+					if (!in_array($ext, array('jpg', 'png', 'rar', 'zip', 'docx', 'doc', 'pdf', 'xls', 'xlxs', 'jpeg', 'mp3', 'mp4'))) {
+						$data['status'] = false;
+						$data['title'] = 'PERINGATAN';
+						$data['message'] = 'File ' . $tugas['name'][$i] . ' Tidak di izinkan!';
+						echo json_encode($data);
+						exit;
+					}
+					$name = uniqid() . '.' . $ext;
+					$location = APPPATH . '../../data/sekolah_' . $this->id_sekolah . '/tugas/' . $name;
+					$move = move_uploaded_file($tugas["tmp_name"][$i], $location);
+					if ($move) {
+						$fil[$i]['name'] = $tugas['name'][$i];
+						$fil[$i]['unik'] = $name;
+					} else {
+						$data['status'] = false;
+						$data['title'] = 'PERINGATAN';
+						$data['message'] = 'File ' . $tugas['name'][$i] . ' gagal di upload!';
+						echo json_encode($data);
+						exit;
+					}
+				}
+				$arr['tugas'] = json_encode($fil);
+			}
+			// var_dump($_FILES['file_jawaban']);
+
+			$result = curl_post('tugas/tambah/', $arr);
+			if ($result->status == 200) {
+				$rr['status'] = true;
+				$rr['title'] = 'PEMBERITAHUAN';
+				$rr['modal']['id'] = '#filterTambahTugas';
+				$rr['modal']['action'] = 'hide';
+			} else {
+				$rr['status'] = false;
+				$rr['title'] = 'PERINGATAN';
+			}
+			$rr['message'] = $result->message;
+
+			echo json_encode($rr);
+			exit;
+		} else {
+			echo json_encode($data);
+			exit;
+		}
 	}
 }
