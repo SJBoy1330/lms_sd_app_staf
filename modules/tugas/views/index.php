@@ -35,7 +35,7 @@
                         <?php foreach ($result->kelas as $row) : ?>
                             <div class="col-6 mx-auto mb-2 showing">
                                 <a href="<?= base_url('tugas/pelajaran/' . $row->id_kelas); ?>" class="card mb-3 tugas">
-                                    <div class="card-body bg-tugas">
+                                    <div class="card-body bg-tugas" style="height : 150px;">
                                         <div class="row">
                                             <div class="col-12 d-flex justify-content-center align-items-center">
                                                 <div class="avatar avatar-60 shadow-sm rounded-circle avatar-presensi-outline">
@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="col align-self-center mt-2 text-center">
-                                                <p class="mb-0 size-15 fw-normal"><?= $row->kelas; ?></p>
+                                                <p class="mb-0 size-15 fw-normal"><?= tampil_text($row->kelas, 30); ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
 <!-- Filter Tambah Tugas -->
 <div class="modal fade" id="filterTambahTugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-        <div class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
+        <form action="<?= base_url('tugas/tambah_tugas'); ?>" enctype="multipart/form-data" method="POST" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
             <div class="modal-header border-0">
                 <h5 class="modal-title">Tambah Tugas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -86,141 +86,24 @@
 
                 <div class="mb-3">
                     <div class="row">
-						<div class="col-md-12 d-flex justify-content-start align-items-start flex-wrap">
-							<div class="tagar">
-                                <span>hotviralbanget</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviral</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviralbanget</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviral</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviral</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviralbanget</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviralbanget</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviral</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviralbanget</span>
-                            </div>
-                            <div class="tagar">
-                                <span>hotviralbanget</span>
-                            </div>
-						</div>
-					</div>
+                        <div class="col-md-12 d-flex justify-content-start align-items-start flex-wrap" id="display_tag">
+                        </div>
+                    </div>
                     <div class="row mt-2">
-                        <label for="select_kelas" class="form-label title-3">Tingkat Kelas</label>
-						<div class="col-10">
-							<input type="text" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Tingkat kelas" autocomplete="off">
-						</div>
-						<div class="col-2 d-flex justify-content-center align-items-center">
-							<button type="button" class="btn btn-sm plus-tagar">
-								<i class="fa-solid fa-plus p-2" style="color: #FFFFFF;"></i>
-							</button>
-						</div>
-					</div>
-                    <div  class="row mt-2 checkbox">
+                        <label for="select_kelas" class="form-label title-3">Kelas</label>
                         <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviralbanget</span>
-                            </div>
+                            <input type="text" id="cari_kelas" onkeyup="search(this,'.target_search')" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih pelajaran terlebih dahulu" autocomplete="off" readonly>
                         </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviral</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviralbanget</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviral</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviralbanget</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviral</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviralbanget</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviral</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviralbanget</span>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="input-checkbox-tagar d-flex">
-                                <div class="wrapper-tagar mb-1">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <span>hotviral</span>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="row mt-2 checkbox" id="display_kelas">
+
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <div class="wrapper-files">
-                        <span>Pilih File</span>
-                    </div>
                     <label for="exampleFormControlInput3" class="form-label title-3">Upload File</label>
                     <label for="attachment">
-                        <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="file[]" id="attachment"  multiple/>
+                        <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="file[]" id="attachment" multiple />
                     </label>
                     <p id="files-area">
                         <span id="filesList">
@@ -236,7 +119,7 @@
 
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Batas Waktu</label>
-                    <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" type="datetime" placeholder="Isikan batas waktu" />
+                    <input class="form-control form-control-solid form-control-pribadi border-0 ps-12" type="datetime-local" placeholder="Isikan batas waktu" />
                 </div>
 
                 <div>
@@ -255,9 +138,9 @@
                 </div>
             </div>
             <div class="modal-footer border-0">
-                <a href="#" class="btn btn-block btn-md btn-danger btn-filter">Simpan</a>
+                <button type="submit" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </main>

@@ -494,16 +494,29 @@ class Controller_ctl extends MY_Frontend
 		$msg = '';
 		if ($result->status == 200) {
 			if ($result->data) {
-				$msg .= '<option value="" disabled selected hidden>Pilih kelas</option>';
 				foreach ($result->data as $row) {
-					$msg .= '<option value="' . $row->id_kelas . '">' . $row->kelas . '</option>';
+					$msg .= '<div class="col-12 zoom-filter target_search showing">';
+					$msg .= '<div class="input-checkbox-tagar d-flex">';
+					$msg .= '<div class="wrapper-tagar mb-1">';
+					$msg .= '<input id="check-' . $row->id_kelas . '" onchange="pilih(this,' . $row->id_kelas . ')" name="id_kelas" value="' . $row->id_kelas . '" class="form-check-input" type="checkbox">';
+					$msg .= '</div>';
+					$msg .= '<label id="label-' . $row->id_kelas . '" for="check-' . $row->id_kelas . '">' . $row->kelas . '</label>';
+					$msg .= '</div>';
+					$msg .= '</div>';
 				}
 			} else {
-				$msg .= '<option value="" disabled selected hidden>Tidak ada data kelas</option>';
+				$msg .= '';
 			}
 		} else {
-			$msg .= '<option value="" disabled selected hidden>Tidak ada data kelas</option>';
+			$msg .= '';
 		}
 		echo $msg;
+	}
+
+
+	public function tambah_tugas()
+	{
+		var_dump($_FILES);
+		die;
 	}
 }
