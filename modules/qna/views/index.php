@@ -58,7 +58,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col align-self-center ps-0">
-                                                        <p class="mb-1 size-13 fw-medium"><?= tampil_text($row->nama_kelas, 15) . ' | ' . tampil_text($row->nama_pelajaran, 20); ?></p>
+                                                        <p class="mb-1 size-13 fw-medium"><?= tampil_text($row->nama_kelas, 10) . ' | ' . tampil_text($row->nama_pelajaran, 18); ?></p>
                                                         <p class="text-muted text-secondary size-12"><?= ifnull(tampil_text($row->last_chat, 20), '.....') ?></p>
                                                     </div>
                                                     <div class="col-auto align-self-center pesan-sd position-absolute">

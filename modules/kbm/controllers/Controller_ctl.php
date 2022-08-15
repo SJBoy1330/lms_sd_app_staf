@@ -47,7 +47,7 @@ class Controller_ctl extends MY_Frontend
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/kbm/kbm.css') . '">';
 		// CONFIG PAGE
-		$link = base_url('kbm/kbm');
+		$link = base_url('kbm/kbm') . '?tanggal=' . $tanggal;
 		if ($this->input->get('redirect') == true) {
 			$link = base_url('home');
 		}
@@ -58,12 +58,25 @@ class Controller_ctl extends MY_Frontend
 		// LOAD API
 		$result = curl_get('kbm/today', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_kelas' => $id_kelas, 'id_pelajaran' => $id_pelajaran, 'tanggal' => $tanggal]);
 		$presensi_setting = curl_get('presensi/setting', array('id_sekolah' => $this->id_sekolah));
+		$materi = curl_get('materi/bab_materi/', ['id_sekolah' => $this->id_sekolah, 'id_pelajaran' => $id_pelajaran, 'notnull' => true]);
+
+		$nu = 0;
+		if ($result->data->result->materi) {
+			foreach ($result->data->result->materi as $ma) {
+				$num = $nu++;
+				$arr[$num] = $ma->id_materi;
+			}
+		} else {
+			$arr = array();
+		}
 		// LOAD MYDATA
 		$mydata['id_kelas'] = $id_kelas;
 		$mydata['tanggal'] = $tanggal;
 		$mydata['id_pelajaran'] = $id_pelajaran;
 		$mydata['result'] = $result->data;
+		$mydata['materi'] = $materi->data;
 		$mydata['presensi_setting'] = $presensi_setting;
+		$mydata['id_materi'] = $arr;
 
 		if (isset($_COOKIE['LAT']) && isset($_COOKIE['LONG'])) {
 			$mydata['map'] = "https://maps.google.com/maps?q=" . $_COOKIE['LAT'] . "," . $_COOKIE['LONG'] . "&hl=en;z=14&output=embed";
@@ -81,22 +94,10 @@ class Controller_ctl extends MY_Frontend
 			</script>';
 			$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/get_location.js"></script>';
 		}
+		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/kbm.js"></script>';
 
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('detail_kbm', $mydata, TRUE);
-		$this->display($this->input->get('routing'));
-	}
-
-	public function detail_materi()
-	{
-		// LOAD TITLE
-		$mydata['title'] = 'Detail Materi';
-
-		// LOAD JS
-		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/kbm/detail_materi.js"></script>';
-
-		// LOAD VIEW
-		$this->data['content'] = $this->load->view('detail_materi', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
 	}
 
@@ -105,6 +106,10 @@ class Controller_ctl extends MY_Frontend
 		if ($id_pelajaran == NULL || $id_kelas == NULL) {
 			redirect('kbm/kbm');
 		}
+		$tanggal = $this->input->get('tanggal');
+		if (!$tanggal) {
+			$tanggal = date('Y-m-d');
+		}
 		// LOAD TITLE
 		$mydata['title'] = 'Presensi Siswa';
 
@@ -112,11 +117,11 @@ class Controller_ctl extends MY_Frontend
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/kbm/presensi_siswa.css') . '">';
 		// LOAD CONFIG PAGE
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
-			$link = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas);
+			$link = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas) . '?tanggal=' . $tanggal;
 		} else {
 			$arrLink = explode('/', $_SERVER['HTTP_REFERER']);
 			if (in_array('presensi_siswa', $arrLink)) {
-				$link = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas);
+				$link = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas) . '?tanggal=' . $tanggal;
 			} else {
 				$link = $_SERVER['HTTP_REFERER'];
 			}
@@ -174,5 +179,98 @@ class Controller_ctl extends MY_Frontend
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('kbm', $mydata, TRUE);
 		$this->display($this->input->get('routing'));
+	}
+
+
+	public function tambah_materi()
+	{
+		$vars = $_POST;
+		// var_dump($vars);
+		foreach ($vars as $key => $value) {
+			$$key = $value;
+			if (!$$key) {
+				$data['required'][] = ['req_' . $key, $value . ' tidak boleh kosong !'];
+				$arrAccess[] = false;
+			} else {
+				$arrAccess[] = true;
+				if ($key == 'materi') {
+					$arr[$key] = json_encode($$key);
+				} else {
+					$arr[$key] = $$key;
+				}
+			}
+		}
+
+		if (!in_array(FALSE, $arrAccess)) {
+			// DEKLARASI DATA
+			$arr['id_sekolah'] = $this->id_sekolah;
+			$arr['id_staf'] = $this->id_staf;
+			// LOAD DATA API
+			$insert = curl_post('kbm/materi/', $arr);
+			$data['status'] = $insert->status;
+			$data['alert']['message'] = $insert->message;
+			if ($insert->status == 200) {
+				$data['alert']['title'] = 'PEMBERITAHUAN';
+				$data['modal']['id'] = '#modalTambahMateri';
+				$data['modal']['action'] = 'hide';
+				$data['load'][0]['parent'] = '#parent_tambah_materi_kbm';
+				$data['load'][0]['reload'] = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas) . ' #tambah_materi_kbm';
+				$data['load'][1]['parent'] = '#parent_materi';
+				$data['load'][1]['reload'] = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas) . ' #display_materi';
+			} else {
+				$data['alert']['title'] = 'PERINGATAN';
+			}
+			echo json_encode($data);
+			exit;
+		} else {
+			$data['status'] = false;
+			echo json_encode($data);
+			exit;
+		}
+	}
+
+	public function tambah()
+	{
+		$vars = $_POST;
+		// var_dump($vars);
+		foreach ($vars as $key => $value) {
+			$$key = $value;
+			if (!$$key) {
+				if (!in_array($key, ['domain', 'link', 'chatting'])) {
+					$data['required'][] = ['req_' . $key, $value . ' tidak boleh kosong !'];
+					$arrAccess[] = false;
+				}
+			} else {
+				$arrAccess[] = true;
+				$arr[$key] = $$key;
+			}
+		}
+
+		if (!in_array(FALSE, $arrAccess)) {
+			// DEKLARASI DATA
+			$arr['id_sekolah'] = $this->id_sekolah;
+			$arr['id_staf'] = $this->id_staf;
+			// LOAD DATA API
+			$insert = curl_post('kbm/tambah/', $arr);
+			$data['status'] = $insert->status;
+			$data['alert']['message'] = $insert->message;
+			if ($insert->status == 200) {
+				$data['alert']['title'] = 'PEMBERITAHUAN';
+				$data['modal']['id'] = '#modalEdit';
+				$data['modal']['action'] = 'hide';
+				$data['load'][0]['parent'] = '#parent_modal_edit';
+				$data['load'][0]['reload'] = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas) . '?tanggal=' . $tanggal . ' #reload_modal_edit';
+				$data['load'][1]['parent'] = '#parent_utama';
+				$data['load'][1]['reload'] = base_url('kbm/detail_kbm/' . $id_pelajaran . '/' . $id_kelas) . '?tanggal=' . $tanggal . ' #reload_utama';
+			} else {
+				$data['alert']['title'] = 'PERINGATAN';
+			}
+			echo json_encode($data);
+			exit;
+		} else {
+			$data['status'] = false;
+			echo json_encode($data);
+			exit;
+		}
 	}
 }

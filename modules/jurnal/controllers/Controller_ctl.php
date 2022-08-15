@@ -23,7 +23,7 @@ class Controller_ctl extends MY_Frontend
 		// LOAD TITLE
 		$mydata['title'] = 'Jurnal Guru';
 		$nice_tanggal =
-			day_from_number(date('N', strtotime($tanggal))) . ', ' . date('d', strtotime($tanggal)) . ' ' . month_from_number(date('N', strtotime($tanggal))) . ' ' . date('Y', strtotime($tanggal));
+			day_from_number(date('N', strtotime($tanggal))) . ', ' . date('d', strtotime($tanggal)) . ' ' . month_from_number(date('m', strtotime($tanggal))) . ' ' . date('Y', strtotime($tanggal));
 		// LOAD CSS
 		$this->data['css_add'][] = '<link rel="stylesheet" href="' . base_url('assets/css/page/jurnal/jurnal.css') . '">';
 		// CONFIG HALAMAN

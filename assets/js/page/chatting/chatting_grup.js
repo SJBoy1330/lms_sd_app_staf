@@ -302,15 +302,15 @@ function scrollToBottom() {
 // }
 
 var div = document.querySelector('#ta-frame');
-var ta =  document.querySelector('textarea');
+var ta = document.querySelector('textarea');
 
 ta.addEventListener('keydown', autosize);
 
 function autosize() {
-  setTimeout(function() {
-    ta. style.cssText = 'height:0px';
-    var height = Math.min(20 * 5, ta.scrollHeight);
-    div.style.cssText = 'height:' + height + 'px';
-    ta. style.cssText = 'height:' + height + 'px';
-  },0);
+    setTimeout(function () {
+        ta.style.cssText = 'height:0px';
+        var height = Math.min(20 * 5, ta.scrollHeight);
+        div.style.cssText = 'height:' + height + 'px';
+        ta.style.cssText = 'height:' + height + 'px';
+    }, 0);
 }

@@ -5,16 +5,18 @@
             <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran; ?>">
             <input type="hidden" name="id_kelas" value="<?= $id_kelas; ?>">
             <input type="hidden" name="tanggal" value="<?= $tanggal; ?>">
-            <a id="edit_jurnal" onclick="edit_jurnal()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed <?php if ($result->jurnal->status == false) {
-                                                                                                                                                                echo 'd-none';
-                                                                                                                                                            } ?>">
-                <i class="fa-solid fa-plus-large  size-26 text-white mt-1"></i>
-            </a>
-            <a id="save_jurnal" onclick="submit_form(this,'#form_edit_jurnal',0,'big')" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed <?php if ($result->jurnal->status == true) {
-                                                                                                                                                                                                echo 'd-none';
-                                                                                                                                                                                            } ?>">
-                <i class="fa-solid fa-check size-26 text-white mt-1"></i>
-            </a>
+            <?php if ($tanggal == date('Y-m-d')) : ?>
+                <a id="edit_jurnal" onclick="edit_jurnal()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed <?php if ($result->jurnal->status == false) {
+                                                                                                                                                                    echo 'd-none';
+                                                                                                                                                                } ?>">
+                    <i class="fa-solid fa-plus-large  size-26 text-white mt-1"></i>
+                </a>
+                <a id="save_jurnal" onclick="submit_form(this,'#form_edit_jurnal',0,'big')" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed <?php if ($result->jurnal->status == true) {
+                                                                                                                                                                                                    echo 'd-none';
+                                                                                                                                                                                                } ?>">
+                    <i class="fa-solid fa-check size-26 text-white mt-1"></i>
+                </a>
+            <?php endif; ?>
             <div class="row mb-3">
                 <a href="#">
                     <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3">
@@ -60,62 +62,66 @@
                     </div>
                 </a>
             </div>
-            <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_materi">
-                <div class="title">
-                    <label class="form-label fw-medium" style="color : #EC3528;">Materi</label>
+            <?php if ($tanggal == date('Y-m-d') || $result->jurnal->status == true) : ?>
+                <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_materi">
+                    <div class="title">
+                        <label class="form-label fw-medium" style="color : #EC3528;">Materi</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <p id="materi_text" class="<?php if ($result->jurnal->status == false) {
+                                                        echo 'd-none';
+                                                    } ?>"><?= $result->jurnal->materi; ?></p>
+                        <textarea id="materi_input" name="materi" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
+                                                                                                                                echo 'd-none';
+                                                                                                                            } ?>" style="height: 150px"><?= $result->jurnal->materi; ?></textarea>
+                    </div>
                 </div>
-                <div class="form-floating mb-3">
-                    <p id="materi_text" class="<?php if ($result->jurnal->status == false) {
-                                                    echo 'd-none';
-                                                } ?>"><?= $result->jurnal->materi; ?></p>
-                    <textarea id="materi_input" name="materi" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
-                                                                                                                            echo 'd-none';
-                                                                                                                        } ?>" style="height: 150px"><?= $result->jurnal->materi; ?></textarea>
-                </div>
-            </div>
 
-            <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_guru">
-                <div class="title">
-                    <label class="form-label fw-medium" style="color : #EC3528;">Kegiatan Guru</label>
+                <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_guru">
+                    <div class="title">
+                        <label class="form-label fw-medium" style="color : #EC3528;">Kegiatan Guru</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <p id="kegiatan_guru_text" class="<?php if ($result->jurnal->status == false) {
+                                                                echo 'd-none';
+                                                            } ?>"><?= $result->jurnal->kegiatan_guru; ?></p>
+                        <textarea id="kegiatan_guru_input" name="kegiatan_guru" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
+                                                                                                                                                echo 'd-none';
+                                                                                                                                            } ?>" style="height: 150px"><?= $result->jurnal->kegiatan_guru; ?></textarea>
+                    </div>
                 </div>
-                <div class="form-floating mb-3">
-                    <p id="kegiatan_guru_text" class="<?php if ($result->jurnal->status == false) {
-                                                            echo 'd-none';
-                                                        } ?>"><?= $result->jurnal->kegiatan_guru; ?></p>
-                    <textarea id="kegiatan_guru_input" name="kegiatan_guru" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
-                                                                                                                                            echo 'd-none';
-                                                                                                                                        } ?>" style="height: 150px"><?= $result->jurnal->kegiatan_guru; ?></textarea>
-                </div>
-            </div>
 
-            <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_siswa">
-                <div class="title">
-                    <label class="form-label fw-medium" style="color : #EC3528;">Kegiatan Siswa</label>
+                <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_siswa">
+                    <div class="title">
+                        <label class="form-label fw-medium" style="color : #EC3528;">Kegiatan Siswa</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <p id="kegiatan_siswa_text" class="<?php if ($result->jurnal->status == false) {
+                                                                echo 'd-none';
+                                                            } ?>"><?= $result->jurnal->kegiatan_siswa; ?></p>
+                        <textarea id="kegiatan_siswa_input" name="kegiatan_siswa" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
+                                                                                                                                                echo 'd-none';
+                                                                                                                                            } ?>" style="height: 150px"><?= $result->jurnal->kegiatan_siswa; ?></textarea>
+                    </div>
                 </div>
-                <div class="form-floating mb-3">
-                    <p id="kegiatan_siswa_text" class="<?php if ($result->jurnal->status == false) {
-                                                            echo 'd-none';
-                                                        } ?>"><?= $result->jurnal->kegiatan_siswa; ?></p>
-                    <textarea id="kegiatan_siswa_input" name="kegiatan_siswa" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
-                                                                                                                                            echo 'd-none';
-                                                                                                                                        } ?>" style="height: 150px"><?= $result->jurnal->kegiatan_siswa; ?></textarea>
-                </div>
-            </div>
 
 
-            <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_kelas">
-                <div class="title">
-                    <label class="form-label fw-medium" style="color : #EC3528;">Kejadian Kelas</label>
+                <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3" id="req_kegiatan_kelas">
+                    <div class="title">
+                        <label class="form-label fw-medium" style="color : #EC3528;">Kejadian Kelas</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <p id="kegiatan_kelas_text" class="<?php if ($result->jurnal->status == false) {
+                                                                echo 'd-none';
+                                                            } ?>"><?= $result->jurnal->kegiatan_kelas; ?></p>
+                        <textarea id="kegiatan_kelas_input" name="kegiatan_kelas" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
+                                                                                                                                                echo 'd-none';
+                                                                                                                                            } ?>" style="height: 150px"><?= $result->jurnal->kegiatan_kelas; ?></textarea>
+                    </div>
                 </div>
-                <div class="form-floating mb-3">
-                    <p id="kegiatan_kelas_text" class="<?php if ($result->jurnal->status == false) {
-                                                            echo 'd-none';
-                                                        } ?>"><?= $result->jurnal->kegiatan_kelas; ?></p>
-                    <textarea id="kegiatan_kelas_input" name="kegiatan_kelas" class="form-control form-control-solid border-0 bg-tugas <?php if ($result->jurnal->status == true) {
-                                                                                                                                            echo 'd-none';
-                                                                                                                                        } ?>" style="height: 150px"><?= $result->jurnal->kegiatan_kelas; ?></textarea>
-                </div>
-            </div>
+            <?php else : ?>
+                <?= vector_default('vector_jurnal_guru_kosong.svg', 'Anda belum mengisi jurnal guru', 'Jurnal guru hanya bisa di isikan pada hari kbm berlangsung. Hubungi admin jika terjadi kesalahan!'); ?>
+            <?php endif; ?>
         </form>
     </div>
 </div>

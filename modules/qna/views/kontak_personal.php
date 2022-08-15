@@ -7,7 +7,7 @@
                     <?php if ($row->redirect == true) : ?>
                         <a href="<?= base_url('qna/chatting/' . $row->id . '?tanggal=' . date('Y-m-d')); ?>" class="card mb-3">
                         <?php else : ?>
-                            <a data-url_ajax="<?= base_url('qna/create_chat'); ?>" data-post="id_siswa," data-value="<?= $row->id_siswa; ?>," <?= alert_question('KONFIRMASI', 'Apakah anda akan memulai chat dengan ' . $row->nama_siswa . ' ?'); ?> class="card mb-3 question_alert">
+                            <a data-url_ajax="<?= base_url('qna/create_chat'); ?>" data-post="id_siswa," data-value="<?= $row->id_siswa; ?>," <?= alert_question('KONFIRMASI', 'Apakah anda akan memulai chat dengan ' . $row->nama_staf . ' ?'); ?> class="card mb-3 question_alert">
                             <?php endif; ?>
                             <div class="card-body">
                                 <div class="row">
