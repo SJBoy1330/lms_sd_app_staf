@@ -30,3 +30,27 @@
     height: 28px;
     background-color: #FF8C32;
 }
+
+.badge-hadir {
+    top: 0;
+    right: 0;
+    border-radius: 0px 10px 0px 20px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    width: 85px;
+    height: 28px;
+    background-color: #00DFA3;
+}
+
+button.btn-surat-izin {
+    width: 100%;
+    background-color: #FF8C32;
+    border: 1px solid #FF8C32;
+    border-radius: 8px;
+    color: #FFFFFF;
+    height: 45px;
+    padding-top: 10px;
+}
