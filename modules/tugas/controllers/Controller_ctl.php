@@ -500,7 +500,7 @@ class Controller_ctl extends MY_Frontend
 					$msg .= '<div class="wrapper-tagar mb-1">';
 					$msg .= '<input id="check-' . $row->id_kelas . '" onchange="pilih(this,' . $row->id_kelas . ')" name="id_kelas" value="' . $row->id_kelas . '" class="form-check-input" type="checkbox">';
 					$msg .= '</div>';
-					$msg .= '<label id="label-' . $row->id_kelas . '" for="check-' . $row->id_kelas . '">' . $row->kelas . '</label>';
+					$msg .= '<label class="ps-2" id="label-' . $row->id_kelas . '" for="check-' . $row->id_kelas . '">' . $row->kelas . '</label>';
 					$msg .= '</div>';
 					$msg .= '</div>';
 				}
