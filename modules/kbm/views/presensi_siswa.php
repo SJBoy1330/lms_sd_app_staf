@@ -51,6 +51,11 @@
 
                                     </h2>
                                     <div id="flush-collapse-<?= $row->id_siswa; ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordion-<?= $row->id_siswa; ?>">
+                                        <input type="hidden" name="status_presensi" value="<?php if ($row->presensi == 1) {
+                                                                                                echo 1;
+                                                                                            } else {
+                                                                                                echo 0;
+                                                                                            } ?>">
                                         <div class="accordion-body size-11">
                                             <div class="row mb-3 ps-4">
                                                 <div class="col-6">
