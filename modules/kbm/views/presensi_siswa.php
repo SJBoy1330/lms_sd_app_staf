@@ -42,7 +42,7 @@
                                                         <img src="<?= $row->foto; ?>" alt="" load="lazy">
                                                     </div>
                                                 </div>
-                                                <div class="col align-self-center ps-0">
+                                                <div class="col align-self-center ps-0 presensi-siswa">
                                                     <p class="mb-0 size-15 fw-medium"><?= $row->nama; ?></p>
                                                     <p class="text-muted text-secondary size-12">Status Kehadiran</p>
                                                 </div>
@@ -112,9 +112,8 @@
                     <?php else : ?>
                         <?= vector_default('vector_jadwal_kosong.svg', 'Tidak ada siswa terkait', 'Belum ada siswa yang terkait dengan kelas ini! Hubungi admin atau pihak sekolah jika terjadi kesalahan'); ?>
                     <?php endif; ?>
-                    <div style="width:90%;height : 80px; position : fixed; bottom : 0px;display : flex; justify-content : center">
+                    <div class="col-12">
                         <button type="button" id="button_submit_presensi" onclick="submit_form(this,'#form_presensi',0,'big')" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
-
                     </div>
                 </form>
             </div>

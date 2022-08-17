@@ -54,3 +54,11 @@ button.btn-surat-izin {
     height: 45px;
     padding-top: 10px;
 }
+
+div.col.presensi-siswa{
+    width: 70%;
+}
+
+div.col.presensi-siswa p{
+    word-wrap: break-word;
+}
