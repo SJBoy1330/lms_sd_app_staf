@@ -63,7 +63,7 @@
 
 <!-- Filter Tambah Tugas -->
 <div class="modal fade" id="filterTambahTugas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen" id="parent_modal">
         <form action="<?= base_url('tugas/tambah_tugas'); ?>" enctype="multipart/form-data" method="POST" id="form_tambah_tugas" class="modal-content" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
             <div class="modal-header border-0">
                 <h5 class="modal-title">Tambah Tugas</h5>
@@ -71,6 +71,7 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3" id="req_id_pelajaran">
+                    <input type="hidden" name="sumber" value="1">
                     <label for="select_pelajaran" class="form-label title-3">Mata Pelajaran</label>
                     <select name="id_pelajaran" class="form-select form-select form-select-pribadi border-0" id="select_pelajaran" aria-label="Default select example">
                         <?php if ($pelajaran) : ?>

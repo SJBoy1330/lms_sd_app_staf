@@ -22,7 +22,7 @@ function hapus_tugas(id_tugas) {
                 success: function (data) {
                     if (data.status == true) {
                         $('#tugas-' + id_tugas).fadeOut();
-                        $('#parent_tugas').load(BASE_URL + 'tugas/tugas_sekolah/' + '/' + id_kelas + '/' + id_pelajaran + ' #reload_tugas');
+                        $('#parent_tugas').load(BASE_URL + 'tugas/tugas_sekolah/' + id_kelas + '/' + id_pelajaran + ' #reload_tugas');
                     } else {
                         Swal.fire({
                             title: data.title,

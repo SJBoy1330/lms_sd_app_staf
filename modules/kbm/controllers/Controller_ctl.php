@@ -126,15 +126,24 @@ class Controller_ctl extends MY_Frontend
 				$link = $_SERVER['HTTP_REFERER'];
 			}
 		}
+		// LOAD API 
+		$result = curl_get('kbm/presensi/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_pelajaran' => $id_pelajaran, 'id_kelas' => $id_kelas, 'tanggal' => $tanggal]);
+
+		// LOAD MYDATA 
+		$mydata['detail'] = $detail = $result->data->detail;
+		$mydata['peserta'] = $peserta =  $result->data->peserta;
+
+		// CONFIG PAGE
 		$this->data['config_hidden']['notifikasi'] = true;
 		$this->data['config_hidden']['footer'] = true;
 		$this->data['button_back'] = $link;
-		if (strlen('Pendidikan jasmani, olahraga, dan kesehatan') > 20) {
-			$pelajaran = inisial('Pendidikan jasmani, olahraga, dan kesehatan');
+		if (strlen($detail->pelajaran) > 20) {
+			$pelajaran = inisial($detail->pelajaran);
 		} else {
-			$pelajaran = 'Pendidikan jasmani, olahraga, dan kesehatan';
+			$pelajaran = $detail->pelajaran;
 		}
-		$this->data['judul_halaman'] = 'XI IPA 1<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . $pelajaran . '</span>';
+		$this->data['judul_halaman'] = $detail->kelas . '<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . $pelajaran . '</span>';
+
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('presensi_siswa', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

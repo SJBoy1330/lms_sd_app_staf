@@ -101,6 +101,7 @@ class Controller_ctl extends MY_Frontend
 		$result = curl_get('tugas/get_kelas_pelajaran/', $par);
 
 		// DEKLARASI MYDATA 
+		$mydata['id_kelas'] = $id_kelas;
 		$mydata['result'] = $result->data;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('pelajaran', $mydata, TRUE);
@@ -291,7 +292,7 @@ class Controller_ctl extends MY_Frontend
 			}
 			$test = explode('.', $tugas["name"][$i]);
 			$ext = end($test);
-			if (!in_array($ext, array('jpg', 'png', 'rar', 'zip', 'docx', 'doc', 'pdf', 'xls', 'xlxs', 'jpeg', 'mp3', 'mp4'))) {
+			if (!in_array($ext, array('jpg', 'png', 'rar', 'zip', 'docx', 'doc', 'pdf', 'xls', 'xlsx', 'jpeg', 'mp3', 'mp4'))) {
 				$data['status'] = false;
 				$data['title'] = 'PERINGATAN';
 				$data['message'] = 'File ' . $tugas['name'][$i] . ' Tidak di izinkan!';
@@ -534,29 +535,36 @@ class Controller_ctl extends MY_Frontend
 				}
 			}
 		}
+		$sumber = $this->input->post('sumber');
 		if (!in_array(FALSE, $arrAccess)) {
 			$arr['keterangan'] = $this->input->post('keterangan');
 			$arr['id_sekolah'] = $this->id_sekolah;
 			$arr['id_staf'] = $this->id_staf;
 			$arr['tanggal'] = date('Y-mpd H:i:s');
-			$arr['batas_waktu'] = $this->input->post('batas_waktu');
+			if ($this->input->post('izin_terlambat') == NULL) {
+				$arr['izin_terlambat'] = 'N';
+			} else {
+				$arr['izin_terlambat'] = 'Y';
+			}
+
 			if ($_FILES['tugas']['tmp_name'][0]) {
 				$jmlh = count($_FILES['tugas']['tmp_name']);
 				$tugas = $_FILES['tugas'];
 				for ($i = 0; $i < $jmlh; $i++) {
 					if ($tugas['size'][$i] > (10 * 1024 * 1024)) {
 						$data['status'] = false;
-						$data['title'] = 'PERINGATAN';
-						$data['message'] = 'File ' . $tugas['name'][$i] . ' terlalu besar!';
+						$data['alert']['title'] = 'PERINGATAN';
+						$data['alert']['message'] = 'File ' . $tugas['name'][$i] . ' terlalu besar!';
+
 						echo json_encode($data);
 						exit;
 					}
 					$test = explode('.', $tugas["name"][$i]);
 					$ext = end($test);
-					if (!in_array($ext, array('jpg', 'png', 'rar', 'zip', 'docx', 'doc', 'pdf', 'xls', 'xlxs', 'jpeg', 'mp3', 'mp4'))) {
+					if (!in_array($ext, array('jpg', 'png', 'rar', 'zip', 'docx', 'doc', 'pdf', 'xls', 'xlsx', 'jpeg', 'mp3', 'mp4'))) {
 						$data['status'] = false;
-						$data['title'] = 'PERINGATAN';
-						$data['message'] = 'File ' . $tugas['name'][$i] . ' Tidak di izinkan!';
+						$data['alert']['title'] = 'PERINGATAN';
+						$data['alert']['message'] = 'File ' . $tugas['name'][$i] . ' Tidak di izinkan!';
 						echo json_encode($data);
 						exit;
 					}
@@ -568,8 +576,8 @@ class Controller_ctl extends MY_Frontend
 						$fil[$i]['unik'] = $name;
 					} else {
 						$data['status'] = false;
-						$data['title'] = 'PERINGATAN';
-						$data['message'] = 'File ' . $tugas['name'][$i] . ' gagal di upload!';
+						$data['alert']['title'] = 'PERINGATAN';
+						$data['alert']['message'] = 'File ' . $tugas['name'][$i] . ' gagal di upload!';
 						echo json_encode($data);
 						exit;
 					}
@@ -581,14 +589,26 @@ class Controller_ctl extends MY_Frontend
 			$result = curl_post('tugas/tambah/', $arr);
 			if ($result->status == 200) {
 				$rr['status'] = true;
-				$rr['title'] = 'PEMBERITAHUAN';
+				$rr['alert']['title'] = 'PEMBERITAHUAN';
 				$rr['modal']['id'] = '#filterTambahTugas';
 				$rr['modal']['action'] = 'hide';
+				if ($sumber == 1) {
+					$rr['load'][0]['parent'] = '#parent_modal';
+					$rr['load'][0]['reload'] = base_url('tugas/') . '  #form_tambah_tugas';
+				} elseif ($sumber == 2) {
+					$rr['load'][0]['parent'] = '#parent_modal';
+					$rr['load'][0]['reload'] = base_url('tugas/pelajaran/' . $id_kelas . '/') . '  #form_tambah_tugas';
+				} elseif ($sumber == 3) {
+					$rr['load'][0]['parent'] = '#parent_modal';
+					$rr['load'][0]['reload'] = base_url('tugas/tugas_sekolah/' . $id_kelas . '/' . $id_pelajaran . '/') . ' #form_tambah_tugas';
+					$rr['load'][1]['parent'] = '#parent_tugas';
+					$rr['load'][1]['reload'] = base_url('tugas/tugas_sekolah/' . $id_kelas . '/' . $id_pelajaran . '/') . ' #reload_tugas';
+				}
 			} else {
 				$rr['status'] = false;
-				$rr['title'] = 'PERINGATAN';
+				$rr['alert']['title'] = 'PERINGATAN';
 			}
-			$rr['message'] = $result->message;
+			$rr['alert']['message'] = $result->message;
 
 			echo json_encode($rr);
 			exit;
