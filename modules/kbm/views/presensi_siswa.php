@@ -112,7 +112,7 @@
                     <?php else : ?>
                         <?= vector_default('vector_jadwal_kosong.svg', 'Tidak ada siswa terkait', 'Belum ada siswa yang terkait dengan kelas ini! Hubungi admin atau pihak sekolah jika terjadi kesalahan'); ?>
                     <?php endif; ?>
-                    <div class="col-12">
+                    <div class="wrapper-button">
                         <button type="button" id="button_submit_presensi" onclick="submit_form(this,'#form_presensi',0,'big')" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
                     </div>
                 </form>
