@@ -4,7 +4,7 @@
     <div class="row mt-3">
         <div class="col-12 col-md-10 col-lg-8 mx-auto">
             <div class="row g-0">
-                <div class="col-12">
+                <form action="<?= base_url('kbm/func_presensi') ?>" method="post" id="form_presensi" class="col-12">
                     <?php if ($peserta) : ?>
                         <?php foreach ($peserta as $row) : ?>
                             <div class="accordion accordion-flush p-0 shadow-sm mb-3" id="accordion-<?= $row->id_siswa; ?>">
@@ -112,7 +112,11 @@
                     <?php else : ?>
                         <?= vector_default('vector_jadwal_kosong.svg', 'Tidak ada siswa terkait', 'Belum ada siswa yang terkait dengan kelas ini! Hubungi admin atau pihak sekolah jika terjadi kesalahan'); ?>
                     <?php endif; ?>
-                </div>
+                    <div style="width:90%;height : 80px; position : fixed; bottom : 0px;display : flex; justify-content : center">
+                        <button type="button" id="button_submit_presensi" onclick="submit_form(this,'#form_presensi',0,'big')" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
+
+                    </div>
+                </form>
             </div>
         </div>
     </div>
