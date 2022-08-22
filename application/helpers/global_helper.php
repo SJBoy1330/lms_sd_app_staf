@@ -731,7 +731,11 @@ function inisial($nama = NULL)
     $singkatan = '';
     foreach ($arr as $kata) {
       if (!in_array($kata, ['dan', 'atau', '&', '/'])) {
-        $singkatan .= substr($kata, 0, 1);
+        if (in_array($kata, ['Kewarganegaraan'])) {
+          $singkatan .= 'Kn';
+        } else {
+          $singkatan .= substr($kata, 0, 1);
+        }
       }
     }
 

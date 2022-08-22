@@ -282,4 +282,29 @@ class Controller_ctl extends MY_Frontend
 			exit;
 		}
 	}
+
+	public function func_presensi()
+	{
+		$id_siswa = $this->input->post('id_siswa');
+		$no = 0;
+		foreach ($id_siswa as $id) {
+			$status = $this->input->post('status-presensi-' . $id);
+			$presensi = $this->input->post('presensi-' . $id);
+			if ($presensi != 1) {
+				$num = $no++;
+				$arr[$num]['id_siswa'] = $id;
+				$arr[$num]['presensi'] = $presensi;
+			} else {
+				if ($status != 1) {
+					$num = $no++;
+					$arr[$num]['id_siswa'] = $id;
+					$arr[$num]['presensi'] = $presensi;
+				}
+			}
+		}
+
+		var_dump(json_encode($arr));
+		die;
+		$p = json_encode($arr);
+	}
 }

@@ -51,18 +51,19 @@
 
                                     </h2>
                                     <div id="flush-collapse-<?= $row->id_siswa; ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordion-<?= $row->id_siswa; ?>">
-                                        <input type="hidden" name="status_presensi" value="<?php if ($row->presensi == 1) {
-                                                                                                echo 1;
-                                                                                            } else {
-                                                                                                echo 0;
-                                                                                            } ?>">
+                                        <input type="hidden" name="status-presensi-<?= $row->id_siswa; ?>" value="<?php if ($row->presensi == 1) {
+                                                                                                                        echo 1;
+                                                                                                                    } else {
+                                                                                                                        echo 0;
+                                                                                                                    } ?>">
+                                        <input type="hidden" name="id_siswa[]" value="<?= $row->id_siswa; ?>">
                                         <div class="accordion-body size-11">
                                             <div class="row mb-3 ps-4">
                                                 <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="presensi-<?= $row->id_siswa; ?>" id="presensi-haadir-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 1) {
-                                                                                                                                                                                            echo 'checked';
-                                                                                                                                                                                        } ?>>
+                                                        <input class="form-check-input" type="radio" value="1" name="presensi-<?= $row->id_siswa; ?>" id="presensi-haadir-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 1) {
+                                                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                                                    } ?>>
                                                         <label class="form-check-label size-15 fw-normal" for="presensi-haadir-<?= $row->id_siswa; ?>">
                                                             Hadir
                                                         </label>
@@ -70,9 +71,9 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="presensi-<?= $row->id_siswa; ?>" id="presensi-sakit-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 4) {
-                                                                                                                                                                                            echo 'checked';
-                                                                                                                                                                                        } ?>>
+                                                        <input class="form-check-input" type="radio" value="4" name="presensi-<?= $row->id_siswa; ?>" id="presensi-sakit-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 4) {
+                                                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                                                    } ?>>
                                                         <label class="form-check-label size-15 fw-normal" for="presensi-sakit-<?= $row->id_siswa; ?>">
                                                             Sakit
                                                         </label>
@@ -83,9 +84,9 @@
                                             <div class="row mb-3 ps-4">
                                                 <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="presensi-<?= $row->id_siswa; ?>" id="presensi-ijin-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 2) {
-                                                                                                                                                                                            echo 'checked';
-                                                                                                                                                                                        } ?>>
+                                                        <input class="form-check-input" type="radio" value="3" name="presensi-<?= $row->id_siswa; ?>" id="presensi-ijin-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 2) {
+                                                                                                                                                                                                    echo 'checked';
+                                                                                                                                                                                                } ?>>
                                                         <label class="form-check-label size-15 fw-normal" for="presensi-ijin-<?= $row->id_siswa; ?>">
                                                             Ijin
                                                         </label>
@@ -93,9 +94,9 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="presensi-<?= $row->id_siswa; ?>" id="presensi-alpha-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 0 || $row->presensi == NULL) {
-                                                                                                                                                                                            echo 'checked';
-                                                                                                                                                                                        } ?>>
+                                                        <input class="form-check-input" type="radio" value="0" name="presensi-<?= $row->id_siswa; ?>" id="presensi-alpha-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 0 || $row->presensi == NULL) {
+                                                                                                                                                                                                        echo 'checked';
+                                                                                                                                                                                                    } ?>>
                                                         <label class="form-check-label size-15 fw-normal" for="presensi-alpha-<?= $row->id_siswa; ?>">
                                                             Alpha
                                                         </label>
