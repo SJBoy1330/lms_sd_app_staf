@@ -300,7 +300,7 @@ class Controller_ctl extends MY_Frontend
 				exit;
 			}
 			$name = uniqid() . '.' . $ext;
-			$location = APPPATH . '../../data/sekolah_' . $this->id_sekolah . '/tugas_siswa/' . $name;
+			$location = APPPATH . '../../data/sekolah_' . $this->id_sekolah . '/tugas/' . $name;
 			$move = move_uploaded_file($tugas["tmp_name"][$i], $location);
 			if ($move) {
 				$fil[$i]['name'] = $tugas['name'][$i];
