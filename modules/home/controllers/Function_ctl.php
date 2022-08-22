@@ -39,17 +39,15 @@ class Function_ctl extends MY_Frontend
         $data['status'] = $response->status;
         if ($response->status == 200) {
             $data['alert']['title'] = 'PEMBERITAHUAN';
+            $data['load'][0]['parent'] = '#parent_presensi';
+            $data['load'][0]['reload'] = base_url('home #form_presensi_siswa');
+
+            $data['modal']['id'] = '#presensiModal';
+            $data['modal']['action'] = 'hide';
         } else {
             $data['alert']['title'] = 'PERINGATAN';
         }
         $data['alert']['message'] = $response->message;
-
-        $data['load'][0]['parent'] = '#parent_presensi';
-        $data['load'][0]['reload'] = base_url('home #form_presensi_siswa');
-
-        $data['modal']['id'] = '#presensiModal';
-        $data['modal']['action'] = 'hide';
-
         echo json_encode($data);
     }
 

@@ -26,13 +26,7 @@
                                             <?php elseif ($row->presensi == 1) : ?>
                                                 <div class="badge-hadir">
                                                     <p class="text-white size-12">
-                                                        <?php
-                                                        if ($row->presensi == 2) {
-                                                            echo 'Ijin';
-                                                        } else {
-                                                            echo 'Sakit';
-                                                        }
-                                                        ?>
+                                                        <?= $row->jam_hadir; ?>
                                                     </p>
                                                 </div>
                                             <?php endif; ?>

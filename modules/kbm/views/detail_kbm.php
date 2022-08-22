@@ -59,29 +59,33 @@ $mulai_kbm = strtotime($tanggal . ' ' . date('H:i', strtotime($result->detail->j
                                 <div class="col d-flex justify-content-center align-items-center flex-column">
                                     <?php
                                     if ($batas_kbm < strtotime(date('Y-m-d H:i')) || $mulai_kbm > strtotime(date('Y-m-d H:i'))) {
+                                        $link = NULL;
+                                        $class = 'href="#" class="avatar avatar-50 rounded-18 avatar-offline"';
+                                        $meet = 'Offline';
+                                        $icon = ' <i class="fa-solid fa-bell-school-slash size-22 text-white"></i>';
+                                    } else {
                                         if ($result->result) {
+                                            // echo 'ada kbm';
                                             if ($result->result->link) {
+                                                // echo 'ada link';
                                                 $link = $result->result->link;
                                                 $class = 'href="' . $result->result->link . '" class="avatar avatar-50 rounded-18 avatar-presensi-inline"';
                                                 $meet = 'Online';
                                                 $icon = '<i class="fa-solid fa-bell-school size-22 text-white"></i>';
                                             } else {
+                                                // echo 'gada link';
                                                 $link = NULL;
                                                 $class = 'href="#" class="avatar avatar-50 rounded-18 avatar-offline"';
                                                 $meet = 'Offline';
                                                 $icon = '  <i class="fa-solid fa-bell-school-slash size-22 text-white"></i>';
                                             }
                                         } else {
+                                            // echo 'gada kbm';
                                             $link = NULL;
                                             $class = 'href="#" class="avatar avatar-50 rounded-18 avatar-offline"';
                                             $meet = 'Offline';
                                             $icon = '  <i class="fa-solid fa-bell-school-slash size-22 text-white"></i>';
                                         }
-                                    } else {
-                                        $link = NULL;
-                                        $class = 'href="#" class="avatar avatar-50 rounded-18 avatar-offline"';
-                                        $meet = 'Offline';
-                                        $icon = ' <i class="fa-solid fa-bell-school-slash size-22 text-white"></i>';
                                     }
 
 
