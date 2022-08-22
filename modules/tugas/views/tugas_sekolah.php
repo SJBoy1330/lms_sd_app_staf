@@ -95,11 +95,11 @@
                     <label for="attachment">
                         <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="tugas[]" id="attachment" multiple />
                     </label>
-                    <p id="files-area">
+                    <div id="files-area">
                         <span id="filesList">
                             <span id="files-names"></span>
                         </span>
-                    </p>
+                    </div>
                 </div>
 
                 <div class="mb-3" id="req_nama">
