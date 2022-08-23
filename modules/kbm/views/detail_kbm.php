@@ -6,7 +6,7 @@ $mulai_kbm = strtotime($tanggal . ' ' . date('H:i', strtotime($result->detail->j
 <div class="main-container container">
     <?php if ($mulai_kbm > strtotime(date('Y-m-d H:i')) || $batas_kbm > strtotime(date('Y-m-d H:i'))) : ?>
         <a href="#" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid avatar-kontak position-fixed" data-bs-toggle="modal" data-bs-target="#modalEdit">
-            <i class="fa-solid fa-gear text-white size-26 mt-1"></i>
+            <i class="fa-solid fa-gear text-white size-26" style="margin-top: 2px;"></i>
         </a>
     <?php endif; ?>
     <div class="row mt-3">
@@ -416,7 +416,7 @@ $mulai_kbm = strtotime($tanggal . ' ' . date('H:i', strtotime($result->detail->j
                                                     <input id="checkbox-<?= $m->id_materi; ?>" value="<?= $m->id_materi; ?>" <?php if (in_array($m->id_materi, $id_materi)) {
                                                                                                                                     echo 'checked';
                                                                                                                                 } ?> onchange=" pilih_materi(this)" name="materi[]" class="form-check-input mb-1 materi_kbm" type="checkbox">
-                                                    <label for="checkbox-<?= $m->id_materi; ?>"><?= $m->judul; ?></label>
+                                                    <label class="ms-2" for="checkbox-<?= $m->id_materi; ?>"><?= $m->judul; ?></label>
                                                 </div>
                                             <?php endforeach; ?>
                                         <?php endif; ?>

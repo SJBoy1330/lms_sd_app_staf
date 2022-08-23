@@ -194,13 +194,13 @@
                                 </div>
                                 <div class="col-12 text-center d-flex justify-content-center my-3">
                                     <a id="btntambahvideo" onclick="tambahvideo()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
-                                        <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
+                                        <i class="fa-solid fa-plus-large size-26 text-white" style="margin-top: 2px;"></i>
                                     </a>
                                     <a id="btnbatalvideo" onclick="bataltambahvideo()" class="d-none avatar avatar-50 shadow-lg rounded-circle avatar-presensi-solid me-2">
-                                        <i class="fa-solid fa-xmark text-white mt-1"></i>
+                                        <i class="fa-solid fa-xmark text-white" style="margin-top: 2px;"></i>
                                     </a>
                                     <a id="btnsavevideo" onclick="submit_form(this,'#form_tambah_video',1)" class="d-none avatar avatar-50 shadow-lg rounded-circle avatar-presensi-solid ms-2" style="background-color: #00CF98;">
-                                        <i class="fa-solid fa-check text-white mt-1"></i>
+                                        <i class="fa-solid fa-check text-white" style="margin-top: 2px;"></i>
                                     </a>
 
                                 </div>
@@ -283,10 +283,10 @@
                                 </div>
                                 <div class="col-12 text-center d-flex justify-content-center my-3">
                                     <a id="btntambahdownloadvideo" onclick="tambahdownloadvideo()" class="avatar avatar-60 shadow-lg rounded-circle avatar-presensi-solid">
-                                        <i class="fa-solid fa-plus-large size-26 text-white mt-1"></i>
+                                        <i class="fa-solid fa-plus-large size-26 text-white" style="margin-top: 2px;"></i>
                                     </a>
                                     <button id="btnsavedownloadvideo" type="button" onclick="submit_form(this,'#form_tambah_dokumen',2)" class="d-none avatar avatar-50 shadow-lg rounded-circle avatar-presensi-solid border-0" style="background-color: #00CF98;">
-                                        <i class="fa-solid fa-check text-white mt-1"></i>
+                                        <i class="fa-solid fa-check text-white" style="margin-top: 2px;"></i>
                                     </button>
                                 </div>
                             </form>

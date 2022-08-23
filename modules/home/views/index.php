@@ -239,7 +239,7 @@
                                                 <div class="row">
                                                     <div class="col-auto ps-2 pe-1">
                                                         <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
-                                                            <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
+                                                            <div class="avatar avatar-30 rounded-circle avatar-presensi-inline">
                                                                 <i class="fa-solid fa-clock size-20 text-white"></i>
                                                             </div>
                                                         </div>
@@ -281,7 +281,7 @@
                                     <div class="row">
                                         <div class="col-auto ps-2 pe-1">
                                             <div class="avatar avatar-40 shadow-sm rounded-circle avatar-presensi-outline">
-                                                <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 33px;">
+                                                <div class="avatar avatar-30 rounded-circle avatar-presensi-inline" style="line-height: 31px;">
                                                     <i class="fa-solid fa-location-crosshairs size-20 text-white"></i>
                                                 </div>
                                             </div>
