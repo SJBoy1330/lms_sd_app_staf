@@ -37,7 +37,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col align-self-center ps-0 presensi-siswa">
-                                                    <p class="mb-0 size-15 fw-medium"><?= $row->nama; ?></p>
+                                                    <p class="mb-0 size-14 fw-medium" style="width: 70%;"><?= $row->nama; ?></p>
                                                     <p class="text-muted text-secondary size-12">Status Kehadiran</p>
                                                 </div>
                                             </div>
