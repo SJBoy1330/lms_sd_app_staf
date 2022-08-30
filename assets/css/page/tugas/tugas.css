@@ -188,8 +188,8 @@ button.btn.btn-sm.plus-tagar {
 }
 
 .file-block > span.name {
+    margin: 10px 0px 10px 5px;
     padding-right: 10px;
-    width: max-content;
     display: inline-flex;
 }
   
@@ -200,8 +200,10 @@ button.btn.btn-sm.plus-tagar {
     background-color: #6eb4ff00;
     font-size: large;
     justify-content: center;
-    margin-right: 3px;
+    margin-right: 5px;
+    margin-left: 10px;
     cursor: pointer;
+    align-items: center;
 }
 
 .file-delete:hover {
