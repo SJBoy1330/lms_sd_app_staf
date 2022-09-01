@@ -93,7 +93,7 @@
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Upload File</label>
                     <label for="attachment">
-                        <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="tugas[]" id="attachment" multiple />
+                        <input class="form-control form-control-solid form-control-tugas border-0" type="file" name="tugas[]" id="attachment" style="line-height: 40px;" multiple />
                     </label>
                     <div id="files-area">
                         <span id="filesList">
