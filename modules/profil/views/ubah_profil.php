@@ -48,7 +48,10 @@
             </div>
             <div class="col-12" id="req_telp">
                 <label for="nohp" class="form-label fw-bold size-14">No. Telepon</label>
-                <input type="text" name="telp" class="form-control form-control-pribadi text-start" id="nohp" value="<?= $result->telp; ?>" placeholder="Masukan nomor telepon">
+                <div class="d-flex">
+                    <span class="kode-negara d-flex justify-content-center align-items-center">+62</span>
+                    <input type="text" name="telp" class="form-control form-control-pribadi nomor-telepon text-start" id="nohp" value="<?= $result->telp; ?>" placeholder="Masukan nomor telepon">
+                </div>
             </div>
             <div class="col-12 mb-4" id="req_email">
                 <label for="email" class="form-label fw-bold size-14">Email</label>

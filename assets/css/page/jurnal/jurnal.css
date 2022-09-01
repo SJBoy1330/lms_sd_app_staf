@@ -67,3 +67,10 @@ button.btn-tambah-tugas {
     height: 45px;
     padding-top: 10px;
 }
+
+button.btn.btn-reset{
+    background-color: transparent; 
+    border-radius: 8px; 
+    color: #EC3528; 
+    border: 1px solid #EC3528;
+}
