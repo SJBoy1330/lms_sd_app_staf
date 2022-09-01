@@ -59,7 +59,7 @@
                         </a>
                     <?php endforeach; ?>
                 <?php else : ?>
-                    <?= vector_default('vector_jadwal_kosong.svg', 'Jurnal guru tidak tersedia!', 'Tidak ada jadwal hari ini sehingga tidak ada jurnal tersedia! hubungi pihak sekolah jika terjadi kesalahan!'); ?>
+                    <?= vector_default('vector_jurnal_guru_kosong.svg', 'Jurnal guru tidak tersedia!', 'Tidak ada jadwal hari ini sehingga tidak ada jurnal tersedia! hubungi pihak sekolah jika terjadi kesalahan!'); ?>
                 <?php endif; ?>
 
             </div>

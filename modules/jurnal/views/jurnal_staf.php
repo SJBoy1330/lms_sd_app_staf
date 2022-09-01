@@ -51,7 +51,7 @@
                         </a>
                     <?php endforeach; ?>
                 <?php else : ?>
-                    <?= vector_default('vector_jurnal_kosong.svg', 'Tidak ada jurnal', 'Anda belum menambahkan jurnal staf, silahkan tambahkan atau hubungi pihak sekolah!'); ?>
+                    <?= vector_default('vector_jurnal_staf_kosong.svg', 'Tidak ada jurnal', 'Anda belum menambahkan jurnal staf, silahkan tambahkan atau hubungi pihak sekolah!'); ?>
                 <?php endif; ?>
             </div>
         </div>

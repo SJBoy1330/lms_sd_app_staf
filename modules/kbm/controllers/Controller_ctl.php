@@ -132,6 +132,16 @@ class Controller_ctl extends MY_Frontend
 		// LOAD MYDATA 
 		$mydata['detail'] = $detail = $result->data->detail;
 		$mydata['peserta'] = $peserta =  $result->data->peserta;
+		$mydata['id_pelajaran'] = $id_pelajaran;
+		$mydata['id_kelas'] = $id_kelas;
+		if (isset($_COOKIE['LAT']) && isset($_COOKIE['LONG'])) {
+			$mydata['lat'] = $_COOKIE['LAT'];
+			$mydata['long'] = $_COOKIE['LONG'];
+		} else {
+			$mydata['lat'] = '-7.7084159';
+			$mydata['long'] = '112.4174668';
+			// $this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/get_location.js"></script>';
+		}
 
 		// CONFIG PAGE
 		$this->data['config_hidden']['notifikasi'] = true;
@@ -285,6 +295,10 @@ class Controller_ctl extends MY_Frontend
 
 	public function func_presensi()
 	{
+		$id_pelajaran = $this->input->post('id_pelajaran');
+		$id_kelas = $this->input->post('id_kelas');
+		$lat = $this->input->post('lat');
+		$long = $this->input->post('long');
 		$id_siswa = $this->input->post('id_siswa');
 		$no = 0;
 		foreach ($id_siswa as $id) {
@@ -302,9 +316,19 @@ class Controller_ctl extends MY_Frontend
 				}
 			}
 		}
-
-		var_dump(json_encode($arr));
-		die;
 		$p = json_encode($arr);
+		$result = curl_post('kbm/presensi/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_pelajaran' => $id_pelajaran, 'id_kelas' => $id_kelas, 'tanggal' => date('Y-m-d'), 'scan' => date('H:i:s'), 'presensi_siswa' => $p, 'lat' => $lat, 'long' => $long]);
+		if ($result->status == 200) {
+			$dt['status'] = true;
+			$dt['load'][0]['parent'] = '#parent_presensi';
+			$dt['load'][0]['reload'] = base_url('kbm/presensi_siswa/' . $id_pelajaran . '/' . $id_kelas) . ' #reload_presensi';
+			$dt['alert']['title'] = 'PEMBERITAHUAN';
+		} else {
+			$dt['status'] = false;
+			$dt['alert']['title'] = 'PERINGATAN';
+		}
+		$dt['alert']['message'] = $result->message;
+
+		echo json_encode($dt);
 	}
 }

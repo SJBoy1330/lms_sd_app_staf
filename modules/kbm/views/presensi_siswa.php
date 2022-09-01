@@ -2,9 +2,13 @@
 <!-- main page content -->
 <div class="main-container container top-20">
     <div class="row mt-3">
-        <div class="col-12 col-md-10 col-lg-8 mx-auto">
-            <div class="row g-0">
+        <div class="col-12 col-md-10 col-lg-8 mx-auto" id="parent_presensi">
+            <div class="row g-0" id="reload_presensi">
                 <form action="<?= base_url('kbm/func_presensi') ?>" method="post" id="form_presensi" class="col-12">
+                    <input type="hidden" name="id_pelajaran" value="<?= $id_pelajaran; ?>">
+                    <input type="hidden" name="id_kelas" value="<?= $id_kelas; ?>">
+                    <input type="hidden" class="lat" name="lat" value="<?= $lat; ?>">
+                    <input type="hidden" class="long" name="long" value="<?= $long; ?>">
                     <?php if ($peserta) : ?>
                         <?php foreach ($peserta as $row) : ?>
                             <div class="accordion accordion-flush p-0 shadow-sm mb-3" id="accordion-<?= $row->id_siswa; ?>">
@@ -65,7 +69,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" value="4" name="presensi-<?= $row->id_siswa; ?>" id="presensi-sakit-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 4) {
+                                                        <input class="form-check-input" type="radio" value="3" name="presensi-<?= $row->id_siswa; ?>" id="presensi-sakit-<?= $row->id_siswa; ?>" <?php if ($row->presensi == 3) {
                                                                                                                                                                                                         echo 'checked';
                                                                                                                                                                                                     } ?>>
                                                         <label class="form-check-label size-15 fw-normal" for="presensi-sakit-<?= $row->id_siswa; ?>">
@@ -100,7 +104,11 @@
                                             <?php if ($row->presensi > 1) : ?>
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <button data-bs-toggle="modal" data-bs-target="#modalLihatSuratIzin" class="btn btn-block btn-md btn-danger btn-surat-izin">Lihat surat</button>
+                                                        <?php if ($row->surat) : ?>
+                                                            <button data-bs-toggle="modal" type="button" data-bs-target="#modalLihatSuratIzin" class="btn btn-block btn-md btn-danger btn-surat-izin">Lihat surat</button>
+                                                        <?php else : ?>
+                                                            <button type="button" class="btn btn-block btn-md btn-danger btn-surat-izin" disabled>Tidak ada surat</button>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                             <?php endif; ?>
@@ -113,7 +121,7 @@
                         <?= vector_default('vector_jadwal_kosong.svg', 'Tidak ada siswa terkait', 'Belum ada siswa yang terkait dengan kelas ini! Hubungi admin atau pihak sekolah jika terjadi kesalahan'); ?>
                     <?php endif; ?>
                     <div class="wrapper-button">
-                        <button type="button" id="button_submit_presensi" onclick="submit_form(this,'#form_presensi',0,'big')" class="btn btn-block btn-md btn-danger btn-filter">Simpan</button>
+                        <button type="button" id="button_submit_presensi" onclick="submit_form(this,'#form_presensi',0,'big')" class="btn btn-block btn-md btn-danger btn-filter button_get_lokasi_siswa">Simpan</button>
                     </div>
                 </form>
             </div>

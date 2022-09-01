@@ -13,11 +13,11 @@
 }
 
 .form-check-input:checked {
-    background-color: #00DFA3;
-    border: #00DFA3;
+    background-color: #EC3528;
+    border: #EC3528;
 }
 
-.badge-ijin{
+.badge-ijin {
     top: 0;
     right: 0;
     border-radius: 0px 10px 0px 20px;
@@ -55,15 +55,15 @@ button.btn-surat-izin {
     padding-top: 10px;
 }
 
-div.col.presensi-siswa{
+div.col.presensi-siswa {
     width: 70%;
 }
 
-div.col.presensi-siswa p{
+div.col.presensi-siswa p {
     word-wrap: break-word;
 }
 
-.wrapper-button{
+.wrapper-button {
     position: fixed;
     width: 93%;
     bottom: 10px;
