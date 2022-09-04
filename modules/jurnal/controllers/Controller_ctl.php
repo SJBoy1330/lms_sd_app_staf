@@ -108,6 +108,20 @@ class Controller_ctl extends MY_Frontend
 
 		// LOAD JS
 		$this->data['js_add'][] = '<script src="' . base_url() . 'assets/js/page/jurnal/jurnal.js"></script>';
+		$this->data['js_add'][] = '<script>var bulan = ' . date('m') . ';var tahun = ' . date('Y') . '</script>';
+		$tahun = $this->input->get('tahun');
+		$bln = $this->input->get('bulan');
+		if (
+			isset($tahun) || isset($bln)
+		) {
+			if ($this->input->get('bulan') > 9) {
+				$bulan = '-' . $this->input->get('bulan');
+			} else {
+				$bulan = '-0' . $this->input->get('bulan');
+			}
+		} else {
+			$bulan = date('m');
+		}
 		// CONFIG HALAMAN
 		if ($_SERVER['HTTP_REFERER'] == NULL) {
 			$link = base_url('home');
@@ -122,10 +136,12 @@ class Controller_ctl extends MY_Frontend
 		$this->data['button_back'] = $link;
 		$this->data['config_hidden']['notifikasi'] = true;
 		$this->data['config_hidden']['footer'] = true;
-		$this->data['judul_halaman'] = 'Jurnal Staf';
+		$this->data['judul_halaman'] = 'Jurnal Staf<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . month_from_number($bln) . '</span>';
 		$this->data['right_button']['jurnal_staf'] = true;
 		// LOAD API 
-		$tanggal = $this->input->get('tahun') . '-' . '0' . $this->input->get('bulan');
+
+
+		$tanggal = $this->input->get('tahun') . $bulan;
 		if (!$tanggal) {
 			$tanggal = date('Y-m');
 		}

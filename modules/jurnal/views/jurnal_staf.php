@@ -8,7 +8,7 @@
             <div class="row mb-3" id="reload_jurnal_staf">
                 <?php if ($result) : ?>
                     <?php foreach ($result as $row) : ?>
-                        <a data-bs-toggle="modal" data-bs-target="#">
+                        <a data-bs-toggle="modal" data-bs-target="#" id="card-jurnal-<?= $row->id_jurnal_staf; ?>">
                             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3" style="min-height: 106px;">
                                 <div class="row mb-3">
                                     <div class="col">
@@ -19,7 +19,7 @@
                                             <button class="btn btn-secondary bg-button rounded-pill mb-2" type="button">
                                                 <i class="fa-solid fa-pen-to-square" style="font-size: 14px; color: #EC3528;"></i>
                                             </button>
-                                            <button class="btn btn-secondary bg-button rounded-pill" type="button">
+                                            <button type="button" onclick="hapus_jurnal_staf(<?= $row->id_jurnal_staf; ?>)" class="button_hapus btn btn-secondary bg-button rounded-pill" type="button">
                                                 <i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i>
                                             </button>
                                         </div>
@@ -32,7 +32,7 @@
                                                 <div class="garis"></div>
                                             </div>
                                             <div class="col p-0 d-flex align-items-start flex-column">
-                                                <p class="mb-0 fw-normal size-15 text-dark ms-1 me-4"><?= $val->tugas; ?></p>
+                                                <p class="mb-0 fw-normal size-15 text-dark ms-1 me-4"><?= tampil_text($val->tugas, 20); ?></p>
                                             </div>
                                         </div>
                                     <?php endforeach; ?>
@@ -111,7 +111,7 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Bulan</label>
-                    <select class="form-select form-select form-select-pribadi border-0" name="bulan" aria-label="Default select example">
+                    <select id="select_bulan" class=" form-select form-select form-select-pribadi border-0" name="bulan" aria-label="Default select example">
                         <?php if (month_from_number()) : ?>
                             <?php foreach (month_from_number() as $row => $bln) : ?>
                                 <option value="<?= $row; ?>" <?php if ($row == $bulan) {
@@ -124,7 +124,7 @@
 
                 <div class="mb-3">
                     <label for="exampleFormControlInput3" class="form-label title-3">Tahun</label>
-                    <select class="form-select form-select form-select-pribadi border-0" name="tahun" aria-label="Default select example">
+                    <select id="select_tahun" class="form-select form-select form-select-pribadi border-0" name="tahun" aria-label="Default select example">
                         <?php for ($i = (date('Y') - 3); $i <= (date('Y') + 6); $i++) { ?>
                             <option value="<?= $i; ?>" <?php if ($i == $tahun) {
                                                             echo 'selected';
@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end align-items-center">
-                    <button class="btn btn-danger btn-sm btn-reset">Reset</button>
+                    <button type="button" onclick="reset_tanggal()" class="btn btn-danger btn-sm btn-reset">Reset</button>
                 </div>
             </div>
             <div class="modal-footer border-0">

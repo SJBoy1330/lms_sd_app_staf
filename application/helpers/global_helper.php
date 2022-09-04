@@ -586,6 +586,7 @@ function nice_date($format, $tanggal = "now")
 }
 function month_from_number($nomor = NULL)
 {
+  $nomor = intval($nomor);
   switch ($nomor) {
     case 1:
       return "Januari";
