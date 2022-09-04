@@ -281,7 +281,7 @@ class Controller_ctl extends MY_Frontend
 		}
 		$req['id_sekolah'] = $this->id_sekolah;
 		$req['id_staf'] = $this->id_staf;
-		$req['pesan'] = $pesan;
+		$req['pesan'] = htmlspecialchars($pesan);
 		$req['id_diskusi_tanya'] = $id_diskusi_tanya;
 
 		// POST API 
@@ -298,7 +298,7 @@ class Controller_ctl extends MY_Frontend
 		}
 		$req['id_sekolah'] = $this->id_sekolah;
 		$req['id_staf'] = $this->id_staf;
-		$req['pesan'] = $pesan;
+		$req['pesan'] = htmlspecialchars($pesan);
 		$req['id_diskusi_grup_tanya'] = $id_diskusi_grup_tanya;
 
 		// POST API 
@@ -354,7 +354,7 @@ class Controller_ctl extends MY_Frontend
 		$arr['id_sekolah'] = $this->id_sekolah;
 		$arr['id_staf'] = $this->id_staf;
 		$arr['id_diskusi_tanya'] = $id_diskusi_tanya;
-		$arr['pesan'] = $pesan;
+		$arr['pesan'] = htmlspecialchars($pesan);
 		$arrFile['gambar'] = $_FILES['gambar'];
 		$result = curl_post('pesan/kirim/', $arr, $arrFile);
 		if ($result->status == 200) {
@@ -378,7 +378,7 @@ class Controller_ctl extends MY_Frontend
 		$arr['id_sekolah'] = $this->id_sekolah;
 		$arr['id_staf'] = $this->id_staf;
 		$arr['id_diskusi_grup_tanya'] = $id_diskusi_grup_tanya;
-		$arr['pesan'] = $pesan;
+		$arr['pesan'] = htmlspecialchars($pesan);
 		$arrFile['gambar'] = $_FILES['gambar'];
 		$result = curl_post('pesan/kirim_grup/', $arr, $arrFile);
 		if ($result->status == 200) {

@@ -67,14 +67,14 @@
                                         <div class="row">
                                             <?php if ($row->file == NULL) : ?>
                                                 <div class="col">
-                                                    <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text($row->nama_chat, 15); ?></p>
+                                                    <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text(htmlspecialchars($row->nama_chat), 15); ?></p>
                                                     <?php if ($row->gambar != NULL) : ?>
                                                         <!-- JIKA ADA GAMBAR -->
                                                         <div class="mw-100 position-relative mb-2 figure">
                                                             <img src="<?= $row->gambar; ?>" alt="" class="mw-100">
                                                         </div>
                                                     <?php endif; ?>
-                                                    <p class="mb-0 ms-1 size-15 fw-normal" style="overflow-wrap: break-word;"><?= $row->pesan; ?></p>
+                                                    <p class="mb-0 ms-1 size-15 fw-normal" style="overflow-wrap: break-word;"><?= htmlspecialchars($row->pesan); ?></p>
                                                 </div>
                                             <?php else : ?>
                                                 <!-- JIKA FILE -->
@@ -85,7 +85,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto align-self-center ps-2">
-                                                    <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text($row->nama_chat, 15); ?></p>
+                                                    <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text(htmlspecialchars($row->nama_chat), 15); ?></p>
                                                     <a href="<?= $row->file->download ?>" class="mb-0 size-13 fw-medium text-dark"><?= tampil_text($row->file->name, 20); ?></a>
                                                     <p class="mb-0 size-12 fw-normal text-muted"><?= strtoupper($row->file->ext) ?> File</p>
                                                 </div>
@@ -94,7 +94,7 @@
                                     <?php else : ?>
                                         <!-- JIKA PESAN REPLAY MATERI -->
                                         <div class="row flex-column">
-                                            <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text($row->nama_chat, 15); ?></p>
+                                            <p class="mb-1 mt-0 ms-1 size-16 fw-medium text-dark"><?= tampil_text(htmlspecialchars($row->nama_chat), 15); ?></p>
                                             <div class="reply-text-penerima">
                                                 <div class="column-reply-penerima flex-wrap">
                                                     <div class="d-flex justify-content-between align-items-center">
@@ -104,7 +104,7 @@
                                                 </div>
                                             </div>
                                             <div class="col">
-                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= htmlspecialchars($row->pesan); ?></p>
                                             </div>
                                         </div>
                                     <?php endif; ?>

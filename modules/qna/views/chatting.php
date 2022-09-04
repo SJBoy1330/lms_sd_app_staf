@@ -25,7 +25,7 @@
                                                                             <img src="<?= $row->gambar; ?>" alt="" class="mw-100">
                                                                         </div>
                                                                     <?php endif; ?>
-                                                                    <p class="mb-0 size-15 fw-normal" style="overflow-wrap: break-word;"><?= $row->pesan; ?></p>
+                                                                    <p class="mb-0 size-15 fw-normal" style="overflow-wrap: break-word;"><?= htmlspecialchars($row->pesan); ?></p>
                                                                 </div>
                                                             <?php else : ?>
                                                                 <!-- JIKA FILE -->
@@ -53,7 +53,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col">
-                                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= htmlspecialchars($row->pesan); ?></p>
                                                             </div>
                                                         </div>
                                                     <?php endif; ?>
@@ -76,7 +76,7 @@
                                                                             <img src="<?= $row->gambar; ?>" alt="" class="mw-100">
                                                                         </div>
                                                                     <?php endif; ?>
-                                                                    <p class="mb-0 ms-1 size-15 fw-normal" style="overflow-wrap: break-word;"><?= $row->pesan; ?></p>
+                                                                    <p class="mb-0 ms-1 size-15 fw-normal" style="overflow-wrap: break-word;"><?= htmlspecialchars($row->pesan); ?></p>
                                                                 </div>
                                                             <?php else : ?>
                                                                 <!-- JIKA FILE -->
@@ -104,7 +104,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="col">
-                                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= $row->pesan; ?></p>
+                                                                <p class="mb-0 mt-2 size-15 fw-normal"><?= htmlspecialchars($row->pesan); ?></p>
                                                             </div>
                                                         </div>
                                                     <?php endif; ?>
