@@ -1,4 +1,5 @@
 <!-- main page content -->
+
 <div class="main-container container position-relative">
     <div class="row">
         <div class="col-12">
@@ -7,8 +8,12 @@
                     <?php foreach ($result as $row) : ?>
                         <a href="<?= base_url('kbm/detail_kbm/' . $row->id_pelajaran . '/' . $row->id_kelas . '?tanggal=' . $tanggal) ?>" class=" col-12">
                             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden mb-3 p-3">
-                                <?php if ($row->kbm == true) : ?>
+                                <?php if (strtotime($tanggal . ' ' . $row->jam_mulai) <= strtotime(date('Y-m-d H:i:s')) && strtotime($tanggal . ' ' . $row->jam_selesai) >= strtotime(date('Y-m-d H:i:s'))) : ?>
                                     <div class="badge-keterangan-aktif">
+                                        <p class="text-white size-12"></p>
+                                    </div>
+                                <?php elseif (strtotime($tanggal . ' ' . $row->jam_mulai) > strtotime(date('Y-m-d H:i:s'))) : ?>
+                                    <div class="badge-keterangan-kuning">
                                         <p class="text-white size-12"></p>
                                     </div>
                                 <?php else : ?>
