@@ -76,10 +76,13 @@ class Function_ctl extends MY_Frontend
         $data['alert']['message'] = $insert->message;
         if ($insert->status == 200) {
             $data['alert']['title'] = 'PEMBERITAHUAN';
-            $data['load'][0]['parent'] = '#parent_jurnal_staf';
-            $data['load'][0]['reload'] = base_url('jurnal/jurnal_staf/') . ' #reload_jurnal_staf';
-            $data['modal']['id'] = '#filterTambahJurnal';
-            $data['modal']['action'] = 'hide';
+            // $data['load'][0]['parent'] = '#parent_jurnal_staf';
+            // $data['load'][0]['reload'] = base_url('jurnal/jurnal_staf/') . ' #reload_jurnal_staf';
+            // $data['load'][0]['parent'] = '#parent_jurnal_staf';
+            // $data['load'][0]['reload'] = base_url('jurnal/jurnal_staf/') . ' #reload_jurnal_staf';
+            // $data['modal']['id'] = '#filterTambahJurnal';
+            // $data['modal']['action'] = 'hide';
+            $data['reload'] = true;
         } else {
             $data['alert']['title'] = 'PERINGATAN';
         }
@@ -108,5 +111,28 @@ class Function_ctl extends MY_Frontend
         }
         $data['alert']['message'] = $hapus->message;
         echo json_encode($data);
+    }
+
+    public function get_detail_by_tanggal()
+    {
+        $tanggal = $this->input->post('tanggal');
+        $tugas = curl_get('jurnal/tugas_staf/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf]);
+        $isi = curl_get('jurnal/staf_from_tanggal/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'tanggal' => $tanggal]);
+        $arr_val = [];
+        if ($isi->data) {
+            $no = 0;
+            foreach ($isi->data->tugas as $val) {
+                $num = $no++;
+                $arr_val[$num] = $val->id_jenis_tugas_staf;
+            }
+            $mydata['tugas_lain'] = $isi->data->tugas_lain;
+            $mydata['status_jurnal'] = true;
+        }
+        $mydata['tugas'] = $tugas->data;
+        $mydata['value_jurnal'] = $arr_val;
+        $mydata['tanggal'] = strtotime($tanggal);
+        $mydata['real_date'] = $tanggal;
+
+        $this->load->view('modal_jurnal_staf', $mydata);
     }
 }

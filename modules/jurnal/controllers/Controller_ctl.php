@@ -111,15 +111,15 @@ class Controller_ctl extends MY_Frontend
 		$this->data['js_add'][] = '<script>var bulan = ' . date('m') . ';var tahun = ' . date('Y') . '</script>';
 		$tahun = $this->input->get('tahun');
 		$bln = $this->input->get('bulan');
-		if (
-			isset($tahun) || isset($bln)
-		) {
+		if (isset($bln)) {
+			$mon = $bln;
 			if ($this->input->get('bulan') > 9) {
 				$bulan = '-' . $this->input->get('bulan');
 			} else {
 				$bulan = '-0' . $this->input->get('bulan');
 			}
 		} else {
+			$mon = date('m');
 			$bulan = date('m');
 		}
 		// CONFIG HALAMAN
@@ -136,7 +136,7 @@ class Controller_ctl extends MY_Frontend
 		$this->data['button_back'] = $link;
 		$this->data['config_hidden']['notifikasi'] = true;
 		$this->data['config_hidden']['footer'] = true;
-		$this->data['judul_halaman'] = 'Jurnal Staf<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . month_from_number($bln) . '</span>';
+		$this->data['judul_halaman'] = 'Jurnal Staf<br><span style="font-size : 14px; font-weight: normal; color : #EC3528;">' . month_from_number($mon) . '</span>';
 		$this->data['right_button']['jurnal_staf'] = true;
 		// LOAD API 
 
@@ -150,6 +150,7 @@ class Controller_ctl extends MY_Frontend
 		$params['tanggal'] = $tanggal;
 		$result = curl_get('jurnal/staf/', $params);
 		$tugas = curl_get('jurnal/tugas_staf/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf]);
+		$isi = curl_get('jurnal/staf_from_tanggal/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'tanggal' => date('Y-m-d')]);
 		// DEKLARASI MYDATA 
 		$tahun = $this->input->get('tahun');
 		if (!$tahun) {
@@ -159,10 +160,23 @@ class Controller_ctl extends MY_Frontend
 		if (!$bulan) {
 			$bulan = intval(date('m'));
 		}
+		$mydata['tugas_lain'] = null;
+		$mydata['status_jurnal'] = false;
+		$arr_val = [];
+		if ($isi->data) {
+			$no = 0;
+			foreach ($isi->data->tugas as $val) {
+				$num = $no++;
+				$arr_val[$num] = $val->id_jenis_tugas_staf;
+			}
+			$mydata['tugas_lain'] = $isi->data->tugas_lain;
+			$mydata['status_jurnal'] = true;
+		}
 		$mydata['tahun'] = $tahun;
 		$mydata['bulan'] = $bulan;
 		$mydata['result'] = $result->data;
 		$mydata['tugas'] = $tugas->data;
+		$mydata['value_jurnal'] = $arr_val;
 		// LOAD VIEW
 		$this->data['content'] = $this->load->view('jurnal_staf', $mydata, TRUE);
 		$this->display($this->input->get('routing'));

@@ -1,6 +1,6 @@
-$('#lain').click(function () {
+function lain() {
     $("#showhideText").toggle(this.checked);
-});
+};
 
 
 
@@ -36,10 +36,16 @@ function hapus_jurnal_staf(id_jurnal) {
                     confirmButton: css_button
                 }
             }).then(function () {
-                $('#card-jurnal-' + id_jurnal).remove();
+                var cek = $('.card_jurnal_staf').length;
+                if (cek > 1) {
+                    $('#card-jurnal-' + id_jurnal).remove();
+                } else {
+                    $('#parent_jurnal_staf').load(BASE_URL + 'jurnal/jurnal_staf/ #reload_jurnal_staf');
+                }
+                $('#parent_modaling').load(BASE_URL + 'jurnal/jurnal_staf/ #reload_modaling');
             });
         }
-    })
+    });
 }
 
 
@@ -47,6 +53,23 @@ function reset_tanggal() {
 
     $('#select_tahun').val(tahun);
     $('#select_bulan').val(bulan);
+}
 
-    console.log(tahun + ' - ' + bulan);
+
+function change_tanggal(element) {
+    var tanggal = element.value;
+    $.ajax({
+        url: BASE_URL + 'func_jurnal/get_detail_by_tanggal',
+        data: { tanggal: tanggal },
+        method: 'POST',
+        cache: false,
+        beforeSend() {
+            $('#body_from_tambah').html(html_loader);
+            $('#button_submit_jurnal').prop('disabled', true);
+        },
+        success: function (msg) {
+            $('#button_submit_jurnal').prop('disabled', false);
+            $('#body_from_tambah').html(msg);
+        }
+    })
 }
