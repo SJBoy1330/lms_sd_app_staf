@@ -16,9 +16,9 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <div class="button-action position-absolute d-flex flex-wrap flex-column">
-                                            <!-- <button class="btn btn-secondary bg-button rounded-pill mb-2" type="button">
+                                            <button type="button" onclick="modal_edit(<?= $row->id_jurnal_staf; ?>)" data-bs-toggle="modal" data-bs-target="#editJurnal" class="btn btn-secondary bg-button rounded-pill mb-2" type="button">
                                                 <i class="fa-solid fa-pen-to-square" style="font-size: 14px; color: #EC3528;"></i>
-                                            </button> -->
+                                            </button>
                                             <button type="button" onclick="hapus_jurnal_staf(<?= $row->id_jurnal_staf; ?>)" class="button_hapus btn btn-secondary bg-button rounded-pill" type="button">
                                                 <i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i>
                                             </button>
@@ -116,6 +116,16 @@
             </div>
 
 
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Filter edit Jurnal -->
+<div class="modal fade" id="editJurnal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+        <div class="modal-content" id="body_from_tambah" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
 
         </div>
     </div>
