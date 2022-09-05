@@ -285,7 +285,7 @@ $mulai_kbm = strtotime($tanggal . ' ' . date('H:i', strtotime($result->detail->j
                                         </div>
                                     </div>
                                     <div class="col align-self-center ps-0">
-                                        <p class="mb-0 size-14 fw-normal"><?= tampil_text($row->judul, 25); ?></p>
+                                        <p class="mb-0 size-14 fw-normal" style="word-break: break-word;"><?= tampil_text($row->judul, 25); ?></p>
                                     </div>
                                     <div class="col-auto align-self-center text-end ms-3">
                                         <?php if ($mulai_kbm > strtotime(date('Y-m-d H:i')) || $batas_kbm > strtotime(date('Y-m-d H:i'))) : ?>

@@ -3298,7 +3298,7 @@ textarea.form-control .is-invalid {
 .btn.disabled,
 fieldset:disabled .btn {
     pointer-events: none;
-    opacity: 0.35;
+    opacity: 0.6;
 }
 
 .btn-primary {
@@ -3566,9 +3566,9 @@ fieldset:disabled .btn {
 
 .btn-danger:disabled,
 .btn-danger.disabled {
-    color: #303030;
-    background-color: #D3D3D3;
-    border: 1px solid #303030;
+    color: #EC3528;
+    background-color: #EC3528;
+    border: 1px solid #EC3528;
 }
 
 .btn-light {
