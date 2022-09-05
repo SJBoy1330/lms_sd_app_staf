@@ -7,7 +7,7 @@
          <form id="form_tambah_jurnal" method="post" action="<?php echo base_url('func_jurnal/tambah_jurnal_staf'); ?>" class="modal-body">
              <div class="mb-3">
                  <label for="exampleFormControlInput3" class="form-label title-3">Tanggal</label>
-                 <input type="date" onchange="change_tanggal(this)" name="tanggal" value="<?= date('Y-m-d'); ?>" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih Tanggal">
+                 <input type="date" onchange="change_tanggal(this)" name="tanggal" value="<?= date('Y-m-d', strtotime($detail->tanggal)); ?>" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih Tanggal">
              </div>
              <label class="form-label title-3">Tugas Staf</label>
              <?php if ($tugas) : ?>
@@ -15,7 +15,7 @@
                      <div class="form-check">
                          <input name="jenis_tugas[]" class="form-check-input" type="checkbox" value="<?= $row->id_jenis_tugas_staf; ?>" <?php if (in_array($row->id_jenis_tugas_staf, $value_jurnal)) {
                                                                                                                                             echo 'checked';
-                                                                                                                                        } ?> <?php if ($status_jurnal == true) {
+                                                                                                                                        } ?> <?php if ($status_jurnal == true && strtotime($detail->tanggal) != strtotime(date('Y-m-d H:i:s'))) {
                                                                                                                                                     echo 'disabled';
                                                                                                                                                 } ?>>
                          <label class="form-check-label size-15" for="1">

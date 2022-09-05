@@ -135,4 +135,26 @@ class Function_ctl extends MY_Frontend
 
         $this->load->view('modal_jurnal_staf', $mydata);
     }
+
+    public function get_detail()
+    {
+        $id_jurnal = $this->input->post('id_jurnal');
+        $tugas = curl_get('jurnal/tugas_staf/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf]);
+        $isi = curl_get('jurnal/staf_detail/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'id_jurnal_staf' => $id_jurnal]);
+        $arr_val = [];
+        if ($isi->data) {
+            $no = 0;
+            foreach ($isi->data->tugas as $val) {
+                $num = $no++;
+                $arr_val[$num] = $val->id_jenis_tugas_staf;
+            }
+            $mydata['tugas_lain'] = $isi->data->tugas_lain;
+            $mydata['status_jurnal'] = true;
+        }
+        $mydata['tugas'] = $tugas->data;
+        $mydata['value_jurnal'] = $arr_val;
+        $mydata['detail'] = $isi->data;
+
+        $this->load->view('modal_edit', $mydata);
+    }
 }

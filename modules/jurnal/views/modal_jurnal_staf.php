@@ -7,7 +7,7 @@
         <form id="form_tambah_jurnal" method="post" action="<?php echo base_url('func_jurnal/tambah_jurnal_staf'); ?>" class="modal-body">
             <div class="mb-3">
                 <label for="exampleFormControlInput3" class="form-label title-3">Tanggal</label>
-                <input type="date" onchange="change_tanggal(this)" name="tanggal" value="<?= date('Y-m-d'); ?>" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih Tanggal">
+                <input type="date" onchange="change_tanggal(this)" name="tanggal" value="<?= $real_date; ?>" class="form-control form-control-solid form-control-pribadi border-0" placeholder="Pilih Tanggal">
             </div>
             <label class="form-label title-3">Tugas Staf</label>
             <?php if ($tugas) : ?>

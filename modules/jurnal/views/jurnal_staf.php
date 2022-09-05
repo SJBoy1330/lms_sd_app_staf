@@ -8,7 +8,7 @@
             <div class="row mb-3" id="reload_jurnal_staf">
                 <?php if ($result) : ?>
                     <?php foreach ($result as $row) : ?>
-                        <a data-bs-toggle="modal" class="card_jurnal_staf" data-bs-target="#" id="card-jurnal-<?= $row->id_jurnal_staf; ?>">
+                        <a onclick="modal_edit(<?= $row->id_jurnal_staf; ?>)" data-bs-toggle="modal" data-bs-target="#editJurnal" id="card-jurnal-<?= $row->id_jurnal_staf; ?>">
                             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3" style="min-height: 106px;">
                                 <div class="row mb-3">
                                     <div class="col">
@@ -16,9 +16,6 @@
                                     </div>
                                     <div class="col-auto align-self-center">
                                         <div class="button-action position-absolute d-flex flex-wrap flex-column">
-                                            <button type="button" onclick="modal_edit(<?= $row->id_jurnal_staf; ?>)" data-bs-toggle="modal" data-bs-target="#editJurnal" class="btn btn-secondary bg-button rounded-pill mb-2" type="button">
-                                                <i class="fa-solid fa-pen-to-square" style="font-size: 14px; color: #EC3528;"></i>
-                                            </button>
                                             <button type="button" onclick="hapus_jurnal_staf(<?= $row->id_jurnal_staf; ?>)" class="button_hapus btn btn-secondary bg-button rounded-pill" type="button">
                                                 <i class="fa-solid fa-trash" style="font-size: 14px; color: #EC3528;"></i>
                                             </button>
@@ -125,7 +122,7 @@
 <!-- Filter edit Jurnal -->
 <div class="modal fade" id="editJurnal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
-        <div class="modal-content" id="body_from_tambah" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
+        <div class="modal-content" id="body_from_edit" style="box-shadow: 100px 0px 100px 100px rgb(0 0 0 / 10%); border-radius:0px;">
 
         </div>
     </div>

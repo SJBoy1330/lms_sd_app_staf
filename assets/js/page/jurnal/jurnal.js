@@ -73,3 +73,21 @@ function change_tanggal(element) {
         }
     })
 }
+
+
+function modal_edit(id_jurnal) {
+    $.ajax({
+        url: BASE_URL + 'func_jurnal/get_detail',
+        data: { id_jurnal: id_jurnal },
+        method: 'POST',
+        cache: false,
+        beforeSend() {
+            $('#body_from_edit').html(html_loader);
+            $('#button_edit_jurnal').prop('disabled', true);
+        },
+        success: function (msg) {
+            $('#button_edit_jurnal').prop('disabled', false);
+            $('#body_from_edit').html(msg);
+        }
+    })
+}
