@@ -17,7 +17,8 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-15 fw-normal text-dark">Judul Tugas</p>
-                                        <p class="mb-0 size-14 fw-normal text-muted"><?= $detail->detail->nama; ?></p>
+                                        <p class="mb-0 size-14 fw-normal text-muted" id="isijudul"><?= $detail->detail->nama; ?></p>
+                                        <input type="text" id="inputjudul" class="form-control form-control-solid form-control-pribadi border-0 d-none" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +35,8 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-15 fw-normal text-dark">Batas Waktu</p>
-                                        <p class="mb-0 size-14 fw-normal text-muted"><?= day_from_number(date('N', strtotime($detail->detail->batas_waktu))) . ', ' . date('d', strtotime($detail->detail->batas_waktu)) . ' ' . month_from_number(date('m', strtotime($detail->detail->batas_waktu))) . ' ' . date('Y', strtotime($detail->detail->batas_waktu)); ?></p>
+                                        <p class="mb-0 size-14 fw-normal text-muted" id="isiwaktu"><?= day_from_number(date('N', strtotime($detail->detail->batas_waktu))) . ', ' . date('d', strtotime($detail->detail->batas_waktu)) . ' ' . month_from_number(date('m', strtotime($detail->detail->batas_waktu))) . ' ' . date('Y', strtotime($detail->detail->batas_waktu)); ?></p>
+                                        <input type="datetime-local" id="inputwaktu" class="form-control form-control-solid form-control-pribadi border-0 d-none" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +53,8 @@
                                     </div>
                                     <div class="col align-self-center ps-0">
                                         <p class="mb-0 size-15 fw-normal text-dark">Keterangan</p>
-                                        <p class="mb-0 size-14 fw-normal text-muted"><?= $detail->detail->keterangan; ?></p>
+                                        <p class="mb-0 size-14 fw-normal text-muted" id="isiketerangan"><?= $detail->detail->keterangan; ?></p>
+                                        <textarea class="form-control form-control-solid rounded-2 bg-f5f5f5 d-none" id="inputketerangan" style="height: auto;">lorem</textarea>
                                     </div>
                                 </div>
                             </div>

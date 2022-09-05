@@ -243,6 +243,15 @@
                                             </a>
                                         <?php endif; ?>
 
+                                        <?php if (isset($right_button['detail_tugas'])) : ?>
+                                            <button id="btnedit" class="btn" onclick="edit()">
+                                                <i class="fa-solid fa-pen-to-square text-white"></i>
+                                            </button>
+                                            <button id="btnsave" class="btn d-none">
+                                                <i class="fa-solid fa-check text-white"></i>
+                                            </button>
+                                        <?php endif; ?>
+
                                     </div>
 
                                 </div>

@@ -200,6 +200,7 @@ class Controller_ctl extends MY_Frontend
 		$this->data['khusus']['tugas'] = true;
 		$this->data['text']['white'] = true;
 		$this->data['judul_halaman'] = 'Detail Tugas';
+		$this->data['right_button']['detail_tugas'] = true;
 
 
 		// LOAD API 
@@ -254,6 +255,7 @@ class Controller_ctl extends MY_Frontend
 		$this->data['config_hidden']['footer'] = true;
 		$this->data['judul_halaman'] = 'Detail Tugas';
 		$this->data['button_back'] = $link;
+		
 
 		// LOAD API 
 		$result = curl_get('tugas/siswa/', ['id_sekolah' => $this->id_sekolah, 'id_siswa' => $id_siswa, 'id_tugas' => $id_tugas]);

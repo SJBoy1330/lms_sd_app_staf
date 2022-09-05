@@ -122,3 +122,31 @@ function get_nilai(id_tugas_siswa = 0, nilai = 0, id_siswa) {
         $('#id_siswa').val(id_siswa);
     }
 }
+
+function edit() {
+    $('#btnedit').addClass('d-none');
+    $('#btnsave').removeClass('d-none');
+
+    $('#isijudul').addClass('d-none');
+    $('#inputjudul').removeClass('d-none');
+
+    $('#isiwaktu').addClass('d-none');
+    $('#inputwaktu').removeClass('d-none');
+
+    $('#isiketerangan').addClass('d-none');
+    $('#inputketerangan').removeClass('d-none');
+}
+
+function save() {
+    $('#btnedit').addClass('d-none');
+    $('#btnsave').removeClass('d-none');
+
+    $('#isijudul').addClass('d-none');
+    $('#inputjudul').removeClass('d-none');
+
+    $('#isiwaktu').addClass('d-none');
+    $('#inputwaktu').removeClass('d-none');
+
+    $('#isiketerangan').addClass('d-none');
+    $('#inputketerangan').removeClass('d-none');
+}
