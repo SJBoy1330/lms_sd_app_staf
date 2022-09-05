@@ -42,7 +42,7 @@
                                                                                                                                                             } ?>><?= $tugas_lain; ?></textarea>
             </div>
         </form>
-        <div class="modal-footer border-0">
+        <div class="modal-footer border-0" style="position: absolute; bottom: 0px; width: 100%;">
             <button type="button" id="button_submit_jurnal" onclick="submit_form(this,'#form_tambah_jurnal',0,'big')" class="btn btn-block btn-md btn-danger btn-filter" <?php if ($status_jurnal == true) {
                                                                                                                                                                                 echo 'disabled';
                                                                                                                                                                             } ?>>Simpan</button>
