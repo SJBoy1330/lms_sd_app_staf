@@ -8,12 +8,12 @@
             <div class="row mb-3" id="reload_jurnal_staf">
                 <?php if ($result) : ?>
                     <?php foreach ($result as $row) : ?>
-                        <a onclick="modal_edit(<?= $row->id_jurnal_staf; ?>)" data-bs-toggle="modal" data-bs-target="#editJurnal" id="card-jurnal-<?= $row->id_jurnal_staf; ?>">
+                        <div id="card-jurnal-<?= $row->id_jurnal_staf; ?>">
                             <div class="list-group-item rounded-15 mb-1 shadow-sm position-relative overflow-hidden p-3" style="min-height: 106px;">
                                 <div class="row mb-3">
-                                    <div class="col">
-                                        <p class="fw-bolder size-15"><?= $row->nice_tanggal; ?></p>
-                                    </div>
+                                    <a onclick="modal_edit(<?= $row->id_jurnal_staf; ?>)" data-bs-toggle="modal" data-bs-target="#editJurnal" class="col">
+                                        <p class="fw-bolder size-15 text-dark"><?= $row->nice_tanggal; ?></p>
+                                    </a>
                                     <div class="col-auto align-self-center">
                                         <div class="button-action position-absolute d-flex flex-wrap flex-column">
                                             <button type="button" onclick="hapus_jurnal_staf(<?= $row->id_jurnal_staf; ?>)" class="button_hapus btn btn-secondary bg-button rounded-pill" type="button">
@@ -22,30 +22,33 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php if ($row->tugas) : ?>
-                                    <?php foreach ($row->tugas as $val) : ?>
+                                <a onclick="modal_edit(<?= $row->id_jurnal_staf; ?>)" data-bs-toggle="modal" data-bs-target="#editJurnal">
+                                    <?php if ($row->tugas) : ?>
+                                        <?php foreach ($row->tugas as $val) : ?>
+                                            <div class="row py-1 px-2 mt-2 mb-2 ">
+                                                <div class="col-auto ps-0 pe-2 mt-2">
+                                                    <div class="garis"></div>
+                                                </div>
+                                                <div class="col p-0 d-flex align-items-start flex-column">
+                                                    <p class="mb-0 fw-normal size-15 text-dark ms-1 me-4"><?= tampil_text($val->tugas, 20); ?></p>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                    <?php if ($row->tugas_lain) : ?>
                                         <div class="row py-1 px-2 mt-2 mb-2 ">
                                             <div class="col-auto ps-0 pe-2 mt-2">
                                                 <div class="garis"></div>
                                             </div>
                                             <div class="col p-0 d-flex align-items-start flex-column">
-                                                <p class="mb-0 fw-normal size-15 text-dark ms-1 me-4"><?= tampil_text($val->tugas, 20); ?></p>
+                                                <p class="mb-0 fw-normal size-15 text-dark ms-1 me-4"><?= $row->tugas_lain; ?></p>
                                             </div>
                                         </div>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                                <?php if ($row->tugas_lain) : ?>
-                                    <div class="row py-1 px-2 mt-2 mb-2 ">
-                                        <div class="col-auto ps-0 pe-2 mt-2">
-                                            <div class="garis"></div>
-                                        </div>
-                                        <div class="col p-0 d-flex align-items-start flex-column">
-                                            <p class="mb-0 fw-normal size-15 text-dark ms-1 me-4"><?= $row->tugas_lain; ?></p>
-                                        </div>
-                                    </div>
-                                <?php endif; ?>
+                                    <?php endif; ?>
+                                </a>
+
                             </div>
-                        </a>
+                        </div>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <?= vector_default('vector_jurnal_staf_kosong.svg', 'Tidak ada jurnal', 'Anda belum menambahkan jurnal staf, silahkan tambahkan atau hubungi pihak sekolah!'); ?>

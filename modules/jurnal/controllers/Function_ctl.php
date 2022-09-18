@@ -118,6 +118,8 @@ class Function_ctl extends MY_Frontend
         $tanggal = $this->input->post('tanggal');
         $tugas = curl_get('jurnal/tugas_staf/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf]);
         $isi = curl_get('jurnal/staf_from_tanggal/', ['id_sekolah' => $this->id_sekolah, 'id_staf' => $this->id_staf, 'tanggal' => $tanggal]);
+        $mydata['tugas_lain'] = NULL;
+        $mydata['status_jurnal'] = false;
         $arr_val = [];
         if ($isi->data) {
             $no = 0;
@@ -155,6 +157,7 @@ class Function_ctl extends MY_Frontend
         $mydata['value_jurnal'] = $arr_val;
         $mydata['detail'] = $isi->data;
 
+        sleep(1);
         $this->load->view('modal_edit', $mydata);
     }
 }

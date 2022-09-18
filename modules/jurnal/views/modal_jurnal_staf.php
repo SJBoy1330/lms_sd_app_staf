@@ -17,7 +17,9 @@
                                                                                                                                             echo 'checked';
                                                                                                                                         } ?> <?php if ($status_jurnal == true) {
                                                                                                                                                     echo 'disabled';
-                                                                                                                                                } ?>>
+                                                                                                                                                } ?> <?php if (strtotime($real_date) > strtotime(date('Y-m-d')) || strtotime($real_date) < strtotime(date('Y-m-d'))) {
+                                                                                                                                                            echo 'disabled';
+                                                                                                                                                        } ?>>
                         <label class="form-check-label size-15" for="1">
                             <?= $row->nama; ?>
                         </label>
@@ -29,7 +31,9 @@
                                                                                                 echo 'checked';
                                                                                             } ?> <?php if ($status_jurnal == true) {
                                                                                                         echo 'disabled';
-                                                                                                    } ?>>
+                                                                                                    } ?> <?php if (strtotime($real_date) > strtotime(date('Y-m-d')) || strtotime($real_date) < strtotime(date('Y-m-d'))) {
+                                                                                                                echo 'disabled';
+                                                                                                            } ?>>
                 <label class="form-check-label size-15" for="lain">
                     Tugas lainnya
                 </label>
@@ -39,13 +43,17 @@
                                                             } ?>>
                 <textarea name="tugas_lain" class="form-control form-control-solid form-control-pribadi border-0 rounded-start-small size-11" id="lainnya" <?php if ($status_jurnal == true) {
                                                                                                                                                                 echo 'disabled';
-                                                                                                                                                            } ?>><?= $tugas_lain; ?></textarea>
+                                                                                                                                                            } ?> <?php if (strtotime($real_date) > strtotime(date('Y-m-d')) || strtotime($real_date) < strtotime(date('Y-m-d'))) {
+                                                                                                                                                                        echo 'disabled';
+                                                                                                                                                                    } ?>><?= $tugas_lain; ?></textarea>
             </div>
         </form>
         <div class="modal-footer border-0" style="position: absolute; bottom: 0px; width: 100%;">
             <button type="button" id="button_submit_jurnal" onclick="submit_form(this,'#form_tambah_jurnal',0,'big')" class="btn btn-block btn-md btn-danger btn-filter" <?php if ($status_jurnal == true) {
                                                                                                                                                                                 echo 'disabled';
-                                                                                                                                                                            } ?>>Simpan</button>
+                                                                                                                                                                            } ?> <?php if (strtotime($real_date) > strtotime(date('Y-m-d')) || strtotime($real_date) < strtotime(date('Y-m-d'))) {
+                                                                                                                                                                                        echo 'disabled';
+                                                                                                                                                                                    } ?>>Simpan</button>
         </div>
     </div>
 </div>

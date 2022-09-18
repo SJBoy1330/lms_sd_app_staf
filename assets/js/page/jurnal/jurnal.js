@@ -18,7 +18,7 @@ function hapus_jurnal_staf(id_jurnal) {
         success: function (data) {
             $('.button_hapus').prop('disabled', false);
             $('#loading_scene').modal('hide');
-            $('#refresh_loading').load(BASE_URL + 'notifikasi/ #loading_scene');
+            $('#refresh_loading').load(BASE_URL + 'jurnal/jurnal_staf/ #loading_scene');
             $('.modal-backdrop').remove();
             if (data.status == 200 || data.status == true) {
                 var icon = 'success';
